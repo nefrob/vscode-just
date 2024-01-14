@@ -1,0 +1,6 @@
+# Things ignored when installing the extension
+.vscode/**
+.gitignore
+tests/**
+vsc-extension-quickstart.md
+CONTRIBUTING.md

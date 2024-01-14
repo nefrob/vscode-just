@@ -1,0 +1,41 @@
+{
+    "name": "vscode-just",
+    "displayName": "vscode-just",
+    "description": "Justfile syntax support for Visual Studio Code",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "vscode-just",
+                "aliases": [
+                    "Just",
+                    "vscode-just"
+                ],
+                "extensions": [
+                    ".just",
+                    ".justfile",
+                    "justfile",
+                    "Justfile"
+                ],
+                "configuration": "./language-configuration.json",
+                "icon": {
+                    "light": "./icons/robot.png",
+                    "dark": "./icons/robot.png"
+                }
+            }
+        ],
+        "grammars": [
+            {
+                "language": "vscode-just",
+                "scopeName": "source.just",
+                "path": "./syntaxes/vscode-just.tmLanguage.json"
+            }
+        ]
+    }
+}

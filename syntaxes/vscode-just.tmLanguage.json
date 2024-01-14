@@ -1,0 +1,502 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Just",
+    "patterns": [
+        { "include": "#assignment" },
+        { "include": "#comments" },
+        { "include": "#constants" },
+        { "include": "#escaping" },
+        { "include": "#embedded-languages" },
+        { "include": "#keywords" },
+        { "include": "#recipes" },
+        { "include": "#strings" },
+        { "include": "#builtin-functions" },
+        { "include": "#interpolated" },
+        { "include": "#phrase" }
+    ],
+    "repository": {
+        "assignment": {
+            "patterns": [
+                {
+                    "comment": "Variable",
+                    "match": "^(?:(alias|export)\\s+)?([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)",
+                    "captures": {
+                        "1": { "name": "keyword.operator.other.vscode-just" },
+                        "2": { "name": "variable.vscode-just" },
+                        "3": { "name": "keyword.operator.vscode-just" }
+                    }
+                },
+                {
+                    "comment": "Setting",
+                    "match": "^(set)\\s+([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)",
+                    "captures": {
+                        "1": { "name": "keyword.operator.other.vscode-just" },
+                        "2": {
+                            "patterns": [
+                                {
+                                    "comment": "Built-in setting",
+                                    "name": "variable.language.vscode-just",
+                                    "match": "(allow-duplicate-recipes|dotenv-filename|dotenv-load|dotenv-path|export|fallback|ignore-comments|positional-arguments|shell|tempdir|windows-powershell|windows-shell)"
+                                },
+                                {
+                                    "comment": "Unknown setting fallback",
+                                    "name": "variable.vscode-just"
+                                }
+                            ]
+                        },
+                        "3": { "name": "keyword.operator.vscode-just" }
+                    }
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "comment": "Basic comment",
+                    "name": "comment.line.number-sign.vscode-just",
+                    "match": "^\\s*#([^!].*)$"
+                }
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "comment": "Boolean constant",
+                    "name": "constant.language.boolean.vscode-just",
+                    "match": "\\b(true|false)\\b"
+                },
+                {
+                    "comment": "Integers",
+                    "name": "constant.language.int.vscode-just",
+                    "match": "\\b\\d+\\b"
+                }
+            ]
+        },
+        "escaping": {
+            "patterns": [
+                {
+                    "comment": "Variable escaping (include some just syntax within)",
+                    "begin": "(?<!\\{|\"|')(\\{\\{)\\{?(?!\\{)",
+                    "end": "(\\}\\})",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "string.interpolated.vscode-just"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "string.interpolated.vscode-just"
+                        }
+                    },
+                    "patterns": [
+                        { "include": "#constants" },
+                        { "include": "#interpolated" },
+                        { "include": "#keywords" },
+                        { "include": "#strings" },
+                        { "include": "#builtin-functions" }
+                    ]
+                }
+            ]
+        },
+        "embedded-languages": {
+            "patterns": [
+                { "include": "#embedded-js" },
+                { "include": "#embedded-nu" },
+                { "include": "#embedded-perl" },
+                { "include": "#embedded-python" },
+                { "include": "#embedded-ruby" },
+                { "include": "#embedded-shell" }
+            ]
+        },
+        "embedded-js": {
+            "patterns": [
+                {
+                    "comment": "Simple embedded JavaScript",
+                    "begin": "^(\\s+)#!/usr/bin/env(\\s+)node.*$",
+                    "end": "^([^\\s].*)?$",
+                    "contentName": "source.js",
+                    "patterns": [{ "include": "source.js" }]
+                }
+            ]
+        },
+        "embedded-nu": {
+            "patterns": [
+                {
+                    "comment": "Simple embedded Nu",
+                    "begin": "^(\\s+)#!/usr/bin/env(\\s+)nu.*$",
+                    "end": "^([^\\s].*)?$",
+                    "contentName": "source.nu",
+                    "patterns": [{ "include": "source.nu" }]
+                }
+            ]
+        },
+        "embedded-perl": {
+            "patterns": [
+                {
+                    "comment": "Simple embedded Perl",
+                    "begin": "^(\\s+)#!/usr/bin/env(\\s+)perl.*$",
+                    "end": "^([^\\s].*)?$",
+                    "contentName": "source.perl",
+                    "patterns": [{ "include": "source.perl" }]
+                }
+            ]
+        },
+        "embedded-python": {
+            "patterns": [
+                {
+                    "comment": "Simple embedded Python",
+                    "begin": "^(\\s+)#!/usr/bin/env(\\s+)python.*$",
+                    "end": "^([^\\s].*)?$",
+                    "contentName": "source.python",
+                    "patterns": [{ "include": "source.python" }]
+                }
+            ]
+        },
+        "embedded-ruby": {
+            "patterns": [
+                {
+                    "comment": "Simple embedded Ruby",
+                    "begin": "^(\\s+)#!/usr/bin/env(\\s+)ruby.*$",
+                    "end": "^([^\\s].*)?$",
+                    "contentName": "source.ruby",
+                    "patterns": [{ "include": "source.ruby" }]
+                }
+            ]
+        },
+        "embedded-shell": {
+            "patterns": [
+                {
+                    "comment": "Recipe embedded Shell",
+                    "begin": "^(\\s+)#!/usr/bin/env(\\s+)(sh|bash|zsh|fish).*$",
+                    "end": "^([^\\s].*)?$",
+                    "contentName": "source.shell",
+                    "patterns": [{ "include": "source.shell" }]
+                }
+            ]
+        },
+        "interpolated": {
+            "patterns": [
+                {
+                    "comment": "Interpolated multi-line embedded shell",
+                    "begin": "(```)",
+                    "end": "(```)",
+                    "beginCaptures": {
+                        "1": { "name": "string.interpolated.multi.vscode-just" }
+                    },
+                    "endCaptures": {
+                        "1": { "name": "string.interpolated.multi.vscode-just" }
+                    },
+                    "contentName": "source.shell",
+                    "patterns": [{ "include": "source.shell" }]
+                },
+                {
+                    "comment": "Interpolated embedded shell",
+                    "match": "(`)([^`]*)(`)",
+                    "captures": {
+                        "1": { "name": "string.interpolated.vscode.just" },
+                        "2": {
+                            "name": "source.shell",
+                            "patterns": [{ "include": "source.shell" }]
+                        },
+                        "3": { "name": "string.interpolated.vscode.just" }
+                    }
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "comment": "Reserved keywords",
+                    "match": "^(alias|export|import|mod|set)\\s+",
+                    "captures": {
+                        "1": { "name": "keyword.other.vscode-just" }
+                    }
+                },
+                {
+                    "comment": "Path join operator",
+                    "name": "keyword.other.path-join.vscode-just",
+                    "match": "\\/"
+                },
+                {
+                    "comment": "Quiet operator",
+                    "match": "^\\s+(@)",
+                    "captures": {
+                        "1": { "name": "keyword.other.quiet.vscode-just" }
+                    }
+                },
+                {
+                    "comment": "Error suppress operator",
+                    "match": "^\\s+(\\-)[a-zA-Z_][a-zA-Z0-9_-]*",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.other.error-supress.vscode-just"
+                        }
+                    }
+                },
+                {
+                    "comment": "Concatenation operator",
+                    "name": "keyword.operator.concat.vscode-just",
+                    "match": "\\+"
+                },
+                {
+                    "comment": "And operator",
+                    "name": "keyword.operator.logical.and.vscode-just",
+                    "match": "&&"
+                },
+                {
+                    "comment": "Conditional keywords",
+                    "name": "keyword.control.conditional.vscode-just",
+                    "match": "\\b(if|else)\\b"
+                },
+                {
+                    "comment": "Conditional operators",
+                    "name": "keyword.operator.conditional.vscode-just",
+                    "match": "(\\=\\=|\\=\\~|\\!\\=)"
+                }
+            ]
+        },
+        "recipes": {
+            "patterns": [
+                { "include": "#recipe-attributes" },
+                {
+                    "comment": "Recipe definition",
+                    "match": "^(@|_)?([a-zA-Z][a-zA-Z_\\-]*)(?:\\s+(.*))?\\s*(:)(.*)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.other.recipe-mode.vscode-just"
+                        },
+                        "2": { "name": "entity.name.function.vscode-just" },
+                        "3": {
+                            "patterns": [{ "include": "#recipe-params" }]
+                        },
+                        "4": {
+                            "name": "keyword.operator.end-recipe.vscode-just"
+                        },
+                        "5": {
+                            "patterns": [{ "include": "#recipe-dependencies" }]
+                        }
+                    }
+                }
+            ]
+        },
+        "recipe-attributes": {
+            "patterns": [
+                {
+                    "comment": "Recipe attributes",
+                    "match": "^\\[(.*)]\\s*$",
+                    "captures": {
+                        "1": {
+                            "patterns": [
+                                {
+                                    "comment": "Attribute name",
+                                    "name": "support.function.system.vscode-just",
+                                    "match": "(confirm|linux|macos|no\\-cd|no\\-exit\\-message|private|unix|windows)"
+                                },
+                                { "include": "#strings" }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "recipe-params": {
+            "patterns": [
+                {
+                    "comment": "Recipe parameters",
+                    "match": "(?:(\\+|\\*|\\$)?([a-zA-Z_][a-zA-Z_0-9]*)(?:(=)(?:([a-zA-Z_][a-zA-Z_0-9]*)|(\".*?\"|'.*?')|(`.*?`)|(\\((?:[^()]+|\\([^)]*\\))*\\))))?)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.other.recipe.variadic.vscode-just"
+                        },
+                        "2": {
+                            "name": "variable.parameter.recipe.vscode-just"
+                        },
+                        "3": {
+                            "name": "keyword.operator.param-default.vscode-just"
+                        },
+                        "4": {
+                            "patterns": []
+                        },
+                        "5": {
+                            "patterns": [{ "include": "#strings" }]
+                        },
+                        "6": {
+                            "patterns": [{ "include": "#interpolated" }]
+                        },
+                        "7": {
+                            "patterns": [{ "include": "#phrase" }]
+                        }
+                    }
+                }
+            ]
+        },
+        "recipe-dependencies": {
+            "comment": "Recipe dependencies",
+            "match": "(?:([a-zA-Z_][a-zA-Z0-9_\\-]*)|(\\((?:[^()]+|\\([^)]*\\))*\\))|(\\&\\&))",
+            "captures": {
+                "1": {
+                    "name": "entity.name.function.vscode-just"
+                },
+                "2": {
+                    "patterns": [
+                        {
+                            "comment": "Recipe with default values",
+                            "match": "\\((?:([a-zA-Z_][a-zA-Z0-9_\\-]*)(.*))\\)",
+                            "captures": {
+                                "1": {
+                                    "name": "entity.name.function.vscode-just"
+                                },
+                                "2": {
+                                    "patterns": [
+                                        { "include": "#interpolated" },
+                                        { "include": "#strings" },
+                                        { "include": "#constants" },
+                                        { "include": "#keywords" },
+                                        { "include": "#builtin-functions" }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.operator.logical.and.vscode-just"
+                }
+            }
+        },
+        "phrase": {
+            "comment": "(...)",
+            "match": "\\((.*?)\\)",
+            "captures": {
+                "1": {
+                    "patterns": [
+                        { "include": "#interpolated" },
+                        { "include": "#strings" },
+                        { "include": "#constants" },
+                        { "include": "#keywords" },
+                        { "include": "#builtin-functions" }
+                    ]
+                }
+            }
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "comment": "Indented string",
+                    "name": "string.quoted.double.indented.vscode.just",
+                    "begin": "\"\"\"",
+                    "end": "\"\"\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.vscode-just",
+                            "match": "\\\\."
+                        },
+                        {
+                            "include": "#escaping"
+                        }
+                    ]
+                },
+                {
+                    "comment": "Raw indented string",
+                    "name": "string.quoted.single.indented.vscode.just",
+                    "begin": "'''",
+                    "end": "'''",
+                    "patterns": [
+                        {
+                            "include": "#escaping"
+                        }
+                    ]
+                },
+                {
+                    "comment": "Standard string",
+                    "name": "string.quoted.double.vscode.just",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.vscode-just",
+                            "match": "\\\\."
+                        },
+                        {
+                            "include": "#escaping"
+                        }
+                    ]
+                },
+                {
+                    "comment": "Raw string",
+                    "name": "string.quoted.single.vscode.just",
+                    "begin": "'",
+                    "end": "'",
+                    "patterns": [
+                        {
+                            "include": "#escaping"
+                        }
+                    ]
+                }
+            ]
+        },
+        "builtin-functions": {
+            "patterns": [
+                {
+                    "comment": "Function call",
+                    "match": "\\b(os)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "captures": {
+                        "1": {
+                            "patterns": [
+                                {
+                                    "comment": "System functions",
+                                    "name": "support.function.system.vscode-just",
+                                    "match": "(arch|num_cpus|os|os_family)"
+                                },
+                                {
+                                    "comment": "Env functions",
+                                    "name": "support.function.system.vscode-just",
+                                    "match": "(env_var|env_var_or_default|env)"
+                                },
+                                {
+                                    "comment": "Invocation directory functions",
+                                    "name": "support.function.system.vscode-just",
+                                    "match": "(invocation_directory|invocation_directory_native)"
+                                },
+                                {
+                                    "comment": "Just functions",
+                                    "name": "support.function.system.vscode-just",
+                                    "match": "(justfile|justfile_directory|just_executable)"
+                                },
+                                {
+                                    "comment": "String functions",
+                                    "name": "support.function.system.vscode-just",
+                                    "match": "(quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches)"
+                                },
+                                {
+                                    "comment": "Case functions",
+                                    "name": "support.function.system.vscode-just",
+                                    "match": "(capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase)"
+                                },
+                                {
+                                    "comment": "Path functions",
+                                    "name": "support.function.system.vscode-just",
+                                    "match": "(absolute_path|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists)"
+                                },
+                                {
+                                    "comment": "Utility functions",
+                                    "name": "support.function.system.vscode-just",
+                                    "match": "(error|sha256|sha256_file|uuid|semver_matches)"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#interpolated" },
+                                { "include": "#strings" },
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "scopeName": "source.just"
+}
