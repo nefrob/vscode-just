@@ -6,11 +6,11 @@
         { "include": "#builtin-functions" },
         { "include": "#comments" },
         { "include": "#constants" },
-        { "include": "#escaping" },
         { "include": "#embedded-languages" },
-        { "include": "#interpolated" },
+        { "include": "#enclosed-block" },
+        { "include": "#escaping" },
+        { "include": "#interpolated-shell" },
         { "include": "#keywords" },
-        { "include": "#phrase" },
         { "include": "#recipes" },
         { "include": "#strings" }
     ],
@@ -60,10 +60,10 @@
                         },
                         "2": {
                             "patterns": [
-                                { "include": "#interpolated" },
-                                { "include": "#strings" },
                                 { "include": "#builtin-functions" },
-                                { "include": "#constants" }
+                                { "include": "#constants" },
+                                { "include": "#interpolated-shell" },
+                                { "include": "#strings" }
                             ]
                         }
                     }
@@ -77,10 +77,10 @@
                         },
                         "2": {
                             "patterns": [
-                                { "include": "#interpolated" },
-                                { "include": "#strings" },
                                 { "include": "#builtin-functions" },
-                                { "include": "#constants" }
+                                { "include": "#constants" },
+                                { "include": "#interpolated-shell" },
+                                { "include": "#strings" }
                             ]
                         }
                     }
@@ -94,10 +94,10 @@
                         },
                         "2": {
                             "patterns": [
-                                { "include": "#interpolated" },
-                                { "include": "#strings" },
                                 { "include": "#builtin-functions" },
-                                { "include": "#constants" }
+                                { "include": "#constants" },
+                                { "include": "#interpolated-shell" },
+                                { "include": "#strings" }
                             ]
                         }
                     }
@@ -111,10 +111,10 @@
                         },
                         "2": {
                             "patterns": [
-                                { "include": "#interpolated" },
-                                { "include": "#strings" },
                                 { "include": "#builtin-functions" },
-                                { "include": "#constants" }
+                                { "include": "#constants" },
+                                { "include": "#interpolated-shell" },
+                                { "include": "#strings" }
                             ]
                         }
                     }
@@ -128,10 +128,10 @@
                         },
                         "2": {
                             "patterns": [
-                                { "include": "#interpolated" },
-                                { "include": "#strings" },
                                 { "include": "#builtin-functions" },
-                                { "include": "#constants" }
+                                { "include": "#constants" },
+                                { "include": "#interpolated-shell" },
+                                { "include": "#strings" }
                             ]
                         }
                     }
@@ -145,10 +145,10 @@
                         },
                         "2": {
                             "patterns": [
-                                { "include": "#interpolated" },
-                                { "include": "#strings" },
                                 { "include": "#builtin-functions" },
-                                { "include": "#constants" }
+                                { "include": "#constants" },
+                                { "include": "#interpolated-shell" },
+                                { "include": "#strings" }
                             ]
                         }
                     }
@@ -162,10 +162,10 @@
                         },
                         "2": {
                             "patterns": [
-                                { "include": "#interpolated" },
-                                { "include": "#strings" },
                                 { "include": "#builtin-functions" },
-                                { "include": "#constants" }
+                                { "include": "#constants" },
+                                { "include": "#interpolated-shell" },
+                                { "include": "#strings" }
                             ]
                         }
                     }
@@ -179,10 +179,10 @@
                         },
                         "2": {
                             "patterns": [
-                                { "include": "#interpolated" },
-                                { "include": "#strings" },
                                 { "include": "#builtin-functions" },
-                                { "include": "#constants" }
+                                { "include": "#constants" },
+                                { "include": "#interpolated-shell" },
+                                { "include": "#strings" }
                             ]
                         }
                     }
@@ -207,38 +207,13 @@
                 },
                 {
                     "comment": "Integers",
-                    "name": "constant.language.int.vscode-just",
+                    "name": "constant.numeric.integers.vscode-just",
                     "match": "\\b\\d+\\b"
                 }
             ]
         },
-        "escaping": {
-            "patterns": [
-                {
-                    "comment": "Variable escaping (include some just syntax within)",
-                    "begin": "(?<!\\{|\"|')(\\{\\{)\\{?(?!\\{)",
-                    "end": "(\\}\\})",
-                    "beginCaptures": {
-                        "1": {
-                            "name": "string.interpolated.vscode-just"
-                        }
-                    },
-                    "endCaptures": {
-                        "1": {
-                            "name": "string.interpolated.vscode-just"
-                        }
-                    },
-                    "patterns": [
-                        { "include": "#constants" },
-                        { "include": "#interpolated" },
-                        { "include": "#keywords" },
-                        { "include": "#strings" },
-                        { "include": "#builtin-functions" }
-                    ]
-                }
-            ]
-        },
         "embedded-languages": {
+            "comment": "Embedded languages for use in recipes",
             "patterns": [
                 { "include": "#embedded-js" },
                 { "include": "#embedded-nu" },
@@ -314,7 +289,47 @@
                 }
             ]
         },
-        "interpolated": {
+        "enclosed-block": {
+            "comment": "Any block of just code surrounded by (...)",
+            "match": "\\((.*?)\\)",
+            "captures": {
+                "1": {
+                    "patterns": [
+                        { "include": "#builtin-functions" },
+                        { "include": "#constants" },
+                        { "include": "#interpolated-shell" },
+                        { "include": "#keywords" },
+                        { "include": "#strings" }
+                    ]
+                }
+            }
+        },
+        "escaping": {
+            "patterns": [
+                {
+                    "comment": "Variable escaping",
+                    "match": "(?<!\\{|\"|')(\\{\\{)\\{?(?!\\{)(.*?)(\\}\\})",
+                    "captures": {
+                        "1": {
+                            "name": "string.interpolated"
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" },
+                                { "include": "#interpolated-shell" },
+                                { "include": "#keywords" },
+                                { "include": "#strings" }
+                            ]
+                        },
+                        "3": {
+                            "name": "string.interpolated"
+                        }
+                    }
+                }
+            ]
+        },
+        "interpolated-shell": {
             "patterns": [
                 {
                     "comment": "Interpolated multi-line embedded shell",
@@ -389,45 +404,33 @@
                     "match": "\\b(if|else)\\b"
                 },
                 {
-                    "comment": "Conditional operators",
-                    "name": "keyword.operator.conditional.vscode-just",
+                    "comment": "Equality operators",
+                    "name": "keyword.operator.equality.vscode-just",
                     "match": "(\\=\\=|\\=\\~|\\!\\=)"
                 }
             ]
-        },
-        "phrase": {
-            "comment": "(...)",
-            "match": "\\((.*?)\\)",
-            "captures": {
-                "1": {
-                    "patterns": [
-                        { "include": "#interpolated" },
-                        { "include": "#strings" },
-                        { "include": "#constants" },
-                        { "include": "#keywords" },
-                        { "include": "#builtin-functions" }
-                    ]
-                }
-            }
         },
         "recipes": {
             "patterns": [
                 { "include": "#recipe-attributes" },
                 {
                     "comment": "Recipe definition",
-                    "match": "^(@|_)?([a-zA-Z][a-zA-Z_\\-]*)(?:\\s+(.*))?\\s*(:)(.*)",
+                    "match": "^(@)?(_)?([a-zA-Z][a-zA-Z_\\-]*)(?:\\s+(.*))?\\s*(:)(.*)",
                     "captures": {
                         "1": {
                             "name": "keyword.other.recipe-mode.vscode-just"
                         },
-                        "2": { "name": "entity.name.function.vscode-just" },
-                        "3": {
+                        "2": {
+                            "name": "keyword.other.recipe-mode.vscode-just"
+                        },
+                        "3": { "name": "entity.name.function.vscode-just" },
+                        "4": {
                             "patterns": [{ "include": "#recipe-params" }]
                         },
-                        "4": {
+                        "5": {
                             "name": "keyword.operator.end-recipe.vscode-just"
                         },
-                        "5": {
+                        "6": {
                             "patterns": [{ "include": "#recipe-dependencies" }]
                         }
                     }
@@ -476,10 +479,10 @@
                             "patterns": [{ "include": "#strings" }]
                         },
                         "6": {
-                            "patterns": [{ "include": "#interpolated" }]
+                            "patterns": [{ "include": "#interpolated-shell" }]
                         },
                         "7": {
-                            "patterns": [{ "include": "#phrase" }]
+                            "patterns": [{ "include": "#enclosed-block" }]
                         }
                     }
                 }
@@ -487,7 +490,7 @@
         },
         "recipe-dependencies": {
             "comment": "Recipe dependencies",
-            "match": "(?:([a-zA-Z_][a-zA-Z0-9_\\-]*)|(\\((?:[^()]+|\\([^)]*\\))*\\))|(\\&\\&))",
+            "match": "(?:([a-zA-Z_][a-zA-Z0-9_\\-]*)|(\\((?:[^()]+|\\([^)]*\\))*\\))|(&&))",
             "captures": {
                 "1": {
                     "name": "entity.name.function.vscode-just"
@@ -503,11 +506,11 @@
                                 },
                                 "2": {
                                     "patterns": [
-                                        { "include": "#interpolated" },
-                                        { "include": "#strings" },
+                                        { "include": "#builtin-functions" },
                                         { "include": "#constants" },
+                                        { "include": "#interpolated-shell" },
                                         { "include": "#keywords" },
-                                        { "include": "#builtin-functions" }
+                                        { "include": "#strings" }
                                     ]
                                 }
                             }
@@ -519,7 +522,6 @@
                 }
             }
         },
-
         "strings": {
             "patterns": [
                 {
@@ -529,6 +531,7 @@
                     "end": "\"\"\"",
                     "patterns": [
                         {
+                            "comment": "Escaped characters",
                             "name": "constant.character.escape.vscode-just",
                             "match": "\\\\."
                         },
@@ -555,6 +558,7 @@
                     "end": "\"",
                     "patterns": [
                         {
+                            "comment": "Escaped characters",
                             "name": "constant.character.escape.vscode-just",
                             "match": "\\\\."
                         },

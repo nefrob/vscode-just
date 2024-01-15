@@ -1,12 +1,14 @@
 # vscode-just
 
-This repo defines a syntax highlighting extension for the [just](https://github.com/casey/just) language.
+This repo defines a VSCode syntax highlighting extension for the [just](https://github.com/casey/just) language.
 
 ## Features
 
 Syntax highlighting for just files:
 
 -   TODO: list features and add screenshots
+
+-   Unlike previous iterations of this extension, this extension does not provide command running capabilities from VSCode.
 
 ## Known Issues
 
