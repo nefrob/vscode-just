@@ -3,16 +3,16 @@
     "name": "Just",
     "patterns": [
         { "include": "#assignment" },
+        { "include": "#builtin-functions" },
         { "include": "#comments" },
         { "include": "#constants" },
         { "include": "#escaping" },
         { "include": "#embedded-languages" },
-        { "include": "#keywords" },
-        { "include": "#recipes" },
-        { "include": "#strings" },
-        { "include": "#builtin-functions" },
         { "include": "#interpolated" },
-        { "include": "#phrase" }
+        { "include": "#keywords" },
+        { "include": "#phrase" },
+        { "include": "#recipes" },
+        { "include": "#strings" }
     ],
     "repository": {
         "assignment": {
@@ -28,7 +28,7 @@
                 },
                 {
                     "comment": "Setting",
-                    "match": "^(set)\\s+([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)",
+                    "match": "^(set)\\s+([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)?",
                     "captures": {
                         "1": { "name": "keyword.operator.other.vscode-just" },
                         "2": {
@@ -49,12 +49,152 @@
                 }
             ]
         },
+        "builtin-functions": {
+            "patterns": [
+                {
+                    "comment": "System functions",
+                    "match": "\\b(arch|num_cpus|os|os_family)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "captures": {
+                        "1": {
+                            "name": "support.function.system.vscode-just"
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#interpolated" },
+                                { "include": "#strings" },
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "comment": "Env functions",
+                    "match": "\\b(env_var|env_var_or_default|env)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "captures": {
+                        "1": {
+                            "name": "support.function.system.vscode-just"
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#interpolated" },
+                                { "include": "#strings" },
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "comment": "Invocation directory functions",
+                    "match": "\\b(invocation_directory|invocation_directory_native)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "captures": {
+                        "1": {
+                            "name": "support.function.system.vscode-just"
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#interpolated" },
+                                { "include": "#strings" },
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "comment": "Just functions",
+                    "match": "\\b(justfile|justfile_directory|just_executable)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "captures": {
+                        "1": {
+                            "name": "support.function.system.vscode-just"
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#interpolated" },
+                                { "include": "#strings" },
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "comment": "String functions",
+                    "match": "\\b(quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "captures": {
+                        "1": {
+                            "name": "support.function.system.vscode-just"
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#interpolated" },
+                                { "include": "#strings" },
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "comment": "Case functions",
+                    "match": "\\b(capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "captures": {
+                        "1": {
+                            "name": "support.function.system.vscode-just"
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#interpolated" },
+                                { "include": "#strings" },
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "comment": "Path functions",
+                    "match": "\\b(absolute_path|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "captures": {
+                        "1": {
+                            "name": "support.function.system.vscode-just"
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#interpolated" },
+                                { "include": "#strings" },
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "comment": "Utility functions",
+                    "match": "\\b(error|sha256|sha256_file|uuid|semver_matches)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "captures": {
+                        "1": {
+                            "name": "support.function.system.vscode-just"
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#interpolated" },
+                                { "include": "#strings" },
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
         "comments": {
             "patterns": [
                 {
                     "comment": "Basic comment",
                     "name": "comment.line.number-sign.vscode-just",
-                    "match": "^\\s*#([^!].*)$"
+                    "match": "#([^!].*)$"
                 }
             ]
         },
@@ -255,6 +395,21 @@
                 }
             ]
         },
+        "phrase": {
+            "comment": "(...)",
+            "match": "\\((.*?)\\)",
+            "captures": {
+                "1": {
+                    "patterns": [
+                        { "include": "#interpolated" },
+                        { "include": "#strings" },
+                        { "include": "#constants" },
+                        { "include": "#keywords" },
+                        { "include": "#builtin-functions" }
+                    ]
+                }
+            }
+        },
         "recipes": {
             "patterns": [
                 { "include": "#recipe-attributes" },
@@ -364,21 +519,7 @@
                 }
             }
         },
-        "phrase": {
-            "comment": "(...)",
-            "match": "\\((.*?)\\)",
-            "captures": {
-                "1": {
-                    "patterns": [
-                        { "include": "#interpolated" },
-                        { "include": "#strings" },
-                        { "include": "#constants" },
-                        { "include": "#keywords" },
-                        { "include": "#builtin-functions" }
-                    ]
-                }
-            }
-        },
+
         "strings": {
             "patterns": [
                 {
@@ -432,68 +573,6 @@
                             "include": "#escaping"
                         }
                     ]
-                }
-            ]
-        },
-        "builtin-functions": {
-            "patterns": [
-                {
-                    "comment": "Function call",
-                    "match": "\\b(os)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
-                    "captures": {
-                        "1": {
-                            "patterns": [
-                                {
-                                    "comment": "System functions",
-                                    "name": "support.function.system.vscode-just",
-                                    "match": "(arch|num_cpus|os|os_family)"
-                                },
-                                {
-                                    "comment": "Env functions",
-                                    "name": "support.function.system.vscode-just",
-                                    "match": "(env_var|env_var_or_default|env)"
-                                },
-                                {
-                                    "comment": "Invocation directory functions",
-                                    "name": "support.function.system.vscode-just",
-                                    "match": "(invocation_directory|invocation_directory_native)"
-                                },
-                                {
-                                    "comment": "Just functions",
-                                    "name": "support.function.system.vscode-just",
-                                    "match": "(justfile|justfile_directory|just_executable)"
-                                },
-                                {
-                                    "comment": "String functions",
-                                    "name": "support.function.system.vscode-just",
-                                    "match": "(quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches)"
-                                },
-                                {
-                                    "comment": "Case functions",
-                                    "name": "support.function.system.vscode-just",
-                                    "match": "(capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase)"
-                                },
-                                {
-                                    "comment": "Path functions",
-                                    "name": "support.function.system.vscode-just",
-                                    "match": "(absolute_path|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists)"
-                                },
-                                {
-                                    "comment": "Utility functions",
-                                    "name": "support.function.system.vscode-just",
-                                    "match": "(error|sha256|sha256_file|uuid|semver_matches)"
-                                }
-                            ]
-                        },
-                        "2": {
-                            "patterns": [
-                                { "include": "#interpolated" },
-                                { "include": "#strings" },
-                                { "include": "#builtin-functions" },
-                                { "include": "#constants" }
-                            ]
-                        }
-                    }
                 }
             ]
         }
