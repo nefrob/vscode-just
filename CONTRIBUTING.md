@@ -17,3 +17,5 @@ This page lists the steps needed to set up a development environment and contrib
 5. Install the recommended extensions (`ms-vscode.extension-test-runner` is required for testing).
 
 6. Launch the extension in test mode via VSCode debug launch profile.
+
+See also the auto generated [quickstart guide](vsc-extension-quickstart.md).
