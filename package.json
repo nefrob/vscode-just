@@ -1,7 +1,7 @@
 {
     "name": "vscode-just",
     "author": "nefrob",
-    "homepage": "https://github.com/nefrob/vscode-just",
+    "repository": "https://github.com/nefrob/vscode-just",
     "displayName": "vscode-just",
     "description": "Justfile syntax support for Visual Studio Code",
     "version": "0.0.1",
@@ -39,5 +39,12 @@
                 "path": "./syntaxes/vscode-just.tmLanguage.json"
             }
         ]
+    },
+    "scripts": {
+        "package": "vsce package",
+        "publish": "vsce publish"
+    },
+    "devDependencies": {
+        "vsce": "^2.15.0"
     }
 }
