@@ -8,6 +8,13 @@ This repo defines a VSCode syntax highlighting extension for the [just](https://
 -   [Contributing](#contributing)
 -   [References](#references)
 
+<a href="https://gitmoji.dev">
+  <img
+    src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
+    alt="Gitmoji"
+  />
+</a>
+
 ## Features
 
 Basic syntax highlighting for just files:
