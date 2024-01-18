@@ -8,6 +8,13 @@ This repo defines a VSCode syntax highlighting extension for the [just](https://
 -   [Contributing](#contributing)
 -   [References](#references)
 
+<a href="https://gitmoji.dev">
+  <img
+    src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
+    alt="Gitmoji"
+  />
+</a>
+
 ## Features
 
 Basic syntax highlighting for just files:
@@ -49,3 +56,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 -   [Example language grammars](https://github.com/microsoft/vscode-textmate/tree/09effd8b7429b71010e0fa34ea2e16e622692946/test-cases/themes/syntaxes)
 
 -   [Just manual](https://just.systems/man/en/)
+
+-   [Packaging and publishing extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)]
