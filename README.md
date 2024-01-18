@@ -2,6 +2,12 @@
 
 This repo defines a VSCode syntax highlighting extension for the [just](https://github.com/casey/just) language.
 
+-   [Features](#features)
+-   [Known Issues](#known-issues)
+-   [Release Notes](#release-notes)
+-   [Contributing](#contributing)
+-   [References](#references)
+
 ## Features
 
 Basic syntax highlighting for just files:
