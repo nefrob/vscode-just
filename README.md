@@ -1,6 +1,6 @@
 # vscode-just
 
-This repo defines a VSCode syntax highlighting extension for the [just](https://github.com/casey/just) language.
+VSCode syntax highlighting extension for the [just](https://github.com/casey/just) language.
 
 -   [Features](#features)
 -   [Known Issues](#known-issues)
@@ -57,4 +57,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 -   [Just manual](https://just.systems/man/en/)
 
--   [Packaging and publishing extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)]
+-   [Packaging and publishing extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
