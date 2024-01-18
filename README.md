@@ -49,3 +49,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 -   [Example language grammars](https://github.com/microsoft/vscode-textmate/tree/09effd8b7429b71010e0fa34ea2e16e622692946/test-cases/themes/syntaxes)
 
 -   [Just manual](https://just.systems/man/en/)
+
+-   [Packaging and publishing extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)]
