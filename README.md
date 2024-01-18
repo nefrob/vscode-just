@@ -1,75 +1,45 @@
-<!-- https://gist.github.com/Aerijo/b8c82d647db783187804e86fa0a604a1 -->
-<!-- https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide
-https://github.com/sclu1034/vscode-just/blob/master/package.json -->
-<!-- https://macromates.com/manual/en/language_grammars -->
-<!-- https://github.com/casey/just/blob/master/GRAMMAR.md -->
-<!-- https://stackoverflow.com/questions/169008/regex-for-parsing-directory-and-filename -->
+# vscode-just
 
-Example grammars:
-https://github.com/microsoft/vscode-textmate/tree/main/test-cases/themes/syntaxes
-
-# vscode-just README
-
-This is the README for your extension "vscode-just". After writing up a brief description, we recommend including the following sections.
+This repo defines a VSCode syntax highlighting extension for the [just](https://github.com/casey/just) language.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Basic syntax highlighting for just files:
 
-For example if there is an image subfolder under your extension project workspace:
+-   Comments
+-   Variable assignment and settings
+-   Strings & escaped blocks
+-   Recipes: recipe attributes, names, params and dependencies
+-   Some keywords, constants and operators
+-   Some embedded languages
 
-\!\[feature X\]\(images/feature-x.png\)
+Note: Unlike previous iterations of this extension, this extension does not provide command running capabilities from VSCode.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
--   `myExtension.enable`: Enable/disable this extension.
--   `myExtension.thing`: Set to `blah` to do something.
+<img src="./assets/example.png" />
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+This extension does simple and/or best effort syntax highlighting. It is not intended to be 100% comprehensive, but rather provide a good enough experience for most users. An LSP solution would be an alternative future approach. That being said, if you find a bug or missing feature, please open an issue or a pull request.
+
+-   Escaping within a string, e.g. `"{{ variable }}"`, colors all non-match content as a string. Ideally non-match content should look like plain text in this case but I am unsure how to remove highlighting forced by the surrounding string. For consistency, I opted to always have escaped content colored as a string, whether the block is within a string or not.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+See [CHANGELOG.md](CHANGELOG.md).
 
-### 1.0.0
+## Contributing
 
-Initial release of ...
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-### 1.0.1
+## References
 
-Fixed issue #.
+-   [ TextMate Language Grammars](https://macromates.com/manual/en/language_grammars)
 
-### 1.1.0
+-   Previous iterations on `just` syntax grammars
 
-Added features X, Y, and Z.
+    -   [shellock/vscode-just](https://github.com/skellock/vscode-just)
+    -   [sclu1034/vscode-just](https://github.com/sclu1034/vscode-just/)
 
----
+-   [Example language grammars](https://github.com/microsoft/vscode-textmate/tree/09effd8b7429b71010e0fa34ea2e16e622692946/test-cases/themes/syntaxes)
 
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
--   Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
--   Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
--   Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
--   [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
--   [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+-   [Just manual](https://just.systems/man/en/)

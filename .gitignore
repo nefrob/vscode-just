@@ -1,0 +1,8 @@
+# vscode
+*.vsix
+
+# asdf
+.tool-versions
+
+# dependencies
+node_modules
