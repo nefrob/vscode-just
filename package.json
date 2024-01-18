@@ -1,6 +1,6 @@
 {
-    "name": "vscode-just",
-    "author": "nefrob",
+    "name": "vscode-just-syntax",
+    "publisher": "nefrob",
     "repository": "https://github.com/nefrob/vscode-just",
     "displayName": "vscode-just",
     "description": "Justfile syntax support for Visual Studio Code",
@@ -11,6 +11,12 @@
     "categories": [
         "Programming Languages"
     ],
+    "keywords": [
+        "just",
+        "justfile",
+        "scripts"
+    ],
+    "icon": "icons/robot.png",
     "contributes": {
         "languages": [
             {
@@ -41,8 +47,7 @@
         ]
     },
     "scripts": {
-        "package": "vsce package",
-        "publish": "vsce login nefrob && vsce publish"
+        "package": "vsce package"
     },
     "devDependencies": {
         "vsce": "^2.15.0"
