@@ -6,3 +6,9 @@
 
 # dependencies
 node_modules
+
+# environment
+.env*
+
+# yarn
+yarn-error.log
