@@ -1,5 +1,7 @@
 {
     "name": "vscode-just",
+    "author": "nefrob",
+    "homepage": "https://github.com/nefrob/vscode-just",
     "displayName": "vscode-just",
     "description": "Justfile syntax support for Visual Studio Code",
     "version": "0.0.1",
@@ -12,7 +14,7 @@
     "contributes": {
         "languages": [
             {
-                "id": "vscode-just",
+                "id": "just",
                 "aliases": [
                     "Just",
                     "vscode-just"
@@ -32,7 +34,7 @@
         ],
         "grammars": [
             {
-                "language": "vscode-just",
+                "language": "just",
                 "scopeName": "source.just",
                 "path": "./syntaxes/vscode-just.tmLanguage.json"
             }
