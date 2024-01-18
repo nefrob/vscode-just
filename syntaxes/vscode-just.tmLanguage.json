@@ -104,7 +104,7 @@
                 },
                 {
                     "comment": "Just functions",
-                    "match": "\\b(justfile|justfile_directory|just_executable)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "match": "\\b(justfile|justfile_directory|just_executable|just_pid)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
                     "captures": {
                         "1": {
                             "name": "support.function.system.just"
@@ -173,6 +173,23 @@
                 {
                     "comment": "Utility functions",
                     "match": "\\b(error|sha256|sha256_file|uuid|semver_matches)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
+                    "captures": {
+                        "1": {
+                            "name": "support.function.system.just"
+                        },
+                        "2": {
+                            "patterns": [
+                                { "include": "#builtin-functions" },
+                                { "include": "#constants" },
+                                { "include": "#interpolated-shell" },
+                                { "include": "#strings" }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "comment": "XDG functions",
+                    "match": "\\b(cache_directory|config_directory|config_local_directory|data_directory|data_local_directory|executable_directory|home_directory)(\\((?:[^()]+|\\([^)]*\\))*\\))?\\b",
                     "captures": {
                         "1": {
                             "name": "support.function.system.just"
@@ -309,7 +326,7 @@
                 {
                     "comment": "Variable escaping",
                     "name": "string.interpolated.escaping.just",
-                    "match": "(?<!\\{|\"|')(\\{\\{)\\{?(?!\\{)(.*?)(\\}\\})",
+                    "match": "(?<!\\{|\"|')(\\{\\{)\\{?(?!\\{)(.*)(\\}\\})",
                     "captures": {
                         "1": {
                             "name": "string.interpolated.escape.just"
@@ -449,7 +466,7 @@
                                 {
                                     "comment": "Attribute name",
                                     "name": "support.function.system.just",
-                                    "match": "(confirm|linux|macos|no\\-cd|no\\-exit\\-message|private|unix|windows)"
+                                    "match": "(confirm|linux|macos|no\\-cd|no\\-exit\\-message|private|no\\-quiet|unix|windows)"
                                 },
                                 { "include": "#strings" }
                             ]
