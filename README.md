@@ -12,9 +12,9 @@ Syntax highlighting for just files:
 
 ## Known Issues
 
-This extension does simple and/or best effort syntax highlighting. It is not intended to be 100% comprehensive, but rather provide a good enough experience for most users. That being said, if you find a bug or missing feature, please open an issue or a pull request.
+This extension does simple and/or best effort syntax highlighting. It is not intended to be 100% comprehensive, but rather provide a good enough experience for most users. An LSP solution would be an alternative future approach. That being said, if you find a bug or missing feature, please open an issue or a pull request.
 
--   [ ] Variable escaping in strings does not highlight correctly (e.g. `"{{ variable }}"`)
+-   Escaping within a string, e.g. `"{{ variable }}"`, colors all non-match content as a string. Ideally non-match content should look like plain text in this case but I am unsure how to remove highlighting forced by the surrounding string. For consistency, I opted to always have escaped content colored as a string, whether the block is within a string or not.
 
 ## Release Notes
 

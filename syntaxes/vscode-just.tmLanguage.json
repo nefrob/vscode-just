@@ -308,10 +308,11 @@
             "patterns": [
                 {
                     "comment": "Variable escaping",
+                    "name": "string.interpolated.escaping.just",
                     "match": "(?<!\\{|\"|')(\\{\\{)\\{?(?!\\{)(.*?)(\\}\\})",
                     "captures": {
                         "1": {
-                            "name": "string.interpolated"
+                            "name": "string.interpolated.escape.just"
                         },
                         "2": {
                             "patterns": [
@@ -323,7 +324,7 @@
                             ]
                         },
                         "3": {
-                            "name": "string.interpolated"
+                            "name": "string.interpolated.escape.just"
                         }
                     }
                 }
