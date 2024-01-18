@@ -251,17 +251,6 @@
                 }
             ]
         },
-        "embedded-nu": {
-            "patterns": [
-                {
-                    "comment": "Simple embedded Nu",
-                    "begin": "^(\\s+)#!/usr/bin/env(\\s+)nu.*$",
-                    "end": "^([^\\s].*)?$",
-                    "contentName": "source.nu",
-                    "patterns": [{ "include": "source.nu" }]
-                }
-            ]
-        },
         "embedded-perl": {
             "patterns": [
                 {

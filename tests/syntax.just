@@ -203,11 +203,6 @@ sh:
   hello='Yo'
   echo "$hello from a shell script!"
 
-nu:
-  #!/usr/bin/env nu
-  let hello = 'Hola'
-  echo $"($hello) from a nushell script!"
-
 ruby:
   #!/usr/bin/env ruby
   puts "Hello from ruby!"

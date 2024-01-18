@@ -4,11 +4,18 @@ This repo defines a VSCode syntax highlighting extension for the [just](https://
 
 ## Features
 
-Syntax highlighting for just files:
+Basic syntax highlighting for just files:
 
--   TODO: list features and add screenshots
+-   Comments
+-   Variable assignment and settings
+-   Strings & escaped blocks
+-   Recipes: recipe attributes, names, params and dependencies
+-   Some keywords, constants and operators
+-   Some embedded languages
 
--   Unlike previous iterations of this extension, this extension does not provide command running capabilities from VSCode.
+Note: Unlike previous iterations of this extension, this extension does not provide command running capabilities from VSCode.
+
+<img src="./assets/example.png" />
 
 ## Known Issues
 
