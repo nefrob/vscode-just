@@ -50,6 +50,6 @@
         "package": "mkdir -p out && vsce package --out out/"
     },
     "devDependencies": {
-        "vsce": "^2.15.0"
+        "@vscode/vsce": "^2.22.0"
     }
 }
