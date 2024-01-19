@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+-   Avoid highlighting unknown recipe dependency symbols (this is the job of a semantic highlighter)
+-   General grammar cleanup
+
 ## [0.1.0] - 2024-01-18
 
 ### Added

@@ -1,10 +1,11 @@
 # vscode-just
 
-This repo defines a VSCode syntax highlighting extension for the [just](https://github.com/casey/just) language.
+VSCode syntax highlighting extension for the [just](https://github.com/casey/just) language.
 
 -   [Features](#features)
 -   [Known Issues](#known-issues)
 -   [Release Notes](#release-notes)
+-   [Roadmap](#roadmap)
 -   [Contributing](#contributing)
 -   [References](#references)
 
@@ -40,6 +41,20 @@ This extension does simple and/or best effort syntax highlighting. It is not int
 
 See [CHANGELOG.md](CHANGELOG.md).
 
+## Roadmap
+
+### 2024
+
+-   Fix escaping within strings
+-   Migrate to `yaml` grammar for composability and readability
+-   Update with new `just` releases
+
+### Beyond
+
+-   Semantic highlighting / LSP
+
+    To avoid implementing a parser for files, it would be ideal for `just` to expose the AST or other APIs for editor extensions to leverage.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -57,4 +72,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 -   [Just manual](https://just.systems/man/en/)
 
--   [Packaging and publishing extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)]
+-   [Packaging and publishing extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
