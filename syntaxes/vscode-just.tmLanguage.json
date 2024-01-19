@@ -32,11 +32,7 @@
                     "captures": {
                         "1": { "name": "keyword.other.assignment.just" },
                         "2": {
-                            "patterns": [
-                                {
-                                    "name": "variable.language.just"
-                                }
-                            ]
+                            "name": "variable.language.just"
                         },
                         "3": { "name": "keyword.operator.just" }
                     }
