@@ -1,5 +1,6 @@
 # vscode
 *.vsix
+out/
 
 # asdf
 .tool-versions

@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.1.1] - 2024-01-19
+
 ### Changed
 
 -   Avoid highlighting unknown recipe dependency symbols (this is the job of a semantic highlighter)

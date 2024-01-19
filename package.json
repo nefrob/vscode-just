@@ -4,7 +4,7 @@
     "repository": "https://github.com/nefrob/vscode-just",
     "displayName": "vscode-just",
     "description": "Justfile syntax support for Visual Studio Code",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "engines": {
         "vscode": "^1.85.0"
     },
@@ -47,7 +47,7 @@
         ]
     },
     "scripts": {
-        "package": "vsce package"
+        "package": "mkdir -p out && vsce package --out out/"
     },
     "devDependencies": {
         "vsce": "^2.15.0"
