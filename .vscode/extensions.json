@@ -4,7 +4,9 @@
     "recommendations": [
         "eamodio.gitlens",
         "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker",
         "ms-vscode.extension-test-runner",
+        "ms-vscode-remote.remote-containers",
         "redhat.vscode-yaml"
     ]
 }

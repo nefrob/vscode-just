@@ -1,7 +1,10 @@
 # Things ignored when installing the extension
 .gitignore
+.devcontainer/**
 .vscode/**
 assets/**
 tests/**
 CONTRIBUTING.md
+Docker*
+*docker*
 vsc-extension-quickstart.md
