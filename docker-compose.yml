@@ -9,6 +9,7 @@ services:
         environment:
             - NODE_ENV=developement
         volumes:
+            - ./:/code
             - node_modules:/code/node_modules
 
 volumes:

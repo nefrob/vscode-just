@@ -8,11 +8,12 @@ lint:
 build +ARGS="":
     docker compose build {{ ARGS }}
 
-up +ARGS="-d":
-    docker compose up {{ ARGS }}
 
 console:
     -docker compose run --rm dev /bin/sh
+
+package +ARGS="":
+    docker compose run --rm dev /bin/sh -c "mkdir -p out && yarn vsce package --yarn --out out/ {{ ARGS }}"
 
 down:
     docker compose down
