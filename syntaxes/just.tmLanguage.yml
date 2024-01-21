@@ -1,0 +1,12 @@
+$schema: https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
+name: Just
+scopeName: source.just
+patterns:
+  - include: '#comments'
+
+repository:
+  comments:
+    patterns:
+      - comment: Basic comment
+        name: comment.line.number-sign.just
+        match: '#([^!].*)$'

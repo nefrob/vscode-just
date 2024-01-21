@@ -11,6 +11,10 @@ lint:
     docker compose run --rm dev /bin/sh -c \
         "yarn prettier --cache --write ."
 
+translate:
+    docker compose run --rm dev /bin/sh -c \
+        "yarn js-yaml syntaxes/just.tmLanguage.yml > syntaxes/just.tmLanguage.json"
+
 package +ARGS="":
     docker compose run --rm dev /bin/sh -c \
         "mkdir -p out && yarn vsce package --yarn --out out/ {{ ARGS }}"
