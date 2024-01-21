@@ -2,6 +2,12 @@
 
 VSCode syntax highlighting extension for the [just](https://github.com/casey/just) language.
 
+Note: the extension is currently in **pre-release** on the VSCode Marketplace for testing. When installing the extension, use the dropdown menu to select the pre-release option for now, otherwise you will get an error.
+
+<img src="./assets/install.png" width="35%" />
+
+Contents:
+
 -   [Features](#features)
 -   [Known Issues](#known-issues)
 -   [Release Notes](#release-notes)
@@ -47,6 +53,7 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 -   Fix escaping within strings
 -   Migrate to `yaml` grammar for composability and readability
+-   Update to match [just grammar](https://github.com/casey/just/blob/43d88f50e02057e5d91602ef4ffdd0ddfc094099/GRAMMAR.md) more accurately
 -   Update with new `just` releases
 
 ### Beyond
