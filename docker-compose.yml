@@ -1,16 +1,16 @@
 version: "3"
 
 services:
-    dev:
-        build:
-            context: .
-            dockerfile: ./Dockerfile
-        command: sleep infinity
-        environment:
-            - NODE_ENV=developement
-        volumes:
-            - ./:/code
-            - node_modules:/code/node_modules
+  dev:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: sleep infinity
+    environment:
+      - NODE_ENV=developement
+    volumes:
+      - ./:/code
+      - node_modules:/code/node_modules
 
 volumes:
-    node_modules:
+  node_modules:

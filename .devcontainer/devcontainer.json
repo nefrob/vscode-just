@@ -1,17 +1,17 @@
 // For format details, see https://aka.ms/devcontainer.json
 {
-    "name": "Dev container",
-    "dockerComposeFile": ["../docker-compose.yml"],
-    "service": "dev",
-    "workspaceFolder": "/code",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "eamodio.gitlens",
-                "esbenp.prettier-vscode",
-                "ms-vscode.extension-test-runner",
-                "redhat.vscode-yaml"
-            ]
-        }
-    }
+  "name": "Dev container",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "dev",
+  "workspaceFolder": "/code",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "ms-vscode.extension-test-runner",
+        "redhat.vscode-yaml",
+      ],
+    },
+  },
 }

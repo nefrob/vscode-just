@@ -1,52 +1,53 @@
 {
-    "name": "vscode-just-syntax",
-    "publisher": "nefrob",
-    "repository": "https://github.com/nefrob/vscode-just",
-    "displayName": "vscode-just",
-    "description": "Justfile syntax support for Visual Studio Code",
-    "version": "0.1.1",
-    "engines": {
-        "vscode": "^1.85.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "keywords": [
-        "just",
-        "justfile",
-        "scripts"
-    ],
-    "icon": "icons/robot.png",
-    "contributes": {
-        "languages": [
-            {
-                "id": "just",
-                "aliases": [
-                    "Just",
-                    "vscode-just"
-                ],
-                "extensions": [
-                    ".just",
-                    ".justfile",
-                    "justfile",
-                    "Justfile"
-                ],
-                "configuration": "./language-configuration.json",
-                "icon": {
-                    "light": "./icons/robot.png",
-                    "dark": "./icons/robot.png"
-                }
-            }
+  "name": "vscode-just-syntax",
+  "publisher": "nefrob",
+  "repository": "https://github.com/nefrob/vscode-just",
+  "displayName": "vscode-just",
+  "description": "Justfile syntax support for Visual Studio Code",
+  "version": "0.1.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "just",
+    "justfile",
+    "scripts"
+  ],
+  "icon": "icons/robot.png",
+  "contributes": {
+    "languages": [
+      {
+        "id": "just",
+        "aliases": [
+          "Just",
+          "vscode-just"
         ],
-        "grammars": [
-            {
-                "language": "just",
-                "scopeName": "source.just",
-                "path": "./syntaxes/vscode-just.tmLanguage.json"
-            }
-        ]
-    },
-    "devDependencies": {
-        "vsce": "^2.15.0"
-    }
+        "extensions": [
+          ".just",
+          ".justfile",
+          "justfile",
+          "Justfile"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/robot.png",
+          "dark": "./icons/robot.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "just",
+        "scopeName": "source.just",
+        "path": "./syntaxes/vscode-just.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "prettier": "^3.2.4",
+    "vsce": "^2.15.0"
+  }
 }

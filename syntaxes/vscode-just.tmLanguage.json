@@ -1,427 +1,427 @@
 {
-    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-    "name": "Just",
-    "patterns": [
-        { "include": "#assignment" },
-        { "include": "#builtin-functions" },
-        { "include": "#comments" },
-        { "include": "#constants" },
-        { "include": "#embedded-languages" },
-        { "include": "#escaping" },
-        { "include": "#inline-shell" },
-        { "include": "#keywords" },
-        { "include": "#parenthesis-block" },
-        { "include": "#recipes" },
-        { "include": "#strings" }
-    ],
-    "repository": {
-        "assignment": {
-            "patterns": [
-                {
-                    "comment": "Variable",
-                    "match": "^(?:(alias|export)\\s+)?([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)",
-                    "captures": {
-                        "1": { "name": "keyword.other.assignment.just" },
-                        "2": { "name": "variable.other.just" },
-                        "3": { "name": "keyword.operator.just" }
-                    }
-                },
-                {
-                    "comment": "Setting",
-                    "match": "^(set)\\s+([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)?",
-                    "captures": {
-                        "1": { "name": "keyword.other.assignment.just" },
-                        "2": {
-                            "name": "variable.language.just"
-                        },
-                        "3": { "name": "keyword.operator.just" }
-                    }
-                }
-            ]
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Just",
+  "patterns": [
+    { "include": "#assignment" },
+    { "include": "#builtin-functions" },
+    { "include": "#comments" },
+    { "include": "#constants" },
+    { "include": "#embedded-languages" },
+    { "include": "#escaping" },
+    { "include": "#inline-shell" },
+    { "include": "#keywords" },
+    { "include": "#parenthesis-block" },
+    { "include": "#recipes" },
+    { "include": "#strings" }
+  ],
+  "repository": {
+    "assignment": {
+      "patterns": [
+        {
+          "comment": "Variable",
+          "match": "^(?:(alias|export)\\s+)?([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)",
+          "captures": {
+            "1": { "name": "keyword.other.assignment.just" },
+            "2": { "name": "variable.other.just" },
+            "3": { "name": "keyword.operator.just" }
+          }
         },
-        "builtin-functions": {
-            "patterns": [
-                {
-                    "comment": "System functions",
-                    "name": "support.function.builtin.just",
-                    "match": "\\b(arch|num_cpus|os|os_family|env_var|env_var_or_default|env|invocation_directory|invocation_directory_native|justfile|justfile_directory|just_executable|just_pid|quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase|absolute_path|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists|error|sha256|sha256_file|uuid|semver_matches|cache_directory|config_directory|config_local_directory|data_directory|data_local_directory|executable_directory|home_directory)\\b"
-                }
-            ]
-        },
-        "comments": {
-            "patterns": [
-                {
-                    "comment": "Basic comment",
-                    "name": "comment.line.number-sign.just",
-                    "match": "#([^!].*)$"
-                }
-            ]
-        },
-        "constants": {
-            "patterns": [
-                {
-                    "comment": "Boolean",
-                    "name": "constant.language.boolean.just",
-                    "match": "\\b(true|false)\\b"
-                },
-                {
-                    "comment": "Integers",
-                    "name": "constant.numeric.integers.just",
-                    "match": "\\b\\d+\\b"
-                }
-            ]
-        },
-        "embedded-languages": {
-            "comment": "Embedded languages for use in recipes",
-            "patterns": [
-                { "include": "#embedded-js" },
-                { "include": "#embedded-nu" },
-                { "include": "#embedded-perl" },
-                { "include": "#embedded-python" },
-                { "include": "#embedded-ruby" },
-                { "include": "#embedded-shell" }
-            ]
-        },
-        "embedded-js": {
-            "patterns": [
-                {
-                    "comment": "Embedded JavaScript for use in recipes",
-                    "begin": "^\\s+#!/usr/bin/env\\s+node.*$",
-                    "end": "^$",
-                    "contentName": "source.js",
-                    "patterns": [{ "include": "source.js" }]
-                }
-            ]
-        },
-        "embedded-perl": {
-            "patterns": [
-                {
-                    "comment": "Embedded Perl for use in recipes",
-                    "begin": "^\\s+#!/usr/bin/env\\s+perl.*$",
-                    "end": "^$",
-                    "contentName": "source.perl",
-                    "patterns": [{ "include": "source.perl" }]
-                }
-            ]
-        },
-        "embedded-python": {
-            "patterns": [
-                {
-                    "comment": "Embedded Python for use in recipes",
-                    "begin": "^\\s+#!/usr/bin/env\\s+python.*$",
-                    "end": "^$",
-                    "contentName": "source.python",
-                    "patterns": [{ "include": "source.python" }]
-                }
-            ]
-        },
-        "embedded-ruby": {
-            "patterns": [
-                {
-                    "comment": "Embedded Ruby for use in recipes",
-                    "begin": "^\\s+#!/usr/bin/env\\s+ruby.*$",
-                    "end": "^$",
-                    "contentName": "source.ruby",
-                    "patterns": [{ "include": "source.ruby" }]
-                }
-            ]
-        },
-        "embedded-shell": {
-            "patterns": [
-                {
-                    "comment": "Embedded Shell for use in recipes",
-                    "begin": "^\\s+#!/usr/bin/env\\s+(sh|bash|zsh|fish).*$",
-                    "end": "^$",
-                    "contentName": "source.shell",
-                    "patterns": [{ "include": "source.shell" }]
-                }
-            ]
-        },
-        "escaping": {
-            "patterns": [
-                {
-                    "comment": "Variable escaping",
-                    "name": "string.interpolated.escaping.just",
-                    "match": "(?<!\\{)(\\{\\{)\\{?(?!\\{)(.*?)(\\}\\})",
-                    "captures": {
-                        "1": {
-                            "name": "string.interpolated.escape.just"
-                        },
-                        "2": {
-                            "patterns": [
-                                { "include": "#builtin-functions" },
-                                { "include": "#constants" },
-                                { "include": "#inline-shell" },
-                                { "include": "#keywords" },
-                                { "include": "#strings" }
-                            ]
-                        },
-                        "3": {
-                            "name": "string.interpolated.escape.just"
-                        }
-                    }
-                }
-            ]
-        },
-        "inline-shell": {
-            "patterns": [
-                {
-                    "comment": "Multi-line shell",
-                    "begin": "(```)",
-                    "end": "(```)",
-                    "beginCaptures": {
-                        "1": { "name": "string.interpolated.multi.just" }
-                    },
-                    "endCaptures": {
-                        "1": { "name": "string.interpolated.multi.just" }
-                    },
-                    "contentName": "source.shell",
-                    "patterns": [{ "include": "source.shell" }]
-                },
-                {
-                    "comment": "Inline embedded shell",
-                    "match": "(`)([^`]*)(`)",
-                    "captures": {
-                        "1": { "name": "string.interpolated.just" },
-                        "2": {
-                            "name": "source.shell",
-                            "patterns": [{ "include": "source.shell" }]
-                        },
-                        "3": { "name": "string.interpolated.just" }
-                    }
-                }
-            ]
-        },
-        "keywords": {
-            "patterns": [
-                {
-                    "comment": "Reserved keywords",
-                    "match": "^(alias|export|import|mod|set)\\s+",
-                    "captures": {
-                        "1": { "name": "keyword.other.global.just" }
-                    }
-                },
-                {
-                    "comment": "Path join operator",
-                    "name": "keyword.other.path-join.just",
-                    "match": "\\/"
-                },
-                {
-                    "comment": "Quiet operator",
-                    "match": "^\\s+(@)",
-                    "captures": {
-                        "1": { "name": "keyword.other.quiet.just" }
-                    }
-                },
-                {
-                    "comment": "Error suppression operator",
-                    "match": "^\\s+(\\-)[a-zA-Z_][a-zA-Z0-9_-]*",
-                    "captures": {
-                        "1": {
-                            "name": "keyword.other.error-supress.just"
-                        }
-                    }
-                },
-                {
-                    "comment": "Concatenation operator",
-                    "name": "keyword.operator.concat.just",
-                    "match": "\\+"
-                },
-                {
-                    "comment": "And operator",
-                    "name": "keyword.operator.logical.and.just",
-                    "match": "&&"
-                },
-                {
-                    "comment": "Conditional keywords",
-                    "name": "keyword.control.conditional.just",
-                    "match": "\\b(if|else)\\b"
-                },
-                {
-                    "comment": "Equality operators",
-                    "name": "keyword.operator.equality.just",
-                    "match": "(\\=\\=|\\=\\~|\\!\\=)"
-                }
-            ]
-        },
-        "parenthesis-block": {
-            "comment": "Any block of just code surrounded by (...)",
-            "match": "\\((.*?)\\)",
-            "captures": {
-                "1": {
-                    "patterns": [
-                        { "include": "#builtin-functions" },
-                        { "include": "#constants" },
-                        { "include": "#inline-shell" },
-                        { "include": "#keywords" },
-                        { "include": "#strings" }
-                    ]
-                }
-            }
-        },
-        "recipes": {
-            "patterns": [
-                { "include": "#recipe-attributes" },
-                {
-                    "comment": "Recipe definition",
-                    "match": "^(@_|_@|@|_)?([a-zA-Z][a-zA-Z_\\-]*)(?:\\s+(.*))?\\s*(:)(.*)",
-                    "captures": {
-                        "1": {
-                            "name": "keyword.other.recipe-mode.just"
-                        },
-                        "2": { "name": "entity.name.function.just" },
-                        "3": {
-                            "patterns": [{ "include": "#recipe-params" }]
-                        },
-                        "4": {
-                            "name": "keyword.operator.end-recipe.just"
-                        },
-                        "5": {
-                            "patterns": [{ "include": "#recipe-dependencies" }]
-                        }
-                    }
-                }
-            ]
-        },
-        "recipe-attributes": {
-            "patterns": [
-                {
-                    "comment": "Recipe attributes",
-                    "match": "^\\[(.*)]\\s*$",
-                    "captures": {
-                        "1": {
-                            "patterns": [
-                                {
-                                    "comment": "Attribute name",
-                                    "name": "support.function.system.just",
-                                    "match": "(confirm|linux|macos|no\\-cd|no\\-exit\\-message|private|no\\-quiet|unix|windows)"
-                                },
-                                { "include": "#strings" }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        "recipe-params": {
-            "patterns": [
-                {
-                    "comment": "Recipe parameters",
-                    "match": "(?:(\\+|\\*|\\$)?([a-zA-Z_][a-zA-Z_0-9]*)(?:(=)(?:[a-zA-Z_][a-zA-Z_0-9]*|(\".*?\"|'.*?')|(`.*?`)|(\\((?:[^()]+|\\([^)]*\\))*\\))))?)",
-                    "captures": {
-                        "1": {
-                            "name": "keyword.other.recipe.variadic.just"
-                        },
-                        "2": {
-                            "name": "variable.parameter.recipe.just"
-                        },
-                        "3": {
-                            "name": "keyword.operator.param-default.just"
-                        },
-                        "4": {
-                            "patterns": [{ "include": "#strings" }]
-                        },
-                        "5": {
-                            "patterns": [{ "include": "#inline-shell" }]
-                        },
-                        "6": {
-                            "patterns": [{ "include": "#parenthesis-block" }]
-                        }
-                    }
-                }
-            ]
-        },
-        "recipe-dependencies": {
-            "comment": "Recipe dependencies",
-            "match": "(?:[a-zA-Z_][a-zA-Z0-9_\\-]*|(\\((?:[^()]+|\\([^)]*\\))*\\))|(&&))",
-            "captures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "comment": "Recipe with default values",
-                            "match": "\\((?:[a-zA-Z_][a-zA-Z0-9_\\-]*(.*))\\)",
-                            "captures": {
-                                "1": {
-                                    "patterns": [
-                                        { "include": "#builtin-functions" },
-                                        { "include": "#constants" },
-                                        { "include": "#inline-shell" },
-                                        { "include": "#keywords" },
-                                        { "include": "#strings" }
-                                    ]
-                                }
-                            }
-                        }
-                    ]
-                },
-                "2": {
-                    "name": "keyword.operator.logical.and.just"
-                }
-            }
-        },
-        "strings": {
-            "patterns": [
-                {
-                    "comment": "Non-escaped curly braces in string",
-                    "name": "string.quoted.double.indented.just",
-                    "match": "([\"']{1,3})[\\{]+(\\1)"
-                },
-                {
-                    "comment": "Indented string",
-                    "name": "string.quoted.double.indented.just",
-                    "begin": "\"\"\"",
-                    "end": "\"\"\"",
-                    "patterns": [
-                        {
-                            "comment": "Escaped characters",
-                            "name": "constant.character.escape.just",
-                            "match": "\\\\."
-                        },
-                        {
-                            "include": "#escaping"
-                        }
-                    ]
-                },
-                {
-                    "comment": "Raw indented string",
-                    "name": "string.quoted.single.indented.just",
-                    "begin": "'''",
-                    "end": "'''",
-                    "patterns": [
-                        {
-                            "include": "#escaping"
-                        }
-                    ]
-                },
-                {
-                    "comment": "Standard string",
-                    "name": "string.quoted.double.just",
-                    "begin": "\"",
-                    "end": "\"",
-                    "patterns": [
-                        {
-                            "comment": "Escaped characters",
-                            "name": "constant.character.escape.just",
-                            "match": "\\\\."
-                        },
-                        {
-                            "include": "#escaping"
-                        }
-                    ]
-                },
-                {
-                    "comment": "Raw string",
-                    "name": "string.quoted.single.just",
-                    "begin": "'",
-                    "end": "'",
-                    "patterns": [
-                        {
-                            "include": "#escaping"
-                        }
-                    ]
-                }
-            ]
+        {
+          "comment": "Setting",
+          "match": "^(set)\\s+([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)?",
+          "captures": {
+            "1": { "name": "keyword.other.assignment.just" },
+            "2": {
+              "name": "variable.language.just"
+            },
+            "3": { "name": "keyword.operator.just" }
+          }
         }
+      ]
     },
-    "scopeName": "source.just"
+    "builtin-functions": {
+      "patterns": [
+        {
+          "comment": "System functions",
+          "name": "support.function.builtin.just",
+          "match": "\\b(arch|num_cpus|os|os_family|env_var|env_var_or_default|env|invocation_directory|invocation_directory_native|justfile|justfile_directory|just_executable|just_pid|quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase|absolute_path|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists|error|sha256|sha256_file|uuid|semver_matches|cache_directory|config_directory|config_local_directory|data_directory|data_local_directory|executable_directory|home_directory)\\b"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "comment": "Basic comment",
+          "name": "comment.line.number-sign.just",
+          "match": "#([^!].*)$"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "comment": "Boolean",
+          "name": "constant.language.boolean.just",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "comment": "Integers",
+          "name": "constant.numeric.integers.just",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "embedded-languages": {
+      "comment": "Embedded languages for use in recipes",
+      "patterns": [
+        { "include": "#embedded-js" },
+        { "include": "#embedded-nu" },
+        { "include": "#embedded-perl" },
+        { "include": "#embedded-python" },
+        { "include": "#embedded-ruby" },
+        { "include": "#embedded-shell" }
+      ]
+    },
+    "embedded-js": {
+      "patterns": [
+        {
+          "comment": "Embedded JavaScript for use in recipes",
+          "begin": "^\\s+#!/usr/bin/env\\s+node.*$",
+          "end": "^$",
+          "contentName": "source.js",
+          "patterns": [{ "include": "source.js" }]
+        }
+      ]
+    },
+    "embedded-perl": {
+      "patterns": [
+        {
+          "comment": "Embedded Perl for use in recipes",
+          "begin": "^\\s+#!/usr/bin/env\\s+perl.*$",
+          "end": "^$",
+          "contentName": "source.perl",
+          "patterns": [{ "include": "source.perl" }]
+        }
+      ]
+    },
+    "embedded-python": {
+      "patterns": [
+        {
+          "comment": "Embedded Python for use in recipes",
+          "begin": "^\\s+#!/usr/bin/env\\s+python.*$",
+          "end": "^$",
+          "contentName": "source.python",
+          "patterns": [{ "include": "source.python" }]
+        }
+      ]
+    },
+    "embedded-ruby": {
+      "patterns": [
+        {
+          "comment": "Embedded Ruby for use in recipes",
+          "begin": "^\\s+#!/usr/bin/env\\s+ruby.*$",
+          "end": "^$",
+          "contentName": "source.ruby",
+          "patterns": [{ "include": "source.ruby" }]
+        }
+      ]
+    },
+    "embedded-shell": {
+      "patterns": [
+        {
+          "comment": "Embedded Shell for use in recipes",
+          "begin": "^\\s+#!/usr/bin/env\\s+(sh|bash|zsh|fish).*$",
+          "end": "^$",
+          "contentName": "source.shell",
+          "patterns": [{ "include": "source.shell" }]
+        }
+      ]
+    },
+    "escaping": {
+      "patterns": [
+        {
+          "comment": "Variable escaping",
+          "name": "string.interpolated.escaping.just",
+          "match": "(?<!\\{)(\\{\\{)\\{?(?!\\{)(.*?)(\\}\\})",
+          "captures": {
+            "1": {
+              "name": "string.interpolated.escape.just"
+            },
+            "2": {
+              "patterns": [
+                { "include": "#builtin-functions" },
+                { "include": "#constants" },
+                { "include": "#inline-shell" },
+                { "include": "#keywords" },
+                { "include": "#strings" }
+              ]
+            },
+            "3": {
+              "name": "string.interpolated.escape.just"
+            }
+          }
+        }
+      ]
+    },
+    "inline-shell": {
+      "patterns": [
+        {
+          "comment": "Multi-line shell",
+          "begin": "(```)",
+          "end": "(```)",
+          "beginCaptures": {
+            "1": { "name": "string.interpolated.multi.just" }
+          },
+          "endCaptures": {
+            "1": { "name": "string.interpolated.multi.just" }
+          },
+          "contentName": "source.shell",
+          "patterns": [{ "include": "source.shell" }]
+        },
+        {
+          "comment": "Inline embedded shell",
+          "match": "(`)([^`]*)(`)",
+          "captures": {
+            "1": { "name": "string.interpolated.just" },
+            "2": {
+              "name": "source.shell",
+              "patterns": [{ "include": "source.shell" }]
+            },
+            "3": { "name": "string.interpolated.just" }
+          }
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "comment": "Reserved keywords",
+          "match": "^(alias|export|import|mod|set)\\s+",
+          "captures": {
+            "1": { "name": "keyword.other.global.just" }
+          }
+        },
+        {
+          "comment": "Path join operator",
+          "name": "keyword.other.path-join.just",
+          "match": "\\/"
+        },
+        {
+          "comment": "Quiet operator",
+          "match": "^\\s+(@)",
+          "captures": {
+            "1": { "name": "keyword.other.quiet.just" }
+          }
+        },
+        {
+          "comment": "Error suppression operator",
+          "match": "^\\s+(\\-)[a-zA-Z_][a-zA-Z0-9_-]*",
+          "captures": {
+            "1": {
+              "name": "keyword.other.error-supress.just"
+            }
+          }
+        },
+        {
+          "comment": "Concatenation operator",
+          "name": "keyword.operator.concat.just",
+          "match": "\\+"
+        },
+        {
+          "comment": "And operator",
+          "name": "keyword.operator.logical.and.just",
+          "match": "&&"
+        },
+        {
+          "comment": "Conditional keywords",
+          "name": "keyword.control.conditional.just",
+          "match": "\\b(if|else)\\b"
+        },
+        {
+          "comment": "Equality operators",
+          "name": "keyword.operator.equality.just",
+          "match": "(\\=\\=|\\=\\~|\\!\\=)"
+        }
+      ]
+    },
+    "parenthesis-block": {
+      "comment": "Any block of just code surrounded by (...)",
+      "match": "\\((.*?)\\)",
+      "captures": {
+        "1": {
+          "patterns": [
+            { "include": "#builtin-functions" },
+            { "include": "#constants" },
+            { "include": "#inline-shell" },
+            { "include": "#keywords" },
+            { "include": "#strings" }
+          ]
+        }
+      }
+    },
+    "recipes": {
+      "patterns": [
+        { "include": "#recipe-attributes" },
+        {
+          "comment": "Recipe definition",
+          "match": "^(@_|_@|@|_)?([a-zA-Z][a-zA-Z_\\-]*)(?:\\s+(.*))?\\s*(:)(.*)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.recipe-mode.just"
+            },
+            "2": { "name": "entity.name.function.just" },
+            "3": {
+              "patterns": [{ "include": "#recipe-params" }]
+            },
+            "4": {
+              "name": "keyword.operator.end-recipe.just"
+            },
+            "5": {
+              "patterns": [{ "include": "#recipe-dependencies" }]
+            }
+          }
+        }
+      ]
+    },
+    "recipe-attributes": {
+      "patterns": [
+        {
+          "comment": "Recipe attributes",
+          "match": "^\\[(.*)]\\s*$",
+          "captures": {
+            "1": {
+              "patterns": [
+                {
+                  "comment": "Attribute name",
+                  "name": "support.function.system.just",
+                  "match": "(confirm|linux|macos|no\\-cd|no\\-exit\\-message|private|no\\-quiet|unix|windows)"
+                },
+                { "include": "#strings" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "recipe-params": {
+      "patterns": [
+        {
+          "comment": "Recipe parameters",
+          "match": "(?:(\\+|\\*|\\$)?([a-zA-Z_][a-zA-Z_0-9]*)(?:(=)(?:[a-zA-Z_][a-zA-Z_0-9]*|(\".*?\"|'.*?')|(`.*?`)|(\\((?:[^()]+|\\([^)]*\\))*\\))))?)",
+          "captures": {
+            "1": {
+              "name": "keyword.other.recipe.variadic.just"
+            },
+            "2": {
+              "name": "variable.parameter.recipe.just"
+            },
+            "3": {
+              "name": "keyword.operator.param-default.just"
+            },
+            "4": {
+              "patterns": [{ "include": "#strings" }]
+            },
+            "5": {
+              "patterns": [{ "include": "#inline-shell" }]
+            },
+            "6": {
+              "patterns": [{ "include": "#parenthesis-block" }]
+            }
+          }
+        }
+      ]
+    },
+    "recipe-dependencies": {
+      "comment": "Recipe dependencies",
+      "match": "(?:[a-zA-Z_][a-zA-Z0-9_\\-]*|(\\((?:[^()]+|\\([^)]*\\))*\\))|(&&))",
+      "captures": {
+        "1": {
+          "patterns": [
+            {
+              "comment": "Recipe with default values",
+              "match": "\\((?:[a-zA-Z_][a-zA-Z0-9_\\-]*(.*))\\)",
+              "captures": {
+                "1": {
+                  "patterns": [
+                    { "include": "#builtin-functions" },
+                    { "include": "#constants" },
+                    { "include": "#inline-shell" },
+                    { "include": "#keywords" },
+                    { "include": "#strings" }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "2": {
+          "name": "keyword.operator.logical.and.just"
+        }
+      }
+    },
+    "strings": {
+      "patterns": [
+        {
+          "comment": "Non-escaped curly braces in string",
+          "name": "string.quoted.double.indented.just",
+          "match": "([\"']{1,3})[\\{]+(\\1)"
+        },
+        {
+          "comment": "Indented string",
+          "name": "string.quoted.double.indented.just",
+          "begin": "\"\"\"",
+          "end": "\"\"\"",
+          "patterns": [
+            {
+              "comment": "Escaped characters",
+              "name": "constant.character.escape.just",
+              "match": "\\\\."
+            },
+            {
+              "include": "#escaping"
+            }
+          ]
+        },
+        {
+          "comment": "Raw indented string",
+          "name": "string.quoted.single.indented.just",
+          "begin": "'''",
+          "end": "'''",
+          "patterns": [
+            {
+              "include": "#escaping"
+            }
+          ]
+        },
+        {
+          "comment": "Standard string",
+          "name": "string.quoted.double.just",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "comment": "Escaped characters",
+              "name": "constant.character.escape.just",
+              "match": "\\\\."
+            },
+            {
+              "include": "#escaping"
+            }
+          ]
+        },
+        {
+          "comment": "Raw string",
+          "name": "string.quoted.single.just",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "include": "#escaping"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scopeName": "source.just"
 }
