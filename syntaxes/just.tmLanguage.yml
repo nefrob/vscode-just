@@ -184,6 +184,32 @@ repository:
         end: "'''"
         patterns:
           - include: '#escaping'
+      
+      # '([^']*?)(?:(?:\{\{.*?\}\})([^']*?))*'
+      # Tests:
+      # '' 'hjg g {{' dasadsf' }} hgh '
+      # ' ddd '
+
+      # '
+      # ddd
+      # '
+
+#   b1:
+#   echo 'I {{{{LOVE}} curly braces!'
+
+# b2:
+#   echo '{{'I {{LOVE}} curly braces!'}}'
+
+# b3:
+#   echo 'I {{ "{{" }}LOVE}} curly braces!'
+
+
+# recipe x="1" y="2":
+#   echo '   {{ ( x / '{{x}}_{{y}}' / y )  }}    '
+#   echo {{ (x / '{{x}}_{{y}}' / y ) }}
+#   echo '{{ ('{{' / '}}') }}'
+
+
       - comment: Raw string
         name: string.quoted.single.just
         begin: "'"
