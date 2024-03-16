@@ -184,36 +184,6 @@ repository:
         end: "'''"
         patterns:
           - include: '#escaping'
-      
-      # '[^']*?(?:\{\{.*?\}\}[^']*?)*'
-      # Tests:
-      # '' 'hjg g {{' dasadsf' }} hgh '
-      # ' ddd '
-
-      # '
-      # ddd
-      # '
-      # '
-      # {{'1'}}
-      # {{'2'}}
-      # '
-
-#   b1:
-#   echo 'I {{{{LOVE}} curly braces!'
-
-# b2:
-#   echo '{{'I {{LOVE}} curly braces!'}}'
-
-# b3:
-#   echo 'I {{ "{{" }}LOVE}} curly braces!'
-
-
-# recipe x="1" y="2":
-#   echo '   {{ ( x / '{{x}}_{{y}}' / y )  }}    '
-#   echo {{ (x / '{{x}}_{{y}}' / y ) }}
-#   echo '{{ ('{{' / '}}') }}'
-
-
       - comment: Raw string
         name: string.quoted.single.just
         begin: "'"
@@ -273,21 +243,26 @@ repository:
   
   recipe-dependencies:
     comment: Recipe dependencies
-    match: "(?:[a-zA-Z_][a-zA-Z0-9_\\-]*|(\\((?:[^()]+|\\([^)]*\\))*\\))|(&&))"
+    match: "(?:([a-zA-Z_][a-zA-Z0-9_\\-]*)|(\\((?:[^()]+|\\([^)]*\\))*\\))|(&&))"
     captures:
       "1":
+        name: entity.name.function.just
+      "2":
         patterns:
           - comment: Recipe with default values
-            match: "\\((?:[a-zA-Z_][a-zA-Z0-9_\\-]*(.*))\\)"
+            match: "\\((?:([a-zA-Z_][a-zA-Z0-9_\\-]*)(.*))\\)"
             captures:
               "1":
+                name: entity.name.function.just
+              "2":
                 patterns:
                   - include: "#builtin-functions"
                   - include: "#constants"
                   - include: "#inline-shell"
                   - include: "#keywords"
+                  - include: '#operators'
                   - include: "#strings"
-      "2":
+      "3":
         name: keyword.operator.and.just
   
   recipes:

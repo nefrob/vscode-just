@@ -13,7 +13,7 @@ lint:
 
 translate:
     docker compose run --rm dev /bin/sh -c \
-        "yarn js-yaml syntaxes/just.tmLanguage.yml > syntaxes/just.tmLanguage.json"
+        "yarn --silent js-yaml syntaxes/just.tmLanguage.yml > syntaxes/just.tmLanguage.json"
 
 package +ARGS="":
     docker compose run --rm dev /bin/sh -c \
