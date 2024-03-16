@@ -2,7 +2,15 @@
 
 ## [Unreleased]
 
+### Added
+
+-   New functions: `canonicalize`, `blake3` and `blake3_file`
+
+### Changed
+
 -   Migrate to yaml grammar
+-   Upgrade dependencies
+
 
 ## [0.1.1] - 2024-01-19
 
