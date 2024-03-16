@@ -2,10 +2,6 @@
 
 VSCode syntax highlighting extension for the [just](https://github.com/casey/just) language.
 
-Note: the extension is currently in **pre-release** on the VSCode Marketplace for testing. When installing the extension, use the dropdown menu to select the pre-release option for now, otherwise you will get an error.
-
-<img src="./assets/install.png" width="35%" />
-
 Contents:
 
 -   [Features](#features)
