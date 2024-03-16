@@ -1,5 +1,6 @@
 # Things ignored when installing the extension
 .gitignore
+.github/**
 .devcontainer/**
 .vscode/**
 assets/**

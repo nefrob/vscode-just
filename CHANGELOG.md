@@ -2,13 +2,17 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2024-03-16
+
 ### Added
 
 -   New functions: `canonicalize`, `blake3` and `blake3_file`
 
 ### Changed
 
+-   Move extension out of pre-release
 -   Migrate to yaml grammar
+-   Adds back recipe dependency symbol highlighting
 -   Upgrade dependencies
 
 
