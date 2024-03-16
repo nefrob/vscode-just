@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+-   Migrate to yaml grammar
+
 ## [0.1.1] - 2024-01-19
 
 ### Changed

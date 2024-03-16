@@ -51,10 +51,10 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ### 2024
 
--   Fix escaping within strings
--   Migrate to `yaml` grammar for composability and readability
--   Update to match [just grammar](https://github.com/casey/just/blob/43d88f50e02057e5d91602ef4ffdd0ddfc094099/GRAMMAR.md) more accurately
--   Update with new `just` releases
+- [ ] Fix escaping within strings
+- [x] Migrate to `yaml` grammar for composability and readability
+- [ ] Update to match [just grammar](https://github.com/casey/just/blob/43d88f50e02057e5d91602ef4ffdd0ddfc094099/GRAMMAR.md) more accurately
+- [ ] Update with new `just` releases
 
 ### Beyond
 

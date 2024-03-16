@@ -42,12 +42,13 @@
       {
         "language": "just",
         "scopeName": "source.just",
-        "path": "./syntaxes/vscode-just.tmLanguage.json"
+        "path": "./syntaxes/just.tmLanguage.json"
       }
     ]
   },
   "devDependencies": {
-    "prettier": "^3.2.4",
-    "@vscode/vsce": "^2.22.0"
+    "@vscode/vsce": "^2.22.0",
+    "js-yaml": "^4.1.0",
+    "prettier": "^3.2.4"
   }
 }

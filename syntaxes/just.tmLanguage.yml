@@ -1,0 +1,302 @@
+$schema: https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
+name: Just
+scopeName: source.just
+
+patterns:
+  - include: '#assignment'
+  - include: '#comments'
+  - include: '#constants'
+  - include: '#keywords'
+  - include: '#operators'
+  - include: '#builtins'
+  - include: '#backtick'
+  - include: '#embedded-languages'
+  - include: '#strings'
+  - include: '#escaping'
+  - include: '#recipes'
+  - include: '#parenthesis-block'
+
+repository:
+  comments:
+    patterns:
+      - name: comment.line.number-sign.just
+        match: '#([^!].*)$'
+  
+  constants:
+    patterns:
+      - comment: Boolean
+        name: constant.language.boolean.just
+        match: "\\b(true|false)\\b"
+      - comment: Integer
+        name: constant.language.integer.just
+        match: "\\b\\d+\\b"
+  
+  keywords:
+    patterns:
+      - comment: Reserved
+        match: "^(alias|export|import|mod|set)\\s+"
+        captures:
+          "1":
+            name: keyword.other.reserved.just
+      - comment: Conditional
+        name: keyword.control.conditional.just
+        match: "\\b(if|else)\\b"
+  
+  operators:
+    patterns:
+      # General
+      - comment: Path join
+        name: keyword.operator.path-join.just
+        match: "\\/"
+      - comment: Concatenation
+        name: keyword.operator.concat.just
+        match: "\\+"
+      - comment: And
+        name: keyword.operator.and.just
+        match: "&&"
+      - comment: Equality
+        name: keyword.operator.equality.just
+        match: "(\\=\\=|\\=\\~|\\!\\=)"
+      # Recipes
+      - comment: Quiet
+        match: "^\\s+(@)"
+        captures:
+          "1":
+            name: keyword.operator.quiet.just
+      - comment: Error suppression
+        match: "^\\s+(\\-)"
+        captures:
+          "1":
+            name: keyword.operator.error-suppression.just
+  
+  builtins:
+    patterns:
+      - commment: Functions
+        name: support.function.builtin.just
+        match: "\\b(arch|num_cpus|os|os_family|env_var|env_var_or_default|env|invocation_directory|invocation_directory_native|justfile|justfile_directory|just_executable|just_pid|quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase|absolute_path|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists|error|sha256|sha256_file|uuid|semver_matches|cache_directory|config_directory|config_local_directory|data_directory|data_local_directory|executable_directory|home_directory)\\b"
+
+  assignment:
+    patterns:
+      - comment: Variable
+        match: "^(?:(alias|export)\\s+)?([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)"
+        captures:
+          "1":
+            name: keyword.other.assignment.just
+          "2":
+            name: variable.other.just
+          "3":
+            name: keyword.operator.assignment.just
+      - comment: Setting
+        match: "^(set)\\s+([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)?"
+        captures:
+          "1":
+            name: keyword.other.reserved.just
+          "2":
+            name: variable.language.setting.just
+          "3":
+            name: keyword.operator.assignment.just
+  
+  backtick:
+    patterns:
+      - comment: Indented
+        begin: "(```)"
+        end: "(```)"
+        beginCaptures:
+          "1": 
+            name: string.interpolated.just
+        endCaptures:
+          "1":
+            name: string.interpolated.just
+        contentName: source.shell
+        patterns:
+          - include: source.shell
+      - comment: Standard
+        match: "(`)([^`]*)(`)"
+        captures:
+          "1":
+            name: string.interpolated.just
+          "2":
+            name: source.shell
+            patterns:
+              - include: source.shell
+          "3":
+            name: string.interpolated.just
+  
+  embedded-languages:
+    patterns:
+      - comment: JavaScript
+        begin: "^\\s+#!/usr/bin/env\\s+node.*$"
+        end: ^$
+        contentName: source.js
+        patterns:
+          - include: source.js
+      - comment: Perl
+        begin: "^\\s+#!/usr/bin/env\\s+perl.*$"
+        end: ^$
+        contentName: source.perl
+        patterns:
+          - include: source.perl
+      - comment: Python
+        begin: "^\\s+#!/usr/bin/env\\s+python.*$"
+        end: ^$
+        contentName: source.python
+        patterns:
+          - include: source.python
+      - comment: Ruby
+        begin: "^\\s+#!/usr/bin/env\\s+ruby.*$"
+        end: ^$
+        contentName: source.ruby
+        patterns:
+          - include: source.ruby
+      - comment: Shell
+        begin: "^\\s+#!/usr/bin/env\\s+(sh|bash|zsh|fish).*$"
+        end: ^$
+        contentName: source.shell
+        patterns:
+          - include: source.shell
+  
+  strings:
+    patterns:
+      - comment: Non-escaped curly braces in string
+        name: string.quoted.double.indented.just
+        match: "([\"']{1,3})[\\{]+(\\1)"
+      - comment: Indented string
+        name: string.quoted.double.indented.just
+        begin: "\"\"\""
+        end: "\"\"\""
+        patterns:
+          - comment: Escaped characters
+            name: constant.character.escape.just
+            match: "\\\\."
+          - include: '#escaping'
+      - comment: String
+        name: string.quoted.double.just
+        begin: "\""
+        end: "\""
+        patterns:
+          - comment: Escaped characters
+            name: constant.character.escape.just
+            match: "\\\\."
+          - include: '#escaping'
+      - comment: Indented raw string
+        name: string.quoted.single.indented.just
+        begin: "'''"
+        end: "'''"
+        patterns:
+          - include: '#escaping'
+      - comment: Raw string
+        name: string.quoted.single.just
+        begin: "'"
+        end: "'"
+        patterns:
+          - include: '#escaping'
+  
+  escaping:
+    patterns:
+      - comment: Variable escaping
+        name: string.interpolated.escaping.just
+        match: "(?<!\\{)(\\{\\{)\\{?(?!\\{)(.*?)(\\}\\})"
+        captures:
+          "1":
+            name: string.interpolated.escape.just
+          "2":
+            patterns:
+              - include: '#constants'
+              - include: '#keywords'
+              - include: '#operators'
+              - include: '#builtins'
+              - include: '#backtick'
+              - include: '#strings'
+          "3":
+            name: string.interpolated.escape.just
+  
+  recipe-attributes:
+    comment: Recipe attributes
+    match: "^\\[(.*)]\\s*$"
+    captures:
+      "1":
+        patterns:
+          - comment: Attribute name
+            name: support.function.system.just
+            match: "(confirm|linux|macos|no\\-cd|no\\-exit\\-message|private|no\\-quiet|unix|windows)"
+          - include: "#strings"
+  
+  recipe-params:
+    comment: Recipe parameters
+    match: "(?:(\\+|\\*|\\$)?([a-zA-Z_][a-zA-Z_0-9]*)(?:(=)(?:[a-zA-Z_][a-zA-Z_0-9]*|(\".*?\"|'.*?')|(`.*?`)|(\\((?:[^()]+|\\([^)]*\\))*\\))))?)"
+    captures:
+      "1":
+        name: keyword.other.recipe.variadic.just
+      "2":
+        name: variable.parameter.recipe.just
+      "3":
+        name: keyword.operator.default.just
+      "4":
+        patterns:
+          - include: "#strings"
+      "5":
+        patterns:
+          - include: "#inline-shell"
+      "6":
+        patterns:
+          - include: "#parenthesis-block"
+  
+  recipe-dependencies:
+    comment: Recipe dependencies
+    match: "(?:([a-zA-Z_][a-zA-Z0-9_\\-]*)|(\\((?:[^()]+|\\([^)]*\\))*\\))|(&&))"
+    captures:
+      "1":
+        name: entity.name.function.just
+      "2":
+        patterns:
+          - comment: Recipe with default values
+            match: "\\((?:([a-zA-Z_][a-zA-Z0-9_\\-]*)(.*))\\)"
+            captures:
+              "1":
+                name: entity.name.function.just
+              "2":
+                patterns:
+                  - include: "#builtin-functions"
+                  - include: "#constants"
+                  - include: "#inline-shell"
+                  - include: "#keywords"
+                  - include: '#operators'
+                  - include: "#strings"
+      "3":
+        name: keyword.operator.and.just
+  
+  recipes:
+    patterns:
+      - include: '#recipe-attributes'
+      - comment: Recipe defintition
+        match: "^(@_|_@|@|_)?([a-zA-Z][a-zA-Z_\\-]*)(?:\\s+(.*))?\\s*(:)(.*)"
+        captures:
+          "1":
+            name: keyword.other.recipe.prefix.just
+          "2":
+              name: entity.name.function.just
+          "3":
+            patterns:
+              - include: "#recipe-params"
+          "4":
+            name: keyword.operator.recipe.end.just
+          "5":
+            patterns:
+              - include: "#recipe-dependencies"
+  
+  parenthesis-block:
+    comment: Any block of just code surrounded by (...)
+    match: "\\((.*?)\\)"
+    captures:
+      "1":
+        patterns:
+          - include: '#builtins'
+          - include: '#constants'
+          - include: '#keywords'
+          - include: '#operators'
+          - include: '#backtick'
+          - include: '#strings'
+
+
+        
+
