@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Recipe names with numbers highlight correctly
+
 ## [0.2.0] - 2024-03-16
 
 ### Added
