@@ -1,0 +1,4 @@
+{
+  // Disable bracket colorization for testing
+  "editor.bracketPairColorization.enabled": false
+}
