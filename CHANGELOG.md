@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.2.1] - 2024-03-31
+
 ### Fixed
 
 - Recipe names with numbers highlight correctly
