@@ -49,6 +49,7 @@
   "devDependencies": {
     "@vscode/vsce": "^2.22.0",
     "js-yaml": "^4.1.0",
-    "prettier": "^3.2.4"
+    "prettier": "^3.2.4",
+    "vscode-tmgrammar-test": "^0.1.3"
   }
 }
