@@ -10,8 +10,8 @@
         "eamodio.gitlens",
         "esbenp.prettier-vscode",
         "ms-vscode.extension-test-runner",
-        "redhat.vscode-yaml",
-      ],
-    },
-  },
+        "redhat.vscode-yaml"
+      ]
+    }
+  }
 }

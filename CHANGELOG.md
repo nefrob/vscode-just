@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add simple syntax token snapshot tests
+
 ## [0.2.1] - 2024-03-31
 
 ### Fixed
