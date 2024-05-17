@@ -1,0 +1,1095 @@
+># Syntax highlighting tests
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+># This file is likely not valid to actually be run
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+># Examples are generally copied from the just documentation
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+># Aliases
+#^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>alias b := build
+#^^^^^ source.just keyword.other.assignment.just
+#     ^ source.just
+#      ^ source.just variable.other.just
+#       ^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^^^^^^^ source.just
+>
+>build:
+#^^^^^ source.just entity.name.function.just
+#     ^ source.just keyword.operator.recipe.end.just
+>  echo 'Building!'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^^^^^^^^ source.just string.quoted.single.just
+#                 ^ source.just string.quoted.single.just
+>
+># Settings
+#^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>set allow-duplicate-recipes := false
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.language.setting.just
+#                           ^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^^^^^ source.just constant.language.boolean.just
+>
+># Variables and substitution
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>tmpdir  := `mktemp -d`
+#^^^^^^ source.just variable.other.just
+#      ^^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.interpolated.just
+#            ^^^^^^^^^ source.just source.shell
+#                     ^ source.just string.interpolated.just
+>version := "0.2.7"
+#^^^^^^^ source.just variable.other.just
+#       ^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.quoted.double.just
+#            ^^^^^ source.just string.quoted.double.just
+#                 ^ source.just string.quoted.double.just
+>tardir  := tmpdir / "awesomesauce-" + version
+#^^^^^^ source.just variable.other.just
+#      ^^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^^^^^^^^ source.just
+#                  ^ source.just keyword.operator.path-join.just
+#                   ^ source.just
+#                    ^ source.just string.quoted.double.just
+#                     ^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                                  ^ source.just string.quoted.double.just
+#                                   ^ source.just
+#                                    ^ source.just keyword.operator.concat.just
+#                                     ^^^^^^^^^ source.just
+>tarball := tardir + ".tar.gz"
+#^^^^^^^ source.just variable.other.just
+#       ^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^^^^^^^^ source.just
+#                  ^ source.just keyword.operator.concat.just
+#                   ^ source.just
+#                    ^ source.just string.quoted.double.just
+#                     ^^^^^^^ source.just string.quoted.double.just
+#                            ^ source.just string.quoted.double.just
+>
+>publish:
+#^^^^^^^ source.just entity.name.function.just
+#       ^ source.just keyword.operator.recipe.end.just
+>  rm -f {{tarball}}
+#^^^^^^^^ source.just
+#        ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#          ^^^^^^^ source.just string.interpolated.escaping.just
+#                 ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  mkdir {{tardir}}
+#^^^^^^^^ source.just
+#        ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#          ^^^^^^ source.just string.interpolated.escaping.just
+#                ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  cp README.md *.c {{tardir}}
+#^^^^^^^^^^^^^^^^^^^ source.just
+#                   ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                     ^^^^^^ source.just string.interpolated.escaping.just
+#                           ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  tar zcvf {{tarball}} {{tardir}}
+#^^^^^^^^^^^ source.just
+#           ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#             ^^^^^^^ source.just string.interpolated.escaping.just
+#                    ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                      ^ source.just
+#                       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                         ^^^^^^ source.just string.interpolated.escaping.just
+#                               ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  scp {{tarball}} me@server.com:release/
+#^^^^^^ source.just
+#      ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#        ^^^^^^^ source.just string.interpolated.escaping.just
+#               ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                 ^^^^^^^^^^^^^^^^^^^^^^ source.just
+#                                       ^ source.just keyword.operator.path-join.just
+>  rm -rf {{tarball}} {{tardir}}
+#^^^^^^^^^ source.just
+#         ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#           ^^^^^^^ source.just string.interpolated.escaping.just
+#                  ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                    ^ source.just
+#                     ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                       ^^^^^^ source.just string.interpolated.escaping.just
+#                             ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>
+>export RUST_BACKTRACE := "1"
+#^^^^^^ source.just keyword.other.assignment.just
+#      ^ source.just
+#       ^^^^^^^^^^^^^^ source.just variable.other.just
+#                     ^ source.just
+#                      ^^ source.just keyword.operator.assignment.just
+#                        ^ source.just
+#                         ^ source.just string.quoted.double.just
+#                          ^ source.just string.quoted.double.just
+#                           ^ source.just string.quoted.double.just
+>
+>foo := "a/"
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^ source.just string.quoted.double.just
+#        ^^ source.just string.quoted.double.just
+#          ^ source.just string.quoted.double.just
+>bar := foo / "b"
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^^^^^ source.just
+#           ^ source.just keyword.operator.path-join.just
+#            ^ source.just
+#             ^ source.just string.quoted.double.just
+#              ^ source.just string.quoted.double.just
+#               ^ source.just string.quoted.double.just
+>
+>braces:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>  echo 'I {{{{LOVE}} curly braces!'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                  ^ source.just string.quoted.single.just
+>
+>braces:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>  echo '{{'I {{LOVE}} curly braces!'}}'
+#^^^^^^^ source.just
+#       ^^^^ source.just string.quoted.double.indented.just
+#           ^^ source.just
+#             ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#               ^^^^ source.just string.interpolated.escaping.just
+#                   ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                     ^^^^^^^^^^^^^^ source.just
+#                                   ^ source.just string.quoted.single.just
+#                                    ^^ source.just string.quoted.single.just
+#                                      ^ source.just string.quoted.single.just
+>
+>braces:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>  echo 'I {{ "{{" }}LOVE}} curly braces!'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^ source.just string.quoted.single.just
+#          ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#            ^ source.just string.quoted.single.just string.interpolated.escaping.just
+#             ^^^^ source.just string.quoted.single.just string.interpolated.escaping.just string.quoted.double.indented.just
+#                 ^ source.just string.quoted.single.just string.interpolated.escaping.just
+#                  ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                    ^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                        ^ source.just string.quoted.single.just
+>
+># Strings
+#^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>string-with-tab             := "\t"
+#^^^^^^^^^^^^^^^ source.just variable.other.just
+#               ^^^^^^^^^^^^^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just constant.character.escape.just
+#                                  ^ source.just string.quoted.double.just
+>string-with-newline         := "\n"
+#^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                   ^^^^^^^^^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just constant.character.escape.just
+#                                  ^ source.just string.quoted.double.just
+>string-with-carriage-return := "\r"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                           ^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just constant.character.escape.just
+#                                  ^ source.just string.quoted.double.just
+>string-with-double-quote    := "\""
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                        ^^^^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just constant.character.escape.just
+#                                  ^ source.just string.quoted.double.just
+>string-with-slash           := "\\"
+#^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                 ^^^^^^^^^^^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just constant.character.escape.just
+#                                  ^ source.just string.quoted.double.just
+>string-with-no-newline      := "\
+#^^^^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                      ^^^^^^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just
+>"
+#^ source.just string.quoted.double.just
+>
+>single := '
+#^^^^^^ source.just variable.other.just
+#      ^ source.just
+#       ^^ source.just keyword.operator.assignment.just
+#         ^ source.just
+#          ^ source.just string.quoted.single.just
+>hello
+#^^^^^^ source.just string.quoted.single.just
+>'
+#^ source.just string.quoted.single.just
+>
+>double := "
+#^^^^^^ source.just variable.other.just
+#      ^ source.just
+#       ^^ source.just keyword.operator.assignment.just
+#         ^ source.just
+#          ^ source.just string.quoted.double.just
+>goodbye
+#^^^^^^^^ source.just string.quoted.double.just
+>"
+#^ source.just string.quoted.double.just
+>
+>escapes := '\t\n\r\"\\'
+#^^^^^^^ source.just variable.other.just
+#       ^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.quoted.single.just
+#            ^^^^^^^^^^ source.just string.quoted.single.just
+#                      ^ source.just string.quoted.single.just
+>
+>x := '''
+#^ source.just variable.other.just
+# ^ source.just
+#  ^^ source.just keyword.operator.assignment.just
+#    ^ source.just
+#     ^^^ source.just string.quoted.single.indented.just
+>  foo
+#^^^^^^ source.just string.quoted.single.indented.just
+>  bar
+#^^^^^^ source.just string.quoted.single.indented.just
+>'''
+#^^^ source.just string.quoted.single.indented.just
+>
+># this string will evaluate to `abc\n  wuv\nxyz\n`
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>y := """
+#^ source.just variable.other.just
+# ^ source.just
+#  ^^ source.just keyword.operator.assignment.just
+#    ^ source.just
+#     ^^^ source.just string.quoted.double.indented.just
+>  abc
+#^^^^^^ source.just string.quoted.double.indented.just
+>    wuv
+#^^^^^^^^ source.just string.quoted.double.indented.just
+>  xyz
+#^^^^^^ source.just string.quoted.double.indented.just
+>"""
+#^^^ source.just string.quoted.double.indented.just
+>
+># Functions
+#^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>system-info:
+#^^^^^^^^^^^ source.just entity.name.function.just
+#           ^ source.just keyword.operator.recipe.end.just
+>  @echo "This is an {{arch()}} machine".
+#^^ source.just
+#  ^ source.just keyword.operator.quiet.just
+#   ^^^^^ source.just
+#        ^ source.just string.quoted.double.just
+#         ^^^^^^^^^^^ source.just string.quoted.double.just
+#                    ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
+#                      ^^^^ source.just string.quoted.double.just string.interpolated.escaping.just support.function.builtin.just
+#                          ^^ source.just string.quoted.double.just string.interpolated.escaping.just
+#                            ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
+#                              ^^^^^^^^ source.just string.quoted.double.just
+#                                      ^ source.just string.quoted.double.just
+#                                       ^^ source.just
+>
+>home_dir := env_var('HOME')
+#^^^^^^^^ source.just variable.other.just
+#        ^ source.just
+#         ^^ source.just keyword.operator.assignment.just
+#           ^ source.just
+#            ^^^^^^^ source.just support.function.builtin.just
+#                   ^ source.just
+#                    ^ source.just string.quoted.single.just
+#                     ^^^^ source.just string.quoted.single.just
+#                         ^ source.just string.quoted.single.just
+#                          ^ source.just
+>
+># Recipe attributes
+#^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>[no-cd]
+#^ source.just
+# ^^^^^ source.just support.function.system.just
+#      ^^ source.just
+>[private]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^^ source.just
+>foo:
+#^^^ source.just entity.name.function.just
+#   ^ source.just keyword.operator.recipe.end.just
+>    echo "foo"
+#^^^^^^^^^ source.just
+#         ^ source.just string.quoted.double.just
+#          ^^^ source.just string.quoted.double.just
+#             ^ source.just string.quoted.double.just
+>
+>[no-cd, private]
+#^ source.just
+# ^^^^^ source.just support.function.system.just
+#      ^^ source.just
+#        ^^^^^^^ source.just support.function.system.just
+#               ^^ source.just
+>foo:
+#^^^ source.just entity.name.function.just
+#   ^ source.just keyword.operator.recipe.end.just
+>    echo "foo"
+#^^^^^^^^^ source.just
+#         ^ source.just string.quoted.double.just
+#          ^^^ source.just string.quoted.double.just
+#             ^ source.just string.quoted.double.just
+>
+>[confirm("Are you sure you want to delete everything?")]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^ source.just
+#         ^ source.just string.quoted.double.just
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                                                     ^ source.just string.quoted.double.just
+#                                                      ^ source.just
+#                                                       ^^ source.just
+>delete-everything:
+#^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                 ^ source.just keyword.operator.recipe.end.just
+>  rm -rf *
+#^^^^^^^^^^^ source.just
+>
+># Command evaluation
+#^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>localhost := `dumpinterfaces | cut -d: -f2 | sed 's/\/.*//' | sed 's/ //g'`
+#^^^^^^^^^ source.just variable.other.just
+#         ^ source.just
+#          ^^ source.just keyword.operator.assignment.just
+#            ^ source.just
+#             ^ source.just string.interpolated.just
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just source.shell
+#                                                                          ^ source.just string.interpolated.just
+>
+>serve:
+#^^^^^ source.just entity.name.function.just
+#     ^ source.just keyword.operator.recipe.end.just
+>  ./serve {{localhost}} 8080
+#^^^ source.just
+#   ^ source.just keyword.operator.path-join.just
+#    ^^^^^^ source.just
+#          ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#            ^^^^^^^^^ source.just string.interpolated.escaping.just
+#                     ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                       ^ source.just
+#                        ^^^^ source.just constant.language.integer.just
+>
+>stuff := ```
+#^^^^^ source.just variable.other.just
+#     ^ source.just
+#      ^^ source.just keyword.operator.assignment.just
+#        ^ source.just
+#         ^ source.just string.interpolated.just
+#          ^ source.just string.interpolated.just
+#           ^^ source.just
+>    echo foo
+#^^^^^^^^^^^^^ source.just
+>    echo bar
+#^^^^^^^^^^^^^ source.just
+>  ```
+#^^ source.just
+#  ^ source.just string.interpolated.just
+#   ^ source.just string.interpolated.just
+#    ^^ source.just
+>
+># Conditional expressions
+#^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>foo := if "2" == "2" { "Good!" } else { "1984" }
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^^ source.just keyword.control.conditional.just
+#         ^ source.just
+#          ^ source.just string.quoted.double.just
+#           ^ source.just string.quoted.double.just
+#            ^ source.just string.quoted.double.just
+#             ^ source.just
+#              ^^ source.just keyword.operator.equality.just
+#                ^ source.just
+#                 ^ source.just string.quoted.double.just
+#                  ^ source.just string.quoted.double.just
+#                   ^ source.just string.quoted.double.just
+#                    ^^^ source.just
+#                       ^ source.just string.quoted.double.just
+#                        ^^^^^ source.just string.quoted.double.just
+#                             ^ source.just string.quoted.double.just
+#                              ^^^ source.just
+#                                 ^^^^ source.just keyword.control.conditional.just
+#                                     ^^^ source.just
+#                                        ^ source.just string.quoted.double.just
+#                                         ^^^^ source.just string.quoted.double.just
+#                                             ^ source.just string.quoted.double.just
+#                                              ^^^ source.just
+>foo := if "hello" != "goodbye" { "xyz" } else { "abc" }
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^^ source.just keyword.control.conditional.just
+#         ^ source.just
+#          ^ source.just string.quoted.double.just
+#           ^^^^^ source.just string.quoted.double.just
+#                ^ source.just string.quoted.double.just
+#                 ^ source.just
+#                  ^^ source.just keyword.operator.equality.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.double.just
+#                      ^^^^^^^ source.just string.quoted.double.just
+#                             ^ source.just string.quoted.double.just
+#                              ^^^ source.just
+#                                 ^ source.just string.quoted.double.just
+#                                  ^^^ source.just string.quoted.double.just
+#                                     ^ source.just string.quoted.double.just
+#                                      ^^^ source.just
+#                                         ^^^^ source.just keyword.control.conditional.just
+#                                             ^^^ source.just
+#                                                ^ source.just string.quoted.double.just
+#                                                 ^^^ source.just string.quoted.double.just
+#                                                    ^ source.just string.quoted.double.just
+#                                                     ^^^ source.just
+>foo := if "hello" =~ 'hel+o' { "match" } else { "mismatch" }
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^^ source.just keyword.control.conditional.just
+#         ^ source.just
+#          ^ source.just string.quoted.double.just
+#           ^^^^^ source.just string.quoted.double.just
+#                ^ source.just string.quoted.double.just
+#                 ^ source.just
+#                  ^^ source.just keyword.operator.equality.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.single.just
+#                      ^^^^^ source.just string.quoted.single.just
+#                           ^ source.just string.quoted.single.just
+#                            ^^^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^^^^ source.just string.quoted.double.just
+#                                     ^ source.just string.quoted.double.just
+#                                      ^^^ source.just
+#                                         ^^^^ source.just keyword.control.conditional.just
+#                                             ^^^ source.just
+#                                                ^ source.just string.quoted.double.just
+#                                                 ^^^^^^^^ source.just string.quoted.double.just
+#                                                         ^ source.just string.quoted.double.just
+#                                                          ^^^ source.just
+>foo := if env_var("RELEASE") == "true" { `get-something-from-release-database` } else { "dummy-value" }
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^^ source.just keyword.control.conditional.just
+#         ^ source.just
+#          ^^^^^^^ source.just support.function.builtin.just
+#                 ^ source.just
+#                  ^ source.just string.quoted.double.just
+#                   ^^^^^^^ source.just string.quoted.double.just
+#                          ^ source.just string.quoted.double.just
+#                           ^ source.just
+#                            ^ source.just
+#                             ^^ source.just keyword.operator.equality.just
+#                               ^ source.just
+#                                ^ source.just string.quoted.double.just
+#                                 ^^^^ source.just string.quoted.double.just
+#                                     ^ source.just string.quoted.double.just
+#                                      ^^^ source.just
+#                                         ^ source.just string.interpolated.just
+#                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just source.shell
+#                                                                             ^ source.just string.interpolated.just
+#                                                                              ^^^ source.just
+#                                                                                 ^^^^ source.just keyword.control.conditional.just
+#                                                                                     ^^^ source.just
+#                                                                                        ^ source.just string.quoted.double.just
+#                                                                                         ^^^^^^^^^^^ source.just string.quoted.double.just
+#                                                                                                    ^ source.just string.quoted.double.just
+#                                                                                                     ^^^ source.just
+>foo := if "hello" == "goodbye" {
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^^ source.just keyword.control.conditional.just
+#         ^ source.just
+#          ^ source.just string.quoted.double.just
+#           ^^^^^ source.just string.quoted.double.just
+#                ^ source.just string.quoted.double.just
+#                 ^ source.just
+#                  ^^ source.just keyword.operator.equality.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.double.just
+#                      ^^^^^^^ source.just string.quoted.double.just
+#                             ^ source.just string.quoted.double.just
+#                              ^^^ source.just
+>  "xyz"
+#^^ source.just
+#  ^ source.just string.quoted.double.just
+#   ^^^ source.just string.quoted.double.just
+#      ^ source.just string.quoted.double.just
+>} else if "a" == "a" {
+#^^ source.just
+#  ^^^^ source.just keyword.control.conditional.just
+#      ^ source.just
+#       ^^ source.just keyword.control.conditional.just
+#         ^ source.just
+#          ^ source.just string.quoted.double.just
+#           ^ source.just string.quoted.double.just
+#            ^ source.just string.quoted.double.just
+#             ^ source.just
+#              ^^ source.just keyword.operator.equality.just
+#                ^ source.just
+#                 ^ source.just string.quoted.double.just
+#                  ^ source.just string.quoted.double.just
+#                   ^ source.just string.quoted.double.just
+#                    ^^^ source.just
+>  "abc"
+#^^ source.just
+#  ^ source.just string.quoted.double.just
+#   ^^^ source.just string.quoted.double.just
+#      ^ source.just string.quoted.double.just
+>} else {
+#^^ source.just
+#  ^^^^ source.just keyword.control.conditional.just
+#      ^^^ source.just
+>  "123"
+#^^ source.just
+#  ^ source.just string.quoted.double.just
+#   ^^^ source.just string.quoted.double.just
+#      ^ source.just string.quoted.double.just
+>}
+#^^ source.just
+>
+># Recipes
+#^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>default: (build "main")
+#^^^^^^^ source.just entity.name.function.just
+#       ^ source.just keyword.operator.recipe.end.just
+#        ^ source.just
+#         ^ source.just
+#          ^^^^^ source.just entity.name.function.just
+#               ^ source.just
+#                ^ source.just string.quoted.double.just
+#                 ^^^^ source.just string.quoted.double.just
+#                     ^ source.just string.quoted.double.just
+#                      ^ source.just
+>
+>build target:
+#^^^^^ source.just entity.name.function.just
+#     ^ source.just
+#      ^^^^^^ source.just variable.parameter.recipe.just
+#            ^ source.just keyword.operator.recipe.end.just
+>  @echo 'Building {{target}}…'
+#^^ source.just
+#  ^ source.just keyword.operator.quiet.just
+#   ^^^^^ source.just
+#        ^ source.just string.quoted.single.just
+#         ^^^^^^^^^ source.just string.quoted.single.just
+#                  ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                    ^^^^^^ source.just string.quoted.single.just string.interpolated.escaping.just
+#                          ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                            ^ source.just string.quoted.single.just
+#                             ^ source.just string.quoted.single.just
+>  cd {{target}} && make
+#^^^^^ source.just
+#     ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#       ^^^^^^ source.just string.interpolated.escaping.just
+#             ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#               ^ source.just
+#                ^^ source.just keyword.operator.and.just
+#                  ^^^^^^ source.just
+>
+>foo:
+#^^^ source.just entity.name.function.just
+#   ^ source.just keyword.operator.recipe.end.just
+>  -cat foo
+#^^ source.just
+#  ^ source.just keyword.operator.error-suppression.just
+#   ^^^^^^^^ source.just
+>  echo 'Done!'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^^^^ source.just string.quoted.single.just
+#             ^ source.just string.quoted.single.just
+>
+>build target:
+#^^^^^ source.just entity.name.function.just
+#     ^ source.just
+#      ^^^^^^ source.just variable.parameter.recipe.just
+#            ^ source.just keyword.operator.recipe.end.just
+>  @echo "Building {{target}}…"
+#^^ source.just
+#  ^ source.just keyword.operator.quiet.just
+#   ^^^^^ source.just
+#        ^ source.just string.quoted.double.just
+#         ^^^^^^^^^ source.just string.quoted.double.just
+#                  ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
+#                    ^^^^^^ source.just string.quoted.double.just string.interpolated.escaping.just
+#                          ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
+#                            ^ source.just string.quoted.double.just
+#                             ^ source.just string.quoted.double.just
+>
+>push target: (build target)
+#^^^^ source.just entity.name.function.just
+#    ^ source.just
+#     ^^^^^^ source.just variable.parameter.recipe.just
+#           ^ source.just keyword.operator.recipe.end.just
+#            ^ source.just
+#             ^ source.just
+#              ^^^^^ source.just entity.name.function.just
+#                   ^^^^^^^ source.just
+#                          ^ source.just
+>  @echo 'Pushing {{target}}…'
+#^^ source.just
+#  ^ source.just keyword.operator.quiet.just
+#   ^^^^^ source.just
+#        ^ source.just string.quoted.single.just
+#         ^^^^^^^^ source.just string.quoted.single.just
+#                 ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                   ^^^^^^ source.just string.quoted.single.just string.interpolated.escaping.just
+#                         ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                           ^ source.just string.quoted.single.just
+#                            ^ source.just string.quoted.single.just
+>
+># Extra
+#^^^^^^^ source.just comment.line.number-sign.just
+>
+>test: lint && (build ("a" + ("b" / "c"))) && test
+#^^^^ source.just entity.name.function.just
+#    ^ source.just keyword.operator.recipe.end.just
+#     ^ source.just
+#      ^^^^ source.just entity.name.function.just
+#          ^ source.just
+#           ^^ source.just keyword.operator.and.just
+#             ^ source.just
+#              ^ source.just
+#               ^^^^^ source.just entity.name.function.just
+#                    ^^ source.just
+#                      ^ source.just string.quoted.double.just
+#                       ^ source.just string.quoted.double.just
+#                        ^ source.just string.quoted.double.just
+#                         ^ source.just
+#                          ^ source.just keyword.operator.concat.just
+#                           ^^ source.just
+#                             ^ source.just string.quoted.double.just
+#                              ^ source.just string.quoted.double.just
+#                               ^ source.just string.quoted.double.just
+#                                ^ source.just
+#                                 ^ source.just keyword.operator.path-join.just
+#                                  ^ source.just
+#                                   ^ source.just string.quoted.double.just
+#                                    ^ source.just string.quoted.double.just
+#                                     ^ source.just string.quoted.double.just
+#                                      ^ source.just
+#                                       ^ source.just
+#                                        ^^ source.just
+#                                          ^^ source.just keyword.operator.and.just
+#                                            ^ source.just
+#                                             ^^^^ source.just entity.name.function.just
+>  @echo "test"
+#^^ source.just
+#  ^ source.just keyword.operator.quiet.just
+#   ^^^^^ source.just
+#        ^ source.just string.quoted.double.just
+#         ^^^^ source.just string.quoted.double.just
+#             ^ source.just string.quoted.double.just
+>
+>default := 'all'
+#^^^^^^^ source.just variable.other.just
+#       ^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.quoted.single.just
+#            ^^^ source.just string.quoted.single.just
+#               ^ source.just string.quoted.single.just
+>
+>test target tests=default:
+#^^^^ source.just entity.name.function.just
+#    ^ source.just
+#     ^^^^^^ source.just variable.parameter.recipe.just
+#           ^ source.just
+#            ^^^^^ source.just variable.parameter.recipe.just
+#                 ^ source.just keyword.operator.default.just
+#                  ^^^^^^^ source.just
+#                         ^ source.just keyword.operator.recipe.end.just
+>  @echo 'Testing {{target}}:{{tests}}…'
+#^^ source.just
+#  ^ source.just keyword.operator.quiet.just
+#   ^^^^^ source.just
+#        ^ source.just string.quoted.single.just
+#         ^^^^^^^^ source.just string.quoted.single.just
+#                 ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                   ^^^^^^ source.just string.quoted.single.just string.interpolated.escaping.just
+#                         ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                           ^ source.just string.quoted.single.just
+#                            ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                              ^^^^^ source.just string.quoted.single.just string.interpolated.escaping.just
+#                                   ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                                     ^ source.just string.quoted.single.just
+#                                      ^ source.just string.quoted.single.just
+>  ./test --tests {{tests}} {{target}}
+#^^^ source.just
+#   ^ source.just keyword.operator.path-join.just
+#    ^^^^^^^^^^^^^ source.just
+#                 ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                   ^^^^^ source.just string.interpolated.escaping.just
+#                        ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                          ^ source.just
+#                           ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                             ^^^^^^ source.just string.interpolated.escaping.just
+#                                   ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>
+>test triple=(arch + "-unknown-unknown") input=(arch / "input.dat"):
+#^^^^ source.just entity.name.function.just
+#    ^ source.just
+#     ^^^^^^ source.just variable.parameter.recipe.just
+#           ^ source.just keyword.operator.default.just
+#            ^ source.just
+#             ^^^^ source.just support.function.builtin.just
+#                 ^ source.just
+#                  ^ source.just keyword.operator.concat.just
+#                   ^ source.just
+#                    ^ source.just string.quoted.double.just
+#                     ^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                                     ^ source.just string.quoted.double.just
+#                                      ^ source.just
+#                                       ^ source.just
+#                                        ^^^^^ source.just variable.parameter.recipe.just
+#                                             ^ source.just keyword.operator.default.just
+#                                              ^ source.just
+#                                               ^^^^ source.just support.function.builtin.just
+#                                                   ^ source.just
+#                                                    ^ source.just keyword.operator.path-join.just
+#                                                     ^ source.just
+#                                                      ^ source.just string.quoted.double.just
+#                                                       ^^^^^^^^^ source.just string.quoted.double.just
+#                                                                ^ source.just string.quoted.double.just
+#                                                                 ^ source.just
+#                                                                  ^ source.just keyword.operator.recipe.end.just
+>  ./test {{triple}}
+#^^^ source.just
+#   ^ source.just keyword.operator.path-join.just
+#    ^^^^^ source.just
+#         ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#           ^^^^^^ source.just string.interpolated.escaping.just
+#                 ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>
+># Extra case
+#^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>test nested=("a" + ("b" + "c")):
+#^^^^ source.just entity.name.function.just
+#    ^ source.just
+#     ^^^^^^ source.just variable.parameter.recipe.just
+#           ^ source.just keyword.operator.default.just
+#            ^ source.just
+#             ^ source.just string.quoted.double.just
+#              ^ source.just string.quoted.double.just
+#               ^ source.just string.quoted.double.just
+#                ^ source.just
+#                 ^ source.just keyword.operator.concat.just
+#                  ^^ source.just
+#                    ^ source.just string.quoted.double.just
+#                     ^ source.just string.quoted.double.just
+#                      ^ source.just string.quoted.double.just
+#                       ^ source.just
+#                        ^ source.just keyword.operator.concat.just
+#                         ^ source.just
+#                          ^ source.just string.quoted.double.just
+#                           ^ source.just string.quoted.double.just
+#                            ^ source.just string.quoted.double.just
+#                             ^ source.just
+#                              ^ source.just
+#                               ^ source.just keyword.operator.recipe.end.just
+>  ./test {{nested}}
+#^^^ source.just
+#   ^ source.just keyword.operator.path-join.just
+#    ^^^^^ source.just
+#         ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#           ^^^^^^ source.just string.interpolated.escaping.just
+#                 ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  echo (("a") + ("b" + "c"))
+#^^^^^^^ source.just
+#       ^ source.just
+#        ^ source.just
+#         ^ source.just string.quoted.double.just
+#          ^ source.just string.quoted.double.just
+#           ^ source.just string.quoted.double.just
+#            ^ source.just
+#             ^ source.just
+#              ^ source.just keyword.operator.concat.just
+#               ^ source.just
+#                ^ source.just
+#                 ^ source.just string.quoted.double.just
+#                  ^ source.just string.quoted.double.just
+#                   ^ source.just string.quoted.double.just
+#                    ^ source.just
+#                     ^ source.just keyword.operator.concat.just
+#                      ^ source.just
+#                       ^ source.just string.quoted.double.just
+#                        ^ source.just string.quoted.double.just
+#                         ^ source.just string.quoted.double.just
+#                          ^ source.just
+#                           ^^ source.just
+>
+>commit MESSAGE *FLAGS:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just
+#       ^^^^^^^ source.just variable.parameter.recipe.just
+#              ^ source.just
+#               ^ source.just keyword.other.recipe.variadic.just
+#                ^^^^^ source.just variable.parameter.recipe.just
+#                     ^ source.just keyword.operator.recipe.end.just
+>  git commit {{FLAGS}} -m "{{MESSAGE}}"
+#^^^^^^^^^^^^^ source.just
+#             ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#               ^^^^^ source.just string.interpolated.escaping.just
+#                    ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                      ^^^^ source.just
+#                          ^ source.just string.quoted.double.just
+#                           ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
+#                             ^^^^^^^ source.just string.quoted.double.just string.interpolated.escaping.just
+#                                    ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
+#                                      ^ source.just string.quoted.double.just
+>
+>test +FLAGS='-q':
+#^^^^ source.just entity.name.function.just
+#    ^ source.just
+#     ^ source.just keyword.other.recipe.variadic.just
+#      ^^^^^ source.just variable.parameter.recipe.just
+#           ^ source.just keyword.operator.default.just
+#            ^ source.just string.quoted.single.just
+#             ^^ source.just string.quoted.single.just
+#               ^ source.just string.quoted.single.just
+#                ^ source.just keyword.operator.recipe.end.just
+>  cargo test {{FLAGS}}
+#^^^^^^^^^^^^^ source.just
+#             ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#               ^^^^^ source.just string.interpolated.escaping.just
+#                    ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>
+>foo $bar:
+#^^^ source.just entity.name.function.just
+#   ^ source.just
+#    ^ source.just keyword.other.recipe.variadic.just
+#     ^^^ source.just variable.parameter.recipe.just
+#        ^ source.just keyword.operator.recipe.end.just
+>  echo $bar
+#^^^^^^^^^^^^ source.just
+>
+>a:
+#^ source.just entity.name.function.just
+# ^ source.just keyword.operator.recipe.end.just
+>  echo 'A!'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^ source.just string.quoted.single.just
+#          ^ source.just string.quoted.single.just
+>
+>b: a && c d
+#^ source.just entity.name.function.just
+# ^ source.just keyword.operator.recipe.end.just
+#  ^ source.just
+#   ^ source.just entity.name.function.just
+#    ^ source.just
+#     ^^ source.just keyword.operator.and.just
+#       ^ source.just
+#        ^ source.just entity.name.function.just
+#         ^ source.just
+#          ^ source.just entity.name.function.just
+>  echo 'B!'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^ source.just string.quoted.single.just
+#          ^ source.just string.quoted.single.just
+>
+>c:
+#^ source.just entity.name.function.just
+# ^ source.just keyword.operator.recipe.end.just
+>  echo 'C!'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^ source.just string.quoted.single.just
+#          ^ source.just string.quoted.single.just
+>
+>d:
+#^ source.just entity.name.function.just
+# ^ source.just keyword.operator.recipe.end.just
+>  echo 'D!'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^ source.just string.quoted.single.just
+#          ^ source.just string.quoted.single.just
+>
+>@quiet:
+#^ source.just keyword.other.recipe.prefix.just
+# ^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>  echo hello
+#^^^^^^^^^^^^^ source.just
+>  echo goodbye
+#^^^^^^^^^^^^^^^ source.just
+>  @# all done!
+#^^ source.just
+#  ^ source.just keyword.operator.quiet.just
+#   ^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+># Embedded languages
+#^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>python:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>  #!/usr/bin/env python3
+#^^^^ source.just
+#    ^ source.just keyword.operator.path-join.just
+#     ^^^ source.just
+#        ^ source.just keyword.operator.path-join.just
+#         ^^^ source.just
+#            ^ source.just keyword.operator.path-join.just
+#             ^^^ source.just support.function.builtin.just
+#                ^^^^^^^^^ source.just
+>  print('Hello from python!')
+#^^^^^^^ source.just
+#       ^ source.just
+#        ^ source.just string.quoted.single.just
+#         ^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                           ^ source.just string.quoted.single.just
+#                            ^ source.just
+>
+>js:
+#^^ source.just entity.name.function.just
+#  ^ source.just keyword.operator.recipe.end.just
+>  #!/usr/bin/env node
+#^^^^ source.just
+#    ^ source.just keyword.operator.path-join.just
+#     ^^^ source.just
+#        ^ source.just keyword.operator.path-join.just
+#         ^^^ source.just
+#            ^ source.just keyword.operator.path-join.just
+#             ^^^ source.just support.function.builtin.just
+#                ^^^^^^ source.just
+>  console.log('Greetings from JavaScript!')
+#^^^^^^^^^^^^^ source.just
+#             ^ source.just
+#              ^ source.just string.quoted.single.just
+#               ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                         ^ source.just string.quoted.single.just
+#                                          ^ source.just
+>
+>perl:
+#^^^^ source.just entity.name.function.just
+#    ^ source.just keyword.operator.recipe.end.just
+>  #!/usr/bin/env perl
+#^^^^ source.just
+#    ^ source.just keyword.operator.path-join.just
+#     ^^^ source.just
+#        ^ source.just keyword.operator.path-join.just
+#         ^^^ source.just
+#            ^ source.just keyword.operator.path-join.just
+#             ^^^ source.just support.function.builtin.just
+#                ^^^^^^ source.just
+>  print "Larry Wall says Hi!\n";
+#^^^^^^^^ source.just
+#        ^ source.just string.quoted.double.just
+#         ^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                            ^^ source.just string.quoted.double.just constant.character.escape.just
+#                              ^ source.just string.quoted.double.just
+#                               ^^ source.just
+>
+>sh:
+#^^ source.just entity.name.function.just
+#  ^ source.just keyword.operator.recipe.end.just
+>  #!/usr/bin/env sh
+#^^^^ source.just
+#    ^ source.just keyword.operator.path-join.just
+#     ^^^ source.just
+#        ^ source.just keyword.operator.path-join.just
+#         ^^^ source.just
+#            ^ source.just keyword.operator.path-join.just
+#             ^^^ source.just support.function.builtin.just
+#                ^^^^ source.just
+>  hello='Yo'
+#^^^^^^^^ source.just
+#        ^ source.just string.quoted.single.just
+#         ^^ source.just string.quoted.single.just
+#           ^ source.just string.quoted.single.just
+>  echo "$hello from a shell script!"
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.double.just
+#        ^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                                   ^ source.just string.quoted.double.just
+>
+>ruby:
+#^^^^ source.just entity.name.function.just
+#    ^ source.just keyword.operator.recipe.end.just
+>  #!/usr/bin/env ruby
+#^^^^ source.just
+#    ^ source.just keyword.operator.path-join.just
+#     ^^^ source.just
+#        ^ source.just keyword.operator.path-join.just
+#         ^^^ source.just
+#            ^ source.just keyword.operator.path-join.just
+#             ^^^ source.just support.function.builtin.just
+#                ^^^^^^ source.just
+>  puts "Hello from ruby!"
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.double.just
+#        ^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                        ^ source.just string.quoted.double.just
+>
+># Imports
+#^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>import 'foo/bar.just'
+#^^^^^^ source.just keyword.other.reserved.just
+#      ^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^^^^^^^^^^^ source.just string.quoted.single.just
+#                    ^ source.just string.quoted.single.just
+>
+>mod bar
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^ source.just
+>
