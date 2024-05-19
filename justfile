@@ -7,7 +7,7 @@ build +ARGS="":
 
 test +ARGS="":
     docker compose run --rm dev /bin/sh -c \
-        "yarn vscode-tmgrammar-snap tests/syntax/* {{ ARGS }}"
+        "yarn vscode-tmgrammar-snap tests/* {{ ARGS }}"
 
 lint:
     docker compose run --rm dev /bin/sh -c \

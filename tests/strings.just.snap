@@ -1,0 +1,157 @@
+># Command evaluation
+#^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>localhost := `dumpinterfaces | cut -d: -f2 | sed 's/\/.*//' | sed 's/ //g'`
+#^^^^^^^^^ source.just variable.other.just
+#         ^ source.just
+#          ^^ source.just keyword.operator.assignment.just
+#            ^ source.just
+#             ^ source.just string.interpolated.just
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just source.shell
+#                                                                          ^ source.just string.interpolated.just
+>
+>serve:
+#^^^^^ source.just entity.name.function.just
+#     ^ source.just keyword.operator.recipe.end.just
+>  ./serve {{localhost}} 8080
+#^^^ source.just
+#   ^ source.just keyword.operator.path-join.just
+#    ^^^^^^ source.just
+#          ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#            ^^^^^^^^^ source.just string.interpolated.escaping.just
+#                     ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                       ^ source.just
+#                        ^^^^ source.just constant.language.integer.just
+>
+>stuff := ```
+#^^^^^ source.just variable.other.just
+#     ^ source.just
+#      ^^ source.just keyword.operator.assignment.just
+#        ^ source.just
+#         ^ source.just string.interpolated.just
+#          ^ source.just string.interpolated.just
+#           ^^ source.just
+>    echo foo
+#^^^^^^^^^^^^^ source.just
+>    echo bar
+#^^^^^^^^^^^^^ source.just
+>  ```
+#^^ source.just
+#  ^ source.just string.interpolated.just
+#   ^ source.just string.interpolated.just
+#    ^^ source.just
+>
+># Strings
+#^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>string-with-tab             := "\t"
+#^^^^^^^^^^^^^^^ source.just variable.other.just
+#               ^^^^^^^^^^^^^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just constant.character.escape.just
+#                                  ^ source.just string.quoted.double.just
+>string-with-newline         := "\n"
+#^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                   ^^^^^^^^^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just constant.character.escape.just
+#                                  ^ source.just string.quoted.double.just
+>string-with-carriage-return := "\r"
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                           ^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just constant.character.escape.just
+#                                  ^ source.just string.quoted.double.just
+>string-with-double-quote    := "\""
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                        ^^^^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just constant.character.escape.just
+#                                  ^ source.just string.quoted.double.just
+>string-with-slash           := "\\"
+#^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                 ^^^^^^^^^^^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just constant.character.escape.just
+#                                  ^ source.just string.quoted.double.just
+>string-with-no-newline      := "\
+#^^^^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                      ^^^^^^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^ source.just string.quoted.double.just
+#                                ^^ source.just string.quoted.double.just
+>"
+#^ source.just string.quoted.double.just
+>
+>single := '
+#^^^^^^ source.just variable.other.just
+#      ^ source.just
+#       ^^ source.just keyword.operator.assignment.just
+#         ^ source.just
+#          ^ source.just string.quoted.single.just
+>hello
+#^^^^^^ source.just string.quoted.single.just
+>'
+#^ source.just string.quoted.single.just
+>
+>double := "
+#^^^^^^ source.just variable.other.just
+#      ^ source.just
+#       ^^ source.just keyword.operator.assignment.just
+#         ^ source.just
+#          ^ source.just string.quoted.double.just
+>goodbye
+#^^^^^^^^ source.just string.quoted.double.just
+>"
+#^ source.just string.quoted.double.just
+>
+>escapes := '\t\n\r\"\\'
+#^^^^^^^ source.just variable.other.just
+#       ^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.quoted.single.just
+#            ^^^^^^^^^^ source.just string.quoted.single.just
+#                      ^ source.just string.quoted.single.just
+>
+>x := '''
+#^ source.just variable.other.just
+# ^ source.just
+#  ^^ source.just keyword.operator.assignment.just
+#    ^ source.just
+#     ^^^ source.just string.quoted.single.indented.just
+>  foo
+#^^^^^^ source.just string.quoted.single.indented.just
+>  bar
+#^^^^^^ source.just string.quoted.single.indented.just
+>'''
+#^^^ source.just string.quoted.single.indented.just
+>
+># this string will evaluate to `abc\n  wuv\nxyz\n`
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>y := """
+#^ source.just variable.other.just
+# ^ source.just
+#  ^^ source.just keyword.operator.assignment.just
+#    ^ source.just
+#     ^^^ source.just string.quoted.double.indented.just
+>  abc
+#^^^^^^ source.just string.quoted.double.indented.just
+>    wuv
+#^^^^^^^^ source.just string.quoted.double.indented.just
+>  xyz
+#^^^^^^ source.just string.quoted.double.indented.just
+>"""
+#^^^ source.just string.quoted.double.indented.just
+>

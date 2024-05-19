@@ -1,0 +1,85 @@
+># Escaped blocks
+#^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>publish:
+#^^^^^^^ source.just entity.name.function.just
+#       ^ source.just keyword.operator.recipe.end.just
+>  rm -f {{tarball}}
+#^^^^^^^^ source.just
+#        ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#          ^^^^^^^ source.just string.interpolated.escaping.just
+#                 ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  mkdir {{tardir}}
+#^^^^^^^^ source.just
+#        ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#          ^^^^^^ source.just string.interpolated.escaping.just
+#                ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  cp README.md *.c {{tardir}}
+#^^^^^^^^^^^^^^^^^^^ source.just
+#                   ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                     ^^^^^^ source.just string.interpolated.escaping.just
+#                           ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  tar zcvf {{tarball}} {{tardir}}
+#^^^^^^^^^^^ source.just
+#           ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#             ^^^^^^^ source.just string.interpolated.escaping.just
+#                    ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                      ^ source.just
+#                       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                         ^^^^^^ source.just string.interpolated.escaping.just
+#                               ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  scp {{tarball}} me@server.com:release/
+#^^^^^^ source.just
+#      ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#        ^^^^^^^ source.just string.interpolated.escaping.just
+#               ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                 ^^^^^^^^^^^^^^^^^^^^^^ source.just
+#                                       ^ source.just keyword.operator.path-join.just
+>  rm -rf {{tarball}} {{tardir}}
+#^^^^^^^^^ source.just
+#         ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#           ^^^^^^^ source.just string.interpolated.escaping.just
+#                  ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                    ^ source.just
+#                     ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                       ^^^^^^ source.just string.interpolated.escaping.just
+#                             ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>
+>braces:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>  echo 'I {{{{LOVE}} curly braces!'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                  ^ source.just string.quoted.single.just
+>
+>braces:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>  echo '{{'I {{LOVE}} curly braces!'}}'
+#^^^^^^^ source.just
+#       ^^^^ source.just string.quoted.double.indented.just
+#           ^^ source.just
+#             ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#               ^^^^ source.just string.interpolated.escaping.just
+#                   ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                     ^^^^^^^^^^^^^^ source.just
+#                                   ^ source.just string.quoted.single.just
+#                                    ^^ source.just string.quoted.single.just
+#                                      ^ source.just string.quoted.single.just
+>
+>braces:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>  echo 'I {{ "{{" }}LOVE}} curly braces!'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just
+#        ^^ source.just string.quoted.single.just
+#          ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#            ^ source.just string.quoted.single.just string.interpolated.escaping.just
+#             ^^^^ source.just string.quoted.single.just string.interpolated.escaping.just string.quoted.double.indented.just
+#                 ^ source.just string.quoted.single.just string.interpolated.escaping.just
+#                  ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                    ^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                        ^ source.just string.quoted.single.just
