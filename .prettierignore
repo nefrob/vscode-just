@@ -1,2 +1,4 @@
+*.just
+*.justfile
 *.md
 *.snap

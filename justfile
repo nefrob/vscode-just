@@ -7,13 +7,13 @@ build +ARGS="":
 
 test +ARGS="":
     docker compose run --rm dev /bin/sh -c \
-        "yarn vscode-tmgrammar-snap tests/* {{ ARGS }}"
+        "yarn test {{ ARGS }}"
 
 lint:
     docker compose run --rm dev /bin/sh -c \
         "just --fmt --unstable"
     docker compose run --rm dev /bin/sh -c \
-        "yarn prettier --cache --write ."
+        "yarn lint --write"
 
 translate:
     docker compose run --rm dev /bin/sh -c \
