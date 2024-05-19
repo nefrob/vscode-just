@@ -1,0 +1,31 @@
+># Builtin functions
+#^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>system-info:
+#^^^^^^^^^^^ source.just entity.name.function.just
+#           ^ source.just keyword.operator.recipe.end.just
+>  @echo "This is an {{arch()}} machine".
+#^^ source.just
+#  ^ source.just keyword.operator.quiet.just
+#   ^^^^^ source.just
+#        ^ source.just string.quoted.double.just
+#         ^^^^^^^^^^^ source.just string.quoted.double.just
+#                    ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
+#                      ^^^^ source.just string.quoted.double.just string.interpolated.escaping.just support.function.builtin.just
+#                          ^^ source.just string.quoted.double.just string.interpolated.escaping.just
+#                            ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
+#                              ^^^^^^^^ source.just string.quoted.double.just
+#                                      ^ source.just string.quoted.double.just
+#                                       ^^ source.just
+>
+>home_dir := env_var('HOME')
+#^^^^^^^^ source.just variable.other.just
+#        ^ source.just
+#         ^^ source.just keyword.operator.assignment.just
+#           ^ source.just
+#            ^^^^^^^ source.just support.function.builtin.just
+#                   ^ source.just
+#                    ^ source.just string.quoted.single.just
+#                     ^^^^ source.just string.quoted.single.just
+#                         ^ source.just string.quoted.single.just
+#                          ^ source.just

@@ -5,6 +5,10 @@ default:
 build +ARGS="":
     docker compose build {{ ARGS }}
 
+test +ARGS="":
+    docker compose run --rm dev /bin/sh -c \
+        "yarn vscode-tmgrammar-snap tests/* {{ ARGS }}"
+
 lint:
     docker compose run --rm dev /bin/sh -c \
         "just --fmt --unstable"

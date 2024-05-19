@@ -1,0 +1,103 @@
+># Embedded languages
+#^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>python:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>  #!/usr/bin/env python3
+#^^^^ source.just
+#    ^ source.just keyword.operator.path-join.just
+#     ^^^ source.just
+#        ^ source.just keyword.operator.path-join.just
+#         ^^^ source.just
+#            ^ source.just keyword.operator.path-join.just
+#             ^^^ source.just support.function.builtin.just
+#                ^^^^^^^^^ source.just
+>  print('Hello from python!')
+#^^^^^^^ source.just
+#       ^ source.just
+#        ^ source.just string.quoted.single.just
+#         ^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                           ^ source.just string.quoted.single.just
+#                            ^ source.just
+>
+>js:
+#^^ source.just entity.name.function.just
+#  ^ source.just keyword.operator.recipe.end.just
+>  #!/usr/bin/env node
+#^^^^ source.just
+#    ^ source.just keyword.operator.path-join.just
+#     ^^^ source.just
+#        ^ source.just keyword.operator.path-join.just
+#         ^^^ source.just
+#            ^ source.just keyword.operator.path-join.just
+#             ^^^ source.just support.function.builtin.just
+#                ^^^^^^ source.just
+>  console.log('Greetings from JavaScript!')
+#^^^^^^^^^^^^^ source.just
+#             ^ source.just
+#              ^ source.just string.quoted.single.just
+#               ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                         ^ source.just string.quoted.single.just
+#                                          ^ source.just
+>
+>perl:
+#^^^^ source.just entity.name.function.just
+#    ^ source.just keyword.operator.recipe.end.just
+>  #!/usr/bin/env perl
+#^^^^ source.just
+#    ^ source.just keyword.operator.path-join.just
+#     ^^^ source.just
+#        ^ source.just keyword.operator.path-join.just
+#         ^^^ source.just
+#            ^ source.just keyword.operator.path-join.just
+#             ^^^ source.just support.function.builtin.just
+#                ^^^^^^ source.just
+>  print "Larry Wall says Hi!\n";
+#^^^^^^^^ source.just
+#        ^ source.just string.quoted.double.just
+#         ^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                            ^^ source.just string.quoted.double.just constant.character.escape.just
+#                              ^ source.just string.quoted.double.just
+#                               ^^ source.just
+>
+>sh:
+#^^ source.just entity.name.function.just
+#  ^ source.just keyword.operator.recipe.end.just
+>  #!/usr/bin/env sh
+#^^^^ source.just
+#    ^ source.just keyword.operator.path-join.just
+#     ^^^ source.just
+#        ^ source.just keyword.operator.path-join.just
+#         ^^^ source.just
+#            ^ source.just keyword.operator.path-join.just
+#             ^^^ source.just support.function.builtin.just
+#                ^^^^ source.just
+>  hello='Yo'
+#^^^^^^^^ source.just
+#        ^ source.just string.quoted.single.just
+#         ^^ source.just string.quoted.single.just
+#           ^ source.just string.quoted.single.just
+>  echo "$hello from a shell script!"
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.double.just
+#        ^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                                   ^ source.just string.quoted.double.just
+>
+>ruby:
+#^^^^ source.just entity.name.function.just
+#    ^ source.just keyword.operator.recipe.end.just
+>  #!/usr/bin/env ruby
+#^^^^ source.just
+#    ^ source.just keyword.operator.path-join.just
+#     ^^^ source.just
+#        ^ source.just keyword.operator.path-join.just
+#         ^^^ source.just
+#            ^ source.just keyword.operator.path-join.just
+#             ^^^ source.just support.function.builtin.just
+#                ^^^^^^ source.just
+>  puts "Hello from ruby!"
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.double.just
+#        ^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                        ^ source.just string.quoted.double.just
