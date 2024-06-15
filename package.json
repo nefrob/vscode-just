@@ -2,12 +2,16 @@
   "name": "vscode-just-syntax",
   "publisher": "nefrob",
   "repository": "https://github.com/nefrob/vscode-just",
+  "bugs": {
+    "url": "https://github.com/nefrob/vscode-just/issues"
+  },
   "displayName": "vscode-just",
   "description": "Justfile syntax support for Visual Studio Code",
   "license": "MIT",
   "version": "0.3.0",
   "engines": {
-    "vscode": "^1.85.0"
+    "node": ">=16.0.0",
+    "vscode": ">=1.85.0"
   },
   "scripts": {
     "lint": "prettier --cache .",

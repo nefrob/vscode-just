@@ -1,5 +1,9 @@
 # vscode-just
 
+![license](https://img.shields.io/github/license/nefrob/vscode-just?style=flat-square)
+![ci](https://github.com/nefrob/vscode-just/actions/workflows/ci.yml/badge.svg?branch=main)
+[![Gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square)](https://gitmoji.dev)
+
 VSCode syntax highlighting extension for the [just](https://github.com/casey/just) language.
 
 Contents:
@@ -10,13 +14,6 @@ Contents:
 -   [Roadmap](#roadmap)
 -   [Contributing](#contributing)
 -   [References](#references)
-
-<a href="https://gitmoji.dev">
-  <img
-    src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
-    alt="Gitmoji"
-  />
-</a>
 
 ## Features
 
