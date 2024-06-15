@@ -89,6 +89,13 @@
 >source_directory()
 #^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #                ^^ source.just
+>module_file()
+#^^^^^^^^^^^ source.just support.function.builtin.just
+#           ^^ source.just
+>module_directory()
+#^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                ^^ source.just
+>
 >
 ># Strings
 #^^^^^^^^^ source.just comment.line.number-sign.just

@@ -37,6 +37,9 @@ just_pid()
 
 source_file()
 source_directory()
+module_file()
+module_directory()
+
 
 # Strings
 
