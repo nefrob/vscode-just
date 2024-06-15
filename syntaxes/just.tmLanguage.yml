@@ -232,26 +232,26 @@ repository:
 
   recipe-attributes:
     patterns:
-    - comment: Multiple recipe attributes
-      match: "^\\[([a-zA-z\\-]+)\\s*(?:,(\\s*[a-zA-z\\-]+\\s*))*]\\s*$"
-      captures:
-        '1':
-          name: support.function.system.just
-        '2':
-          name: support.function.system.just
-    - comment: Recipe attribute with value
-      match: "^\\[([a-zA-z\\-]+)(?:(?:(:)(.*?))|(\\((.*?)\\)))?]\\s*$"
-      captures:
-        '1':
-          name: support.function.system.just
-        '2':
-          name: keyword.operator.attribute.end.just
-        '3':
-          patterns:
-            - include: '#strings'
-        '4':
-          patterns:
-            - include: '#strings'
+      - comment: Multiple recipe attributes
+        match: "^\\[([a-zA-z\\-]+)\\s*(?:,(\\s*[a-zA-z\\-]+\\s*))*]\\s*$"
+        captures:
+          '1':
+            name: support.function.system.just
+          '2':
+            name: support.function.system.just
+      - comment: Recipe attribute with value
+        match: "^\\[([a-zA-z\\-]+)(?:(?:(:)(.*?))|(\\((.*?)\\)))?]\\s*$"
+        captures:
+          '1':
+            name: support.function.system.just
+          '2':
+            name: keyword.operator.attribute.end.just
+          '3':
+            patterns:
+              - include: '#strings'
+          '4':
+            patterns:
+              - include: '#strings'
 
   recipe-params:
     comment: Recipe parameters
