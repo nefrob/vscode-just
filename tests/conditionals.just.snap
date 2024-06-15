@@ -8,23 +8,23 @@
 #      ^ source.just
 #       ^^ source.just keyword.control.conditional.just
 #         ^ source.just
-#          ^ source.just string.quoted.double.just
+#          ^ source.just string.quoted.double.just string.quoted.double.just
 #           ^ source.just string.quoted.double.just
 #            ^ source.just string.quoted.double.just
 #             ^ source.just
 #              ^^ source.just keyword.operator.equality.just
 #                ^ source.just
-#                 ^ source.just string.quoted.double.just
+#                 ^ source.just string.quoted.double.just string.quoted.double.just
 #                  ^ source.just string.quoted.double.just
 #                   ^ source.just string.quoted.double.just
 #                    ^^^ source.just
-#                       ^ source.just string.quoted.double.just
+#                       ^ source.just string.quoted.double.just string.quoted.double.just
 #                        ^^^^^ source.just string.quoted.double.just
 #                             ^ source.just string.quoted.double.just
 #                              ^^^ source.just
 #                                 ^^^^ source.just keyword.control.conditional.just
 #                                     ^^^ source.just
-#                                        ^ source.just string.quoted.double.just
+#                                        ^ source.just string.quoted.double.just string.quoted.double.just
 #                                         ^^^^ source.just string.quoted.double.just
 #                                             ^ source.just string.quoted.double.just
 #                                              ^^^ source.just
@@ -35,23 +35,23 @@
 #      ^ source.just
 #       ^^ source.just keyword.control.conditional.just
 #         ^ source.just
-#          ^ source.just string.quoted.double.just
+#          ^ source.just string.quoted.double.just string.quoted.double.just
 #           ^^^^^ source.just string.quoted.double.just
 #                ^ source.just string.quoted.double.just
 #                 ^ source.just
 #                  ^^ source.just keyword.operator.equality.just
 #                    ^ source.just
-#                     ^ source.just string.quoted.double.just
+#                     ^ source.just string.quoted.double.just string.quoted.double.just
 #                      ^^^^^^^ source.just string.quoted.double.just
 #                             ^ source.just string.quoted.double.just
 #                              ^^^ source.just
-#                                 ^ source.just string.quoted.double.just
+#                                 ^ source.just string.quoted.double.just string.quoted.double.just
 #                                  ^^^ source.just string.quoted.double.just
 #                                     ^ source.just string.quoted.double.just
 #                                      ^^^ source.just
 #                                         ^^^^ source.just keyword.control.conditional.just
 #                                             ^^^ source.just
-#                                                ^ source.just string.quoted.double.just
+#                                                ^ source.just string.quoted.double.just string.quoted.double.just
 #                                                 ^^^ source.just string.quoted.double.just
 #                                                    ^ source.just string.quoted.double.just
 #                                                     ^^^ source.just
@@ -62,23 +62,23 @@
 #      ^ source.just
 #       ^^ source.just keyword.control.conditional.just
 #         ^ source.just
-#          ^ source.just string.quoted.double.just
+#          ^ source.just string.quoted.double.just string.quoted.double.just
 #           ^^^^^ source.just string.quoted.double.just
 #                ^ source.just string.quoted.double.just
 #                 ^ source.just
 #                  ^^ source.just keyword.operator.equality.just
 #                    ^ source.just
-#                     ^ source.just string.quoted.single.just
+#                     ^ source.just string.quoted.single.just string.quoted.single.just
 #                      ^^^^^ source.just string.quoted.single.just
 #                           ^ source.just string.quoted.single.just
 #                            ^^^ source.just
-#                               ^ source.just string.quoted.double.just
+#                               ^ source.just string.quoted.double.just string.quoted.double.just
 #                                ^^^^^ source.just string.quoted.double.just
 #                                     ^ source.just string.quoted.double.just
 #                                      ^^^ source.just
 #                                         ^^^^ source.just keyword.control.conditional.just
 #                                             ^^^ source.just
-#                                                ^ source.just string.quoted.double.just
+#                                                ^ source.just string.quoted.double.just string.quoted.double.just
 #                                                 ^^^^^^^^ source.just string.quoted.double.just
 #                                                         ^ source.just string.quoted.double.just
 #                                                          ^^^ source.just
@@ -91,14 +91,14 @@
 #         ^ source.just
 #          ^^^^^^^ source.just support.function.builtin.just
 #                 ^ source.just
-#                  ^ source.just string.quoted.double.just
+#                  ^ source.just string.quoted.double.just string.quoted.double.just
 #                   ^^^^^^^ source.just string.quoted.double.just
 #                          ^ source.just string.quoted.double.just
 #                           ^ source.just
 #                            ^ source.just
 #                             ^^ source.just keyword.operator.equality.just
 #                               ^ source.just
-#                                ^ source.just string.quoted.double.just
+#                                ^ source.just string.quoted.double.just string.quoted.double.just
 #                                 ^^^^ source.just string.quoted.double.just
 #                                     ^ source.just string.quoted.double.just
 #                                      ^^^ source.just
@@ -108,7 +108,7 @@
 #                                                                              ^^^ source.just
 #                                                                                 ^^^^ source.just keyword.control.conditional.just
 #                                                                                     ^^^ source.just
-#                                                                                        ^ source.just string.quoted.double.just
+#                                                                                        ^ source.just string.quoted.double.just string.quoted.double.just
 #                                                                                         ^^^^^^^^^^^ source.just string.quoted.double.just
 #                                                                                                    ^ source.just string.quoted.double.just
 #                                                                                                     ^^^ source.just
@@ -119,19 +119,19 @@
 #      ^ source.just
 #       ^^ source.just keyword.control.conditional.just
 #         ^ source.just
-#          ^ source.just string.quoted.double.just
+#          ^ source.just string.quoted.double.just string.quoted.double.just
 #           ^^^^^ source.just string.quoted.double.just
 #                ^ source.just string.quoted.double.just
 #                 ^ source.just
 #                  ^^ source.just keyword.operator.equality.just
 #                    ^ source.just
-#                     ^ source.just string.quoted.double.just
+#                     ^ source.just string.quoted.double.just string.quoted.double.just
 #                      ^^^^^^^ source.just string.quoted.double.just
 #                             ^ source.just string.quoted.double.just
 #                              ^^^ source.just
 >  "xyz"
 #^^ source.just
-#  ^ source.just string.quoted.double.just
+#  ^ source.just string.quoted.double.just string.quoted.double.just
 #   ^^^ source.just string.quoted.double.just
 #      ^ source.just string.quoted.double.just
 >} else if "a" == "a" {
@@ -140,19 +140,19 @@
 #      ^ source.just
 #       ^^ source.just keyword.control.conditional.just
 #         ^ source.just
-#          ^ source.just string.quoted.double.just
+#          ^ source.just string.quoted.double.just string.quoted.double.just
 #           ^ source.just string.quoted.double.just
 #            ^ source.just string.quoted.double.just
 #             ^ source.just
 #              ^^ source.just keyword.operator.equality.just
 #                ^ source.just
-#                 ^ source.just string.quoted.double.just
+#                 ^ source.just string.quoted.double.just string.quoted.double.just
 #                  ^ source.just string.quoted.double.just
 #                   ^ source.just string.quoted.double.just
 #                    ^^^ source.just
 >  "abc"
 #^^ source.just
-#  ^ source.just string.quoted.double.just
+#  ^ source.just string.quoted.double.just string.quoted.double.just
 #   ^^^ source.just string.quoted.double.just
 #      ^ source.just string.quoted.double.just
 >} else {
@@ -161,7 +161,7 @@
 #      ^^^ source.just
 >  "123"
 #^^ source.just
-#  ^ source.just string.quoted.double.just
+#  ^ source.just string.quoted.double.just string.quoted.double.just
 #   ^^^ source.just string.quoted.double.just
 #      ^ source.just string.quoted.double.just
 >}

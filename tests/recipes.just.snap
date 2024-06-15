@@ -14,7 +14,7 @@
 #   ^ source.just keyword.operator.recipe.end.just
 >    echo "foo"
 #^^^^^^^^^ source.just
-#         ^ source.just string.quoted.double.just
+#         ^ source.just string.quoted.double.just string.quoted.double.just
 #          ^^^ source.just string.quoted.double.just
 #             ^ source.just string.quoted.double.just
 >
@@ -29,7 +29,7 @@
 #   ^ source.just keyword.operator.recipe.end.just
 >    echo "foo"
 #^^^^^^^^^ source.just
-#         ^ source.just string.quoted.double.just
+#         ^ source.just string.quoted.double.just string.quoted.double.just
 #          ^^^ source.just string.quoted.double.just
 #             ^ source.just string.quoted.double.just
 >
@@ -37,7 +37,7 @@
 #^ source.just
 # ^^^^^^^ source.just support.function.system.just
 #        ^ source.just
-#         ^ source.just string.quoted.double.just
+#         ^ source.just string.quoted.double.just string.quoted.double.just
 #          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
 #                                                     ^ source.just string.quoted.double.just
 #                                                      ^ source.just
@@ -58,7 +58,7 @@
 #         ^ source.just
 #          ^^^^^ source.just entity.name.function.just
 #               ^ source.just
-#                ^ source.just string.quoted.double.just
+#                ^ source.just string.quoted.double.just string.quoted.double.just
 #                 ^^^^ source.just string.quoted.double.just
 #                     ^ source.just string.quoted.double.just
 #                      ^ source.just
@@ -72,7 +72,7 @@
 #^^ source.just
 #  ^ source.just keyword.operator.quiet.just
 #   ^^^^^ source.just
-#        ^ source.just string.quoted.single.just
+#        ^ source.just string.quoted.single.just string.quoted.single.just
 #         ^^^^^^^^^ source.just string.quoted.single.just
 #                  ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
 #                    ^^^^^^ source.just string.quoted.single.just string.interpolated.escaping.just
@@ -97,7 +97,7 @@
 #   ^^^^^^^^ source.just
 >  echo 'Done!'
 #^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
 #        ^^^^^ source.just string.quoted.single.just
 #             ^ source.just string.quoted.single.just
 >
@@ -110,7 +110,7 @@
 #^^ source.just
 #  ^ source.just keyword.operator.quiet.just
 #   ^^^^^ source.just
-#        ^ source.just string.quoted.double.just
+#        ^ source.just string.quoted.double.just string.quoted.double.just
 #         ^^^^^^^^^ source.just string.quoted.double.just
 #                  ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
 #                    ^^^^^^ source.just string.quoted.double.just string.interpolated.escaping.just
@@ -132,7 +132,7 @@
 #^^ source.just
 #  ^ source.just keyword.operator.quiet.just
 #   ^^^^^ source.just
-#        ^ source.just string.quoted.single.just
+#        ^ source.just string.quoted.single.just string.quoted.single.just
 #         ^^^^^^^^ source.just string.quoted.single.just
 #                 ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
 #                   ^^^^^^ source.just string.quoted.single.just string.interpolated.escaping.just
@@ -154,19 +154,19 @@
 #              ^ source.just
 #               ^^^^^ source.just entity.name.function.just
 #                    ^^ source.just
-#                      ^ source.just string.quoted.double.just
+#                      ^ source.just string.quoted.double.just string.quoted.double.just
 #                       ^ source.just string.quoted.double.just
 #                        ^ source.just string.quoted.double.just
 #                         ^ source.just
 #                          ^ source.just keyword.operator.concat.just
 #                           ^^ source.just
-#                             ^ source.just string.quoted.double.just
+#                             ^ source.just string.quoted.double.just string.quoted.double.just
 #                              ^ source.just string.quoted.double.just
 #                               ^ source.just string.quoted.double.just
 #                                ^ source.just
 #                                 ^ source.just keyword.operator.path-join.just
 #                                  ^ source.just
-#                                   ^ source.just string.quoted.double.just
+#                                   ^ source.just string.quoted.double.just string.quoted.double.just
 #                                    ^ source.just string.quoted.double.just
 #                                     ^ source.just string.quoted.double.just
 #                                      ^ source.just
@@ -179,7 +179,7 @@
 #^^ source.just
 #  ^ source.just keyword.operator.quiet.just
 #   ^^^^^ source.just
-#        ^ source.just string.quoted.double.just
+#        ^ source.just string.quoted.double.just string.quoted.double.just
 #         ^^^^ source.just string.quoted.double.just
 #             ^ source.just string.quoted.double.just
 >
@@ -188,7 +188,7 @@
 #       ^ source.just
 #        ^^ source.just keyword.operator.assignment.just
 #          ^ source.just
-#           ^ source.just string.quoted.single.just
+#           ^ source.just string.quoted.single.just string.quoted.single.just
 #            ^^^ source.just string.quoted.single.just
 #               ^ source.just string.quoted.single.just
 >
@@ -205,7 +205,7 @@
 #^^ source.just
 #  ^ source.just keyword.operator.quiet.just
 #   ^^^^^ source.just
-#        ^ source.just string.quoted.single.just
+#        ^ source.just string.quoted.single.just string.quoted.single.just
 #         ^^^^^^^^ source.just string.quoted.single.just
 #                 ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
 #                   ^^^^^^ source.just string.quoted.single.just string.interpolated.escaping.just
@@ -238,7 +238,7 @@
 #                 ^ source.just
 #                  ^ source.just keyword.operator.concat.just
 #                   ^ source.just
-#                    ^ source.just string.quoted.double.just
+#                    ^ source.just string.quoted.double.just string.quoted.double.just
 #                     ^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
 #                                     ^ source.just string.quoted.double.just
 #                                      ^ source.just
@@ -250,7 +250,7 @@
 #                                                   ^ source.just
 #                                                    ^ source.just keyword.operator.path-join.just
 #                                                     ^ source.just
-#                                                      ^ source.just string.quoted.double.just
+#                                                      ^ source.just string.quoted.double.just string.quoted.double.just
 #                                                       ^^^^^^^^^ source.just string.quoted.double.just
 #                                                                ^ source.just string.quoted.double.just
 #                                                                 ^ source.just
@@ -271,19 +271,19 @@
 #     ^^^^^^ source.just variable.parameter.recipe.just
 #           ^ source.just keyword.operator.default.just
 #            ^ source.just
-#             ^ source.just string.quoted.double.just
+#             ^ source.just string.quoted.double.just string.quoted.double.just
 #              ^ source.just string.quoted.double.just
 #               ^ source.just string.quoted.double.just
 #                ^ source.just
 #                 ^ source.just keyword.operator.concat.just
 #                  ^^ source.just
-#                    ^ source.just string.quoted.double.just
+#                    ^ source.just string.quoted.double.just string.quoted.double.just
 #                     ^ source.just string.quoted.double.just
 #                      ^ source.just string.quoted.double.just
 #                       ^ source.just
 #                        ^ source.just keyword.operator.concat.just
 #                         ^ source.just
-#                          ^ source.just string.quoted.double.just
+#                          ^ source.just string.quoted.double.just string.quoted.double.just
 #                           ^ source.just string.quoted.double.just
 #                            ^ source.just string.quoted.double.just
 #                             ^ source.just
@@ -300,7 +300,7 @@
 #^^^^^^^ source.just
 #       ^ source.just
 #        ^ source.just
-#         ^ source.just string.quoted.double.just
+#         ^ source.just string.quoted.double.just string.quoted.double.just
 #          ^ source.just string.quoted.double.just
 #           ^ source.just string.quoted.double.just
 #            ^ source.just
@@ -308,13 +308,13 @@
 #              ^ source.just keyword.operator.concat.just
 #               ^ source.just
 #                ^ source.just
-#                 ^ source.just string.quoted.double.just
+#                 ^ source.just string.quoted.double.just string.quoted.double.just
 #                  ^ source.just string.quoted.double.just
 #                   ^ source.just string.quoted.double.just
 #                    ^ source.just
 #                     ^ source.just keyword.operator.concat.just
 #                      ^ source.just
-#                       ^ source.just string.quoted.double.just
+#                       ^ source.just string.quoted.double.just string.quoted.double.just
 #                        ^ source.just string.quoted.double.just
 #                         ^ source.just string.quoted.double.just
 #                          ^ source.just
@@ -334,7 +334,7 @@
 #               ^^^^^ source.just string.interpolated.escaping.just
 #                    ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
 #                      ^^^^ source.just
-#                          ^ source.just string.quoted.double.just
+#                          ^ source.just string.quoted.double.just string.quoted.double.just
 #                           ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
 #                             ^^^^^^^ source.just string.quoted.double.just string.interpolated.escaping.just
 #                                    ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
@@ -346,7 +346,7 @@
 #     ^ source.just keyword.other.recipe.variadic.just
 #      ^^^^^ source.just variable.parameter.recipe.just
 #           ^ source.just keyword.operator.default.just
-#            ^ source.just string.quoted.single.just
+#            ^ source.just string.quoted.single.just string.quoted.single.just
 #             ^^ source.just string.quoted.single.just
 #               ^ source.just string.quoted.single.just
 #                ^ source.just keyword.operator.recipe.end.just
@@ -370,7 +370,7 @@
 # ^ source.just keyword.operator.recipe.end.just
 >  echo 'A!'
 #^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
 #        ^^ source.just string.quoted.single.just
 #          ^ source.just string.quoted.single.just
 >
@@ -387,7 +387,7 @@
 #          ^ source.just entity.name.function.just
 >  echo 'B!'
 #^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
 #        ^^ source.just string.quoted.single.just
 #          ^ source.just string.quoted.single.just
 >
@@ -396,7 +396,7 @@
 # ^ source.just keyword.operator.recipe.end.just
 >  echo 'C!'
 #^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
 #        ^^ source.just string.quoted.single.just
 #          ^ source.just string.quoted.single.just
 >
@@ -405,7 +405,7 @@
 # ^ source.just keyword.operator.recipe.end.just
 >  echo 'D!'
 #^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
 #        ^^ source.just string.quoted.single.just
 #          ^ source.just string.quoted.single.just
 >
@@ -429,7 +429,7 @@
 >import 'foo/bar.just'
 #^^^^^^ source.just keyword.other.reserved.just
 #      ^ source.just
-#       ^ source.just string.quoted.single.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
 #        ^^^^^^^^^^^^ source.just string.quoted.single.just
 #                    ^ source.just string.quoted.single.just
 >

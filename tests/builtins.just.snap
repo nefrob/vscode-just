@@ -277,6 +277,11 @@
 #     ^ source.just
 #      ^^^^^^^ source.just
 #             ^ source.just
+>assert(condition, expressions)
+#^^^^^^ source.just support.function.builtin.just
+#      ^ source.just
+#       ^^^^^^^^^^^^^^^^^^^^^^ source.just
+#                             ^ source.just
 >
 ># Utils
 #^^^^^^^ source.just comment.line.number-sign.just
