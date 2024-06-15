@@ -6,10 +6,6 @@ alias b := build
 build:
   echo 'Building!'
 
-# Settings
-
-set allow-duplicate-recipes := false
-
 # Variables and substitution
 
 tmpdir  := `mktemp -d`

@@ -1,16 +1,6 @@
-# Command evaluation
-
-localhost := `dumpinterfaces | cut -d: -f2 | sed 's/\/.*//' | sed 's/ //g'`
-
-serve:
-  ./serve {{localhost}} 8080
-
-stuff := ```
-    echo foo
-    echo bar
-  ```
-
 # Strings
+
+# Escaping sequences
 
 string-with-tab             := "\t"
 string-with-newline         := "\n"
@@ -20,6 +10,12 @@ string-with-slash           := "\\"
 string-with-no-newline      := "\
 "
 
+escapes := """\t\n\r\"\\"""
+escapes := '\t\n\r\"\\'
+escapes := '''\t\n\r\"\\'''
+
+# Multi-line
+
 single := '
 hello
 '
@@ -28,16 +24,22 @@ double := "
 goodbye
 "
 
-escapes := '\t\n\r\"\\'
+# Indented
 
 x := '''
   foo
   bar
 '''
 
-# this string will evaluate to `abc\n  wuv\nxyz\n`
 y := """
   abc
     wuv
   xyz
 """
+
+# Expanded
+
+foobar := x"~/$FOO/${BAR}"
+foobar := x"""~/$FOO/${BAR}"""
+foobar := x'~/$FOO/${BAR}'
+foobar := x'''~/$FOO/${BAR}'''

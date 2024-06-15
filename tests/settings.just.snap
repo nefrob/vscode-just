@@ -1,0 +1,139 @@
+># Settings
+#^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>set allow-duplicate-recipes := true
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.language.setting.just
+#                           ^ source.just
+#                            ^^ source.just keyword.operator.assignment.just
+#                              ^ source.just
+#                               ^^^^ source.just constant.language.boolean.just
+>set allow-duplicate-variables := true
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.language.setting.just
+#                             ^ source.just
+#                              ^^ source.just keyword.operator.assignment.just
+#                                ^ source.just
+#                                 ^^^^ source.just constant.language.boolean.just
+>set dotenv-filename := ".env"
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^ source.just variable.language.setting.just
+#                   ^ source.just
+#                    ^^ source.just keyword.operator.assignment.just
+#                      ^ source.just
+#                       ^ source.just string.quoted.double.just string.quoted.double.just
+#                        ^^^^ source.just string.quoted.double.just
+#                            ^ source.just string.quoted.double.just
+>set dotenv-load := true
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^ source.just variable.language.setting.just
+#               ^ source.just
+#                ^^ source.just keyword.operator.assignment.just
+#                  ^ source.just
+#                   ^^^^ source.just constant.language.boolean.just
+>set dotenv-path := "."
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^ source.just variable.language.setting.just
+#               ^ source.just
+#                ^^ source.just keyword.operator.assignment.just
+#                  ^ source.just
+#                   ^ source.just string.quoted.double.just string.quoted.double.just
+#                    ^ source.just string.quoted.double.just
+#                     ^ source.just string.quoted.double.just
+>set dotenv-required := false
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^ source.just variable.language.setting.just
+#                   ^ source.just
+#                    ^^ source.just keyword.operator.assignment.just
+#                      ^ source.just
+#                       ^^^^^ source.just constant.language.boolean.just
+>set export := true
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^ source.just variable.language.setting.just
+#          ^ source.just
+#           ^^ source.just keyword.operator.assignment.just
+#             ^ source.just
+#              ^^^^ source.just constant.language.boolean.just
+>set fallback := true
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^ source.just variable.language.setting.just
+#            ^ source.just
+#             ^^ source.just keyword.operator.assignment.just
+#               ^ source.just
+#                ^^^^ source.just constant.language.boolean.just
+>set ignore-comments := false
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^ source.just variable.language.setting.just
+#                   ^ source.just
+#                    ^^ source.just keyword.operator.assignment.just
+#                      ^ source.just
+#                       ^^^^^ source.just constant.language.boolean.just
+>set positional-arguments := true
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^ source.just variable.language.setting.just
+#                        ^ source.just
+#                         ^^ source.just keyword.operator.assignment.just
+#                           ^ source.just
+#                            ^^^^ source.just constant.language.boolean.just
+>set shell := ["bash", "-uc"]
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^ source.just variable.language.setting.just
+#         ^ source.just
+#          ^^ source.just keyword.operator.assignment.just
+#            ^^ source.just
+#              ^ source.just string.quoted.double.just string.quoted.double.just
+#               ^^^^ source.just string.quoted.double.just
+#                   ^ source.just string.quoted.double.just
+#                    ^^ source.just
+#                      ^ source.just string.quoted.double.just string.quoted.double.just
+#                       ^^^ source.just string.quoted.double.just
+#                          ^ source.just string.quoted.double.just
+#                           ^^ source.just
+>set tempdir := "/tmp"
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^ source.just variable.language.setting.just
+#           ^ source.just
+#            ^^ source.just keyword.operator.assignment.just
+#              ^ source.just
+#               ^ source.just string.quoted.double.just string.quoted.double.just
+#                ^^^^ source.just string.quoted.double.just
+#                    ^ source.just string.quoted.double.just
+>set windows-powershell := false
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^^^^ source.just variable.language.setting.just
+#                      ^ source.just
+#                       ^^ source.just keyword.operator.assignment.just
+#                         ^ source.just
+#                          ^^^^^ source.just constant.language.boolean.just
+>set windows-shell := "cmd"
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^ source.just variable.language.setting.just
+#                 ^ source.just
+#                  ^^ source.just keyword.operator.assignment.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.double.just string.quoted.double.just
+#                      ^^^ source.just string.quoted.double.just
+#                         ^ source.just string.quoted.double.just
+>
+># Boolean not required 
+#^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>set allow-duplicate-recipes
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.language.setting.just
+>

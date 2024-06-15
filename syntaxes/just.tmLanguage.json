@@ -128,7 +128,7 @@
         {
           "commment": "Functions",
           "name": "support.function.builtin.just",
-          "match": "\\b(arch|num_cpus|os|os_family|env_var|env_var_or_default|env|invocation_directory|invocation_directory_native|justfile|justfile_directory|just_executable|just_pid|quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase|absolute_path|blake3|blake3_file|canonicalize|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists|error|sha256|sha256_file|uuid|semver_matches|cache_directory|config_directory|config_local_directory|data_directory|data_local_directory|executable_directory|home_directory)\\b"
+          "match": "\\b(arch|num_cpus|os|os_family|shell|env_var|env_var_or_default|env|is_dependency|invocation_directory|invocation_directory_native|justfile|justfile_directory|just_executable|just_pid|source_file|source_directory|module_file|module_directory|append|prepend|encode_uri_component|quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase|absolute_path|blake3|blake3_file|canonicalize|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists|error|assert|sha256|sha256_file|uuid|choose|datetime|datetime_utc|semver_matches|cache_directory|config_directory|config_local_directory|data_directory|data_local_directory|executable_directory|home_directory)\\b"
         }
       ]
     },
@@ -280,8 +280,16 @@
         {
           "comment": "Indented string",
           "name": "string.quoted.double.indented.just",
-          "begin": "\"\"\"",
+          "begin": "(x)?(\"\"\")",
           "end": "\"\"\"",
+          "beginCaptures": {
+            "1": {
+              "name": "constant.character.expanded.just"
+            },
+            "2": {
+              "name": "string.quoted.double.indented.just"
+            }
+          },
           "patterns": [
             {
               "comment": "Escaped characters",
@@ -296,8 +304,16 @@
         {
           "comment": "String",
           "name": "string.quoted.double.just",
-          "begin": "\"",
+          "begin": "(x)?(\")",
           "end": "\"",
+          "beginCaptures": {
+            "1": {
+              "name": "constant.character.expanded.just"
+            },
+            "2": {
+              "name": "string.quoted.double.just"
+            }
+          },
           "patterns": [
             {
               "comment": "Escaped characters",
@@ -312,8 +328,16 @@
         {
           "comment": "Indented raw string",
           "name": "string.quoted.single.indented.just",
-          "begin": "'''",
+          "begin": "(x)?(''')",
           "end": "'''",
+          "beginCaptures": {
+            "1": {
+              "name": "constant.character.expanded.just"
+            },
+            "2": {
+              "name": "string.quoted.single.indented.just"
+            }
+          },
           "patterns": [
             {
               "include": "#escaping"
@@ -323,8 +347,16 @@
         {
           "comment": "Raw string",
           "name": "string.quoted.single.just",
-          "begin": "'",
+          "begin": "(x)?(')",
           "end": "'",
+          "beginCaptures": {
+            "1": {
+              "name": "constant.character.expanded.just"
+            },
+            "2": {
+              "name": "string.quoted.single.just"
+            }
+          },
           "patterns": [
             {
               "include": "#escaping"
@@ -373,22 +405,46 @@
       ]
     },
     "recipe-attributes": {
-      "comment": "Recipe attributes",
-      "match": "^\\[(.*)]\\s*$",
-      "captures": {
-        "1": {
-          "patterns": [
-            {
-              "comment": "Attribute name",
-              "name": "support.function.system.just",
-              "match": "(confirm|linux|macos|no\\-cd|no\\-exit\\-message|private|no\\-quiet|unix|windows)"
+      "patterns": [
+        {
+          "comment": "Multiple recipe attributes",
+          "match": "^\\[([a-zA-z\\-]+)\\s*(?:,(\\s*[a-zA-z\\-]+\\s*))*]\\s*$",
+          "captures": {
+            "1": {
+              "name": "support.function.system.just"
             },
-            {
-              "include": "#strings"
+            "2": {
+              "name": "support.function.system.just"
             }
-          ]
+          }
+        },
+        {
+          "comment": "Recipe attribute with value",
+          "match": "^\\[([a-zA-z\\-]+)(?:(?:(:)(.*?))|(\\((.*?)\\)))?]\\s*$",
+          "captures": {
+            "1": {
+              "name": "support.function.system.just"
+            },
+            "2": {
+              "name": "keyword.operator.attribute.end.just"
+            },
+            "3": {
+              "patterns": [
+                {
+                  "include": "#strings"
+                }
+              ]
+            },
+            "4": {
+              "patterns": [
+                {
+                  "include": "#strings"
+                }
+              ]
+            }
+          }
         }
-      }
+      ]
     },
     "recipe-params": {
       "comment": "Recipe parameters",

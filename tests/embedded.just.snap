@@ -16,7 +16,7 @@
 >  print('Hello from python!')
 #^^^^^^^ source.just
 #       ^ source.just
-#        ^ source.just string.quoted.single.just
+#        ^ source.just string.quoted.single.just string.quoted.single.just
 #         ^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
 #                           ^ source.just string.quoted.single.just
 #                            ^ source.just
@@ -36,7 +36,7 @@
 >  console.log('Greetings from JavaScript!')
 #^^^^^^^^^^^^^ source.just
 #             ^ source.just
-#              ^ source.just string.quoted.single.just
+#              ^ source.just string.quoted.single.just string.quoted.single.just
 #               ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
 #                                         ^ source.just string.quoted.single.just
 #                                          ^ source.just
@@ -55,7 +55,7 @@
 #                ^^^^^^ source.just
 >  print "Larry Wall says Hi!\n";
 #^^^^^^^^ source.just
-#        ^ source.just string.quoted.double.just
+#        ^ source.just string.quoted.double.just string.quoted.double.just
 #         ^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
 #                            ^^ source.just string.quoted.double.just constant.character.escape.just
 #                              ^ source.just string.quoted.double.just
@@ -75,12 +75,12 @@
 #                ^^^^ source.just
 >  hello='Yo'
 #^^^^^^^^ source.just
-#        ^ source.just string.quoted.single.just
+#        ^ source.just string.quoted.single.just string.quoted.single.just
 #         ^^ source.just string.quoted.single.just
 #           ^ source.just string.quoted.single.just
 >  echo "$hello from a shell script!"
 #^^^^^^^ source.just
-#       ^ source.just string.quoted.double.just
+#       ^ source.just string.quoted.double.just string.quoted.double.just
 #        ^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
 #                                   ^ source.just string.quoted.double.just
 >
@@ -98,6 +98,6 @@
 #                ^^^^^^ source.just
 >  puts "Hello from ruby!"
 #^^^^^^^ source.just
-#       ^ source.just string.quoted.double.just
+#       ^ source.just string.quoted.double.just string.quoted.double.just
 #        ^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
 #                        ^ source.just string.quoted.double.just

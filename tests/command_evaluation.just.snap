@@ -1,0 +1,29 @@
+># command evaluation
+#^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>localhost := `dumpinterfaces | cut -d: -f2 | sed 's/\/.*//' | sed 's/ //g'`
+#^^^^^^^^^ source.just variable.other.just
+#         ^ source.just
+#          ^^ source.just keyword.operator.assignment.just
+#            ^ source.just
+#             ^ source.just string.interpolated.just
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just source.shell
+#                                                                          ^ source.just string.interpolated.just
+>
+>stuff := ```
+#^^^^^ source.just variable.other.just
+#     ^ source.just
+#      ^^ source.just keyword.operator.assignment.just
+#        ^ source.just
+#         ^ source.just string.interpolated.just
+#          ^ source.just string.interpolated.just
+#           ^^ source.just
+>    echo foo
+#^^^^^^^^^^^^^ source.just
+>    echo bar
+#^^^^^^^^^^^^^ source.just
+>  ```
+#^^ source.just
+#  ^ source.just string.interpolated.just
+#   ^ source.just string.interpolated.just
+#    ^^ source.just

@@ -1,31 +1,364 @@
 ># Builtin functions
 #^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
->system-info:
-#^^^^^^^^^^^ source.just entity.name.function.just
-#           ^ source.just keyword.operator.recipe.end.just
->  @echo "This is an {{arch()}} machine".
-#^^ source.just
-#  ^ source.just keyword.operator.quiet.just
-#   ^^^^^ source.just
-#        ^ source.just string.quoted.double.just
-#         ^^^^^^^^^^^ source.just string.quoted.double.just
-#                    ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
-#                      ^^^^ source.just string.quoted.double.just string.interpolated.escaping.just support.function.builtin.just
-#                          ^^ source.just string.quoted.double.just string.interpolated.escaping.just
-#                            ^^ source.just string.quoted.double.just string.interpolated.escaping.just string.interpolated.escape.just
-#                              ^^^^^^^^ source.just string.quoted.double.just
-#                                      ^ source.just string.quoted.double.just
-#                                       ^^ source.just
+># System info
+#^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
->home_dir := env_var('HOME')
-#^^^^^^^^ source.just variable.other.just
-#        ^ source.just
-#         ^^ source.just keyword.operator.assignment.just
-#           ^ source.just
-#            ^^^^^^^ source.just support.function.builtin.just
+>arch()
+#^^^^ source.just support.function.builtin.just
+#    ^^ source.just
+>num_cpus()
+#^^^^^^^^ source.just support.function.builtin.just
+#        ^^ source.just
+>os()
+#^^ source.just support.function.builtin.just
+#  ^^ source.just
+>os_family()
+#^^^^^^^^^ source.just support.function.builtin.just
+#         ^^ source.just
+>
+># External commands
+#^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>shell(command, arg1)
+#^^^^^ source.just support.function.builtin.just
+#     ^ source.just
+#      ^^^^^^^^^^^^^ source.just
 #                   ^ source.just
-#                    ^ source.just string.quoted.single.just
-#                     ^^^^ source.just string.quoted.single.just
-#                         ^ source.just string.quoted.single.just
-#                          ^ source.just
+>
+># Environment variables
+#^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>env_var(key)
+#^^^^^^^ source.just support.function.builtin.just
+#       ^ source.just
+#        ^^^ source.just
+#           ^ source.just
+>env_var_or_default(key, default)
+#^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                  ^ source.just
+#                   ^^^^^^^^^^^^ source.just
+#                               ^ source.just
+>env(key)
+#^^^ source.just support.function.builtin.just
+#   ^ source.just
+#    ^^^ source.just
+#       ^ source.just
+>env(key, default)
+#^^^ source.just support.function.builtin.just
+#   ^ source.just
+#    ^^^^^^^^^^^^ source.just
+#                ^ source.just
+>
+># Invocation information
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>is_dependency()
+#^^^^^^^^^^^^^ source.just support.function.builtin.just
+#             ^^ source.just
+>
+># Invocation directory
+#^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>invocation_directory()
+#^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                    ^^ source.just
+>
+># Just
+#^^^^^^ source.just comment.line.number-sign.just
+>
+>justfile()
+#^^^^^^^^ source.just support.function.builtin.just
+#        ^^ source.just
+>justfile_directory()
+#^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                  ^^ source.just
+>just_executable()
+#^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#               ^^ source.just
+>just_pid()
+#^^^^^^^^ source.just support.function.builtin.just
+#        ^^ source.just
+>
+># Source
+#^^^^^^^^ source.just comment.line.number-sign.just
+>
+>source_file()
+#^^^^^^^^^^^ source.just support.function.builtin.just
+#           ^^ source.just
+>source_directory()
+#^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                ^^ source.just
+>module_file()
+#^^^^^^^^^^^ source.just support.function.builtin.just
+#           ^^ source.just
+>module_directory()
+#^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                ^^ source.just
+>
+>
+># Strings
+#^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>append(suffix, s)
+#^^^^^^ source.just support.function.builtin.just
+#      ^ source.just
+#       ^^^^^^^^^ source.just
+#                ^ source.just
+>prepend(prefix, s)
+#^^^^^^^ source.just support.function.builtin.just
+#       ^ source.just
+#        ^^^^^^^^^ source.just
+#                 ^ source.just
+>encode_uri_component(s)
+#^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                    ^ source.just
+#                     ^ source.just
+#                      ^ source.just
+>quote(s)
+#^^^^^ source.just support.function.builtin.just
+#     ^ source.just
+#      ^ source.just
+#       ^ source.just
+>replace(s, from, to) 
+#^^^^^^^ source.just support.function.builtin.just
+#       ^ source.just
+#        ^^^^^^^^^^^ source.just
+#                   ^ source.just
+#                    ^^ source.just
+>replace_regex(s, regex, replacement)
+#^^^^^^^^^^^^^ source.just support.function.builtin.just
+#             ^ source.just
+#              ^^^^^^^^^^^^^^^^^^^^^ source.just
+#                                   ^ source.just
+>trim(s)
+#^^^^ source.just support.function.builtin.just
+#    ^ source.just
+#     ^ source.just
+#      ^ source.just
+>trim_end(s)
+#^^^^^^^^ source.just support.function.builtin.just
+#        ^ source.just
+#         ^ source.just
+#          ^ source.just
+>trim_end_match(s, pat)
+#^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#              ^ source.just
+#               ^^^^^^ source.just
+#                     ^ source.just
+>trim_end_matches(s, pat) 
+#^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                ^ source.just
+#                 ^^^^^^ source.just
+#                       ^ source.just
+#                        ^^ source.just
+>trim_start(s) 
+#^^^^^^^^^^ source.just support.function.builtin.just
+#          ^ source.just
+#           ^ source.just
+#            ^ source.just
+#             ^^ source.just
+>trim_start_match(s, pat)
+#^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                ^ source.just
+#                 ^^^^^^ source.just
+#                       ^ source.just
+>trim_start_matches(s, pat)
+#^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                  ^ source.just
+#                   ^^^^^^ source.just
+#                         ^ source.just
+>
+>capitalize(s)
+#^^^^^^^^^^ source.just support.function.builtin.just
+#          ^ source.just
+#           ^ source.just
+#            ^ source.just
+>kebabcase(s)
+#^^^^^^^^^ source.just support.function.builtin.just
+#         ^ source.just
+#          ^ source.just
+#           ^ source.just
+>lowercamelcase(s)
+#^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#              ^ source.just
+#               ^ source.just
+#                ^ source.just
+>lowercase(s)
+#^^^^^^^^^ source.just support.function.builtin.just
+#         ^ source.just
+#          ^ source.just
+#           ^ source.just
+>shoutykebabcase(s)
+#^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#               ^ source.just
+#                ^ source.just
+#                 ^ source.just
+>shoutysnakecase(s)
+#^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#               ^ source.just
+#                ^ source.just
+#                 ^ source.just
+>snakecase(s)
+#^^^^^^^^^ source.just support.function.builtin.just
+#         ^ source.just
+#          ^ source.just
+#           ^ source.just
+>titlecase(s)
+#^^^^^^^^^ source.just support.function.builtin.just
+#         ^ source.just
+#          ^ source.just
+#           ^ source.just
+>uppercamelcase(s)
+#^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#              ^ source.just
+#               ^ source.just
+#                ^ source.just
+>uppercase(s)
+#^^^^^^^^^ source.just support.function.builtin.just
+#         ^ source.just
+#          ^ source.just
+#           ^ source.just
+>
+># Paths
+#^^^^^^^ source.just comment.line.number-sign.just
+>
+>absolute_path(path)
+#^^^^^^^^^^^^^ source.just support.function.builtin.just
+#             ^ source.just
+#              ^^^^ source.just
+#                  ^ source.just
+>canonicalize(path)
+#^^^^^^^^^^^^ source.just support.function.builtin.just
+#            ^ source.just
+#             ^^^^ source.just
+#                 ^ source.just
+>extension(path)
+#^^^^^^^^^ source.just support.function.builtin.just
+#         ^ source.just
+#          ^^^^ source.just
+#              ^ source.just
+>file_name(path)
+#^^^^^^^^^ source.just support.function.builtin.just
+#         ^ source.just
+#          ^^^^ source.just
+#              ^ source.just
+>file_stem(path)
+#^^^^^^^^^ source.just support.function.builtin.just
+#         ^ source.just
+#          ^^^^ source.just
+#              ^ source.just
+>parent_directory(path)
+#^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                ^ source.just
+#                 ^^^^ source.just
+#                     ^ source.just
+>without_extension(path)
+#^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                 ^ source.just
+#                  ^^^^ source.just
+#                      ^ source.just
+>
+>clean(path)
+#^^^^^ source.just support.function.builtin.just
+#     ^ source.just
+#      ^^^^ source.just
+#          ^ source.just
+>join(a, b)
+#^^^^ source.just support.function.builtin.just
+#    ^ source.just
+#     ^^^^ source.just
+#         ^ source.just
+>
+>path_exists(path)
+#^^^^^^^^^^^ source.just support.function.builtin.just
+#           ^ source.just
+#            ^^^^ source.just
+#                ^ source.just
+>
+># Errors
+#^^^^^^^^ source.just comment.line.number-sign.just
+>
+>error(message)
+#^^^^^ source.just support.function.builtin.just
+#     ^ source.just
+#      ^^^^^^^ source.just
+#             ^ source.just
+>assert(condition, expressions)
+#^^^^^^ source.just support.function.builtin.just
+#      ^ source.just
+#       ^^^^^^^^^^^^^^^^^^^^^^ source.just
+#                             ^ source.just
+>
+># Utils
+#^^^^^^^ source.just comment.line.number-sign.just
+>
+>blake3(string)
+#^^^^^^ source.just support.function.builtin.just
+#      ^ source.just
+#       ^^^^^^ source.just
+#             ^ source.just
+>blake3_file(path)
+#^^^^^^^^^^^ source.just support.function.builtin.just
+#           ^ source.just
+#            ^^^^ source.just
+#                ^ source.just
+>sha256(string)
+#^^^^^^ source.just support.function.builtin.just
+#      ^ source.just
+#       ^^^^^^ source.just
+#             ^ source.just
+>sha256_file(path)
+#^^^^^^^^^^^ source.just support.function.builtin.just
+#           ^ source.just
+#            ^^^^ source.just
+#                ^ source.just
+>uuid()
+#^^^^ source.just support.function.builtin.just
+#    ^^ source.just
+>
+>choose(n, alphabet)
+#^^^^^^ source.just support.function.builtin.just
+#      ^ source.just
+#       ^^^^^^^^^^^ source.just
+#                  ^ source.just
+>
+>datetime(format)
+#^^^^^^^^ source.just support.function.builtin.just
+#        ^ source.just
+#         ^^^^^^ source.just
+#               ^ source.just
+>datetime_utc(format)
+#^^^^^^^^^^^^ source.just support.function.builtin.just
+#            ^ source.just
+#             ^^^^^^ source.just
+#                   ^ source.just
+>
+>semver_matches(version, requirement)
+#^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#              ^ source.just
+#               ^^^^^^^^^^^^^^^^^^^^ source.just
+#                                   ^ source.just
+>
+>cache_directory()
+#^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#               ^^ source.just
+>config_directory()
+#^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                ^^ source.just
+>config_local_directory()
+#^^^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                      ^^ source.just
+>data_directory()
+#^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#              ^^ source.just
+>data_local_directory()
+#^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                    ^^ source.just
+>executable_directory()
+#^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                    ^^ source.just
+>home_directory()
+#^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#              ^^ source.just
+>

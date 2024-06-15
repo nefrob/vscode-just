@@ -1,0 +1,103 @@
+># Recipe attributes
+#^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>[doc]
+#^ source.just
+# ^^^ source.just support.function.system.just
+#    ^^ source.just
+>[confirm]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^^ source.just
+>[linux]
+#^ source.just
+# ^^^^^ source.just support.function.system.just
+#      ^^ source.just
+>[macos]
+#^ source.just
+# ^^^^^ source.just support.function.system.just
+#      ^^ source.just
+>[no-cd]
+#^ source.just
+# ^^^^^ source.just support.function.system.just
+#      ^^ source.just
+>[no-exit-message]
+#^ source.just
+# ^^^^^^^^^^^^^^^ source.just support.function.system.just
+#                ^^ source.just
+>[private]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^^ source.just
+>[no-quiet]
+#^ source.just
+# ^^^^^^^^ source.just support.function.system.just
+#         ^^ source.just
+>[unix]
+#^ source.just
+# ^^^^ source.just support.function.system.just
+#     ^^ source.just
+>[windows]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^^ source.just
+>foo:
+#^^^ source.just entity.name.function.just
+#   ^ source.just keyword.operator.recipe.end.just
+>    echo "foo"
+#^^^^^^^^^ source.just
+#         ^ source.just string.quoted.double.just string.quoted.double.just
+#          ^^^ source.just string.quoted.double.just
+#             ^ source.just string.quoted.double.just
+>
+># Attribute chaining
+#^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>[no-cd, private]
+#^ source.just
+# ^^^^^ source.just support.function.system.just
+#      ^ source.just
+#       ^^^^^^^^ source.just support.function.system.just
+#               ^^ source.just
+>foo:
+#^^^ source.just entity.name.function.just
+#   ^ source.just keyword.operator.recipe.end.just
+>    echo "foo"
+#^^^^^^^^^ source.just
+#         ^ source.just string.quoted.double.just string.quoted.double.just
+#          ^^^ source.just string.quoted.double.just
+#             ^ source.just string.quoted.double.just
+>
+># Attribute values
+#^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>[confirm("Are you sure you want to delete everything?")]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^ source.just
+#         ^ source.just string.quoted.double.just string.quoted.double.just
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                                                     ^ source.just string.quoted.double.just
+#                                                      ^ source.just
+#                                                       ^^ source.just
+>delete-everything:
+#^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                 ^ source.just keyword.operator.recipe.end.just
+>    rm -rf *
+#^^^^^^^^^^^^^ source.just
+>
+>[confirm: "Are you sure you want to delete everything?"]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^ source.just keyword.operator.attribute.end.just
+#         ^ source.just
+#          ^ source.just string.quoted.double.just string.quoted.double.just
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                                                      ^ source.just string.quoted.double.just
+#                                                       ^^ source.just
+>delete-everything:
+#^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                 ^ source.just keyword.operator.recipe.end.just
+>    rm -rf *
+#^^^^^^^^^^^^^ source.just
+>

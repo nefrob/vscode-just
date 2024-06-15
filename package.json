@@ -10,7 +10,7 @@
   },
   "scripts": {
     "lint": "prettier --cache .",
-    "test": "vscode-tmgrammar-snap tests/*"
+    "test": "vscode-tmgrammar-snap tests/**/*.just"
   },
   "categories": [
     "Programming Languages"

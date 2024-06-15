@@ -50,7 +50,7 @@
 #      ^ source.just keyword.operator.recipe.end.just
 >  echo 'I {{{{LOVE}} curly braces!'
 #^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
 #        ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
 #                                  ^ source.just string.quoted.single.just
 >
@@ -65,7 +65,7 @@
 #               ^^^^ source.just string.interpolated.escaping.just
 #                   ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
 #                     ^^^^^^^^^^^^^^ source.just
-#                                   ^ source.just string.quoted.single.just
+#                                   ^ source.just string.quoted.single.just string.quoted.single.just
 #                                    ^^ source.just string.quoted.single.just
 #                                      ^ source.just string.quoted.single.just
 >
@@ -74,7 +74,7 @@
 #      ^ source.just keyword.operator.recipe.end.just
 >  echo 'I {{ "{{" }}LOVE}} curly braces!'
 #^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
 #        ^^ source.just string.quoted.single.just
 #          ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
 #            ^ source.just string.quoted.single.just string.interpolated.escaping.just

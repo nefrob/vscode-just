@@ -1,18 +1,3 @@
-# Recipe attributes
-
-[no-cd]
-[private]
-foo:
-    echo "foo"
-
-[no-cd, private]
-foo:
-    echo "foo"
-
-[confirm("Are you sure you want to delete everything?")]
-delete-everything:
-  rm -rf *
-
 # Recipes
 
 default: (build "main")

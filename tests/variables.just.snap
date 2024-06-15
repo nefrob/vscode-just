@@ -15,21 +15,9 @@
 #     ^ source.just keyword.operator.recipe.end.just
 >  echo 'Building!'
 #^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
 #        ^^^^^^^^^ source.just string.quoted.single.just
 #                 ^ source.just string.quoted.single.just
->
-># Settings
-#^^^^^^^^^^ source.just comment.line.number-sign.just
->
->set allow-duplicate-recipes := false
-#^^^ source.just keyword.other.reserved.just
-#   ^ source.just
-#    ^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.language.setting.just
-#                           ^ source.just
-#                            ^^ source.just keyword.operator.assignment.just
-#                              ^ source.just
-#                               ^^^^^ source.just constant.language.boolean.just
 >
 ># Variables and substitution
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
@@ -47,7 +35,7 @@
 #       ^ source.just
 #        ^^ source.just keyword.operator.assignment.just
 #          ^ source.just
-#           ^ source.just string.quoted.double.just
+#           ^ source.just string.quoted.double.just string.quoted.double.just
 #            ^^^^^ source.just string.quoted.double.just
 #                 ^ source.just string.quoted.double.just
 >tardir  := tmpdir / "awesomesauce-" + version
@@ -57,7 +45,7 @@
 #          ^^^^^^^^ source.just
 #                  ^ source.just keyword.operator.path-join.just
 #                   ^ source.just
-#                    ^ source.just string.quoted.double.just
+#                    ^ source.just string.quoted.double.just string.quoted.double.just
 #                     ^^^^^^^^^^^^^ source.just string.quoted.double.just
 #                                  ^ source.just string.quoted.double.just
 #                                   ^ source.just
@@ -70,7 +58,7 @@
 #          ^^^^^^^^ source.just
 #                  ^ source.just keyword.operator.concat.just
 #                   ^ source.just
-#                    ^ source.just string.quoted.double.just
+#                    ^ source.just string.quoted.double.just string.quoted.double.just
 #                     ^^^^^^^ source.just string.quoted.double.just
 #                            ^ source.just string.quoted.double.just
 >
@@ -79,7 +67,7 @@
 #   ^ source.just
 #    ^^ source.just keyword.operator.assignment.just
 #      ^ source.just
-#       ^ source.just string.quoted.double.just
+#       ^ source.just string.quoted.double.just string.quoted.double.just
 #        ^^ source.just string.quoted.double.just
 #          ^ source.just string.quoted.double.just
 >bar := foo / "b"
@@ -89,7 +77,7 @@
 #      ^^^^^ source.just
 #           ^ source.just keyword.operator.path-join.just
 #            ^ source.just
-#             ^ source.just string.quoted.double.just
+#             ^ source.just string.quoted.double.just string.quoted.double.just
 #              ^ source.just string.quoted.double.just
 #               ^ source.just string.quoted.double.just
 >
@@ -100,7 +88,7 @@
 #                     ^ source.just
 #                      ^^ source.just keyword.operator.assignment.just
 #                        ^ source.just
-#                         ^ source.just string.quoted.double.just
+#                         ^ source.just string.quoted.double.just string.quoted.double.just
 #                          ^ source.just string.quoted.double.just
 #                           ^ source.just string.quoted.double.just
 >
