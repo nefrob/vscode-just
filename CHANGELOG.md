@@ -2,9 +2,12 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2024-06015
+
 ### Added
 
 - Add simple syntax token snapshot tests
+- Add builtin functions, recipe attribute and settings from just releases 1.27.0 through 1.29.1
 
 ## [0.2.1] - 2024-03-31
 
