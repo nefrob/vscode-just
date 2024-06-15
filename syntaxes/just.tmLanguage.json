@@ -405,22 +405,46 @@
       ]
     },
     "recipe-attributes": {
-      "comment": "Recipe attributes",
-      "match": "^\\[(.*)]\\s*$",
-      "captures": {
-        "1": {
-          "patterns": [
-            {
-              "comment": "Attribute name",
-              "name": "support.function.system.just",
-              "match": "(confirm|linux|macos|no\\-cd|no\\-exit\\-message|private|no\\-quiet|unix|windows)"
+      "patterns": [
+        {
+          "comment": "Multiple recipe attributes",
+          "match": "^\\[([a-zA-z\\-]+)\\s*(?:,(\\s*[a-zA-z\\-]+\\s*))*]\\s*$",
+          "captures": {
+            "1": {
+              "name": "support.function.system.just"
             },
-            {
-              "include": "#strings"
+            "2": {
+              "name": "support.function.system.just"
             }
-          ]
+          }
+        },
+        {
+          "comment": "Recipe attribute with value",
+          "match": "^\\[([a-zA-z\\-]+)(?:(?:(:)(.*?))|(\\((.*?)\\)))?]\\s*$",
+          "captures": {
+            "1": {
+              "name": "support.function.system.just"
+            },
+            "2": {
+              "name": "keyword.operator.attribute.end.just"
+            },
+            "3": {
+              "patterns": [
+                {
+                  "include": "#strings"
+                }
+              ]
+            },
+            "4": {
+              "patterns": [
+                {
+                  "include": "#strings"
+                }
+              ]
+            }
+          }
         }
-      }
+      ]
     },
     "recipe-params": {
       "comment": "Recipe parameters",
