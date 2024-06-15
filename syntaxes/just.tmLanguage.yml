@@ -73,7 +73,7 @@ repository:
     patterns:
       - commment: Functions
         name: support.function.builtin.just
-        match: "\\b(arch|num_cpus|os|os_family|env_var|env_var_or_default|env|invocation_directory|invocation_directory_native|justfile|justfile_directory|just_executable|just_pid|quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase|absolute_path|blake3|blake3_file|canonicalize|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists|error|sha256|sha256_file|uuid|semver_matches|cache_directory|config_directory|config_local_directory|data_directory|data_local_directory|executable_directory|home_directory)\\b"
+        match: "\\b(arch|num_cpus|os|os_family|shell|env_var|env_var_or_default|env|is_dependency|invocation_directory|invocation_directory_native|justfile|justfile_directory|just_executable|just_pid|source_file|source_directory|append|prepend|encode_uri_component|quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase|absolute_path|blake3|blake3_file|canonicalize|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists|error|assert|sha256|sha256_file|uuid|choose|datetime|datetime_utc|semver_matches|cache_directory|config_directory|config_local_directory|data_directory|data_local_directory|executable_directory|home_directory)\\b"
 
   assignment:
     patterns:
