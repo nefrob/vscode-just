@@ -19,18 +19,6 @@
 #        ^^^^^^^^^ source.just string.quoted.single.just
 #                 ^ source.just string.quoted.single.just
 >
-># Settings
-#^^^^^^^^^^ source.just comment.line.number-sign.just
->
->set allow-duplicate-recipes := false
-#^^^ source.just keyword.other.reserved.just
-#   ^ source.just
-#    ^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.language.setting.just
-#                           ^ source.just
-#                            ^^ source.just keyword.operator.assignment.just
-#                              ^ source.just
-#                               ^^^^^ source.just constant.language.boolean.just
->
 ># Variables and substitution
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
