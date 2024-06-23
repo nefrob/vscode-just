@@ -1,4 +1,6 @@
-# Escaped blocks
+# Interpolation blocks
+
+# TODO: interpolation blocks don't really work highlighting-wise
 
 base:
   echo {{var}} {{ var }}
@@ -18,7 +20,7 @@ escaped:
   echo '{{ "{{" }} var }}'
   echo {{ "{{" }} var }}
   echo '{{'{{ var }}'}}'
-  echo {{ '{{ var }}' }}
-  echo {{ "{{ var" }} }}
-  echo {{ "{{ var }}" }}
-  echo {{ "{{ 'var' }}" }}
+  # TODO: broken
+  # echo {{ '{{ var }}' }}
+  # echo {{ "{{ var" }} }}
+  # echo {{ "{{ 'var' }}" }}

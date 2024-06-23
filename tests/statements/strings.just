@@ -39,6 +39,8 @@ y := """
 
 # Expanded
 
+# TODO: should there be special highlighting for these strings?
+
 foobar := x"~/$FOO/${BAR}"
 foobar := x"""~/$FOO/${BAR}"""
 foobar := x'~/$FOO/${BAR}'

@@ -1,66 +1,51 @@
 # Recipes
 
-default: (build "main")
-
-build target:
-  @echo 'Building {{target}}…'
-  cd {{target}} && make
-
+# Basic
 foo:
-  -cat foo
-  echo 'Done!'
+  echo 'hello'
 
-build target:
-  @echo "Building {{target}}…"
+abc-DEF-123:
+  echo 'hello'
 
-push target: (build target)
-  @echo 'Pushing {{target}}…'
+# Parameters
 
-# Dependencies
+foo param1:
+  echo {{param1}}
 
-test: lint && (build ("a" + ("b" / "c"))) && test
-  @echo "test"
-
-default := 'all'
-
-test target tests=default:
-  @echo 'Testing {{target}}:{{tests}}…'
-  ./test --tests {{tests}} {{target}}
-
-test triple=(arch + "-unknown-unknown") input=(arch / "input.dat"):
-  ./test {{triple}}
-
-a $A $B=`echo $A`:
-  echo $A $B
-
-venv:
-  [ -d foo ] || python3 -m venv foo
-
-run: venv
-  ./foo/bin/python3 main.py
-
-# Extra case
-test nested=("a" + ("b" + "c")):
-  ./test {{nested}}
-  echo (("a") + ("b" + "c"))
-
-commit MESSAGE *FLAGS:
-  git commit {{FLAGS}} -m "{{MESSAGE}}"
-
-test +FLAGS='-q':
-  cargo test {{FLAGS}}
+foo param1 param2:
+  echo {{param1}} {{param2}}
 
 foo $bar:
   echo $bar
 
-a:
-  echo 'A!'
+foo a b=var:
+  echo {{a}} {{b}}
+
+default_value a=("a" + ("b" + "c")):
+  echo {{a}}
+
+foo a=(arch + "-unknown-unknown") b=(arch / "input.dat"):
+  echo {{a}} {{b}}
+
+# TODO: backticks broken
+a $A $B=`echo $A`:
+  echo $A $B
+
+variadic MESSAGE *FLAGS:
+  echo {{MESSAGE}} {{FLAGS}}
+
+plus_variadic +FLAGS='-q':
+  echo {{FLAGS}}
+
+# Dependencies
+
+basic: foo
+  echo 'bar'
 
 b: a && c d
-  echo 'B!'
+  echo 'hello from b'
 
-c:
-  echo 'C!'
+default: (build "main")
 
-d:
-  echo 'D!'
+complex: lint && (build ("a" + ("b" / "c"))) && test
+  echo "hello"

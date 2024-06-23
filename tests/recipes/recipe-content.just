@@ -1,17 +1,17 @@
 # Noise operators
 
-foo:
-  -echo "supress error"
-  @echo quiet
-
 @quiet:
   echo hello
 
 _private:
   echo hello
 
-# Variables in recipes
+body:
+  -echo "supress error"
+  @echo quiet
 
-foo:
-  x := "hello" # This doesn't work!
-  echo {{x}}
+# Variables in recipes illegal
+
+# TODO: not implemented
+# foo:
+#   x := "hello"

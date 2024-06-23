@@ -1,5 +1,7 @@
 # Embedded languages
 
+# TODO: how to test embedded grammars in snapshots?
+
 python:
   #!/usr/bin/env python3
   print('Hello from python!')

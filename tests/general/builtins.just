@@ -13,6 +13,8 @@ else
 
 # Builtin functions
 
+# TODO: should parentheses be optional or required?
+
 # System info
 
 arch()

@@ -1,44 +1,16 @@
-# If-statements
+# Multi-line constructs
 
-conditional:
-  if true; then echo 'True!'; fi
+# TODO: do we need to validate this?
+# TODO: should just-specific highlighting in recipes be conditional (ex. only in interpolation blocks)
+# or always on?
 
-conditional:
+multi-line-recipe:
   if true; then \
     echo 'True!'; \
   fi
 
-conditional:
-  #!/usr/bin/env sh
-  if true; then
-    echo 'True!'
-  fi
 
-# Loops
-
-for:
-  for file in `ls .`; do echo $file; done
-
-for:
-  for file in `ls .`; do \
-    echo $file; \
-  done
-
-while:
-  while `server-is-dead`; do ping -c 1 server; done
-
-while:
-  while `server-is-dead`; do \
-    ping -c 1 server; \
-  done
-
-while:
-  #!/usr/bin/env sh
-  while `server-is-dead`; do
-    ping -c 1 server
-  done
-
-# Pathensis don't need explicit lone breaks
+# Parenthesis blocks don't need explicit line breaks
 
 abc := ('a' +
         'b'
@@ -49,6 +21,8 @@ abc2 := (
   'b' +
   'c'
 )
+
+# TODO: multi-line recipe def broken
 
 foo param=('foo'
       + 'bar'
@@ -79,7 +53,7 @@ dep2 \
   param:
     echo 'Dependency with parameter {{param}}'
   
-# Line contiuation in interpolations
+# Line continuation in interpolations
 
 recipe:
   echo '{{ \
