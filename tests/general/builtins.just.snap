@@ -1,5 +1,30 @@
+># Builin keywords
+#^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>alias
+#^^^^^ source.just keyword.other.reserved.just
+>set
+#^^^ source.just keyword.other.reserved.just
+>export
+#^^^^^^ source.just keyword.other.reserved.just
+>import
+#^^^^^^ source.just keyword.other.reserved.just
+>mod
+#^^^ source.just keyword.other.reserved.just
+>
+># Control keywords
+#^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>if
+#^^ source.just keyword.control.conditional.just
+>else
+#^^^^ source.just keyword.control.conditional.just
+>
 ># Builtin functions
 #^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+># TODO: should parentheses be optional or required?
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
 ># System info
 #^^^^^^^^^^^^^ source.just comment.line.number-sign.just

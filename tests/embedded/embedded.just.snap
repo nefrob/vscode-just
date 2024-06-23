@@ -1,6 +1,9 @@
 ># Embedded languages
 #^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
+># TODO: how to test embedded grammars in snapshots?
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
 >python:
 #^^^^^^ source.just entity.name.function.just
 #      ^ source.just keyword.operator.recipe.end.just

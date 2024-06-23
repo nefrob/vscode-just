@@ -142,6 +142,9 @@
 ># Expanded
 #^^^^^^^^^^ source.just comment.line.number-sign.just
 >
+># TODO: should there be special highlighting for these strings?
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
 >foobar := x"~/$FOO/${BAR}"
 #^^^^^^ source.just variable.other.just
 #      ^ source.just

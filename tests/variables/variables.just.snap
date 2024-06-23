@@ -9,15 +9,13 @@
 #       ^ source.just
 #        ^^ source.just keyword.operator.assignment.just
 #          ^^^^^^^ source.just
->
->build:
-#^^^^^ source.just entity.name.function.just
-#     ^ source.just keyword.operator.recipe.end.just
->  echo 'Building!'
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just string.quoted.single.just
-#        ^^^^^^^^^ source.just string.quoted.single.just
-#                 ^ source.just string.quoted.single.just
+>alias help-123 := some-recipe
+#^^^^^ source.just keyword.other.assignment.just
+#     ^ source.just
+#      ^^^^^^^^ source.just variable.other.just
+#              ^ source.just
+#               ^^ source.just keyword.operator.assignment.just
+#                 ^^^^^^^^^^^^^ source.just
 >
 ># Variables and substitution
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
@@ -80,6 +78,9 @@
 #             ^ source.just string.quoted.double.just string.quoted.double.just
 #              ^ source.just string.quoted.double.just
 #               ^ source.just string.quoted.double.just
+>
+># Exports
+#^^^^^^^^^ source.just comment.line.number-sign.just
 >
 >export RUST_BACKTRACE := "1"
 #^^^^^^ source.just keyword.other.assignment.just
