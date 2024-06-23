@@ -16,7 +16,7 @@ build target:
 push target: (build target)
   @echo 'Pushing {{target}}…'
 
-# Extra
+# Dependencies
 
 test: lint && (build ("a" + ("b" / "c"))) && test
   @echo "test"
@@ -29,6 +29,15 @@ test target tests=default:
 
 test triple=(arch + "-unknown-unknown") input=(arch / "input.dat"):
   ./test {{triple}}
+
+a $A $B=`echo $A`:
+  echo $A $B
+
+venv:
+  [ -d foo ] || python3 -m venv foo
+
+run: venv
+  ./foo/bin/python3 main.py
 
 # Extra case
 test nested=("a" + ("b" + "c")):
@@ -55,15 +64,3 @@ c:
 
 d:
   echo 'D!'
-
-@quiet:
-  echo hello
-  echo goodbye
-  @# all done!
-
-
-# Imports
-
-import 'foo/bar.just'
-
-mod bar

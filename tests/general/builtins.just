@@ -1,3 +1,16 @@
+# Builin keywords
+
+alias
+set
+export
+import
+mod
+
+# Control keywords
+
+if
+else
+
 # Builtin functions
 
 # System info
