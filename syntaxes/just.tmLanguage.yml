@@ -1,6 +1,9 @@
 $schema: https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
 name: Just
 scopeName: source.just
+fileTypes: [just, justfile, Justfile]
+firstLineMatch: "#![\\s\\t]*\\/.*\\just\\b"
+uuid: 8b0cfae0-229f-4688-a4b7-8b5c3db82855
 
 patterns:
   - include: '#assignment'
