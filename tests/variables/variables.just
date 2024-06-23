@@ -2,9 +2,7 @@
 # Aliases
 
 alias b := build
-
-build:
-  echo 'Building!'
+alias help-123 := some-recipe
 
 # Variables and substitution
 
@@ -15,6 +13,8 @@ tarball := tardir + ".tar.gz"
 
 foo := "a/"
 bar := foo / "b"
+
+# Exports
 
 export RUST_BACKTRACE := "1"
 

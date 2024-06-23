@@ -60,6 +60,11 @@
           "comment": "Integer",
           "name": "constant.language.integer.just",
           "match": "\\b\\d+\\b"
+        },
+        {
+          "comment": "Hex",
+          "name": "constant.language.hex.just",
+          "match": "\\b(HEX|HEXLOWER|HEXUPPER)\\b"
         }
       ]
     },

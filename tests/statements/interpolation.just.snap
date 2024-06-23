@@ -1,0 +1,141 @@
+># Interpolation blocks
+#^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+># TODO: interpolation blocks don't really work highlighting-wise
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>base:
+#^^^^ source.just entity.name.function.just
+#    ^ source.just keyword.operator.recipe.end.just
+>  echo {{var}} {{ var }}
+#^^^^^^^ source.just
+#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^^^ source.just string.interpolated.escaping.just
+#            ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#              ^ source.just
+#               ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                 ^^^^^ source.just string.interpolated.escaping.just
+#                      ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  echo {{ a + 'b' + c }}
+#^^^^^^^ source.just
+#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^^^ source.just string.interpolated.escaping.just
+#            ^ source.just string.interpolated.escaping.just keyword.operator.concat.just
+#             ^ source.just string.interpolated.escaping.just
+#              ^ source.just string.interpolated.escaping.just string.quoted.single.just string.quoted.single.just
+#               ^ source.just string.interpolated.escaping.just string.quoted.single.just
+#                ^ source.just string.interpolated.escaping.just string.quoted.single.just
+#                 ^ source.just string.interpolated.escaping.just
+#                  ^ source.just string.interpolated.escaping.just keyword.operator.concat.just
+#                   ^^^ source.just string.interpolated.escaping.just
+#                      ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  echo {{ 'a' / 'b' }}
+#^^^^^^^ source.just
+#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^ source.just string.interpolated.escaping.just
+#          ^ source.just string.interpolated.escaping.just string.quoted.single.just string.quoted.single.just
+#           ^ source.just string.interpolated.escaping.just string.quoted.single.just
+#            ^ source.just string.interpolated.escaping.just string.quoted.single.just
+#             ^ source.just string.interpolated.escaping.just
+#              ^ source.just string.interpolated.escaping.just keyword.operator.path-join.just
+#               ^ source.just string.interpolated.escaping.just
+#                ^ source.just string.interpolated.escaping.just string.quoted.single.just string.quoted.single.just
+#                 ^ source.just string.interpolated.escaping.just string.quoted.single.just
+#                  ^ source.just string.interpolated.escaping.just string.quoted.single.just
+#                   ^ source.just string.interpolated.escaping.just
+#                    ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+>  echo '{{ var }}'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#          ^^^^^ source.just string.quoted.single.just string.interpolated.escaping.just
+#               ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                 ^ source.just string.quoted.single.just
+>  echo '''{{ var }}'''
+#^^^^^^^ source.just
+#       ^^^ source.just string.quoted.single.indented.just string.quoted.single.indented.just
+#          ^^ source.just string.quoted.single.indented.just string.interpolated.escaping.just string.interpolated.escape.just
+#            ^^^^^ source.just string.quoted.single.indented.just string.interpolated.escaping.just
+#                 ^^ source.just string.quoted.single.indented.just string.interpolated.escaping.just string.interpolated.escape.just
+#                   ^^^ source.just string.quoted.single.indented.just
+>  echo '{{ 'var' }}'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#          ^ source.just string.quoted.single.just string.interpolated.escaping.just
+#           ^ source.just string.quoted.single.just string.interpolated.escaping.just string.quoted.single.just string.quoted.single.just
+#            ^^^ source.just string.quoted.single.just string.interpolated.escaping.just string.quoted.single.just
+#               ^ source.just string.quoted.single.just string.interpolated.escaping.just string.quoted.single.just
+#                ^ source.just string.quoted.single.just string.interpolated.escaping.just
+#                 ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                   ^ source.just string.quoted.single.just
+>  echo '''{{ 'var' }}'''
+#^^^^^^^ source.just
+#       ^^^ source.just string.quoted.single.indented.just string.quoted.single.indented.just
+#          ^^ source.just string.quoted.single.indented.just string.interpolated.escaping.just string.interpolated.escape.just
+#            ^ source.just string.quoted.single.indented.just string.interpolated.escaping.just
+#             ^ source.just string.quoted.single.indented.just string.interpolated.escaping.just string.quoted.single.just string.quoted.single.just
+#              ^^^ source.just string.quoted.single.indented.just string.interpolated.escaping.just string.quoted.single.just
+#                 ^ source.just string.quoted.single.indented.just string.interpolated.escaping.just string.quoted.single.just
+#                  ^ source.just string.quoted.single.indented.just string.interpolated.escaping.just
+#                   ^^ source.just string.quoted.single.indented.just string.interpolated.escaping.just string.interpolated.escape.just
+#                     ^^^ source.just string.quoted.single.indented.just
+>
+># Braces are escaped
+#^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>escaped:
+#^^^^^^^ source.just entity.name.function.just
+#       ^ source.just keyword.operator.recipe.end.just
+>  echo '{{{{ var }}'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^^^^^^^^^^ source.just string.quoted.single.just
+#                   ^ source.just string.quoted.single.just
+>  echo '''{{{{ var }}'''
+#^^^^^^^ source.just
+#       ^^^ source.just string.quoted.single.indented.just string.quoted.single.indented.just
+#          ^^^^^^^^^^^ source.just string.quoted.single.indented.just
+#                     ^^^ source.just string.quoted.single.indented.just
+>  echo {{{{ var }}
+#^^^^^^^^^^^^^^^^^^^ source.just
+>  echo '{{ "{{" }} var }}'
+#^^^^^^^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#          ^ source.just string.quoted.single.just string.interpolated.escaping.just
+#           ^^^^ source.just string.quoted.single.just string.interpolated.escaping.just string.quoted.double.indented.just
+#               ^ source.just string.quoted.single.just string.interpolated.escaping.just
+#                ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                  ^^^^^^^ source.just string.quoted.single.just
+#                         ^ source.just string.quoted.single.just
+>  echo {{ "{{" }} var }}
+#^^^^^^^ source.just
+#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^ source.just string.interpolated.escaping.just
+#          ^^^^ source.just string.interpolated.escaping.just string.quoted.double.indented.just
+#              ^ source.just string.interpolated.escaping.just
+#               ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                 ^^^^^^^^ source.just
+>  echo '{{'{{ var }}'}}'
+#^^^^^^^ source.just
+#       ^^^^ source.just string.quoted.double.indented.just
+#           ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#             ^^^^^ source.just string.interpolated.escaping.just
+#                  ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#                    ^ source.just string.quoted.single.just string.quoted.single.just
+#                     ^^ source.just string.quoted.single.just
+#                       ^ source.just string.quoted.single.just
+>  # TODO: broken
+#^^ source.just
+#  ^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>  # echo {{ '{{ var }}' }}
+#^^ source.just
+#  ^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>  # echo {{ "{{ var" }} }}
+#^^ source.just
+#  ^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>  # echo {{ "{{ 'var' }}" }}
+#^^ source.just
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>

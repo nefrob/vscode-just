@@ -1,0 +1,15 @@
+># Constants
+#^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>true
+#^^^^ source.just constant.language.boolean.just
+>false
+#^^^^^ source.just constant.language.boolean.just
+>
+>HEX
+#^^^ source.just constant.language.hex.just
+>HEXLOWER
+#^^^^^^^^ source.just constant.language.hex.just
+>HEXUPPER
+#^^^^^^^^ source.just constant.language.hex.just
+>

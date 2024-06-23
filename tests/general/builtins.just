@@ -1,4 +1,19 @@
+# Builin keywords
+
+alias
+set
+export
+import
+mod
+
+# Control keywords
+
+if
+else
+
 # Builtin functions
+
+# TODO: should parentheses be optional or required?
 
 # System info
 

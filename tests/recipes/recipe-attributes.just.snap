@@ -101,3 +101,69 @@
 >    rm -rf *
 #^^^^^^^^^^^^^ source.just
 >
+>
+># Recipe groups
+#^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>[group('lint')]
+#^ source.just
+# ^^^^^ source.just support.function.system.just
+#      ^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^^^ source.just string.quoted.single.just
+#            ^ source.just string.quoted.single.just
+#             ^ source.just
+#              ^^ source.just
+>js-lint:
+#^^^^^^^ source.just entity.name.function.just
+#       ^ source.just keyword.operator.recipe.end.just
+>    echo 'Running JS linter...'
+#^^^^^^^^^ source.just
+#         ^ source.just string.quoted.single.just string.quoted.single.just
+#          ^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                              ^ source.just string.quoted.single.just
+>
+>[group('rust recipes')]
+#^ source.just
+# ^^^^^ source.just support.function.system.just
+#      ^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^^^^^^^^^^^ source.just string.quoted.single.just
+#                    ^ source.just string.quoted.single.just
+#                     ^ source.just
+#                      ^^ source.just
+>[group('lint')]
+#^ source.just
+# ^^^^^ source.just support.function.system.just
+#      ^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^^^ source.just string.quoted.single.just
+#            ^ source.just string.quoted.single.just
+#             ^ source.just
+#              ^^ source.just
+>rust-lint:
+#^^^^^^^^^ source.just entity.name.function.just
+#         ^ source.just keyword.operator.recipe.end.just
+>    echo 'Running Rust linter...'
+#^^^^^^^^^ source.just
+#         ^ source.just string.quoted.single.just string.quoted.single.just
+#          ^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                ^ source.just string.quoted.single.just
+>
+>[group('lint')]
+#^ source.just
+# ^^^^^ source.just support.function.system.just
+#      ^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^^^ source.just string.quoted.single.just
+#            ^ source.just string.quoted.single.just
+#             ^ source.just
+#              ^^ source.just
+>cpp-lint:
+#^^^^^^^^ source.just entity.name.function.just
+#        ^ source.just keyword.operator.recipe.end.just
+>    echo 'Running C++ linter...'
+#^^^^^^^^^ source.just
+#         ^ source.just string.quoted.single.just string.quoted.single.just
+#          ^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                               ^ source.just string.quoted.single.just
