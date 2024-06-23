@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### Added
+
+- `HEX` constants
+
+### Changed
+
+- Updated tests
+
 ## [0.3.0] - 2024-06015
 
 ### Added
