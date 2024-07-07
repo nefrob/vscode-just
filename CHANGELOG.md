@@ -6,10 +6,6 @@
 
 - `HEX` constants
 
-### Changed
-
-- Cleaned up inconsistent scope names for the same tokens
-
 ### Fixed
 
 - Backticks in recipe definitions now highlight correctly
@@ -17,6 +13,7 @@
 ### Changed
 
 - Updated tests
+- Cleaned up inconsistent scope names for the same tokens
 
 ## [0.3.0] - 2024-06015
 
