@@ -1,9 +1,5 @@
 # Multi-line constructs
 
-# TODO: do we need to validate this?
-# TODO: just-specific highlighting in recipes be conditional (ex. only in interpolation blocks)
-# or always on?
-
 multi-line-recipe:
   if true; then \
     echo 'True!'; \
@@ -22,7 +18,7 @@ abc2 := (
   'c'
 )
 
-# TODO: multi-line recipe def broken
+# TODO: multi-line recipe def not supported
 
 foo param=('foo'
       + 'bar'

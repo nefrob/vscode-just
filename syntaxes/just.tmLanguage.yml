@@ -22,7 +22,6 @@ patterns:
   - include: '#embedded-languages'
   - include: '#escaping'
 
-
 repository:
   comments:
     patterns:
@@ -104,7 +103,7 @@ repository:
             name: keyword.operator.assignment.just
         patterns:
           - include: '#expression'
-      
+
   setting-assignment:
     patterns:
       - begin: |
@@ -139,7 +138,7 @@ repository:
     patterns:
       - name: constant.language.hex.just
         match: \b(HEX|HEXLOWER|HEXUPPER)\b
-      - include: "#builtin-functions"
+      - include: '#builtin-functions'
       - include: '#literal'
 
   builtin-functions:

@@ -34,13 +34,28 @@ Note: Unlike previous iterations of VSCode `just` extensions, this extension doe
 
 This extension does simple and/or best effort syntax highlighting. It is not intended to be 100% comprehensive, but rather provide a good enough experience for most users. That being said, if you find a bug or missing feature, please open an issue or a pull request.
 
--   Interpolation blocks, e.g. `{{ variable }}`, color all content as a string. Ideally it should match base `just` language highlighting, however limitations of regexs make comprehensive highlighting here complex or impossible for certain scenarios.
 
-- This extension is not available on open source marketplaces (for now). If you are using an open source build of VSCode, you might need to install the extension manually. To do so:
+#### Nesting and scoping
 
-    1. Navigate to the latest [release](https://github.com/nefrob/vscode-just/releases) and download the `.vsix` file.
-    2. Copy the file to your `.vscode/extensions` directory.
-    3. Install via the command line: `code --install-extension .vscode/extensions/vscode-just-X.Y.Z.vsix`
+Since expressions can have deep nesting and we cannot tell the scope based on indentation or other markers, we run into the following issues. These are limitations of TextMate grammars and is not easily fixable. 
+  
+-  Expression and recipe specific rules pollute the global repository scopes, meaning we apply `just` highlighting within recipe bodies. This means `just` keywords/operators/etc, like `if`, will highlight everywhere. This is necessary to highlight expressions correctly elsewhere.
+
+- Some nested expressions will break due to lack of awareness of depth and preemptively match a closing character. Ex. 
+
+    ```
+    echo {{ '{{ string }}' }}
+    ```
+
+    will echo `{{ string }}` since braces within the string are escaped and part of the string's scope. Textmate can't handle this without a full parser, so will match on the first closing brace it finds.
+
+#### Publishing
+
+This extension is not available on open source marketplaces (for now). If you are using an open source build of VSCode, you might need to install the extension manually. To do so:
+
+1. Navigate to the latest [release](https://github.com/nefrob/vscode-just/releases) and download the `.vsix` file.
+2. Copy the file to your `.vscode/extensions` directory.
+3. Install via the command line: `code --install-extension .vscode/extensions/vscode-just-X.Y.Z.vsix`
 
 ## Release Notes
 

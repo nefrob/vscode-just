@@ -1,13 +1,6 @@
 ># Multi-line constructs
 #^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
-># TODO: do we need to validate this?
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
-># TODO: just-specific highlighting in recipes be conditional (ex. only in interpolation blocks)
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
-># or always on?
-#^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
->
 >multi-line-recipe:
 #^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
 #                 ^ source.just keyword.operator.recipe.end.just
@@ -83,8 +76,8 @@
 >)
 #^ source.just
 >
-># TODO: multi-line recipe def broken
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+># TODO: multi-line recipe def not supported
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
 >foo param=('foo'
 #^^^^^^^^^^ source.just
