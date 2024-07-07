@@ -27,7 +27,7 @@
 #                                        ^ source.just string.quoted.double.just string.quoted.double.just
 #                                         ^^^^ source.just string.quoted.double.just
 #                                             ^ source.just string.quoted.double.just
-#                                              ^^^ source.just
+#                                              ^^ source.just
 >foo := if "hello" != "goodbye" { "xyz" } else { "abc" }
 #^^^ source.just variable.other.just
 #   ^ source.just
@@ -54,7 +54,7 @@
 #                                                ^ source.just string.quoted.double.just string.quoted.double.just
 #                                                 ^^^ source.just string.quoted.double.just
 #                                                    ^ source.just string.quoted.double.just
-#                                                     ^^^ source.just
+#                                                     ^^ source.just
 >foo := if "hello" =~ 'hel+o' { "match" } else { "mismatch" }
 #^^^ source.just variable.other.just
 #   ^ source.just
@@ -81,7 +81,7 @@
 #                                                ^ source.just string.quoted.double.just string.quoted.double.just
 #                                                 ^^^^^^^^ source.just string.quoted.double.just
 #                                                         ^ source.just string.quoted.double.just
-#                                                          ^^^ source.just
+#                                                          ^^ source.just
 >foo := if env_var("RELEASE") == "true" { `get-something-from-release-database` } else { "dummy-value" }
 #^^^ source.just variable.other.just
 #   ^ source.just
@@ -94,8 +94,7 @@
 #                  ^ source.just string.quoted.double.just string.quoted.double.just
 #                   ^^^^^^^ source.just string.quoted.double.just
 #                          ^ source.just string.quoted.double.just
-#                           ^ source.just
-#                            ^ source.just
+#                           ^^ source.just
 #                             ^^ source.just keyword.operator.equality.just
 #                               ^ source.just
 #                                ^ source.just string.quoted.double.just string.quoted.double.just
@@ -111,7 +110,7 @@
 #                                                                                        ^ source.just string.quoted.double.just string.quoted.double.just
 #                                                                                         ^^^^^^^^^^^ source.just string.quoted.double.just
 #                                                                                                    ^ source.just string.quoted.double.just
-#                                                                                                     ^^^ source.just
+#                                                                                                     ^^ source.just
 >foo := if "hello" == "goodbye" {
 #^^^ source.just variable.other.just
 #   ^ source.just
@@ -128,7 +127,7 @@
 #                     ^ source.just string.quoted.double.just string.quoted.double.just
 #                      ^^^^^^^ source.just string.quoted.double.just
 #                             ^ source.just string.quoted.double.just
-#                              ^^^ source.just
+#                              ^^ source.just
 >  "xyz"
 #^^ source.just
 #  ^ source.just string.quoted.double.just string.quoted.double.just

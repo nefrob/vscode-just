@@ -6,11 +6,11 @@ firstLineMatch: "#![\\s\\t]*\\/.*\\just\\b"
 uuid: 8b0cfae0-229f-4688-a4b7-8b5c3db82855
 
 patterns:
-  - include: '#assignment'
   - include: '#comments'
   - include: '#import'
   - include: '#module'
   - include: '#alias'
+  - include: '#assignment'
   - include: '#builtins'
   - include: '#keywords'
   - include: '#operators'
@@ -79,6 +79,50 @@ repository:
       '4':
         name: variable.other.just
 
+  assignment:
+    patterns:
+      - include: '#variable-assignment'
+      - include: '#setting-assignment'
+
+  variable-assignment:
+    patterns:
+      - begin: |
+          (?x) 
+            ^
+            (?: (export) \s+)?
+            ([a-zA-Z_][a-zA-Z0-9_-]*) \s*
+            (:=)
+        end: $
+        beginCaptures:
+          '1':
+            name: keyword.other.reserved.just
+          '2':
+            name: variable.other.just
+          '3':
+            name: keyword.operator.assignment.just
+        patterns:
+          - include: '#expression'
+      
+  setting-assignment:
+    patterns:
+      - begin: |
+          (?x) 
+            ^
+            (set) \s+
+            ([a-zA-Z_][a-zA-Z0-9_-]*) \s*
+            (:=)?
+        end: $
+        beginCaptures:
+          '1':
+            name: keyword.other.reserved.just
+          '2':
+            name: variable.other.just
+          '3':
+            name: keyword.operator.assignment.just
+        patterns:
+          # Allow any expression here for simplicity right now
+          - include: '#expression'
+
   builtins:
     patterns:
       - name: constant.language.hex.just
@@ -136,8 +180,7 @@ repository:
 
   keywords:
     patterns:
-      - comment: Reserved
-        match: "^(alias|export|import|mod|set)\\s+"
+      - match: "^(alias|export|import|mod|set)\\s+"
         captures:
           '1':
             name: keyword.other.reserved.just
@@ -171,27 +214,6 @@ repository:
         captures:
           '1':
             name: keyword.operator.error-suppression.just
-
-  assignment:
-    patterns:
-      - comment: Variable
-        match: "^(?:(export)\\s+)?([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)"
-        captures:
-          '1':
-            name: keyword.other.assignment.just
-          '2':
-            name: variable.other.just
-          '3':
-            name: keyword.operator.assignment.just
-      - comment: Setting
-        match: "^(set)\\s+([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)?"
-        captures:
-          '1':
-            name: keyword.other.reserved.just
-          '2':
-            name: variable.language.setting.just
-          '3':
-            name: keyword.operator.assignment.just
 
   backtick:
     patterns:

@@ -11,9 +11,6 @@
   "uuid": "8b0cfae0-229f-4688-a4b7-8b5c3db82855",
   "patterns": [
     {
-      "include": "#assignment"
-    },
-    {
       "include": "#comments"
     },
     {
@@ -24,6 +21,9 @@
     },
     {
       "include": "#alias"
+    },
+    {
+      "include": "#assignment"
     },
     {
       "include": "#builtins"
@@ -116,6 +116,64 @@
         }
       }
     },
+    "assignment": {
+      "patterns": [
+        {
+          "include": "#variable-assignment"
+        },
+        {
+          "include": "#setting-assignment"
+        }
+      ]
+    },
+    "variable-assignment": {
+      "patterns": [
+        {
+          "begin": "(?x) \n  ^\n  (?: (export) \\s+)?\n  ([a-zA-Z_][a-zA-Z0-9_-]*) \\s*\n  (:=)\n",
+          "end": "$",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.other.reserved.just"
+            },
+            "2": {
+              "name": "variable.other.just"
+            },
+            "3": {
+              "name": "keyword.operator.assignment.just"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#expression"
+            }
+          ]
+        }
+      ]
+    },
+    "setting-assignment": {
+      "patterns": [
+        {
+          "begin": "(?x) \n  ^\n  (set) \\s+\n  ([a-zA-Z_][a-zA-Z0-9_-]*) \\s*\n  (:=)?\n",
+          "end": "$",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.other.reserved.just"
+            },
+            "2": {
+              "name": "variable.other.just"
+            },
+            "3": {
+              "name": "keyword.operator.assignment.just"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#expression"
+            }
+          ]
+        }
+      ]
+    },
     "builtins": {
       "patterns": [
         {
@@ -171,7 +229,6 @@
     "keywords": {
       "patterns": [
         {
-          "comment": "Reserved",
           "match": "^(alias|export|import|mod|set)\\s+",
           "captures": {
             "1": {
@@ -223,40 +280,6 @@
           "captures": {
             "1": {
               "name": "keyword.operator.error-suppression.just"
-            }
-          }
-        }
-      ]
-    },
-    "assignment": {
-      "patterns": [
-        {
-          "comment": "Variable",
-          "match": "^(?:(export)\\s+)?([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)",
-          "captures": {
-            "1": {
-              "name": "keyword.other.assignment.just"
-            },
-            "2": {
-              "name": "variable.other.just"
-            },
-            "3": {
-              "name": "keyword.operator.assignment.just"
-            }
-          }
-        },
-        {
-          "comment": "Setting",
-          "match": "^(set)\\s+([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)?",
-          "captures": {
-            "1": {
-              "name": "keyword.other.reserved.just"
-            },
-            "2": {
-              "name": "variable.language.setting.just"
-            },
-            "3": {
-              "name": "keyword.operator.assignment.just"
             }
           }
         }

@@ -50,7 +50,7 @@
 #                                  ^ source.just string.quoted.double.just
 #                                   ^ source.just
 #                                    ^ source.just keyword.operator.concat.just
-#                                     ^^^^^^^^^ source.just
+#                                     ^^^^^^^^ source.just
 >tarball := tardir + ".tar.gz"
 #^^^^^^^ source.just variable.other.just
 #       ^ source.just
@@ -85,7 +85,7 @@
 #^^^^^^^^^ source.just comment.line.number-sign.just
 >
 >export RUST_BACKTRACE := "1"
-#^^^^^^ source.just keyword.other.assignment.just
+#^^^^^^ source.just keyword.other.reserved.just
 #      ^ source.just
 #       ^^^^^^^^^^^^^^ source.just variable.other.just
 #                     ^ source.just
