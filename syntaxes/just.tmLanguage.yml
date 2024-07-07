@@ -19,7 +19,7 @@ patterns:
   - include: '#strings'
   - include: '#escaping'
   - include: '#recipes'
-  - include: '#parenthesis-block'
+  - include: '#parenthesis'
 
 repository:
   comments:
@@ -123,6 +123,16 @@ repository:
           # Allow any expression here for simplicity right now
           - include: '#expression'
 
+  expression:
+    patterns:
+      - include: '#backtick'
+      - include: '#builtins'
+      - include: '#control-keywords'
+      - include: '#operators'
+      - include: '#parenthesis'
+      - include: '#strings'
+      # - include: '#expression'
+
   builtins:
     patterns:
       - name: constant.language.hex.just
@@ -180,13 +190,27 @@ repository:
 
   keywords:
     patterns:
+      - include: '#reserved-keywords'
+      - include: '#control-keywords'
+
+  reserved-keywords:
+    patterns:
       - match: "^(alias|export|import|mod|set)\\s+"
         captures:
           '1':
             name: keyword.other.reserved.just
-      - comment: Conditional
-        name: keyword.control.conditional.just
+
+  control-keywords:
+    patterns:
+      - name: keyword.control.conditional.just
         match: "\\b(if|else)\\b"
+
+  parenthesis:
+    begin: \(
+    end: \)
+    patterns:
+      - include: '#expression'
+      - include: '#parenthesis'
 
   operators:
     patterns:
@@ -340,11 +364,7 @@ repository:
             name: string.interpolated.escape.just
           '2':
             patterns:
-              - include: '#keywords'
-              - include: '#operators'
-              - include: '#builtins'
-              - include: '#backtick'
-              - include: '#strings'
+              - include: '#expression'
           '3':
             name: string.interpolated.escape.just
 
@@ -389,7 +409,7 @@ repository:
           - include: '#backtick'
       '6':
         patterns:
-          - include: '#parenthesis-block'
+          - include: '#parenthesis'
 
   recipe-dependencies:
     comment: Recipe dependencies
@@ -406,11 +426,7 @@ repository:
                 name: entity.name.function.just
               '2':
                 patterns:
-                  - include: '#builtin-functions'
-                  - include: '#backtick'
-                  - include: '#keywords'
-                  - include: '#operators'
-                  - include: '#strings'
+                  - include: '#expression'
       '3':
         name: keyword.operator.and.just
 
@@ -433,16 +449,3 @@ repository:
             patterns:
               - include: '#recipe-dependencies'
 
-  expression:
-    patterns:
-      - include: '#builtins'
-      - include: '#keywords'
-      - include: '#operators'
-      - include: '#backtick'
-      - include: '#strings'
-
-  parenthesis-block:
-    begin: \(
-    end: \)
-    patterns:
-      - include: '#expression'

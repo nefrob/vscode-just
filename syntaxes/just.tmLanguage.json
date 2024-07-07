@@ -50,7 +50,7 @@
       "include": "#recipes"
     },
     {
-      "include": "#parenthesis-block"
+      "include": "#parenthesis"
     }
   ],
   "repository": {
@@ -174,6 +174,28 @@
         }
       ]
     },
+    "expression": {
+      "patterns": [
+        {
+          "include": "#backtick"
+        },
+        {
+          "include": "#builtins"
+        },
+        {
+          "include": "#control-keywords"
+        },
+        {
+          "include": "#operators"
+        },
+        {
+          "include": "#parenthesis"
+        },
+        {
+          "include": "#strings"
+        }
+      ]
+    },
     "builtins": {
       "patterns": [
         {
@@ -229,17 +251,42 @@
     "keywords": {
       "patterns": [
         {
+          "include": "#reserved-keywords"
+        },
+        {
+          "include": "#control-keywords"
+        }
+      ]
+    },
+    "reserved-keywords": {
+      "patterns": [
+        {
           "match": "^(alias|export|import|mod|set)\\s+",
           "captures": {
             "1": {
               "name": "keyword.other.reserved.just"
             }
           }
-        },
+        }
+      ]
+    },
+    "control-keywords": {
+      "patterns": [
         {
-          "comment": "Conditional",
           "name": "keyword.control.conditional.just",
           "match": "\\b(if|else)\\b"
+        }
+      ]
+    },
+    "parenthesis": {
+      "begin": "\\(",
+      "end": "\\)",
+      "patterns": [
+        {
+          "include": "#expression"
+        },
+        {
+          "include": "#parenthesis"
         }
       ]
     },
@@ -497,19 +544,7 @@
             "2": {
               "patterns": [
                 {
-                  "include": "#keywords"
-                },
-                {
-                  "include": "#operators"
-                },
-                {
-                  "include": "#builtins"
-                },
-                {
-                  "include": "#backtick"
-                },
-                {
-                  "include": "#strings"
+                  "include": "#expression"
                 }
               ]
             },
@@ -592,7 +627,7 @@
         "6": {
           "patterns": [
             {
-              "include": "#parenthesis-block"
+              "include": "#parenthesis"
             }
           ]
         }
@@ -617,19 +652,7 @@
                 "2": {
                   "patterns": [
                     {
-                      "include": "#builtin-functions"
-                    },
-                    {
-                      "include": "#backtick"
-                    },
-                    {
-                      "include": "#keywords"
-                    },
-                    {
-                      "include": "#operators"
-                    },
-                    {
-                      "include": "#strings"
+                      "include": "#expression"
                     }
                   ]
                 }
@@ -675,34 +698,6 @@
               ]
             }
           }
-        }
-      ]
-    },
-    "expression": {
-      "patterns": [
-        {
-          "include": "#builtins"
-        },
-        {
-          "include": "#keywords"
-        },
-        {
-          "include": "#operators"
-        },
-        {
-          "include": "#backtick"
-        },
-        {
-          "include": "#strings"
-        }
-      ]
-    },
-    "parenthesis-block": {
-      "begin": "\\(",
-      "end": "\\)",
-      "patterns": [
-        {
-          "include": "#expression"
         }
       ]
     }
