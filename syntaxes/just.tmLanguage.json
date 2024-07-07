@@ -17,6 +17,12 @@
       "include": "#comments"
     },
     {
+      "include": "#import"
+    },
+    {
+      "include": "#module"
+    },
+    {
       "include": "#alias"
     },
     {
@@ -56,6 +62,43 @@
         {
           "name": "comment.line.number-sign.just",
           "match": "#([^!].*)$"
+        }
+      ]
+    },
+    "import": {
+      "begin": "(?x)\n  ^\n  (import)\n  (\\?)? \\s+\n",
+      "end": "$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.reserved.just"
+        },
+        "2": {
+          "name": "keyword.operator.optional.just"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#strings"
+        }
+      ]
+    },
+    "module": {
+      "begin": "(?x)\n  ^\n  (mod)\n  (\\?)? \\s+\n  ([a-zA-Z_][a-zA-Z0-9_-]*)\n  (?=[$\\s])\n",
+      "end": "$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.reserved.just"
+        },
+        "2": {
+          "name": "keyword.operator.optional.just"
+        },
+        "3": {
+          "name": "variable.name.module.just"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#strings"
         }
       ]
     },
