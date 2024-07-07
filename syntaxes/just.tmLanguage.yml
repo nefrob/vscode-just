@@ -350,7 +350,7 @@ repository:
           - include: '#strings'
       '5':
         patterns:
-          - include: '#inline-shell'
+          - include: '#backtick'
       '6':
         patterns:
           - include: '#parenthesis-block'
@@ -372,7 +372,7 @@ repository:
                 patterns:
                   - include: '#builtin-functions'
                   - include: '#constants'
-                  - include: '#inline-shell'
+                  - include: '#backtick'
                   - include: '#keywords'
                   - include: '#operators'
                   - include: '#strings'
@@ -398,9 +398,7 @@ repository:
             patterns:
               - include: '#recipe-dependencies'
 
-  parenthesis-block:
-    begin: \(
-    end: \)
+  expression:
     patterns:
       - include: '#builtins'
       - include: '#constants'
@@ -408,3 +406,9 @@ repository:
       - include: '#operators'
       - include: '#backtick'
       - include: '#strings'
+
+  parenthesis-block:
+    begin: \(
+    end: \)
+    patterns:
+      - include: '#expression'

@@ -158,7 +158,9 @@
 #     ^ source.just keyword.other.recipe.variadic.just
 #      ^ source.just variable.parameter.recipe.just
 #       ^ source.just keyword.operator.default.just
-#        ^^^^^^^^^ source.just
+#        ^ source.just string.interpolated.just
+#         ^^^^^^^ source.just source.shell
+#                ^ source.just string.interpolated.just
 #                 ^ source.just keyword.operator.recipe.end.just
 >  echo $A $B
 #^^^^^^^^^^^^^ source.just

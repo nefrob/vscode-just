@@ -566,7 +566,7 @@
         "5": {
           "patterns": [
             {
-              "include": "#inline-shell"
+              "include": "#backtick"
             }
           ]
         },
@@ -604,7 +604,7 @@
                       "include": "#constants"
                     },
                     {
-                      "include": "#inline-shell"
+                      "include": "#backtick"
                     },
                     {
                       "include": "#keywords"
@@ -662,9 +662,7 @@
         }
       ]
     },
-    "parenthesis-block": {
-      "begin": "\\(",
-      "end": "\\)",
+    "expression": {
       "patterns": [
         {
           "include": "#builtins"
@@ -683,6 +681,15 @@
         },
         {
           "include": "#strings"
+        }
+      ]
+    },
+    "parenthesis-block": {
+      "begin": "\\(",
+      "end": "\\)",
+      "patterns": [
+        {
+          "include": "#expression"
         }
       ]
     }

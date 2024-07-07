@@ -27,7 +27,6 @@ default_value a=("a" + ("b" + "c")):
 foo a=(arch + "-unknown-unknown") b=(arch / "input.dat"):
   echo {{a}} {{b}}
 
-# TODO: backticks broken
 a $A $B=`echo $A`:
   echo $A $B
 
