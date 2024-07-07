@@ -74,7 +74,7 @@ repository:
       '1':
         name: keyword.other.reserved.just
       '2':
-        name: variable.other.just
+        name: variable.name.alias.just
       '3':
         name: keyword.operator.assignment.just
       '4':

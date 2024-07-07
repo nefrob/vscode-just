@@ -5,7 +5,7 @@
 >alias b := build
 #^^^^^ source.just keyword.other.reserved.just
 #     ^ source.just
-#      ^ source.just variable.other.just
+#      ^ source.just variable.name.alias.just
 #       ^ source.just
 #        ^^ source.just keyword.operator.assignment.just
 #          ^ source.just
@@ -13,7 +13,7 @@
 >alias help-123 := some-recipe
 #^^^^^ source.just keyword.other.reserved.just
 #     ^ source.just
-#      ^^^^^^^^ source.just variable.other.just
+#      ^^^^^^^^ source.just variable.name.alias.just
 #              ^ source.just
 #               ^^ source.just keyword.operator.assignment.just
 #                 ^ source.just
