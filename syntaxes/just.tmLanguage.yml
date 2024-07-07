@@ -39,7 +39,7 @@ repository:
       '1':
         name: keyword.other.reserved.just
       '2':
-        name: keyword.operator.optional.just
+        name: punctuation.optional.just
     patterns:
       - include: '#strings'
 
@@ -56,7 +56,7 @@ repository:
       '1':
         name: keyword.other.reserved.just
       '2':
-        name: keyword.operator.optional.just
+        name: punctuation.optional.just
       '3':
         name: variable.name.module.just
     patterns:

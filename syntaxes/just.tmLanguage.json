@@ -69,7 +69,7 @@
           "name": "keyword.other.reserved.just"
         },
         "2": {
-          "name": "keyword.operator.optional.just"
+          "name": "punctuation.optional.just"
         }
       },
       "patterns": [
@@ -86,7 +86,7 @@
           "name": "keyword.other.reserved.just"
         },
         "2": {
-          "name": "keyword.operator.optional.just"
+          "name": "punctuation.optional.just"
         },
         "3": {
           "name": "variable.name.module.just"

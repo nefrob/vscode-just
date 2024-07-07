@@ -19,7 +19,7 @@
 #                    ^ source.just string.quoted.single.just
 >import? 'foo/bar.just'
 #^^^^^^ source.just keyword.other.reserved.just
-#      ^ source.just keyword.operator.optional.just
+#      ^ source.just punctuation.optional.just
 #       ^ source.just
 #        ^ source.just string.quoted.single.just string.quoted.single.just
 #         ^^^^^^^^^^^^ source.just string.quoted.single.just
@@ -31,7 +31,7 @@
 #    ^^^ source.just variable.name.module.just
 >mod? bar
 #^^^ source.just keyword.other.reserved.just
-#   ^ source.just keyword.operator.optional.just
+#   ^ source.just punctuation.optional.just
 #    ^ source.just
 #     ^^^ source.just variable.name.module.just
 >mod bar 'foo/bar.just'
