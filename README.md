@@ -49,6 +49,14 @@ Since expressions can have deep nesting and we cannot tell the scope based on in
 
     will echo `{{ string }}` since braces within the string are escaped and part of the string's scope. Textmate can't handle this without a full parser, so will match on the first closing brace it finds.
 
+- Line breaking and expressions that span multiple lines may not highlight correctly. As a simple example
+
+    ```
+    foo param1 \
+        param2='foo':
+    echo {{param1}} {{param2}}
+    ```
+
 #### Publishing
 
 This extension is not available on open source marketplaces (for now). If you are using an open source build of VSCode, you might need to install the extension manually. To do so:
