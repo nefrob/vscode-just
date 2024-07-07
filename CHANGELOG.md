@@ -5,6 +5,7 @@
 ### Added
 
 - `HEX` constants
+- Optional `?` operator for `import` and `mod`
 
 ### Fixed
 

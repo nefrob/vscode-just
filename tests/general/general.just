@@ -11,4 +11,4 @@ import? 'foo/bar.just'
 
 mod bar
 mod? bar
-mode bar 'foo/bar.just'
+mod bar 'foo/bar.just'

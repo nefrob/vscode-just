@@ -34,9 +34,12 @@
 #   ^ source.just keyword.operator.optional.just
 #    ^ source.just
 #     ^^^ source.just variable.name.module.just
->mode bar 'foo/bar.just'
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.single.just string.quoted.single.just
-#          ^^^^^^^^^^^^ source.just string.quoted.single.just
-#                      ^ source.just string.quoted.single.just
+>mod bar 'foo/bar.just'
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^ source.just variable.name.module.just
+#       ^ source.just
+#        ^ source.just string.quoted.single.just string.quoted.single.just
+#         ^^^^^^^^^^^^ source.just string.quoted.single.just
+#                     ^ source.just string.quoted.single.just
 >
