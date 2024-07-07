@@ -2,7 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "Just",
   "scopeName": "source.just",
-  "fileTypes": ["just", "justfile", "Justfile"],
+  "fileTypes": [
+    "just",
+    "justfile",
+    "Justfile"
+  ],
   "firstLineMatch": "#![\\s\\t]*\\/.*\\just\\b",
   "uuid": "8b0cfae0-229f-4688-a4b7-8b5c3db82855",
   "patterns": [
@@ -11,6 +15,9 @@
     },
     {
       "include": "#comments"
+    },
+    {
+      "include": "#alias"
     },
     {
       "include": "#constants"
@@ -51,6 +58,23 @@
           "match": "#([^!].*)$"
         }
       ]
+    },
+    "alias": {
+      "match": "(?x)\n  ^\n  (alias) \\s+ \n  ([a-zA-Z_][a-zA-Z0-9_-]*) \\s* \n  (:=) \\s* \n  ([a-zA-Z_][a-zA-Z0-9_-]*)\n",
+      "captures": {
+        "1": {
+          "name": "keyword.other.reserved.just"
+        },
+        "2": {
+          "name": "variable.other.just"
+        },
+        "3": {
+          "name": "keyword.operator.assignment.just"
+        },
+        "4": {
+          "name": "variable.other.just"
+        }
+      }
     },
     "constants": {
       "patterns": [
@@ -166,7 +190,7 @@
       "patterns": [
         {
           "comment": "Variable",
-          "match": "^(?:(alias|export)\\s+)?([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)",
+          "match": "^(?:(export)\\s+)?([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)",
           "captures": {
             "1": {
               "name": "keyword.other.assignment.just"
@@ -596,32 +620,28 @@
       ]
     },
     "parenthesis-block": {
-      "comment": "Any block of just code surrounded by (...)",
-      "match": "\\((.*?)\\)",
-      "captures": {
-        "1": {
-          "patterns": [
-            {
-              "include": "#builtins"
-            },
-            {
-              "include": "#constants"
-            },
-            {
-              "include": "#keywords"
-            },
-            {
-              "include": "#operators"
-            },
-            {
-              "include": "#backtick"
-            },
-            {
-              "include": "#strings"
-            }
-          ]
+      "begin": "\\(",
+      "end": "\\)",
+      "patterns": [
+        {
+          "include": "#builtins"
+        },
+        {
+          "include": "#constants"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#operators"
+        },
+        {
+          "include": "#backtick"
+        },
+        {
+          "include": "#strings"
         }
-      }
+      ]
     }
   }
 }

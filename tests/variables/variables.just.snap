@@ -3,19 +3,21 @@
 #^^^^^^^^^ source.just comment.line.number-sign.just
 >
 >alias b := build
-#^^^^^ source.just keyword.other.assignment.just
+#^^^^^ source.just keyword.other.reserved.just
 #     ^ source.just
 #      ^ source.just variable.other.just
 #       ^ source.just
 #        ^^ source.just keyword.operator.assignment.just
-#          ^^^^^^^ source.just
+#          ^ source.just
+#           ^^^^^ source.just variable.other.just
 >alias help-123 := some-recipe
-#^^^^^ source.just keyword.other.assignment.just
+#^^^^^ source.just keyword.other.reserved.just
 #     ^ source.just
 #      ^^^^^^^^ source.just variable.other.just
 #              ^ source.just
 #               ^^ source.just keyword.operator.assignment.just
-#                 ^^^^^^^^^^^^^ source.just
+#                 ^ source.just
+#                  ^^^^^^^^^^^ source.just variable.other.just
 >
 ># Variables and substitution
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
