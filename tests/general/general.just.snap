@@ -8,18 +8,6 @@
 #^^^^^^^^^^ source.just
 #          ^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
-># Numbers
-#^^^^^^^^^ source.just comment.line.number-sign.just
->
->123
-#^^^ source.just constant.language.integer.just
-># TODO: should the "." be colored differently?
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
->123.456
-#^^^ source.just constant.language.integer.just
-#   ^ source.just
-#    ^^^ source.just constant.language.integer.just
->
 ># Imports
 #^^^^^^^^^ source.just comment.line.number-sign.just
 >

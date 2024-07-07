@@ -6,6 +6,17 @@
 >false
 #^^^^^ source.just constant.language.boolean.just
 >
+>1234
+#^^^^ source.just constant.numeric.just
+>1234.
+#^^^^^ source.just constant.numeric.just
+>12.34
+#^^^^^ source.just constant.numeric.just
+>0.1234
+#^^^^^^ source.just constant.numeric.just
+>.1234
+#^^^^^ source.just constant.numeric.just
+>
 >HEX
 #^^^ source.just constant.language.hex.just
 >HEXLOWER
