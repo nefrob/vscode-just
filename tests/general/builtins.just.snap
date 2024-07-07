@@ -1,5 +1,5 @@
-># Builin keywords
-#^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+># Reserved keywords
+#^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
 >alias
 #^^^^^ source.just keyword.other.reserved.just

@@ -1,4 +1,4 @@
-# Builin keywords
+# Reserved keywords
 
 alias
 set

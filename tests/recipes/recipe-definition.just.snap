@@ -147,8 +147,6 @@
 #               ^ source.just string.interpolated.escaping.just
 #                ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
 >
-># TODO: backticks broken
-#^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >a $A $B=`echo $A`:
 #^ source.just entity.name.function.just
 # ^ source.just
