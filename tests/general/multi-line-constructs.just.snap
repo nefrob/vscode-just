@@ -3,8 +3,8 @@
 >
 ># TODO: do we need to validate this?
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
-># TODO: should just-specific highlighting in recipes be conditional (ex. only in interpolation blocks)
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+># TODO: just-specific highlighting in recipes be conditional (ex. only in interpolation blocks)
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 ># or always on?
 #^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >

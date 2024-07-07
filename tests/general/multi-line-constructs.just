@@ -1,7 +1,7 @@
 # Multi-line constructs
 
 # TODO: do we need to validate this?
-# TODO: should just-specific highlighting in recipes be conditional (ex. only in interpolation blocks)
+# TODO: just-specific highlighting in recipes be conditional (ex. only in interpolation blocks)
 # or always on?
 
 multi-line-recipe:

@@ -23,9 +23,6 @@
 ># Builtin functions
 #^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
-># TODO: should parentheses be optional or required?
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
->
 ># System info
 #^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
