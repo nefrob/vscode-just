@@ -15,7 +15,8 @@
   },
   "scripts": {
     "lint": "prettier --cache .",
-    "test": "vscode-tmgrammar-snap tests/**/*.just"
+    "test": "vscode-tmgrammar-snap tests/**/*.just",
+    "gen-scopes": "node syntaxes/gen_scopes.js"
   },
   "categories": [
     "Programming Languages"

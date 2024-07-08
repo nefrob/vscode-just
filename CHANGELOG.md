@@ -6,6 +6,7 @@
 
 - `HEX` constants
 - Optional `?` operator for `import` and `mod`
+- `scopes.json` for visibility and tracking of language scopes
 
 ### Fixed
 
