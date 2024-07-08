@@ -3,6 +3,12 @@
 true
 false
 
+1234
+1234.
+12.34
+0.1234
+.1234
+
 HEX
 HEXLOWER
 HEXUPPER

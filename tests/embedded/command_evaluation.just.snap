@@ -17,7 +17,7 @@
 #        ^ source.just
 #         ^ source.just string.interpolated.just
 #          ^ source.just string.interpolated.just
-#           ^^ source.just
+#           ^ source.just
 >    echo foo
 #^^^^^^^^^^^^^ source.just
 >    echo bar

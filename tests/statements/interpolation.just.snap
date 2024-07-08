@@ -1,8 +1,10 @@
 ># Interpolation blocks
 #^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
-># TODO: interpolation blocks don't really work highlighting-wise
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+># TODO: interpolation blocks always color as strings since we can't
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+># effectively push scope for nested string/escape blocks
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
 >base:
 #^^^^ source.just entity.name.function.just
@@ -126,9 +128,9 @@
 #                    ^ source.just string.quoted.single.just string.quoted.single.just
 #                     ^^ source.just string.quoted.single.just
 #                       ^ source.just string.quoted.single.just
->  # TODO: broken
+>  # TODO: broken nesting
 #^^ source.just
-#  ^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+#  ^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >  # echo {{ '{{ var }}' }}
 #^^ source.just
 #  ^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just

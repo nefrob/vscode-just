@@ -7,11 +7,5 @@ _private:
   echo hello
 
 body:
-  -echo "supress error"
+  -echo "suppress error"
   @echo quiet
-
-# Variables in recipes illegal
-
-# TODO: not implemented
-# foo:
-#   x := "hello"

@@ -1,4 +1,4 @@
-# Builin keywords
+# Reserved keywords
 
 alias
 set
@@ -12,8 +12,6 @@ if
 else
 
 # Builtin functions
-
-# TODO: should parentheses be optional or required?
 
 # System info
 

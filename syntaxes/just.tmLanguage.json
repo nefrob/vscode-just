@@ -7,40 +7,49 @@
   "uuid": "8b0cfae0-229f-4688-a4b7-8b5c3db82855",
   "patterns": [
     {
-      "include": "#assignment"
-    },
-    {
       "include": "#comments"
     },
     {
-      "include": "#constants"
+      "include": "#import"
     },
     {
-      "include": "#keywords"
+      "include": "#module"
     },
     {
-      "include": "#operators"
+      "include": "#alias"
+    },
+    {
+      "include": "#assignment"
     },
     {
       "include": "#builtins"
     },
     {
-      "include": "#backtick"
+      "include": "#keywords"
     },
     {
-      "include": "#embedded-languages"
+      "include": "#expression-operators"
+    },
+    {
+      "include": "#backtick"
     },
     {
       "include": "#strings"
     },
     {
-      "include": "#escaping"
+      "include": "#parenthesis"
     },
     {
       "include": "#recipes"
     },
     {
-      "include": "#parenthesis-block"
+      "include": "#recipe-operators"
+    },
+    {
+      "include": "#embedded-languages"
+    },
+    {
+      "include": "#escaping"
     }
   ],
   "repository": {
@@ -52,102 +61,78 @@
         }
       ]
     },
-    "constants": {
+    "import": {
+      "begin": "(?x)\n  ^\n  (import)\n  (\\?)? \\s+\n",
+      "end": "$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.reserved.just"
+        },
+        "2": {
+          "name": "punctuation.optional.just"
+        }
+      },
       "patterns": [
         {
-          "comment": "Boolean",
-          "name": "constant.language.boolean.just",
-          "match": "\\b(true|false)\\b"
-        },
-        {
-          "comment": "Integer",
-          "name": "constant.language.integer.just",
-          "match": "\\b\\d+\\b"
-        },
-        {
-          "comment": "Hex",
-          "name": "constant.language.hex.just",
-          "match": "\\b(HEX|HEXLOWER|HEXUPPER)\\b"
+          "include": "#strings"
         }
       ]
     },
-    "keywords": {
+    "module": {
+      "begin": "(?x)\n  ^\n  (mod)\n  (\\?)? \\s+\n  ([a-zA-Z_][a-zA-Z0-9_-]*)\n  (?=[$\\s])\n",
+      "end": "$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.reserved.just"
+        },
+        "2": {
+          "name": "punctuation.optional.just"
+        },
+        "3": {
+          "name": "variable.name.module.just"
+        }
+      },
       "patterns": [
         {
-          "comment": "Reserved",
-          "match": "^(alias|export|import|mod|set)\\s+",
-          "captures": {
-            "1": {
-              "name": "keyword.other.reserved.just"
-            }
-          }
-        },
-        {
-          "comment": "Conditional",
-          "name": "keyword.control.conditional.just",
-          "match": "\\b(if|else)\\b"
+          "include": "#strings"
         }
       ]
     },
-    "operators": {
-      "patterns": [
-        {
-          "comment": "Path join",
-          "name": "keyword.operator.path-join.just",
-          "match": "\\/"
+    "alias": {
+      "match": "(?x)\n  ^\n  (alias) \\s+ \n  ([a-zA-Z_][a-zA-Z0-9_-]*) \\s* \n  (:=) \\s* \n  ([a-zA-Z_][a-zA-Z0-9_-]*)\n",
+      "captures": {
+        "1": {
+          "name": "keyword.other.reserved.just"
         },
-        {
-          "comment": "Concatenation",
-          "name": "keyword.operator.concat.just",
-          "match": "\\+"
+        "2": {
+          "name": "variable.name.alias.just"
         },
-        {
-          "comment": "And",
-          "name": "keyword.operator.and.just",
-          "match": "&&"
+        "3": {
+          "name": "keyword.operator.assignment.just"
         },
-        {
-          "comment": "Equality",
-          "name": "keyword.operator.equality.just",
-          "match": "(\\=\\=|\\=\\~|\\!\\=)"
-        },
-        {
-          "comment": "Quiet",
-          "match": "^\\s+(@)",
-          "captures": {
-            "1": {
-              "name": "keyword.operator.quiet.just"
-            }
-          }
-        },
-        {
-          "comment": "Error suppression",
-          "match": "^\\s+(\\-)",
-          "captures": {
-            "1": {
-              "name": "keyword.operator.error-suppression.just"
-            }
-          }
+        "4": {
+          "name": "variable.other.just"
         }
-      ]
-    },
-    "builtins": {
-      "patterns": [
-        {
-          "commment": "Functions",
-          "name": "support.function.builtin.just",
-          "match": "\\b(arch|num_cpus|os|os_family|shell|env_var|env_var_or_default|env|is_dependency|invocation_directory|invocation_directory_native|justfile|justfile_directory|just_executable|just_pid|source_file|source_directory|module_file|module_directory|append|prepend|encode_uri_component|quote|replace|replace_regex|trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|uppercase|absolute_path|blake3|blake3_file|canonicalize|extension|file_name|file_stem|parent_directory|without_extension|clean|join|path_exists|error|assert|sha256|sha256_file|uuid|choose|datetime|datetime_utc|semver_matches|cache_directory|config_directory|config_local_directory|data_directory|data_local_directory|executable_directory|home_directory)\\b"
-        }
-      ]
+      }
     },
     "assignment": {
       "patterns": [
         {
-          "comment": "Variable",
-          "match": "^(?:(alias|export)\\s+)?([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)",
-          "captures": {
+          "include": "#variable-assignment"
+        },
+        {
+          "include": "#setting-assignment"
+        }
+      ]
+    },
+    "variable-assignment": {
+      "patterns": [
+        {
+          "begin": "(?x) \n  ^\n  (?: (export) \\s+)?\n  ([a-zA-Z_][a-zA-Z0-9_-]*) \\s*\n  (:=)\n",
+          "end": "$",
+          "beginCaptures": {
             "1": {
-              "name": "keyword.other.assignment.just"
+              "name": "keyword.other.reserved.just"
             },
             "2": {
               "name": "variable.other.just"
@@ -155,22 +140,172 @@
             "3": {
               "name": "keyword.operator.assignment.just"
             }
-          }
-        },
+          },
+          "patterns": [
+            {
+              "include": "#expression"
+            }
+          ]
+        }
+      ]
+    },
+    "setting-assignment": {
+      "patterns": [
         {
-          "comment": "Setting",
-          "match": "^(set)\\s+([a-zA-Z_][a-zA-Z0-9_-]*)\\s*(:=)?",
-          "captures": {
+          "begin": "(?x) \n  ^\n  (set) \\s+\n  ([a-zA-Z_][a-zA-Z0-9_-]*) \\s*\n  (:=)?\n",
+          "end": "$",
+          "beginCaptures": {
             "1": {
               "name": "keyword.other.reserved.just"
             },
             "2": {
-              "name": "variable.language.setting.just"
+              "name": "variable.other.just"
             },
             "3": {
               "name": "keyword.operator.assignment.just"
             }
+          },
+          "patterns": [
+            {
+              "include": "#expression"
+            }
+          ]
+        }
+      ]
+    },
+    "expression": {
+      "patterns": [
+        {
+          "include": "#backtick"
+        },
+        {
+          "include": "#builtins"
+        },
+        {
+          "include": "#control-keywords"
+        },
+        {
+          "include": "#expression-operators"
+        },
+        {
+          "include": "#parenthesis"
+        },
+        {
+          "include": "#strings"
+        }
+      ]
+    },
+    "builtins": {
+      "patterns": [
+        {
+          "name": "constant.language.hex.just",
+          "match": "\\b(HEX|HEXLOWER|HEXUPPER)\\b"
+        },
+        {
+          "include": "#builtin-functions"
+        },
+        {
+          "include": "#literal"
+        }
+      ]
+    },
+    "builtin-functions": {
+      "patterns": [
+        {
+          "name": "support.function.builtin.just",
+          "match": "(?x) \\b(\n  arch|num_cpus|os|os_family|shell|env_var|env_var_or_default|env|\n  is_dependency|invocation_directory|invocation_directory_native|\n  justfile|justfile_directory|just_executable|just_pid|source_file|\n  source_directory|module_file|module_directory|append|prepend|\n  encode_uri_component|quote|replace|replace_regex|trim|trim_end|\n  trim_end_match|trim_end_matches|trim_start|trim_start_match|\n  trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|\n  shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|\n  uppercase|absolute_path|blake3|blake3_file|canonicalize|extension|\n  file_name|file_stem|parent_directory|without_extension|clean|join|\n  path_exists|error|assert|sha256|sha256_file|uuid|choose|datetime|\n  datetime_utc|semver_matches|cache_directory|config_directory|\n  config_local_directory|data_directory|data_local_directory|\n  executable_directory|home_directory\n)\\b\n"
+        }
+      ]
+    },
+    "literal": {
+      "patterns": [
+        {
+          "include": "#boolean"
+        },
+        {
+          "include": "#number"
+        }
+      ]
+    },
+    "boolean": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.just",
+          "match": "\\b(true|false)\\b"
+        }
+      ]
+    },
+    "number": {
+      "patterns": [
+        {
+          "name": "constant.numeric.just",
+          "match": "(?x)\n  (?<! [a-zA-Z_\\-])(?:\n    \\. \\d+\n    |\n    \\d+ \\. \\d+\n    |\n    \\d+ \\.\n    |\n    [1-9] \\d*\n  )\n"
+        },
+        {
+          "name": "invalid.illegal.name.just",
+          "match": "\\b[0-9]+[a-zA-Z_\\-]+\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "include": "#reserved-keywords"
+        },
+        {
+          "include": "#control-keywords"
+        }
+      ]
+    },
+    "reserved-keywords": {
+      "patterns": [
+        {
+          "match": "^(alias|export|import|mod|set)\\s+",
+          "captures": {
+            "1": {
+              "name": "keyword.other.reserved.just"
+            }
           }
+        }
+      ]
+    },
+    "control-keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.conditional.just",
+          "match": "\\b(if|else)\\b"
+        }
+      ]
+    },
+    "parenthesis": {
+      "begin": "\\(",
+      "end": "\\)",
+      "patterns": [
+        {
+          "include": "#expression"
+        },
+        {
+          "include": "#parenthesis"
+        }
+      ]
+    },
+    "expression-operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.path-join.just",
+          "match": "\\/"
+        },
+        {
+          "name": "keyword.operator.concat.just",
+          "match": "\\+"
+        },
+        {
+          "name": "keyword.operator.and.just",
+          "match": "&&"
+        },
+        {
+          "name": "keyword.operator.equality.just",
+          "match": "(\\=\\=|\\=\\~|\\!\\=)"
         }
       ]
     },
@@ -219,71 +354,12 @@
         }
       ]
     },
-    "embedded-languages": {
-      "patterns": [
-        {
-          "comment": "JavaScript",
-          "begin": "^\\s+#!/usr/bin/env\\s+node.*$",
-          "end": "^$",
-          "contentName": "source.js",
-          "patterns": [
-            {
-              "include": "source.js"
-            }
-          ]
-        },
-        {
-          "comment": "Perl",
-          "begin": "^\\s+#!/usr/bin/env\\s+perl.*$",
-          "end": "^$",
-          "contentName": "source.perl",
-          "patterns": [
-            {
-              "include": "source.perl"
-            }
-          ]
-        },
-        {
-          "comment": "Python",
-          "begin": "^\\s+#!/usr/bin/env\\s+python.*$",
-          "end": "^$",
-          "contentName": "source.python",
-          "patterns": [
-            {
-              "include": "source.python"
-            }
-          ]
-        },
-        {
-          "comment": "Ruby",
-          "begin": "^\\s+#!/usr/bin/env\\s+ruby.*$",
-          "end": "^$",
-          "contentName": "source.ruby",
-          "patterns": [
-            {
-              "include": "source.ruby"
-            }
-          ]
-        },
-        {
-          "comment": "Shell",
-          "begin": "^\\s+#!/usr/bin/env\\s+(sh|bash|zsh|fish).*$",
-          "end": "^$",
-          "contentName": "source.shell",
-          "patterns": [
-            {
-              "include": "source.shell"
-            }
-          ]
-        }
-      ]
-    },
     "strings": {
       "patterns": [
         {
           "comment": "Non-escaped curly braces in string",
           "name": "string.quoted.double.indented.just",
-          "match": "([\"']{1,3})[\\{]+(\\1)"
+          "match": "([\\\"']{1,3})[\\{]+(\\1)"
         },
         {
           "comment": "Indented string",
@@ -376,9 +452,8 @@
     "escaping": {
       "patterns": [
         {
-          "comment": "Variable escaping",
           "name": "string.interpolated.escaping.just",
-          "match": "(?<!\\{)(\\{\\{)\\{?(?!\\{)(.*?)(\\}\\})",
+          "match": "(?x)\n  (?<!\\{)\n  (\\{\\{)\n    \\{? (?!\\{)\n    (.*?)\n  (\\}\\})\n",
           "captures": {
             "1": {
               "name": "string.interpolated.escape.just"
@@ -386,22 +461,7 @@
             "2": {
               "patterns": [
                 {
-                  "include": "#constants"
-                },
-                {
-                  "include": "#keywords"
-                },
-                {
-                  "include": "#operators"
-                },
-                {
-                  "include": "#builtins"
-                },
-                {
-                  "include": "#backtick"
-                },
-                {
-                  "include": "#strings"
+                  "include": "#expression"
                 }
               ]
             },
@@ -412,11 +472,72 @@
         }
       ]
     },
+    "recipes": {
+      "patterns": [
+        {
+          "match": "(?x)\n  ^\n  (@_|_@|@|_)?\n  ([a-zA-Z][a-zA-Z0-9_\\-]*)\n  (?: \\s+ (.*?) )?\n  \\s* (:)\n  (.*)\n",
+          "captures": {
+            "1": {
+              "name": "keyword.other.recipe.prefix.just"
+            },
+            "2": {
+              "name": "entity.name.function.just"
+            },
+            "3": {
+              "patterns": [
+                {
+                  "include": "#recipe-params"
+                }
+              ]
+            },
+            "4": {
+              "name": "keyword.operator.recipe.end.just"
+            },
+            "5": {
+              "patterns": [
+                {
+                  "include": "#recipe-dependencies"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "include": "#recipe-operators"
+        },
+        {
+          "include": "#recipe-attributes"
+        },
+        {
+          "include": "#embedded-languages"
+        }
+      ]
+    },
+    "recipe-operators": {
+      "patterns": [
+        {
+          "match": "^\\s+(@)",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.quiet.just"
+            }
+          }
+        },
+        {
+          "match": "^\\s+(\\-)",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.error-suppression.just"
+            }
+          }
+        }
+      ]
+    },
     "recipe-attributes": {
       "patterns": [
         {
           "comment": "Multiple recipe attributes",
-          "match": "^\\[([a-zA-z\\-]+)\\s*(?:,(\\s*[a-zA-z\\-]+\\s*))*]\\s*$",
+          "match": "(?x)\n  ^\n  \\[ \n    ([a-zA-z\\-]+) \\s*\n    (?: , ( \\s* [a-zA-z\\-]+ \\s* ) )*\n  ] \\s*\n  $\n",
           "captures": {
             "1": {
               "name": "support.function.system.just"
@@ -428,7 +549,7 @@
         },
         {
           "comment": "Recipe attribute with value",
-          "match": "^\\[([a-zA-z\\-]+)(?:(?:(:)(.*?))|(\\((.*?)\\)))?]\\s*$",
+          "match": "(?x)\n  ^\n  \\[\n    ([a-zA-z\\-]+)\n    (?: \n      (?: (:) (.*?) ) | (\\( (.*?) \\))\n    )?\n  ] \\s*\n  $\n",
           "captures": {
             "1": {
               "name": "support.function.system.just"
@@ -456,7 +577,7 @@
     },
     "recipe-params": {
       "comment": "Recipe parameters",
-      "match": "(?:(\\+|\\*|\\$)?([a-zA-Z_][a-zA-Z_0-9]*)(?:(=)(?:[a-zA-Z_][a-zA-Z_0-9]*|(\".*?\"|'.*?')|(`.*?`)|(\\((?:[^()]+|\\([^)]*\\))*\\))))?)",
+      "match": "(?x)\n  (?: \n    (\\+|\\*|\\$)?\n    ([a-zA-Z_][a-zA-Z_0-9]*\n  )\n  (?:\n    (=)\n    (?: \n      [a-zA-Z_][a-zA-Z_0-9]* \n      | (\\\".*?\\\" | '.*?') \n      | (`.*?`) \n      | ( \\( \n          (?: \n            [^\\(\\)]+ \n            | \\( [^)]* \\)\n          )* \\) ) \n        ) \n    )?\n  )\n",
       "captures": {
         "1": {
           "name": "keyword.other.recipe.variadic.just"
@@ -477,14 +598,14 @@
         "5": {
           "patterns": [
             {
-              "include": "#inline-shell"
+              "include": "#backtick"
             }
           ]
         },
         "6": {
           "patterns": [
             {
-              "include": "#parenthesis-block"
+              "include": "#parenthesis"
             }
           ]
         }
@@ -492,7 +613,7 @@
     },
     "recipe-dependencies": {
       "comment": "Recipe dependencies",
-      "match": "(?:([a-zA-Z_][a-zA-Z0-9_\\-]*)|(\\((?:[^()]+|\\([^)]*\\))*\\))|(&&))",
+      "match": "(?x)\n  (?:\n    ([a-zA-Z_][a-zA-Z0-9_\\-]*)\n    | ( \\( \n        (?: [^\\(\\)]+ | \\( [^\\)]* \\))* \n      \\) )\n    | (&&)\n  )\n",
       "captures": {
         "1": {
           "name": "entity.name.function.just"
@@ -501,7 +622,7 @@
           "patterns": [
             {
               "comment": "Recipe with default values",
-              "match": "\\((?:([a-zA-Z_][a-zA-Z0-9_\\-]*)(.*))\\)",
+              "match": "(?x)\n  \\( \n    (?: \n      ([a-zA-Z_][a-zA-Z0-9_\\-]*)\n      (.*)\n    )\n  \\)\n",
               "captures": {
                 "1": {
                   "name": "entity.name.function.just"
@@ -509,22 +630,7 @@
                 "2": {
                   "patterns": [
                     {
-                      "include": "#builtin-functions"
-                    },
-                    {
-                      "include": "#constants"
-                    },
-                    {
-                      "include": "#inline-shell"
-                    },
-                    {
-                      "include": "#keywords"
-                    },
-                    {
-                      "include": "#operators"
-                    },
-                    {
-                      "include": "#strings"
+                      "include": "#expression"
                     }
                   ]
                 }
@@ -537,69 +643,64 @@
         }
       }
     },
-    "recipes": {
+    "embedded-languages": {
       "patterns": [
         {
-          "include": "#recipe-attributes"
-        },
-        {
-          "comment": "Recipe defintition",
-          "match": "^(@_|_@|@|_)?([a-zA-Z][a-zA-Z0-9_\\-]*)(?:\\s+(.*))?\\s*(:)(.*)",
-          "captures": {
-            "1": {
-              "name": "keyword.other.recipe.prefix.just"
-            },
-            "2": {
-              "name": "entity.name.function.just"
-            },
-            "3": {
-              "patterns": [
-                {
-                  "include": "#recipe-params"
-                }
-              ]
-            },
-            "4": {
-              "name": "keyword.operator.recipe.end.just"
-            },
-            "5": {
-              "patterns": [
-                {
-                  "include": "#recipe-dependencies"
-                }
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "parenthesis-block": {
-      "comment": "Any block of just code surrounded by (...)",
-      "match": "\\((.*?)\\)",
-      "captures": {
-        "1": {
+          "comment": "JavaScript",
+          "begin": "^\\s+#!/usr/bin/env\\s+node.*$",
+          "end": "^$",
+          "contentName": "source.js",
           "patterns": [
             {
-              "include": "#builtins"
-            },
+              "include": "source.js"
+            }
+          ]
+        },
+        {
+          "comment": "Perl",
+          "begin": "^\\s+#!/usr/bin/env\\s+perl.*$",
+          "end": "^$",
+          "contentName": "source.perl",
+          "patterns": [
             {
-              "include": "#constants"
-            },
+              "include": "source.perl"
+            }
+          ]
+        },
+        {
+          "comment": "Python",
+          "begin": "^\\s+#!/usr/bin/env\\s+python.*$",
+          "end": "^$",
+          "contentName": "source.python",
+          "patterns": [
             {
-              "include": "#keywords"
-            },
+              "include": "source.python"
+            }
+          ]
+        },
+        {
+          "comment": "Ruby",
+          "begin": "^\\s+#!/usr/bin/env\\s+ruby.*$",
+          "end": "^$",
+          "contentName": "source.ruby",
+          "patterns": [
             {
-              "include": "#operators"
-            },
+              "include": "source.ruby"
+            }
+          ]
+        },
+        {
+          "comment": "Shell",
+          "begin": "^\\s+#!/usr/bin/env\\s+(sh|bash|zsh|fish).*$",
+          "end": "^$",
+          "contentName": "source.shell",
+          "patterns": [
             {
-              "include": "#backtick"
-            },
-            {
-              "include": "#strings"
+              "include": "source.shell"
             }
           ]
         }
-      }
+      ]
     }
   }
 }

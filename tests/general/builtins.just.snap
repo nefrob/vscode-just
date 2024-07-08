@@ -1,5 +1,5 @@
-># Builin keywords
-#^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+># Reserved keywords
+#^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
 >alias
 #^^^^^ source.just keyword.other.reserved.just
@@ -23,24 +23,25 @@
 ># Builtin functions
 #^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
-># TODO: should parentheses be optional or required?
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
->
 ># System info
 #^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
 >arch()
 #^^^^ source.just support.function.builtin.just
-#    ^^ source.just
+#    ^ source.just
+#     ^ source.just
 >num_cpus()
 #^^^^^^^^ source.just support.function.builtin.just
-#        ^^ source.just
+#        ^ source.just
+#         ^ source.just
 >os()
 #^^ source.just support.function.builtin.just
-#  ^^ source.just
+#  ^ source.just
+#   ^ source.just
 >os_family()
 #^^^^^^^^^ source.just support.function.builtin.just
-#         ^^ source.just
+#         ^ source.just
+#          ^ source.just
 >
 ># External commands
 #^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
@@ -80,46 +81,56 @@
 >
 >is_dependency()
 #^^^^^^^^^^^^^ source.just support.function.builtin.just
-#             ^^ source.just
+#             ^ source.just
+#              ^ source.just
 >
 ># Invocation directory
 #^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
 >invocation_directory()
 #^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#                    ^^ source.just
+#                    ^ source.just
+#                     ^ source.just
 >
 ># Just
 #^^^^^^ source.just comment.line.number-sign.just
 >
 >justfile()
 #^^^^^^^^ source.just support.function.builtin.just
-#        ^^ source.just
+#        ^ source.just
+#         ^ source.just
 >justfile_directory()
 #^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#                  ^^ source.just
+#                  ^ source.just
+#                   ^ source.just
 >just_executable()
 #^^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#               ^^ source.just
+#               ^ source.just
+#                ^ source.just
 >just_pid()
 #^^^^^^^^ source.just support.function.builtin.just
-#        ^^ source.just
+#        ^ source.just
+#         ^ source.just
 >
 ># Source
 #^^^^^^^^ source.just comment.line.number-sign.just
 >
 >source_file()
 #^^^^^^^^^^^ source.just support.function.builtin.just
-#           ^^ source.just
+#           ^ source.just
+#            ^ source.just
 >source_directory()
 #^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#                ^^ source.just
+#                ^ source.just
+#                 ^ source.just
 >module_file()
 #^^^^^^^^^^^ source.just support.function.builtin.just
-#           ^^ source.just
+#           ^ source.just
+#            ^ source.just
 >module_directory()
 #^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#                ^^ source.just
+#                ^ source.just
+#                 ^ source.just
 >
 >
 ># Strings
@@ -340,7 +351,8 @@
 #                ^ source.just
 >uuid()
 #^^^^ source.just support.function.builtin.just
-#    ^^ source.just
+#    ^ source.just
+#     ^ source.just
 >
 >choose(n, alphabet)
 #^^^^^^ source.just support.function.builtin.just
@@ -367,23 +379,30 @@
 >
 >cache_directory()
 #^^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#               ^^ source.just
+#               ^ source.just
+#                ^ source.just
 >config_directory()
 #^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#                ^^ source.just
+#                ^ source.just
+#                 ^ source.just
 >config_local_directory()
 #^^^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#                      ^^ source.just
+#                      ^ source.just
+#                       ^ source.just
 >data_directory()
 #^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#              ^^ source.just
+#              ^ source.just
+#               ^ source.just
 >data_local_directory()
 #^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#                    ^^ source.just
+#                    ^ source.just
+#                     ^ source.just
 >executable_directory()
 #^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#                    ^^ source.just
+#                    ^ source.just
+#                     ^ source.just
 >home_directory()
 #^^^^^^^^^^^^^^ source.just support.function.builtin.just
-#              ^^ source.just
+#              ^ source.just
+#               ^ source.just
 >

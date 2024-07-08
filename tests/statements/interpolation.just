@@ -1,6 +1,7 @@
 # Interpolation blocks
 
-# TODO: interpolation blocks don't really work highlighting-wise
+# TODO: interpolation blocks always color as strings since we can't
+# effectively push scope for nested string/escape blocks
 
 base:
   echo {{var}} {{ var }}
@@ -20,7 +21,7 @@ escaped:
   echo '{{ "{{" }} var }}'
   echo {{ "{{" }} var }}
   echo '{{'{{ var }}'}}'
-  # TODO: broken
+  # TODO: broken nesting
   # echo {{ '{{ var }}' }}
   # echo {{ "{{ var" }} }}
   # echo {{ "{{ 'var' }}" }}

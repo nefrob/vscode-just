@@ -1,13 +1,6 @@
 ># Multi-line constructs
 #^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
-># TODO: do we need to validate this?
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
-># TODO: should just-specific highlighting in recipes be conditional (ex. only in interpolation blocks)
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
-># or always on?
-#^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
->
 >multi-line-recipe:
 #^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
 #                 ^ source.just keyword.operator.recipe.end.just
@@ -34,7 +27,8 @@
 #^^^ source.just variable.other.just
 #   ^ source.just
 #    ^^ source.just keyword.operator.assignment.just
-#      ^^ source.just
+#      ^ source.just
+#       ^ source.just
 #        ^ source.just string.quoted.single.just string.quoted.single.just
 #         ^ source.just string.quoted.single.just
 #          ^ source.just string.quoted.single.just
@@ -52,13 +46,14 @@
 #           ^ source.just string.quoted.single.just string.quoted.single.just
 #            ^ source.just string.quoted.single.just
 #             ^ source.just string.quoted.single.just
-#              ^^ source.just
+#              ^ source.just
 >
 >abc2 := (
 #^^^^ source.just variable.other.just
 #    ^ source.just
 #     ^^ source.just keyword.operator.assignment.just
-#       ^^^ source.just
+#       ^ source.just
+#        ^ source.just
 >  'a' +
 #^^ source.just
 #  ^ source.just string.quoted.single.just string.quoted.single.just
@@ -79,13 +74,14 @@
 #   ^ source.just string.quoted.single.just
 #    ^ source.just string.quoted.single.just
 >)
-#^^ source.just
+#^ source.just
 >
-># TODO: multi-line recipe def broken
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+># TODO: multi-line recipe def not supported
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
 >foo param=('foo'
-#^^^^^^^^^^^ source.just
+#^^^^^^^^^^ source.just
+#          ^ source.just
 #           ^ source.just string.quoted.single.just string.quoted.single.just
 #            ^^^ source.just string.quoted.single.just
 #               ^ source.just string.quoted.single.just
@@ -97,7 +93,9 @@
 #         ^^^ source.just string.quoted.single.just
 #            ^ source.just string.quoted.single.just
 >    ):
-#^^^^^^^ source.just
+#^^^^ source.just
+#    ^ source.just
+#     ^^ source.just
 >  echo {{param}}
 #^^^^^^^ source.just
 #       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
@@ -135,7 +133,7 @@
 #         ^ source.just string.quoted.single.just
 #          ^ source.just
 #           ^ source.just keyword.operator.concat.just
-#            ^^^ source.just
+#            ^^ source.just
 >     'bar'
 #^^^^^ source.just
 #     ^ source.just string.quoted.single.just string.quoted.single.just
