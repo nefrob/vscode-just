@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2024-07-08
+
 ### Added
 
 - `HEX` constants
