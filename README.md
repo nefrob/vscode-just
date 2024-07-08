@@ -71,13 +71,10 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ## Roadmap
 
-### 2024
-
 Outstanding:
 
 - [ ] Update to match [just grammar](https://github.com/casey/just/blob/43d88f50e02057e5d91602ef4ffdd0ddfc094099/GRAMMAR.md) more accurately
-- [ ] Fix escaping within strings
-- [ ] Publish to [open source marketplaces](https://open-vsx.org/)
+- [ ] Improve escaping within strings
 
 Completed:
 
@@ -85,6 +82,7 @@ Completed:
 - [x] Update with new `just` releases
 - [x] Migrate to `yaml` grammar for composability and readability
 - [x] Add snapshot testing
+- [x] Publish to [open source marketplaces](https://open-vsx.org/)
 
 
 ### Beyond
@@ -101,7 +99,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## References
 
--   [ TextMate Language Grammars](https://macromates.com/manual/en/language_grammars)
+-   [TextMate Language Grammars](https://macromates.com/manual/en/language_grammars)
 
 -   Previous iterations on `just` syntax grammars
 
