@@ -25,8 +25,14 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Format
+        run: yarn format
+
       - name: Lint
         run: yarn lint
 
-      - name: Test
-        run: yarn test
+      - name: Test extension
+        run: yarn test-extension
+
+      - name: Test grammar
+        run: yarn test-grammar

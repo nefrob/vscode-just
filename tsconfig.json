@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2022",
+    "sourceMap": true,
+    "rootDir": "src",
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist"
+  },
+  "exclude": ["build", "dist", "node_modules", "out"]
+}

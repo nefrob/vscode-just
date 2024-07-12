@@ -1,5 +1,7 @@
 # vscode
 *.vsix
+build/
+dist/
 out/
 
 # asdf

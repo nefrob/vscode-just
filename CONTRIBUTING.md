@@ -31,7 +31,3 @@ This page lists the steps needed to set up a development environment and contrib
 5. Install the [recommended VSCode extensions](.vscode/extensions.json).
 
 6. Launch the extension in test mode via VSCode debug launch profile.
-
-## Additional notes
-
-See also the auto generated [quickstart guide](vsc-extension-quickstart.md).
