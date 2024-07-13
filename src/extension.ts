@@ -9,15 +9,16 @@ const formatWithExecutable = (fsPath: string) => {
 
   const childProcess = spawn(justPath, args);
   childProcess.stdout.on('data', (data) => {
-    vscode.window.showInformationMessage('Formatting complete.');
-    console.log(`stdout: ${data}`);
+    console.log(`Format: ${data}`);
   });
   childProcess.stderr.on('data', (data) => {
+    // TODO nefrob: how to send logs to output on failure?
+    // Can add a button to link to the error output on failure?
     vscode.window.showErrorMessage('Error formatting document.');
-    console.error(`stderr: ${data}`);
+    console.error(`Error: ${data}`);
   });
   childProcess.on('close', (code) => {
-    console.log(`Just format exited with ${code}`);
+    console.log(`just --fmt exited with ${code}`);
   });
 };
 

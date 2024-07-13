@@ -69,7 +69,7 @@
         "vscode-just.formatOnSave": {
           "type": "boolean",
           "default": false,
-          "description": "Enable/disable format on save"
+          "description": "Enable/disable format on save (currently unstable)"
         },
         "vscode-just.justPath": {
           "type": "string",
