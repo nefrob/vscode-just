@@ -11,5 +11,6 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist"
   },
+  "include": ["**/*.js", "**/*.mjs", "**/*.ts"],
   "exclude": ["build", "dist", "node_modules", "out"]
 }

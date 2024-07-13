@@ -1,9 +1,9 @@
-const fs = require('fs');
+import { readFileSync, writeFileSync } from 'fs';
 
 const GRAMMAR_FILE = 'syntaxes/just.tmLanguage.json';
 const OUTPUT_FILE = 'syntaxes/scopes.json';
 
-const grammar = fs.readFileSync(GRAMMAR_FILE, 'utf8');
+const grammar = readFileSync(GRAMMAR_FILE, 'utf8');
 const regex = /"name"\s*:\s*"(.*?\.just)"/g;
 
 const scopeMatches = grammar.matchAll(regex);
@@ -13,4 +13,4 @@ for (const match of scopeMatches) {
 }
 
 const scopesOutput = Array.from(scopes).sort();
-fs.writeFileSync(OUTPUT_FILE, JSON.stringify(scopesOutput));
+writeFileSync(OUTPUT_FILE, JSON.stringify(scopesOutput));

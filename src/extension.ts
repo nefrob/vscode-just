@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { spawn } from 'child_process';
+// import { spawn } from 'child_process';
 
 // const formatWithExecutable = (filePath: string) => {
 //   const justPath =

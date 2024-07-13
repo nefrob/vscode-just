@@ -1,8 +1,12 @@
 //@ts-check
 
 'use strict';
-
 import { resolve } from 'path';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 //@ts-check
 /** @typedef {import('webpack').Configuration} WebpackConfig **/
@@ -42,4 +46,4 @@ const extensionConfig = {
     level: 'log',
   },
 };
-module.exports = [extensionConfig];
+export default [extensionConfig];
