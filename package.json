@@ -21,7 +21,7 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "yarn compile && yarn compile-extension",
     "test-extension": "vscode-test",
-    "test-grammar": "vscode-tmgrammar-snap tests/grammar/**/*.just",
+    "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just",
     "format": "prettier --cache .",
     "lint": "eslint . --cache --cache-location node_modules/.cache/eslint",
     "gen-scopes": "yarn compile && node out/gen_scopes.js"
