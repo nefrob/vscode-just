@@ -2,11 +2,13 @@ import { spawn } from 'child_process';
 import * as vscode from 'vscode';
 import Logger from './logger';
 
+const EXTENSION_NAME = 'vscode-just';
+
 let logger: Logger;
 
 const formatWithExecutable = (fsPath: string) => {
   const justPath =
-    (vscode.workspace.getConfiguration('vscode-just').get('justPath') as string) ||
+    (vscode.workspace.getConfiguration(EXTENSION_NAME).get('justPath') as string) ||
     'just';
   const args = ['-f', fsPath, '--fmt', '--unstable'];
 
@@ -31,13 +33,14 @@ const showErrorWithLink = (message: string) => {
 };
 
 vscode.workspace.onWillSaveTextDocument((event) => {
-  if (vscode.workspace.getConfiguration('vscode-just').get('formatOnSave')) {
+  if (vscode.workspace.getConfiguration(EXTENSION_NAME).get('formatOnSave')) {
     formatWithExecutable(event.document.uri.fsPath);
   }
 });
 
 export const activate = (context: vscode.ExtensionContext) => {
-  logger = new Logger('vscode-just');
+  console.debug('Extension activated');
+  logger = new Logger(EXTENSION_NAME);
 
   const disposable = vscode.commands.registerCommand('extension.formatOnSave', () => {
     const editor = vscode.window.activeTextEditor;
@@ -50,6 +53,7 @@ export const activate = (context: vscode.ExtensionContext) => {
 };
 
 export const deactivate = () => {
+  console.debug('Extension deactivated');
   if (logger) {
     logger.dispose();
   }
