@@ -68,7 +68,7 @@
       "properties": {
         "vscode-just.formatOnSave": {
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Enable/disable format on save"
         },
         "vscode-just.justPath": {
@@ -82,10 +82,6 @@
       {
         "command": "extension.formatDocument",
         "title": "Format Document"
-      },
-      {
-        "command": "extension.helloWorld",
-        "title": "Hello World"
       }
     ]
   },
