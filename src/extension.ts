@@ -1,5 +1,8 @@
 import { spawn } from 'child_process';
 import * as vscode from 'vscode';
+import Logger from './logger';
+
+let logger: Logger;
 
 const formatWithExecutable = (fsPath: string) => {
   const justPath =
@@ -8,18 +11,23 @@ const formatWithExecutable = (fsPath: string) => {
   const args = ['-f', fsPath, '--fmt', '--unstable'];
 
   const childProcess = spawn(justPath, args);
-  childProcess.stdout.on('data', (data) => {
-    console.log(`Format: ${data}`);
+  childProcess.stdout.on('data', (data: string) => {
+    logger.info(data);
   });
-  childProcess.stderr.on('data', (data) => {
-    // TODO nefrob: how to send logs to output on failure?
-    // Can add a button to link to the error output on failure?
-    vscode.window.showErrorMessage('Error formatting document.');
-    console.error(`Error: ${data}`);
+  childProcess.stderr.on('data', (data: string) => {
+    logger.error(data);
+    showErrorWithLink('Error formatting document.');
   });
   childProcess.on('close', (code) => {
-    console.log(`just --fmt exited with ${code}`);
+    console.debug(`just --fmt exited with ${code}`);
   });
+};
+
+const showErrorWithLink = (message: string) => {
+  const outputButton = 'Output';
+  vscode.window
+    .showErrorMessage(message, outputButton)
+    .then((selection) => selection === outputButton && logger.show());
 };
 
 vscode.workspace.onWillSaveTextDocument((event) => {
@@ -28,7 +36,9 @@ vscode.workspace.onWillSaveTextDocument((event) => {
   }
 });
 
-export function activate(context: vscode.ExtensionContext) {
+export const activate = (context: vscode.ExtensionContext) => {
+  logger = new Logger('vscode-just');
+
   const disposable = vscode.commands.registerCommand('extension.formatOnSave', () => {
     const editor = vscode.window.activeTextEditor;
     if (editor) {
@@ -37,6 +47,10 @@ export function activate(context: vscode.ExtensionContext) {
   });
 
   context.subscriptions.push(disposable);
-}
+};
 
-export function deactivate() {}
+export const deactivate = () => {
+  if (logger) {
+    logger.dispose();
+  }
+};
