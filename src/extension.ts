@@ -1,5 +1,6 @@
 import { spawn } from 'child_process';
 import * as vscode from 'vscode';
+
 import Logger from './logger';
 
 const EXTENSION_NAME = 'vscode-just';
