@@ -1,5 +1,6 @@
 # vscode
 *.vsix
+.vscode-test/
 build/
 dist/
 out/

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "Node16",
     "target": "ES2022",
     "sourceMap": true,
     "rootDir": "src",

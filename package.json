@@ -15,11 +15,11 @@
   },
   "scripts": {
     "compile-extension": "webpack",
-    "watch": "webpack --watch",
+    "watch": "webpack --watch --verbose",
     "package": "webpack --mode production --devtool hidden-source-map",
     "compile": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "compile-ci": "yarn compile && yarn compile-extension",
+    "pretest": "yarn compile && yarn compile-extension",
     "test-extension": "vscode-test",
     "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just",
     "format": "prettier  --log-level warn --cache .",

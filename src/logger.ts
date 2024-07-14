@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 
 enum LogLevel {
   INFO = 'info',
+  WARNING = 'warning',
   ERROR = 'error',
 }
 
@@ -14,6 +15,10 @@ export default class Logger {
 
   public info(message: string) {
     this.log(message);
+  }
+
+  public warning(message: string) {
+    this.log(message, LogLevel.WARNING);
   }
 
   public error(message: string) {

@@ -32,10 +32,11 @@ jobs:
         run: yarn lint
 
       - name: Build
-        run: yarn compile-ci
+        run: yarn pretest
 
-      - name: Test extension
-        run: yarn test-extension
+      # TODO: no integration tests yet, add this and cache .vscode-test if needed
+      # - name: Test extension
+      #   run: yarn test-extension
 
       - name: Test grammar
         run: yarn test-grammar

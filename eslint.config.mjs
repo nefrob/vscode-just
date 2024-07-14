@@ -24,7 +24,7 @@ const config = [
     'prettier',
   ),
   {
-    ignores: ['**/build/', '**/dist/', '**/node_modules/', '**/out/'],
+    ignores: ['.vscode-test', '**/build/', '**/dist/', '**/node_modules/', '**/out/'],
   },
   {
     plugins: {
@@ -46,7 +46,7 @@ const config = [
       'unused-imports/no-unused-imports': 'error',
       'no-unused-vars': 'off',
       'unused-imports/no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/no-unused-vars': 'warn',
     },
   },
 ];

@@ -6,6 +6,9 @@ build +ARGS="":
     docker compose build {{ ARGS }}
 
 test +ARGS="":
+    # TODO integration test are broken
+    docker compose run --rm dev /bin/sh -c \
+        "yarn pretest {{ ARGS }}"
     docker compose run --rm dev /bin/sh -c \
         "yarn test-extension {{ ARGS }}"
     docker compose run --rm dev /bin/sh -c \

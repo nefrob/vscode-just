@@ -18,8 +18,10 @@ const formatWithExecutable = (fsPath: string) => {
     logger.info(data);
   });
   childProcess.stderr.on('data', (data: string) => {
-    logger.error(data);
-    showErrorWithLink('Error formatting document.');
+    // TODO: successfully formatted documents also log to stderr
+    // so treat everything as info for now
+    logger.info(data);
+    // showErrorWithLink('Error formatting document.');
   });
   childProcess.on('close', (code) => {
     console.debug(`just --fmt exited with ${code}`);
