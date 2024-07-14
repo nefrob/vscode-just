@@ -20,7 +20,7 @@
     "compile": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "yarn compile && yarn compile-extension",
-    "test-extension": "vscode-test",
+    "test-extension": "vscode-test --disable-extensions",
     "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just",
     "format": "prettier  --log-level warn --cache .",
     "lint": "eslint . --cache --cache-location node_modules/.cache/eslint",

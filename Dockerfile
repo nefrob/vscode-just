@@ -2,7 +2,9 @@ FROM node:21-alpine
 
 ENV YARN_CACHE_FOLDER=/root/.yarn
 
-RUN apk add just
+# TODO: add xvfb for integration tests
+RUN apk update && \
+  apk add just
 
 WORKDIR /code
 COPY package.json yarn.lock ./

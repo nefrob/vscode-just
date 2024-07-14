@@ -34,9 +34,7 @@ jobs:
       - name: Build
         run: yarn pretest
 
-      # TODO: no integration tests yet, add this and cache .vscode-test if needed
-      # - name: Test extension
-      #   run: yarn test-extension
+      # TODO: add integration tests when we have them
 
       - name: Test grammar
         run: yarn test-grammar
