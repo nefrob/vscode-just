@@ -42,21 +42,24 @@ vscode.workspace.onWillSaveTextDocument((event) => {
 });
 
 export const activate = (context: vscode.ExtensionContext) => {
-  console.debug('Extension activated');
+  console.debug(`${EXTENSION_NAME} activated`);
   logger = new Logger(EXTENSION_NAME);
 
-  const disposable = vscode.commands.registerCommand('extension.formatOnSave', () => {
-    const editor = vscode.window.activeTextEditor;
-    if (editor) {
-      formatWithExecutable(editor.document.uri.fsPath);
-    }
-  });
+  const disposable = vscode.commands.registerCommand(
+    `${EXTENSION_NAME}.formatDocument`,
+    () => {
+      const editor = vscode.window.activeTextEditor;
+      if (editor) {
+        formatWithExecutable(editor.document.uri.fsPath);
+      }
+    },
+  );
 
   context.subscriptions.push(disposable);
 };
 
 export const deactivate = () => {
-  console.debug('Extension deactivated');
+  console.debug(`${EXTENSION_NAME} deactivated`);
   if (logger) {
     logger.dispose();
   }

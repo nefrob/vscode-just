@@ -80,8 +80,8 @@
     },
     "commands": [
       {
-        "command": "extension.formatDocument",
-        "title": "Format Document"
+        "command": "vscode-just.formatDocument",
+        "title": "vscode-just: Format Document"
       }
     ]
   },
