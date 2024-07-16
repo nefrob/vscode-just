@@ -91,6 +91,18 @@
 #^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #                    ^ source.just
 #                     ^ source.just
+>invocation_dir()
+#^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#              ^ source.just
+#               ^ source.just
+>invocation_directory_native()
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                           ^ source.just
+#                            ^ source.just
+>invocation_dir_native()
+#^^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                     ^ source.just
+#                      ^ source.just
 >
 ># Just
 #^^^^^^ source.just comment.line.number-sign.just
@@ -103,6 +115,10 @@
 #^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #                  ^ source.just
 #                   ^ source.just
+>justfile_dir()
+#^^^^^^^^^^^^ source.just support.function.builtin.just
+#            ^ source.just
+#             ^ source.just
 >just_executable()
 #^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #               ^ source.just
@@ -123,6 +139,10 @@
 #^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #                ^ source.just
 #                 ^ source.just
+>source_dir()
+#^^^^^^^^^^ source.just support.function.builtin.just
+#          ^ source.just
+#           ^ source.just
 >module_file()
 #^^^^^^^^^^^ source.just support.function.builtin.just
 #           ^ source.just
@@ -131,6 +151,10 @@
 #^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #                ^ source.just
 #                 ^ source.just
+>module_dir()
+#^^^^^^^^^^ source.just support.function.builtin.just
+#          ^ source.just
+#           ^ source.just
 >
 >
 ># Strings
@@ -289,6 +313,10 @@
 #                ^ source.just
 #                 ^^^^ source.just
 #                     ^ source.just
+>parent_dir()
+#^^^^^^^^^^ source.just support.function.builtin.just
+#          ^ source.just
+#           ^ source.just
 >without_extension(path)
 #^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #                 ^ source.just
@@ -381,28 +409,56 @@
 #^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #               ^ source.just
 #                ^ source.just
+>cache_dir()
+#^^^^^^^^^ source.just support.function.builtin.just
+#         ^ source.just
+#          ^ source.just
 >config_directory()
 #^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #                ^ source.just
 #                 ^ source.just
+>config_dir()
+#^^^^^^^^^^ source.just support.function.builtin.just
+#          ^ source.just
+#           ^ source.just
 >config_local_directory()
 #^^^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #                      ^ source.just
 #                       ^ source.just
+>config_local_dir()
+#^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#                ^ source.just
+#                 ^ source.just
 >data_directory()
 #^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #              ^ source.just
 #               ^ source.just
+>data_dir()
+#^^^^^^^^ source.just support.function.builtin.just
+#        ^ source.just
+#         ^ source.just
 >data_local_directory()
 #^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #                    ^ source.just
 #                     ^ source.just
+>data_local_dir()
+#^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#              ^ source.just
+#               ^ source.just
 >executable_directory()
 #^^^^^^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #                    ^ source.just
 #                     ^ source.just
+>executable_dir()
+#^^^^^^^^^^^^^^ source.just support.function.builtin.just
+#              ^ source.just
+#               ^ source.just
 >home_directory()
 #^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #              ^ source.just
 #               ^ source.just
+>home_dir()
+#^^^^^^^^ source.just support.function.builtin.just
+#        ^ source.just
+#         ^ source.just
 >

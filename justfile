@@ -7,7 +7,7 @@ build +ARGS="":
 
 test +ARGS="":
     docker compose run --rm dev /bin/sh -c \
-        "yarn pretest {{ ARGS }}"
+        "yarn pretest"
     # TODO: setup xvfb for running tests in container/ci
     # docker compose run --rm dev /bin/sh -c \
     #     "xvfb-run -a yarn test-extension {{ ARGS }}"

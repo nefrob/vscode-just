@@ -14,6 +14,7 @@ set shell := ["bash", "-uc"]
 set tempdir := "/tmp"
 set windows-powershell := false
 set windows-shell := "cmd"
+set unstable := true
 
 # Boolean not required 
 
