@@ -8,10 +8,10 @@
   "displayName": "vscode-just",
   "description": "Justfile syntax support for Visual Studio Code",
   "license": "MIT",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "engines": {
     "node": ">=21.1.0 || ^20.9.0 || ^18.18.0",
-    "vscode": ">=1.85.0"
+    "vscode": ">=1.91.0"
   },
   "scripts": {
     "compile-extension": "webpack",

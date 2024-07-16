@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.0] - 2024-07-16
+
 ### Added
 
 - Format on save
