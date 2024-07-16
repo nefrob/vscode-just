@@ -7,13 +7,20 @@ build +ARGS="":
 
 test +ARGS="":
     docker compose run --rm dev /bin/sh -c \
-        "yarn test {{ ARGS }}"
+        "yarn pretest {{ ARGS }}"
+    # TODO: setup xvfb for running tests in container/ci
+    # docker compose run --rm dev /bin/sh -c \
+    #     "xvfb-run -a yarn test-extension {{ ARGS }}"
+    docker compose run --rm dev /bin/sh -c \
+        "yarn test-grammar {{ ARGS }}"
 
 lint:
     docker compose run --rm dev /bin/sh -c \
         "just --fmt --unstable"
     docker compose run --rm dev /bin/sh -c \
-        "yarn lint --write"
+        "yarn format --write"
+    docker compose run --rm dev /bin/sh -c \
+        "yarn lint --fix"
 
 translate:
     docker compose run --rm dev /bin/sh -c \
@@ -21,8 +28,9 @@ translate:
     docker compose run --rm dev /bin/sh -c "yarn --silent gen-scopes"
 
 package +ARGS="":
+    just translate
     docker compose run --rm dev /bin/sh -c \
-        "mkdir -p out && yarn vsce package --yarn --out out/ {{ ARGS }}"
+        "mkdir -p build && yarn package && yarn vsce package --yarn --out build/ {{ ARGS }}"
 
 console:
     -docker compose run --rm dev /bin/sh

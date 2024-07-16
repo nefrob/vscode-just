@@ -19,14 +19,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '21'
           cache: 'yarn'
 
       - name: Install dependencies
         run: yarn install
 
+      - name: Format
+        run: yarn format
+
       - name: Lint
         run: yarn lint
 
-      - name: Test
-        run: yarn test
+      - name: Build
+        run: yarn pretest
+
+      # TODO: add integration tests when we have them
+
+      - name: Test grammar
+        run: yarn test-grammar

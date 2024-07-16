@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Added
+
+- Format on save
+- Typescript config
+
 ## [0.4.0] - 2024-07-08
 
 ### Added
