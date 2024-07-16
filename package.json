@@ -81,7 +81,7 @@
     "commands": [
       {
         "command": "vscode-just.formatDocument",
-        "title": "vscode-just: Format Document"
+        "title": "Just: Format Document"
       }
     ]
   },
