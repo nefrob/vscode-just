@@ -83,6 +83,7 @@ Completed:
 - [x] Migrate to `yaml` grammar for composability and readability
 - [x] Add snapshot testing
 - [x] Publish to [open source marketplaces](https://open-vsx.org/)
+- [x] Format on save
 
 
 ### Beyond

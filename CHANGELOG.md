@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.1] - 2024-07-17
+
 ### Added
 
 - New `dir` shortening of `directory` builtin functions from `just` release 1.31.0
