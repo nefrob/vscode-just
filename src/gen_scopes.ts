@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 
 const GRAMMAR_FILE = 'syntaxes/just.tmLanguage.json';
-const OUTPUT_FILE = 'syntaxes/scopes.json';
+const OUTPUT_FILE = 'syntaxes/scopes';
 
 const grammar = readFileSync(GRAMMAR_FILE, 'utf8');
 const regex = /"name"\s*:\s*"(.*?\.just)"/g;
