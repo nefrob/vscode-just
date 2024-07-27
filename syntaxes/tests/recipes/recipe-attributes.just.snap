@@ -5,6 +5,10 @@
 #^ source.just
 # ^^^ source.just support.function.system.just
 #    ^^ source.just
+>[extension]
+#^ source.just
+# ^^^^^^^^^ source.just support.function.system.just
+#          ^^ source.just
 >[confirm]
 #^ source.just
 # ^^^^^^^ source.just support.function.system.just
@@ -33,6 +37,10 @@
 #^ source.just
 # ^^^^^^^^ source.just support.function.system.just
 #         ^^ source.just
+>[script]
+#^ source.just
+# ^^^^^^ source.just support.function.system.just
+#       ^^ source.just
 >[unix]
 #^ source.just
 # ^^^^ source.just support.function.system.just

@@ -1,6 +1,7 @@
 # Recipe attributes
 
 [doc]
+[extension]
 [confirm]
 [linux]
 [macos]
@@ -8,6 +9,7 @@
 [no-exit-message]
 [private]
 [no-quiet]
+[script]
 [unix]
 [windows]
 foo:
