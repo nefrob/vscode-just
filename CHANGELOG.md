@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.5.2] - 2024-08-02
+
+###  Changed
+
+- Shebangs now highlight at the start of recipes
+
 ## [0.5.1] - 2024-07-17
 
 ### Added
