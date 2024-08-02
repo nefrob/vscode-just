@@ -478,32 +478,47 @@ repository:
   embedded-languages:
     patterns:
       - comment: JavaScript
-        begin: "^\\s+#!/usr/bin/env\\s+node.*$"
+        begin: "^\\s+(#!/usr/bin/env\\s+node.*)$"
         end: ^$
+        beginCaptures:
+          '1':
+            name: comment.line.number-sign.shebang.just
         contentName: source.js
         patterns:
           - include: source.js
       - comment: Perl
-        begin: "^\\s+#!/usr/bin/env\\s+perl.*$"
+        begin: "^\\s+(#!/usr/bin/env\\s+perl.*)$"
         end: ^$
+        beginCaptures:
+          '1':
+            name: comment.line.number-sign.shebang.just
         contentName: source.perl
         patterns:
           - include: source.perl
       - comment: Python
-        begin: "^\\s+#!/usr/bin/env\\s+python.*$"
+        begin: "^\\s+(#!/usr/bin/env\\s+python.*)$"
         end: ^$
+        beginCaptures:
+          '1':
+            name: comment.line.number-sign.shebang.just
         contentName: source.python
         patterns:
           - include: source.python
       - comment: Ruby
-        begin: "^\\s+#!/usr/bin/env\\s+ruby.*$"
+        begin: "^\\s+(#!/usr/bin/env\\s+ruby.*)$"
         end: ^$
+        beginCaptures:
+          '1':
+            name: comment.line.number-sign.shebang.just
         contentName: source.ruby
         patterns:
           - include: source.ruby
       - comment: Shell
-        begin: "^\\s+#!/usr/bin/env\\s+(sh|bash|zsh|fish).*$"
+        begin: "^\\s+(#!/usr/bin/env\\s+(?:sh|bash|zsh|fish).*)$"
         end: ^$
+        beginCaptures:
+          '1':
+            name: comment.line.number-sign.shebang.just
         contentName: source.shell
         patterns:
           - include: source.shell

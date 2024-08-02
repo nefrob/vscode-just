@@ -647,8 +647,13 @@
       "patterns": [
         {
           "comment": "JavaScript",
-          "begin": "^\\s+#!/usr/bin/env\\s+node.*$",
+          "begin": "^\\s+(#!/usr/bin/env\\s+node.*)$",
           "end": "^$",
+          "beginCaptures": {
+            "1": {
+              "name": "comment.line.number-sign.shebang.just"
+            }
+          },
           "contentName": "source.js",
           "patterns": [
             {
@@ -658,8 +663,13 @@
         },
         {
           "comment": "Perl",
-          "begin": "^\\s+#!/usr/bin/env\\s+perl.*$",
+          "begin": "^\\s+(#!/usr/bin/env\\s+perl.*)$",
           "end": "^$",
+          "beginCaptures": {
+            "1": {
+              "name": "comment.line.number-sign.shebang.just"
+            }
+          },
           "contentName": "source.perl",
           "patterns": [
             {
@@ -669,8 +679,13 @@
         },
         {
           "comment": "Python",
-          "begin": "^\\s+#!/usr/bin/env\\s+python.*$",
+          "begin": "^\\s+(#!/usr/bin/env\\s+python.*)$",
           "end": "^$",
+          "beginCaptures": {
+            "1": {
+              "name": "comment.line.number-sign.shebang.just"
+            }
+          },
           "contentName": "source.python",
           "patterns": [
             {
@@ -680,8 +695,13 @@
         },
         {
           "comment": "Ruby",
-          "begin": "^\\s+#!/usr/bin/env\\s+ruby.*$",
+          "begin": "^\\s+(#!/usr/bin/env\\s+ruby.*)$",
           "end": "^$",
+          "beginCaptures": {
+            "1": {
+              "name": "comment.line.number-sign.shebang.just"
+            }
+          },
           "contentName": "source.ruby",
           "patterns": [
             {
@@ -691,8 +711,13 @@
         },
         {
           "comment": "Shell",
-          "begin": "^\\s+#!/usr/bin/env\\s+(sh|bash|zsh|fish).*$",
+          "begin": "^\\s+(#!/usr/bin/env\\s+(?:sh|bash|zsh|fish).*)$",
           "end": "^$",
+          "beginCaptures": {
+            "1": {
+              "name": "comment.line.number-sign.shebang.just"
+            }
+          },
           "contentName": "source.shell",
           "patterns": [
             {
