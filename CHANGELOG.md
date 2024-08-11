@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Add tests for settings added in release 1.33.0
+
 ## [0.5.2] - 2024-08-02
 
 ###  Changed

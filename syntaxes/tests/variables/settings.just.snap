@@ -85,6 +85,21 @@
 #                         ^^ source.just keyword.operator.assignment.just
 #                           ^ source.just
 #                            ^^^^ source.just constant.language.boolean.just
+>set script-interpreter := ["sh", "-eu"]
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                      ^ source.just
+#                       ^^ source.just keyword.operator.assignment.just
+#                         ^^ source.just
+#                           ^ source.just string.quoted.double.just string.quoted.double.just
+#                            ^^ source.just string.quoted.double.just
+#                              ^ source.just string.quoted.double.just
+#                               ^^ source.just
+#                                 ^ source.just string.quoted.double.just string.quoted.double.just
+#                                  ^^^ source.just string.quoted.double.just
+#                                     ^ source.just string.quoted.double.just
+#                                      ^ source.just
 >set shell := ["bash", "-uc"]
 #^^^ source.just keyword.other.reserved.just
 #   ^ source.just
@@ -128,6 +143,16 @@
 #                     ^ source.just string.quoted.double.just string.quoted.double.just
 #                      ^^^ source.just string.quoted.double.just
 #                         ^ source.just string.quoted.double.just
+>set working-directory := "/tmp"
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                     ^ source.just
+#                      ^^ source.just keyword.operator.assignment.just
+#                        ^ source.just
+#                         ^ source.just string.quoted.double.just string.quoted.double.just
+#                          ^^^^ source.just string.quoted.double.just
+#                              ^ source.just string.quoted.double.just
 >set unstable := true
 #^^^ source.just keyword.other.reserved.just
 #   ^ source.just
