@@ -29,6 +29,7 @@ translate:
 
 package +ARGS="":
     just translate
+    just lint
     docker compose run --rm dev /bin/sh -c \
         "mkdir -p build && yarn package && yarn vsce package --yarn --out build/ {{ ARGS }}"
 

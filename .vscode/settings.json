@@ -5,6 +5,8 @@
     "dist": false,
     "out": false
   },
+  // Disable comment colorization for testing
+  "better-comments.tags": [],
   "search.exclude": {
     "yarn.lock": true
   },

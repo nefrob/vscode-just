@@ -2,9 +2,15 @@
 
 ## [Unreleased]
 
+## [0.5.3] - 2024-08-14
+
 ### Changed
 
 - Add tests for settings added in release 1.33.0
+
+### Fixed
+
+- Correctly package changes from version `0.5.2` that were not included in the release
 
 ## [0.5.2] - 2024-08-02
 
