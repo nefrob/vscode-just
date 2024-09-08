@@ -175,3 +175,33 @@
 #         ^ source.just string.quoted.single.just string.quoted.single.just
 #          ^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
 #                               ^ source.just string.quoted.single.just
+>
+># Private aliases and variables
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>[private]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^^ source.just
+>alias foo := bar
+#^^^^^ source.just keyword.other.reserved.just
+#     ^ source.just
+#      ^^^ source.just variable.name.alias.just
+#         ^ source.just
+#          ^^ source.just keyword.operator.assignment.just
+#            ^ source.just
+#             ^^^ source.just variable.other.just
+>
+>[private]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^^ source.just
+>baz := 'qux'
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^^ source.just string.quoted.single.just
+#           ^ source.just string.quoted.single.just
+>
