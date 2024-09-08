@@ -1,6 +1,18 @@
 ># Strings
 #^^^^^^^^^ source.just comment.line.number-sign.just
 >
+># Quote within a string
+#^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>single-quote := "don't be afraid of contractions"
+#^^^^^^^^^^^^ source.just variable.other.just
+#            ^ source.just
+#             ^^ source.just keyword.operator.assignment.just
+#               ^ source.just
+#                ^ source.just string.quoted.double.just string.quoted.double.just
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                                                ^ source.just string.quoted.double.just
+>
 ># Escaping sequences
 #^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >

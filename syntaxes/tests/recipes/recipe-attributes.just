@@ -46,3 +46,11 @@ rust-lint:
 [group('lint')]
 cpp-lint:
     echo 'Running C++ linter...'
+
+# Private aliases and variables
+
+[private]
+alias foo := bar
+
+[private]
+baz := 'qux'

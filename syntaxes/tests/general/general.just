@@ -2,6 +2,8 @@
 
 # Standard comment
 
+# Comment with ' single quote
+
 something # Comment after code
 
 # Imports

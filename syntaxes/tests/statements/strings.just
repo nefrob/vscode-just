@@ -1,5 +1,9 @@
 # Strings
 
+# Quote within a string
+
+single-quote := "don't be afraid of contractions"
+
 # Escaping sequences
 
 string-with-tab             := "\t"

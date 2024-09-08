@@ -4,6 +4,9 @@
 ># Standard comment
 #^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
+># Comment with ' single quote
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
 >something # Comment after code
 #^^^^^^^^^^ source.just
 #          ^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
