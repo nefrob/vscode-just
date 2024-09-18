@@ -18,6 +18,10 @@ escapes := """\t\n\r\"\\"""
 escapes := '\t\n\r\"\\'
 escapes := '''\t\n\r\"\\'''
 
+# Escaping braces do not work in strings outside of recipe body blocks
+
+no-interpolation := '{{ "a" + "b" }}'
+
 # Multi-line
 
 single := '

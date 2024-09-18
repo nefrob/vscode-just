@@ -252,9 +252,6 @@ repository:
 
   strings:
     patterns:
-      - comment: Non-escaped curly braces in string
-        name: string.quoted.double.indented.just
-        match: ([\"']{1,3})[\{]+(\1)
       - comment: Indented string
         name: string.quoted.double.indented.just
         begin: '(x)?(""")'
@@ -268,7 +265,6 @@ repository:
           - comment: Escaped characters
             name: constant.character.escape.just
             match: "\\\\."
-          - include: '#escaping'
       - comment: String
         name: string.quoted.double.just
         begin: '(x)?(")'
@@ -282,7 +278,6 @@ repository:
           - comment: Escaped characters
             name: constant.character.escape.just
             match: "\\\\."
-          - include: '#escaping'
       - comment: Indented raw string
         name: string.quoted.single.indented.just
         begin: "(x)?(''')"
@@ -292,8 +287,6 @@ repository:
             name: constant.character.expanded.just
           '2':
             name: string.quoted.single.indented.just
-        patterns:
-          - include: '#escaping'
       - comment: Raw string
         name: string.quoted.single.just
         begin: "(x)?(')"
@@ -303,19 +296,11 @@ repository:
             name: constant.character.expanded.just
           '2':
             name: string.quoted.single.just
-        patterns:
-          - include: '#escaping'
 
   escaping:
     patterns:
       - name: string.interpolated.escaping.just
-        match: |
-          (?x)
-            (?<!\{)
-            (\{\{)
-              \{? (?!\{)
-              (.*?)
-            (\}\})
+        match: (\{\{)(.*?)(\}\})
         captures:
           '1':
             name: string.interpolated.escape.just

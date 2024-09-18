@@ -95,6 +95,18 @@
 #              ^^^^^^^^^^ source.just string.quoted.single.indented.just
 #                        ^^^ source.just string.quoted.single.indented.just
 >
+># Escaping braces do not work in strings outside of recipe body blocks
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>no-interpolation := '{{ "a" + "b" }}'
+#^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                ^ source.just
+#                 ^^ source.just keyword.operator.assignment.just
+#                   ^ source.just
+#                    ^ source.just string.quoted.single.just string.quoted.single.just
+#                     ^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                    ^ source.just string.quoted.single.just
+>
 ># Multi-line
 #^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >

@@ -195,10 +195,7 @@
 >    echo 'Dependency with parameter {{param}}'
 #^^^^^^^^^ source.just
 #         ^ source.just string.quoted.single.just string.quoted.single.just
-#          ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                                    ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
-#                                      ^^^^^ source.just string.quoted.single.just string.interpolated.escaping.just
-#                                           ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
 #                                             ^ source.just string.quoted.single.just
 >  
 ># Line continuation in interpolations
