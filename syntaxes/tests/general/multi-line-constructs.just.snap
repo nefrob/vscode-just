@@ -5,19 +5,11 @@
 #^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
 #                 ^ source.just keyword.operator.recipe.end.just
 >  if true; then \
-#^^ source.just
-#  ^^ source.just keyword.control.conditional.just
-#    ^ source.just
-#     ^^^^ source.just constant.language.boolean.just
-#         ^^^^^^^^^ source.just
+#^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >    echo 'True!'; \
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.single.just string.quoted.single.just
-#          ^^^^^ source.just string.quoted.single.just
-#               ^ source.just string.quoted.single.just
-#                ^^^^ source.just
+#^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >  fi
-#^^^^^ source.just
+#^^^^^ source.just meta.recipe.body.just
 >
 >
 ># Parenthesis blocks don't need explicit line breaks
@@ -108,17 +100,11 @@
 #    ^^ source.just
 #      ^^^ source.just entity.name.function.just
 >        'Foo'
-#^^^^^^^^ source.just
-#        ^ source.just string.quoted.single.just string.quoted.single.just
-#         ^^^ source.just string.quoted.single.just
-#            ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >     )
-#^^^^^^^ source.just
+#^^^^^^^ source.just meta.recipe.body.just
 >  echo 'Bar!'
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just string.quoted.single.just
-#        ^^^^ source.just string.quoted.single.just
-#            ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 ># Backslash continues as if whitespace
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
@@ -180,13 +166,9 @@
 #    ^ source.just keyword.operator.recipe.end.just
 #     ^^ source.just
 >    # this comment is not part of the recipe body
-#^^^^ source.just
-#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >  echo 'dep1'
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just string.quoted.single.just
-#        ^^^^ source.just string.quoted.single.just
-#            ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >dep2 \
 #^^^^^^^ source.just
@@ -205,18 +187,12 @@
 #^^^^^^ source.just entity.name.function.just
 #      ^ source.just keyword.operator.recipe.end.just
 >  echo '{{ \
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just string.quoted.single.just
-#        ^^^^^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >  "This interpolation " + \
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >    "has a lot of text." \
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >  }}'
-#^^^^ source.just string.quoted.single.just
-#    ^ source.just string.quoted.single.just
+#^^^^^^ source.just meta.recipe.body.just
 >  echo 'back to recipe body'
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just string.quoted.single.just
-#        ^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                           ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just

@@ -8,99 +8,40 @@
 #^^^^^^ source.just entity.name.function.just
 #      ^ source.just keyword.operator.recipe.end.just
 >  #!/usr/bin/env python3
-#^^^^ source.just
-#    ^ source.just keyword.operator.path-join.just
-#     ^^^ source.just
-#        ^ source.just keyword.operator.path-join.just
-#         ^^^ source.just
-#            ^ source.just keyword.operator.path-join.just
-#             ^^^ source.just support.function.builtin.just
-#                ^^^^^^^^^ source.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >  print('Hello from python!')
-#^^^^^^^ source.just
-#       ^ source.just
-#        ^ source.just string.quoted.single.just string.quoted.single.just
-#         ^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                           ^ source.just string.quoted.single.just
-#                            ^ source.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >js:
 #^^ source.just entity.name.function.just
 #  ^ source.just keyword.operator.recipe.end.just
 >  #!/usr/bin/env node
-#^^^^ source.just
-#    ^ source.just keyword.operator.path-join.just
-#     ^^^ source.just
-#        ^ source.just keyword.operator.path-join.just
-#         ^^^ source.just
-#            ^ source.just keyword.operator.path-join.just
-#             ^^^ source.just support.function.builtin.just
-#                ^^^^^^ source.just
+#^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >  console.log('Greetings from JavaScript!')
-#^^^^^^^^^^^^^ source.just
-#             ^ source.just
-#              ^ source.just string.quoted.single.just string.quoted.single.just
-#               ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                                         ^ source.just string.quoted.single.just
-#                                          ^ source.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >perl:
 #^^^^ source.just entity.name.function.just
 #    ^ source.just keyword.operator.recipe.end.just
 >  #!/usr/bin/env perl
-#^^^^ source.just
-#    ^ source.just keyword.operator.path-join.just
-#     ^^^ source.just
-#        ^ source.just keyword.operator.path-join.just
-#         ^^^ source.just
-#            ^ source.just keyword.operator.path-join.just
-#             ^^^ source.just support.function.builtin.just
-#                ^^^^^^ source.just
+#^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >  print "Larry Wall says Hi!\n";
-#^^^^^^^^ source.just
-#        ^ source.just string.quoted.double.just string.quoted.double.just
-#         ^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
-#                            ^^ source.just string.quoted.double.just constant.character.escape.just
-#                              ^ source.just string.quoted.double.just
-#                               ^^ source.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >sh:
 #^^ source.just entity.name.function.just
 #  ^ source.just keyword.operator.recipe.end.just
 >  #!/usr/bin/env sh
-#^^^^ source.just
-#    ^ source.just keyword.operator.path-join.just
-#     ^^^ source.just
-#        ^ source.just keyword.operator.path-join.just
-#         ^^^ source.just
-#            ^ source.just keyword.operator.path-join.just
-#             ^^^ source.just support.function.builtin.just
-#                ^^^^ source.just
+#^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >  hello='Yo'
-#^^^^^^^^ source.just
-#        ^ source.just string.quoted.single.just string.quoted.single.just
-#         ^^ source.just string.quoted.single.just
-#           ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >  echo "$hello from a shell script!"
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.double.just string.quoted.double.just
-#        ^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
-#                                   ^ source.just string.quoted.double.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >ruby:
 #^^^^ source.just entity.name.function.just
 #    ^ source.just keyword.operator.recipe.end.just
 >  #!/usr/bin/env ruby
-#^^^^ source.just
-#    ^ source.just keyword.operator.path-join.just
-#     ^^^ source.just
-#        ^ source.just keyword.operator.path-join.just
-#         ^^^ source.just
-#            ^ source.just keyword.operator.path-join.just
-#             ^^^ source.just support.function.builtin.just
-#                ^^^^^^ source.just
+#^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >  puts "Hello from ruby!"
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.double.just string.quoted.double.just
-#        ^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
-#                        ^ source.just string.quoted.double.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just

@@ -7,19 +7,13 @@
 #^^^ source.just entity.name.function.just
 #   ^ source.just keyword.operator.recipe.end.just
 >  echo 'hello'
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just string.quoted.single.just
-#        ^^^^^ source.just string.quoted.single.just
-#             ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >abc-DEF-123:
 #^^^^^^^^^^^ source.just entity.name.function.just
 #           ^ source.just keyword.operator.recipe.end.just
 >  echo 'hello'
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just string.quoted.single.just
-#        ^^^^^ source.just string.quoted.single.just
-#             ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 ># Parameters
 #^^^^^^^^^^^^ source.just comment.line.number-sign.just
@@ -30,10 +24,10 @@
 #    ^^^^^^ source.just variable.parameter.recipe.just
 #          ^ source.just keyword.operator.recipe.end.just
 >  echo {{param1}}
-#^^^^^^^ source.just
-#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#         ^^^^^^ source.just string.interpolated.escaping.just
-#               ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#^^^^^^^ source.just meta.recipe.body.just
+#       ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^^^^^^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#               ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
 >
 >foo param1 param2:
 #^^^ source.just entity.name.function.just
@@ -43,23 +37,23 @@
 #           ^^^^^^ source.just variable.parameter.recipe.just
 #                 ^ source.just keyword.operator.recipe.end.just
 >  echo {{param1}} {{param2}}
-#^^^^^^^ source.just
-#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#         ^^^^^^ source.just string.interpolated.escaping.just
-#               ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#                 ^ source.just
-#                  ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#                    ^^^^^^ source.just string.interpolated.escaping.just
-#                          ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#^^^^^^^ source.just meta.recipe.body.just
+#       ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^^^^^^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#               ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#                 ^ source.just meta.recipe.body.just
+#                  ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#                    ^^^^^^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#                          ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
 >
 >foo $bar:
 #^^^ source.just entity.name.function.just
 #   ^ source.just
-#    ^ source.just keyword.other.recipe.variadic.just
+#    ^ source.just keyword.other.recipe.env.just
 #     ^^^ source.just variable.parameter.recipe.just
 #        ^ source.just keyword.operator.recipe.end.just
 >  echo $bar
-#^^^^^^^^^^^^ source.just
+#^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >foo a b=var:
 #^^^ source.just entity.name.function.just
@@ -71,14 +65,14 @@
 #        ^^^ source.just
 #           ^ source.just keyword.operator.recipe.end.just
 >  echo {{a}} {{b}}
-#^^^^^^^ source.just
-#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#         ^ source.just string.interpolated.escaping.just
-#          ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#            ^ source.just
-#             ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#               ^ source.just string.interpolated.escaping.just
-#                ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#^^^^^^^ source.just meta.recipe.body.just
+#       ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#          ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#            ^ source.just meta.recipe.body.just
+#             ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#               ^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#                ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
 >
 >default_value a=("a" + ("b" + "c")):
 #^^^^^^^^^^^^^ source.just entity.name.function.just
@@ -106,10 +100,10 @@
 #                                  ^ source.just
 #                                   ^ source.just keyword.operator.recipe.end.just
 >  echo {{a}}
-#^^^^^^^ source.just
-#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#         ^ source.just string.interpolated.escaping.just
-#          ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#^^^^^^^ source.just meta.recipe.body.just
+#       ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#          ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
 >
 >foo a=(arch + "-unknown-unknown") b=(arch / "input.dat"):
 #^^^ source.just entity.name.function.just
@@ -139,22 +133,22 @@
 #                                                       ^ source.just
 #                                                        ^ source.just keyword.operator.recipe.end.just
 >  echo {{a}} {{b}}
-#^^^^^^^ source.just
-#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#         ^ source.just string.interpolated.escaping.just
-#          ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#            ^ source.just
-#             ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#               ^ source.just string.interpolated.escaping.just
-#                ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#^^^^^^^ source.just meta.recipe.body.just
+#       ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#          ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#            ^ source.just meta.recipe.body.just
+#             ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#               ^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#                ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
 >
 >a $A $B=`echo $A`:
 #^ source.just entity.name.function.just
 # ^ source.just
-#  ^ source.just keyword.other.recipe.variadic.just
+#  ^ source.just keyword.other.recipe.env.just
 #   ^ source.just variable.parameter.recipe.just
 #    ^ source.just
-#     ^ source.just keyword.other.recipe.variadic.just
+#     ^ source.just keyword.other.recipe.env.just
 #      ^ source.just variable.parameter.recipe.just
 #       ^ source.just keyword.operator.default.just
 #        ^ source.just string.interpolated.just
@@ -162,7 +156,7 @@
 #                ^ source.just string.interpolated.just
 #                 ^ source.just keyword.operator.recipe.end.just
 >  echo $A $B
-#^^^^^^^^^^^^^ source.just
+#^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >variadic MESSAGE *FLAGS:
 #^^^^^^^^ source.just entity.name.function.just
@@ -173,14 +167,14 @@
 #                  ^^^^^ source.just variable.parameter.recipe.just
 #                       ^ source.just keyword.operator.recipe.end.just
 >  echo {{MESSAGE}} {{FLAGS}}
-#^^^^^^^ source.just
-#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#         ^^^^^^^ source.just string.interpolated.escaping.just
-#                ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#                  ^ source.just
-#                   ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#                     ^^^^^ source.just string.interpolated.escaping.just
-#                          ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#^^^^^^^ source.just meta.recipe.body.just
+#       ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^^^^^^^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#                ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#                  ^ source.just meta.recipe.body.just
+#                   ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#                     ^^^^^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#                          ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
 >
 >plus_variadic +FLAGS='-q':
 #^^^^^^^^^^^^^ source.just entity.name.function.just
@@ -193,10 +187,10 @@
 #                        ^ source.just string.quoted.single.just
 #                         ^ source.just keyword.operator.recipe.end.just
 >  echo {{FLAGS}}
-#^^^^^^^ source.just
-#       ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
-#         ^^^^^ source.just string.interpolated.escaping.just
-#              ^^ source.just string.interpolated.escaping.just string.interpolated.escape.just
+#^^^^^^^ source.just meta.recipe.body.just
+#       ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
+#         ^^^^^ source.just meta.recipe.body.just string.interpolated.escaping.just
+#              ^^ source.just meta.recipe.body.just string.interpolated.escaping.just string.interpolated.escape.just
 >
 ># Dependencies
 #^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
@@ -207,10 +201,7 @@
 #      ^ source.just
 #       ^^^ source.just entity.name.function.just
 >  echo 'bar'
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just string.quoted.single.just
-#        ^^^ source.just string.quoted.single.just
-#           ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >b: a && c d
 #^ source.just entity.name.function.just
@@ -224,10 +215,7 @@
 #         ^ source.just
 #          ^ source.just entity.name.function.just
 >  echo 'hello from b'
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.single.just string.quoted.single.just
-#        ^^^^^^^^^^^^ source.just string.quoted.single.just
-#                    ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >default: (build "main")
 #^^^^^^^ source.just entity.name.function.just
@@ -276,8 +264,5 @@
 #                                               ^ source.just
 #                                                ^^^^ source.just entity.name.function.just
 >  echo "hello"
-#^^^^^^^ source.just
-#       ^ source.just string.quoted.double.just string.quoted.double.just
-#        ^^^^^ source.just string.quoted.double.just
-#             ^ source.just string.quoted.double.just
+#^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >

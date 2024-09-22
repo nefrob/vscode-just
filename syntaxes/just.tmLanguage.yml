@@ -18,8 +18,6 @@ patterns:
   - include: '#strings'
   - include: '#parenthesis'
   - include: '#recipes'
-  - include: '#recipe-operators'
-  - include: '#embedded-languages'
   - include: '#escaping'
 
 repository:
@@ -300,7 +298,13 @@ repository:
   escaping:
     patterns:
       - name: string.interpolated.escaping.just
-        match: (\{\{)(.*?)(\}\})
+        match: |
+          (?x)
+            (?<!\{)
+            (\{\{)
+              \{? (?!\{)
+              (.*?)
+            (\}\})
         captures:
           '1':
             name: string.interpolated.escape.just
@@ -312,15 +316,16 @@ repository:
 
   recipes:
     patterns:
-      - match: |
+      - begin: |
           (?x)
             ^
             (@_|_@|@|_)?
             ([a-zA-Z][a-zA-Z0-9_\-]*)
             (?: \s+ (.*?) )?
             \s* (:)
-            (.*)
-        captures:
+            (.*?) $
+        end: ^$
+        beginCaptures:
           '1':
             name: keyword.other.recipe.prefix.just
           '2':
@@ -333,9 +338,12 @@ repository:
           '5':
             patterns:
               - include: '#recipe-dependencies'
-      - include: '#recipe-operators'
+        contentName: meta.recipe.body.just
+        patterns:
+          - include: '#embedded-languages'
+          - include: '#recipe-operators'
+          - include: '#escaping'
       - include: '#recipe-attributes'
-      - include: '#embedded-languages'
 
   recipe-operators:
     patterns:
@@ -392,7 +400,7 @@ repository:
     match: |
       (?x)
         (?: 
-          (\+|\*|\$)?
+          (?:(\+|\*)|(\$))?
           ([a-zA-Z_][a-zA-Z_0-9]*
         )
         (?:
@@ -413,16 +421,18 @@ repository:
       '1':
         name: keyword.other.recipe.variadic.just
       '2':
-        name: variable.parameter.recipe.just
+        name: keyword.other.recipe.env.just
       '3':
-        name: keyword.operator.default.just
+        name: variable.parameter.recipe.just
       '4':
-        patterns:
-          - include: '#strings'
+        name: keyword.operator.default.just
       '5':
         patterns:
-          - include: '#backtick'
+          - include: '#strings'
       '6':
+        patterns:
+          - include: '#backtick'
+      '7':
         patterns:
           - include: '#parenthesis'
 

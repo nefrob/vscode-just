@@ -53,10 +53,7 @@
 #^^^ source.just entity.name.function.just
 #   ^ source.just keyword.operator.recipe.end.just
 >    echo "foo"
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.double.just string.quoted.double.just
-#          ^^^ source.just string.quoted.double.just
-#             ^ source.just string.quoted.double.just
+#^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 ># Attribute chaining
 #^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
@@ -71,10 +68,7 @@
 #^^^ source.just entity.name.function.just
 #   ^ source.just keyword.operator.recipe.end.just
 >    echo "foo"
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.double.just string.quoted.double.just
-#          ^^^ source.just string.quoted.double.just
-#             ^ source.just string.quoted.double.just
+#^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 ># Attribute values
 #^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
@@ -92,7 +86,7 @@
 #^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
 #                 ^ source.just keyword.operator.recipe.end.just
 >    rm -rf *
-#^^^^^^^^^^^^^ source.just
+#^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >[confirm: "Are you sure you want to delete everything?"]
 #^ source.just
@@ -107,7 +101,7 @@
 #^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
 #                 ^ source.just keyword.operator.recipe.end.just
 >    rm -rf *
-#^^^^^^^^^^^^^ source.just
+#^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >
 ># Recipe groups
@@ -126,10 +120,7 @@
 #^^^^^^^ source.just entity.name.function.just
 #       ^ source.just keyword.operator.recipe.end.just
 >    echo 'Running JS linter...'
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.single.just string.quoted.single.just
-#          ^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                              ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >[group('rust recipes')]
 #^ source.just
@@ -153,10 +144,7 @@
 #^^^^^^^^^ source.just entity.name.function.just
 #         ^ source.just keyword.operator.recipe.end.just
 >    echo 'Running Rust linter...'
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.single.just string.quoted.single.just
-#          ^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                                ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 >[group('lint')]
 #^ source.just
@@ -171,10 +159,7 @@
 #^^^^^^^^ source.just entity.name.function.just
 #        ^ source.just keyword.operator.recipe.end.just
 >    echo 'Running C++ linter...'
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.single.just string.quoted.single.just
-#          ^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                               ^ source.just string.quoted.single.just
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just meta.recipe.body.just
 >
 ># Private aliases and variables
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
