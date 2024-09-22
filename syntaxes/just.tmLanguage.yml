@@ -345,6 +345,11 @@ repository:
           # support for recipe operators and escaping from just syntax
           - include: '#recipe-operators'
           - include: '#escaping'
+          # TODO nefrob: source.shell breaks breaks out of recipe body if using if-statement
+          # and other control structures (this is true in the existing embedded languages approach as well)
+          # Also need to fix `@` etc. just syntax not being "seen" by source.shell so it doesn't interfere with
+          # the shell syntax highlighting
+          - include: source.shell
       - include: '#recipe-attributes'
 
   recipe-operators:

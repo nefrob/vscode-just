@@ -485,6 +485,9 @@
             },
             {
               "include": "#escaping"
+            },
+            {
+              "include": "source.shell"
             }
           ]
         },
