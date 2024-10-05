@@ -378,7 +378,7 @@
             {
               "comment": "Escaped characters",
               "name": "constant.character.escape.just",
-              "match": "\\\\."
+              "match": "\\\\.(?:(?<=u)\\{.+?\\})?"
             },
             {
               "include": "#escaping"
@@ -402,7 +402,7 @@
             {
               "comment": "Escaped characters",
               "name": "constant.character.escape.just",
-              "match": "\\\\."
+              "match": "\\\\.(?:(?<=u)\\{.+?\\})?"
             },
             {
               "include": "#escaping"
