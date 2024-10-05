@@ -16,57 +16,74 @@
 ># Escaping sequences
 #^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
->string-with-tab             := "\t"
+>carriage-return   := "\r"
 #^^^^^^^^^^^^^^^ source.just variable.other.just
-#               ^^^^^^^^^^^^^ source.just
-#                            ^^ source.just keyword.operator.assignment.just
-#                              ^ source.just
-#                               ^ source.just string.quoted.double.just string.quoted.double.just
-#                                ^^ source.just string.quoted.double.just constant.character.escape.just
-#                                  ^ source.just string.quoted.double.just
->string-with-newline         := "\n"
-#^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
-#                   ^^^^^^^^^ source.just
-#                            ^^ source.just keyword.operator.assignment.just
-#                              ^ source.just
-#                               ^ source.just string.quoted.double.just string.quoted.double.just
-#                                ^^ source.just string.quoted.double.just constant.character.escape.just
-#                                  ^ source.just string.quoted.double.just
->string-with-carriage-return := "\r"
-#^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
-#                           ^ source.just
-#                            ^^ source.just keyword.operator.assignment.just
-#                              ^ source.just
-#                               ^ source.just string.quoted.double.just string.quoted.double.just
-#                                ^^ source.just string.quoted.double.just constant.character.escape.just
-#                                  ^ source.just string.quoted.double.just
->string-with-double-quote    := "\""
-#^^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
-#                        ^^^^ source.just
-#                            ^^ source.just keyword.operator.assignment.just
-#                              ^ source.just
-#                               ^ source.just string.quoted.double.just string.quoted.double.just
-#                                ^^ source.just string.quoted.double.just constant.character.escape.just
-#                                  ^ source.just string.quoted.double.just
->string-with-slash           := "\\"
-#^^^^^^^^^^^^^^^^^ source.just variable.other.just
-#                 ^^^^^^^^^^^ source.just
-#                            ^^ source.just keyword.operator.assignment.just
-#                              ^ source.just
-#                               ^ source.just string.quoted.double.just string.quoted.double.just
-#                                ^^ source.just string.quoted.double.just constant.character.escape.just
-#                                  ^ source.just string.quoted.double.just
->string-with-no-newline      := "\
-#^^^^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
-#                      ^^^^^^ source.just
-#                            ^^ source.just keyword.operator.assignment.just
-#                              ^ source.just
-#                               ^ source.just string.quoted.double.just string.quoted.double.just
-#                                ^^ source.just string.quoted.double.just
+#               ^^^ source.just
+#                  ^^ source.just keyword.operator.assignment.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.double.just string.quoted.double.just
+#                      ^^ source.just string.quoted.double.just constant.character.escape.just
+#                        ^ source.just string.quoted.double.just
+>double-quote      := "\""
+#^^^^^^^^^^^^ source.just variable.other.just
+#            ^^^^^^ source.just
+#                  ^^ source.just keyword.operator.assignment.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.double.just string.quoted.double.just
+#                      ^^ source.just string.quoted.double.just constant.character.escape.just
+#                        ^ source.just string.quoted.double.just
+>newline           := "\n"
+#^^^^^^^ source.just variable.other.just
+#       ^^^^^^^^^^^ source.just
+#                  ^^ source.just keyword.operator.assignment.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.double.just string.quoted.double.just
+#                      ^^ source.just string.quoted.double.just constant.character.escape.just
+#                        ^ source.just string.quoted.double.just
+>no-newline        := "\
+#^^^^^^^^^^ source.just variable.other.just
+#          ^^^^^^^^ source.just
+#                  ^^ source.just keyword.operator.assignment.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.double.just string.quoted.double.just
+#                      ^^ source.just string.quoted.double.just
 >"
 #^ source.just string.quoted.double.just
+>slash             := "\\"
+#^^^^^ source.just variable.other.just
+#     ^^^^^^^^^^^^^ source.just
+#                  ^^ source.just keyword.operator.assignment.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.double.just string.quoted.double.just
+#                      ^^ source.just string.quoted.double.just constant.character.escape.just
+#                        ^ source.just string.quoted.double.just
+>tab               := "\t"
+#^^^ source.just variable.other.just
+#   ^^^^^^^^^^^^^^^ source.just
+#                  ^^ source.just keyword.operator.assignment.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.double.just string.quoted.double.just
+#                      ^^ source.just string.quoted.double.just constant.character.escape.just
+#                        ^ source.just string.quoted.double.just
+>unicode-codepoint := "\u{1F916}"
+#^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                 ^ source.just
+#                  ^^ source.just keyword.operator.assignment.just
+#                    ^ source.just
+#                     ^ source.just string.quoted.double.just string.quoted.double.just
+#                      ^^^^^^^^^ source.just string.quoted.double.just constant.character.escape.just
+#                               ^ source.just string.quoted.double.just
+>non-unicode-not-escaped := "\a{1F916}"
+#^^^^^^^^^^^^^^^^^^^^^^^ source.just variable.other.just
+#                       ^ source.just
+#                        ^^ source.just keyword.operator.assignment.just
+#                          ^ source.just
+#                           ^ source.just string.quoted.double.just string.quoted.double.just
+#                            ^^ source.just string.quoted.double.just constant.character.escape.just
+#                              ^^^^^^^ source.just string.quoted.double.just
+#                                     ^ source.just string.quoted.double.just
 >
->escapes := """\t\n\r\"\\"""
+>escapes := """\t\n\r\"\u{123}\\"""
 #^^^^^^^ source.just variable.other.just
 #       ^ source.just
 #        ^^ source.just keyword.operator.assignment.just
@@ -76,24 +93,25 @@
 #                ^^ source.just string.quoted.double.indented.just constant.character.escape.just
 #                  ^^ source.just string.quoted.double.indented.just constant.character.escape.just
 #                    ^^ source.just string.quoted.double.indented.just constant.character.escape.just
-#                      ^^ source.just string.quoted.double.indented.just constant.character.escape.just
-#                        ^^^ source.just string.quoted.double.indented.just
->escapes := '\t\n\r\"\\'
+#                      ^^^^^^^ source.just string.quoted.double.indented.just constant.character.escape.just
+#                             ^^ source.just string.quoted.double.indented.just constant.character.escape.just
+#                               ^^^ source.just string.quoted.double.indented.just
+>escapes := '\t\n\r\"\u{123}\\'
 #^^^^^^^ source.just variable.other.just
 #       ^ source.just
 #        ^^ source.just keyword.operator.assignment.just
 #          ^ source.just
 #           ^ source.just string.quoted.single.just string.quoted.single.just
-#            ^^^^^^^^^^ source.just string.quoted.single.just
-#                      ^ source.just string.quoted.single.just
->escapes := '''\t\n\r\"\\'''
+#            ^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                             ^ source.just string.quoted.single.just
+>escapes := '''\t\n\r\"\u{123}\\'''
 #^^^^^^^ source.just variable.other.just
 #       ^ source.just
 #        ^^ source.just keyword.operator.assignment.just
 #          ^ source.just
 #           ^^^ source.just string.quoted.single.indented.just string.quoted.single.indented.just
-#              ^^^^^^^^^^ source.just string.quoted.single.indented.just
-#                        ^^^ source.just string.quoted.single.indented.just
+#              ^^^^^^^^^^^^^^^^^ source.just string.quoted.single.indented.just
+#                               ^^^ source.just string.quoted.single.indented.just
 >
 ># Multi-line
 #^^^^^^^^^^^^ source.just comment.line.number-sign.just

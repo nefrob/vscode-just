@@ -6,17 +6,19 @@ single-quote := "don't be afraid of contractions"
 
 # Escaping sequences
 
-string-with-tab             := "\t"
-string-with-newline         := "\n"
-string-with-carriage-return := "\r"
-string-with-double-quote    := "\""
-string-with-slash           := "\\"
-string-with-no-newline      := "\
+carriage-return   := "\r"
+double-quote      := "\""
+newline           := "\n"
+no-newline        := "\
 "
+slash             := "\\"
+tab               := "\t"
+unicode-codepoint := "\u{1F916}"
+non-unicode-not-escaped := "\a{1F916}"
 
-escapes := """\t\n\r\"\\"""
-escapes := '\t\n\r\"\\'
-escapes := '''\t\n\r\"\\'''
+escapes := """\t\n\r\"\u{123}\\"""
+escapes := '\t\n\r\"\u{123}\\'
+escapes := '''\t\n\r\"\u{123}\\'''
 
 # Multi-line
 

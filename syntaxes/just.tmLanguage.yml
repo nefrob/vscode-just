@@ -267,7 +267,7 @@ repository:
         patterns:
           - comment: Escaped characters
             name: constant.character.escape.just
-            match: "\\\\."
+            match: "\\\\.(?:(?<=u)\\{.+?\\})?"
           - include: '#escaping'
       - comment: String
         name: string.quoted.double.just
@@ -281,7 +281,7 @@ repository:
         patterns:
           - comment: Escaped characters
             name: constant.character.escape.just
-            match: "\\\\."
+            match: "\\\\.(?:(?<=u)\\{.+?\\})?"
           - include: '#escaping'
       - comment: Indented raw string
         name: string.quoted.single.indented.just
