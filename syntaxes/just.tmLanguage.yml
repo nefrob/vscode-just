@@ -87,6 +87,12 @@ repository:
 
   variable-assignment:
     patterns:
+      - match: ^(unexport)\s+([a-zA-Z_][a-zA-Z0-9_-]*)
+        captures:
+          '1':
+            name: keyword.other.reserved.just
+          '2':
+            name: variable.other.just
       - begin: |
           (?x) 
             ^
@@ -196,7 +202,7 @@ repository:
 
   reserved-keywords:
     patterns:
-      - match: "^(alias|export|import|mod|set)\\s+"
+      - match: "^(alias|export|unexport|import|mod|set)\\s+"
         captures:
           '1':
             name: keyword.other.reserved.just

@@ -17,4 +17,4 @@ bar := foo / "b"
 # Exports
 
 export RUST_BACKTRACE := "1"
-
+unexport FOO
