@@ -1,51 +1,17 @@
-import { spawn } from 'child_process';
 import * as vscode from 'vscode';
 
+import { EXTENSION_NAME } from './const';
+import { formatWithExecutable } from './format';
 import Logger from './logger';
+import { runRecipeCommand } from './recipe';
 
-const EXTENSION_NAME = 'vscode-just';
-
-let logger: Logger;
-
-const formatWithExecutable = (fsPath: string) => {
-  const justPath =
-    (vscode.workspace.getConfiguration(EXTENSION_NAME).get('justPath') as string) ||
-    'just';
-  const args = ['-f', fsPath, '--fmt', '--unstable'];
-
-  const childProcess = spawn(justPath, args);
-  childProcess.stdout.on('data', (data: string) => {
-    logger.info(data);
-  });
-  childProcess.stderr.on('data', (data: string) => {
-    // TODO: successfully formatted documents also log to stderr
-    // so treat everything as info for now
-    logger.info(data);
-    // showErrorWithLink('Error formatting document.');
-  });
-  childProcess.on('close', (code) => {
-    console.debug(`just --fmt exited with ${code}`);
-  });
-};
-
-const showErrorWithLink = (message: string) => {
-  const outputButton = 'Output';
-  vscode.window
-    .showErrorMessage(message, outputButton)
-    .then((selection) => selection === outputButton && logger.show());
-};
-
-vscode.workspace.onWillSaveTextDocument((event) => {
-  if (vscode.workspace.getConfiguration(EXTENSION_NAME).get('formatOnSave')) {
-    formatWithExecutable(event.document.uri.fsPath);
-  }
-});
+export let LOGGER: Logger;
 
 export const activate = (context: vscode.ExtensionContext) => {
   console.debug(`${EXTENSION_NAME} activated`);
-  logger = new Logger(EXTENSION_NAME);
+  LOGGER = new Logger(EXTENSION_NAME);
 
-  const disposable = vscode.commands.registerCommand(
+  const formatDisposable = vscode.commands.registerCommand(
     `${EXTENSION_NAME}.formatDocument`,
     () => {
       const editor = vscode.window.activeTextEditor;
@@ -54,13 +20,26 @@ export const activate = (context: vscode.ExtensionContext) => {
       }
     },
   );
+  context.subscriptions.push(formatDisposable);
 
-  context.subscriptions.push(disposable);
+  const runRecipeDisposable = vscode.commands.registerCommand(
+    `${EXTENSION_NAME}.runRecipe`,
+    async () => {
+      runRecipeCommand();
+    },
+  );
+  context.subscriptions.push(runRecipeDisposable);
 };
 
 export const deactivate = () => {
   console.debug(`${EXTENSION_NAME} deactivated`);
-  if (logger) {
-    logger.dispose();
+  if (LOGGER) {
+    LOGGER.dispose();
   }
 };
+
+vscode.workspace.onWillSaveTextDocument((event) => {
+  if (vscode.workspace.getConfiguration(EXTENSION_NAME).get('formatOnSave')) {
+    formatWithExecutable(event.document.uri.fsPath);
+  }
+});
