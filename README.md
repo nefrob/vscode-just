@@ -26,7 +26,10 @@ Basic syntax highlighting for `just` files:
 -   Keywords, constants and operators
 -   Some embedded languages
 
-Note: Unlike previous iterations of VSCode `just` extensions, this extension does not provide command running capabilities from VSCode.
+Commands:
+
+- Format on save
+- Run recipe
 
 <img src="./assets/example.png" style="max-width: 75%;" />
 
@@ -59,7 +62,12 @@ Since expressions can have deep nesting and we cannot tell the scope based on in
 
 #### Publishing
 
-This extension is not available on open source marketplaces (for now). If you are using an open source build of VSCode, you might need to install the extension manually. To do so:
+The extension is available on the following marketplaces:
+
+- [VSCode](https://marketplace.visualstudio.com/items?itemName=nefrob.vscode-just-syntax)
+- [OpenVSX](https://open-vsx.org/extension/nefrob/vscode-just-syntax)
+
+If you are using an open source build of VSCode, you might need to install the extension manually. To do so:
 
 1. Navigate to the latest [release](https://github.com/nefrob/vscode-just/releases) and download the `.vsix` file.
 2. Copy the file to your `.vscode/extensions` directory.
