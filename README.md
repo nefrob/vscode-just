@@ -8,43 +8,43 @@ VSCode syntax highlighting extension for the [just](https://github.com/casey/jus
 
 Contents:
 
--   [Features](#features)
--   [Known Issues](#known-issues)
--   [Release Notes](#release-notes)
--   [Roadmap](#roadmap)
--   [Contributing](#contributing)
--   [References](#references)
+- [Features](#features)
+- [Known Issues](#known-issues)
+- [Publishing](#publishing)
+- [Release Notes](#release-notes)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [References](#references)
 
 ## Features
 
 Basic syntax highlighting for `just` files:
 
--   Comments
--   Variable assignment and settings
--   Strings & interpolation blocks
--   Recipes: recipe attributes, names, params and dependencies
--   Keywords, constants and operators
--   Some embedded languages
+- Comments
+- Variable assignment and settings
+- Strings & interpolation blocks
+- Recipes: recipe attributes, names, params and dependencies
+- Keywords, constants and operators
+- Some embedded languages
 
 Commands:
 
 - Format on save
 - Run recipe
 
-<img src="./assets/example.png" style="max-width: 75%;" />
+<img src="./assets/example.png" style="max-width: 75%;" alt="syntax highlight example" />
 
 ## Known Issues
 
 This extension does simple and/or best effort syntax highlighting. It is not intended to be 100% comprehensive, but rather provide a good enough experience for most users. That being said, if you find a bug or missing feature, please open an issue or a pull request.
 
-
-#### Nesting and scoping
+### Nesting and scoping
 
 Since expressions can have deep nesting and we cannot tell the scope based on indentation or other markers, we run into the following issues. These are limitations of TextMate grammars and is not easily fixable. 
   
--  Expression and recipe specific rules pollute the global repository scopes, meaning we apply `just` highlighting within recipe bodies. This means `just` keywords/operators/etc, like `if`, will highlight everywhere. This is necessary to highlight expressions correctly elsewhere.
+- Expression and recipe specific rules pollute the global repository scopes, meaning we apply `just` highlighting within recipe bodies. This means `just` keywords/operators/etc, like `if`, will highlight everywhere. This is necessary to highlight expressions correctly elsewhere.
 
-- Some nested expressions will break due to lack of awareness of depth and preemptively match a closing character. Ex. 
+- Some nested expressions will break due to lack of awareness of depth and preemptively match a closing character. Ex.
 
     ```
     echo {{ '{{ string }}' }}
@@ -60,9 +60,9 @@ Since expressions can have deep nesting and we cannot tell the scope based on in
     echo {{param1}} {{param2}}
     ```
 
-#### Publishing
+## Publishing
 
-The extension is available on the following marketplaces:
+This extension is available on the following marketplaces:
 
 - [VSCode](https://marketplace.visualstudio.com/items?itemName=nefrob.vscode-just-syntax)
 - [OpenVSX](https://open-vsx.org/extension/nefrob/vscode-just-syntax)
@@ -94,12 +94,11 @@ Completed:
 - [x] Format on save
 - [x] Run recipe
 
-
 ### Beyond
 
--   Semantic highlighting / LSP
+- Semantic highlighting / LSP
 
-    To avoid implementing a parser for files, it would be ideal for `just` to expose the AST or other APIs for editor extensions to leverage. This would allow for more advanced features like semantic highlighting, code folding, and more. 
+    To avoid implementing a parser for files, it would be ideal for `just` to expose the AST or other APIs for editor extensions to leverage. This would allow for more advanced features like semantic highlighting, code folding, and more.
 
     If VSCode works to support tree-sitter, [that](https://github.com/IndianBoy42/tree-sitter-just) would be a possible alternative.
 
@@ -109,15 +108,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## References
 
--   [TextMate Language Grammars](https://macromates.com/manual/en/language_grammars)
+- [TextMate Language Grammars](https://macromates.com/manual/en/language_grammars)
 
--   Previous iterations on `just` syntax grammars
-
-    -   [shellock/vscode-just](https://github.com/skellock/vscode-just)
-    -   [sclu1034/vscode-just](https://github.com/sclu1034/vscode-just/)
-
--   [Example language grammars](https://github.com/microsoft/vscode-textmate/tree/09effd8b7429b71010e0fa34ea2e16e622692946/test-cases/themes/syntaxes)
-
--   [Just manual](https://just.systems/man/en/)
-
--   [Packaging and publishing extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
+- Previous iterations on `just` syntax grammars
+  - [shellock/vscode-just](https://github.com/skellock/vscode-just)
+  - [sclu1034/vscode-just](https://github.com/sclu1034/vscode-just/)
+- [Example language grammars](https://github.com/microsoft/vscode-textmate/tree/09effd8b7429b71010e0fa34ea2e16e622692946/test-cases/themes/syntaxes)
+- [Just manual](https://just.systems/man/en/)
+- [Packaging and publishing extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
