@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.6.0] - 2024-10-06
+
 ### Added
 
 - Unicode codepoint escaped characters in strings from `just` release 1.36.0
