@@ -8,7 +8,7 @@ RUN apk update && \
 
 WORKDIR /code
 COPY package.json yarn.lock ./
-RUN --mount=type=cache,target=/root/.yarn yarn
+RUN --mount=type=cache,target=/root/.yarn yarn install --frozen-lockfile
 
 COPY . .
 

@@ -10,7 +10,4 @@ services:
       - NODE_ENV=developement
     volumes:
       - ./:/code
-      - node_modules:/code/node_modules
-
-volumes:
-  node_modules:
+      - /code/node_modules
