@@ -6,6 +6,7 @@
 
 - Unicode codepoint escaped characters in strings from `just` release 1.36.0
 - Unexport keyword from `just` release 1.29.0
+- VSCode command to run recipes 
 
 ## [0.5.3] - 2024-08-14
 

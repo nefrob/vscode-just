@@ -84,6 +84,7 @@ Completed:
 - [x] Add snapshot testing
 - [x] Publish to [open source marketplaces](https://open-vsx.org/)
 - [x] Format on save
+- [x] Run recipe
 
 
 ### Beyond
