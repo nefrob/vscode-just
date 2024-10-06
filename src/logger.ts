@@ -34,7 +34,7 @@ export default class Logger {
   }
 
   private log(message: string, level: LogLevel = LogLevel.INFO) {
-    const timestamp = new Date().toString();
-    this.outputChannel.appendLine(`[${timestamp}] [${level}] ${message}`);
+    const timestamp = new Date().toISOString();
+    this.outputChannel.append(`[${timestamp}] [${level}] ${message}`);
   }
 }
