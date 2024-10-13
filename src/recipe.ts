@@ -128,12 +128,4 @@ const runRecipeInBackground = async (args: string[]) => {
     LOGGER.info(data);
     // showErrorWithLink('Error running recipe.');
   });
-
-  // Kill the child process when the extension is disposed
-  const disposable = new vscode.Disposable(() => {
-    if (!childProcess.killed) {
-      childProcess.kill();
-    }
-  });
-  context.subscriptions.push(disposable);
 };
