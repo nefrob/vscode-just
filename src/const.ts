@@ -6,5 +6,6 @@ export const COMMANDS = {
 export const SETTINGS = {
   justPath: 'justPath',
   formatOnSave: 'formatOnSave',
+  runInTerminal: 'runInTerminal',
   logLevel: 'logLevel',
 };

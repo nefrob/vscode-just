@@ -6,13 +6,18 @@
 
 - Add dependabot update configuration
 
+### Changed
+
+- Recipes can now be spawned in a terminal instead of being logged to the extension output channel
+- Log level can now be set in the extension settings
+
 ## [0.6.0] - 2024-10-06
 
 ### Added
 
 - Unicode codepoint escaped characters in strings from `just` release 1.36.0
 - Unexport keyword from `just` release 1.29.0
-- VSCode command to run recipes 
+- VSCode command to run recipes
 
 ## [0.5.3] - 2024-08-14
 

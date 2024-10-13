@@ -2,13 +2,15 @@ import * as vscode from 'vscode';
 
 import { COMMANDS, EXTENSION_NAME, SETTINGS } from './const';
 import { formatWithExecutable } from './format';
+import { getLauncher } from './launcher';
+import { getLogger } from './logger';
 import { runRecipeCommand } from './recipe';
 
 export const activate = (context: vscode.ExtensionContext) => {
   console.debug(`${EXTENSION_NAME} activated`);
 
   const formatDisposable = vscode.commands.registerCommand(
-    `${EXTENSION_NAME}.${COMMANDS.formatDocument}`,
+    COMMANDS.formatDocument,
     () => {
       const editor = vscode.window.activeTextEditor;
       if (editor) {
@@ -19,7 +21,7 @@ export const activate = (context: vscode.ExtensionContext) => {
   context.subscriptions.push(formatDisposable);
 
   const runRecipeDisposable = vscode.commands.registerCommand(
-    `${EXTENSION_NAME}.${COMMANDS.runRecipe}`,
+    COMMANDS.runRecipe,
     async () => {
       runRecipeCommand();
     },
@@ -29,6 +31,8 @@ export const activate = (context: vscode.ExtensionContext) => {
 
 export const deactivate = () => {
   console.debug(`${EXTENSION_NAME} deactivated`);
+  getLogger().dispose();
+  getLauncher().dispose();
 };
 
 vscode.workspace.onWillSaveTextDocument((event) => {

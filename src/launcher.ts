@@ -5,15 +5,16 @@ import { workspaceRoot } from './utils';
 let LAUNCHER: Launcher;
 
 class Launcher implements vscode.Disposable {
-  private terminal: vscode.Terminal | undefined;
+  private terminals: Set<vscode.Terminal>;
+
   private onTerminalClose = vscode.window.onDidCloseTerminal((terminal) => {
-    if (terminal === this.terminal) {
-      this.terminal = undefined;
+    if (this.terminals.has(terminal)) {
+      this.terminals.delete(terminal);
     }
   });
 
   constructor() {
-    this.terminal = vscode.window.createTerminal('Recipe Launcher');
+    this.terminals = new Set();
   }
 
   public launch(command: string, args: string[]) {
@@ -23,18 +24,24 @@ class Launcher implements vscode.Disposable {
       cwd: workspaceRoot(),
     };
 
-    if (!this.terminal) {
-      this.terminal = vscode.window.createTerminal(terminalOptions);
+    // Copied from Makefile launcher:
+    // https://github.com/microsoft/vscode-makefile-tools/blob/36a51746d263b6fc4a9054924c388d2c8a49ee1b/src/launch.ts#L445
+    if (process.platform === 'win32') {
+      terminalOptions.shellPath = 'C:\\Windows\\System32\\cmd.exe';
     }
 
-    this.terminal.sendText(`${command} ${args.join(' ')}`);
-    this.terminal.show();
+    const terminal = vscode.window.createTerminal(terminalOptions);
+    this.terminals.add(terminal);
 
-    return this.terminal;
+    terminal.sendText(`${command} ${args.join(' ')}`);
+    terminal.show();
+
+    return terminal;
   }
 
   public dispose() {
-    this.terminal?.dispose();
+    this.terminals.forEach((terminal) => terminal.dispose());
+    this.terminals.clear();
     this.onTerminalClose.dispose();
   }
 }

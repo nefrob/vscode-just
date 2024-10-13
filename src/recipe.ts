@@ -1,8 +1,9 @@
-import { exec } from 'child_process';
+import { exec, spawn } from 'child_process';
 import { promisify } from 'util';
 import * as vscode from 'vscode';
 import yargsParser from 'yargs-parser';
 
+import { EXTENSION_NAME, SETTINGS } from './const';
 import { getLauncher } from './launcher';
 import { getLogger } from './logger';
 import { RecipeParameterKind, RecipeParsed, RecipeResponse } from './types';
@@ -109,5 +110,30 @@ const runRecipe = async (recipe: RecipeParsed, optionalArgs: yargsParser.Argumen
   const args = [recipe.name, ...optionalArgs._.map(String)];
 
   LOGGER.info(`Running recipe: ${recipe.name} with args: ${args.join(' ')}`);
-  getLauncher().launch(getJustPath(), args);
+  if (vscode.workspace.getConfiguration(EXTENSION_NAME).get(SETTINGS.runInTerminal)) {
+    getLauncher().launch(getJustPath(), args);
+  } else {
+    runRecipeInBackground(args);
+  }
+};
+
+const runRecipeInBackground = async (args: string[]) => {
+  const childProcess = spawn(getJustPath(), args, { cwd: workspaceRoot() });
+  childProcess.stdout.on('data', (data: string) => {
+    LOGGER.info(data);
+  });
+  childProcess.stderr.on('data', (data: string) => {
+    // TODO: successfully run recipes also log to stderr
+    // so treat everything as info for now
+    LOGGER.info(data);
+    // showErrorWithLink('Error running recipe.');
+  });
+
+  // Kill the child process when the extension is disposed
+  const disposable = new vscode.Disposable(() => {
+    if (!childProcess.killed) {
+      childProcess.kill();
+    }
+  });
+  context.subscriptions.push(disposable);
 };
