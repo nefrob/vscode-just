@@ -1,17 +1,24 @@
 {
   // Disable bracket colorization for testing
   "editor.bracketPairColorization.enabled": false,
+  // Disable comment colorization for testing
+  "better-comments.tags": [],
   "files.exclude": {
     "dist": false,
     "out": false
   },
-  // Disable comment colorization for testing
-  "better-comments.tags": [],
+
   "search.exclude": {
     "yarn.lock": true
+  },
+  "search.useIgnoreFiles": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.prettier": "explicit"
   },
   // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
   "typescript.tsc.autoDetect": "off",
   "eslint.useFlatConfig": true,
-  "search.useIgnoreFiles": true
+  // have eslint auto sort imports
+  "eslint.format.enable": true
 }

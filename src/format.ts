@@ -1,16 +1,14 @@
 import { spawn } from 'child_process';
-import * as vscode from 'vscode';
 
-import { EXTENSION_NAME } from './const';
-import { LOGGER } from './extension';
+import { getLogger } from './logger';
+import { getJustPath } from './utils';
+
+const LOGGER = getLogger();
 
 export const formatWithExecutable = (fsPath: string) => {
-  const justPath =
-    (vscode.workspace.getConfiguration(EXTENSION_NAME).get('justPath') as string) ||
-    'just';
   const args = ['-f', fsPath, '--fmt', '--unstable'];
 
-  const childProcess = spawn(justPath, args);
+  const childProcess = spawn(getJustPath(), args);
   childProcess.stdout.on('data', (data: string) => {
     LOGGER.info(data);
   });
