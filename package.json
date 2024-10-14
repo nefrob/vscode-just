@@ -24,7 +24,7 @@
     "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just",
     "format": "prettier  --log-level warn --cache .",
     "lint": "eslint . --cache --cache-location node_modules/.cache/eslint",
-    "gen-scopes": "yarn compile && node out/gen_scopes.js"
+    "gen-scopes": "yarn compile && node out/genScopes.js"
   },
   "categories": [
     "Programming Languages"
@@ -69,12 +69,28 @@
         "vscode-just.formatOnSave": {
           "type": "boolean",
           "default": false,
-          "description": "Enable/disable format on save (currently unstable)"
+          "description": "Enable/disable format on save (currently unstable)."
         },
         "vscode-just.justPath": {
           "type": "string",
           "default": "just",
-          "description": "Path to just binary"
+          "description": "Path to just binary."
+        },
+        "vscode-just.runInTerminal": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable/disable running recipes in a terminal. If disabled, recipes will be logged to the extension output channel instead."
+        },
+        "vscode-just.logLevel": {
+          "type": "string",
+          "enum": [
+            "info",
+            "warning",
+            "error",
+            "none"
+          ],
+          "default": "info",
+          "description": "Set the log level. Recipe output is logged at the info level."
         }
       }
     },
