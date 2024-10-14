@@ -5,21 +5,18 @@ updates:
     schedule:
       interval: 'monthly'
     labels:
-      - 'npm dependencies'
-      - 'dependabot'
+      - 'dependencies'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
       interval: 'monthly'
     labels:
-      - 'github-actions'
-      - 'dependabot'
+      - 'dependencies'
 
   - package-ecosystem: 'docker'
     directory: '/'
     schedule:
       interval: 'monthly'
     labels:
-      - 'docker'
-      - 'dependabot'
+      - 'dependencies'
