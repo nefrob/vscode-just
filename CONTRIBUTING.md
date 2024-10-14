@@ -18,7 +18,7 @@ This page lists the steps needed to set up a development environment and contrib
 
 1. Fork and clone this repo.
 
-2. Setup `nodejs` version `20`. We recommend using [asdf](https://asdf-vm.com/guide/getting-started.html).
+2. Setup `nodejs` version `22`. We recommend using [asdf](https://asdf-vm.com/guide/getting-started.html).
 
 3. Install `yarn`, ex. via `brew install yarn`.
 
