@@ -10,6 +10,7 @@
 
 - Recipes can now be spawned in a terminal instead of being logged to the extension output channel
 - Log level can now be set in the extension settings
+- Upgrade node from 21 to 22, along with other dependencies
 
 ## [0.6.0] - 2024-10-06
 
