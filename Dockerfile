@@ -1,4 +1,4 @@
-FROM node:22-alpine 
+FROM node:23-alpine 
 
 ENV YARN_CACHE_FOLDER=/root/.yarn
 
