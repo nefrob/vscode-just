@@ -81,6 +81,11 @@
           "default": false,
           "description": "Enable/disable running recipes in a terminal. If disabled, recipes will be logged to the extension output channel instead."
         },
+        "vscode-just.useSingleTerminal": {
+          "type": "boolean",
+          "default": false,
+          "description": "If enabled along with runInTerminal, recipes will queued to run in a single terminal instance rather than creating a new terminal each time."
+        },
         "vscode-just.logLevel": {
           "type": "string",
           "enum": [

@@ -4,13 +4,14 @@
 
 ### Added
 
-- Add dependabot update configuration
+- ~~Add dependabot update configuration~~
 
 ### Changed
 
-- Recipes can now be spawned in a terminal instead of being logged to the extension output channel
+- Recipes can now be spawned in a (new) terminal instead of being logged to the extension output channel
 - Log level can now be set in the extension settings
 - Upgrade node from 21 to 22, along with other dependencies
+- Improve scope list formatting
 
 ## [0.6.0] - 2024-10-06
 

@@ -5,7 +5,7 @@
   "tasks": [
     {
       "type": "npm",
-      "script": "watch",
+      "script": "pretest",
       "problemMatcher": "$tsc-watch",
       "isBackground": true,
       "presentation": {
@@ -15,6 +15,19 @@
       "group": {
         "kind": "build",
         "isDefault": true
+      }
+    },
+    {
+      "type": "npm",
+      "script": "watch",
+      "problemMatcher": "$tsc-watch",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "never",
+        "group": "watchers"
+      },
+      "group": {
+        "kind": "build"
       }
     },
     {

@@ -7,5 +7,6 @@ export const SETTINGS = {
   justPath: 'justPath',
   formatOnSave: 'formatOnSave',
   runInTerminal: 'runInTerminal',
+  useSingleTerminal: 'useSingleTerminal',
   logLevel: 'logLevel',
 };
