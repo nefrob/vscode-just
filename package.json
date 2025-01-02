@@ -113,14 +113,17 @@
       {
         "type": "vscode-just",
         "when": "shellExecutionSupported",
+        "required": [
+          "task"
+        ],
         "properties": {
-          "file": {
+          "task": {
             "type": "string",
-            "description": "The justfile to use."
+            "description": "The just command."
           },
-          "recipe": {
-            "type": "string",
-            "description": "The recipe to run."
+          "args": {
+            "type": "array",
+            "description": "Arguments to pass to the task"
           }
         }
       }
