@@ -31,6 +31,7 @@ Commands:
 
 - Format on save
 - Run recipe
+- Task running
 
 
 Demo:

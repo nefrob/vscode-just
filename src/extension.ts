@@ -5,6 +5,7 @@ import { formatWithExecutable } from './format';
 import { getLauncher } from './launcher';
 import { getLogger } from './logger';
 import { runRecipeCommand } from './recipe';
+import { TaskProvider } from './tasks';
 
 export const activate = (context: vscode.ExtensionContext) => {
   console.debug(`${EXTENSION_NAME} activated`);
@@ -27,6 +28,10 @@ export const activate = (context: vscode.ExtensionContext) => {
     },
   );
   context.subscriptions.push(runRecipeDisposable);
+
+  context.subscriptions.push(
+    vscode.tasks.registerTaskProvider(EXTENSION_NAME, new TaskProvider()),
+  );
 };
 
 export const deactivate = () => {

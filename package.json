@@ -108,6 +108,25 @@
         "command": "vscode-just.runRecipe",
         "title": "Just: Run Recipe"
       }
+    ],
+    "taskDefinitions": [
+      {
+        "type": "vscode-just",
+        "when": "shellExecutionSupported",
+        "required": [
+          "task"
+        ],
+        "properties": {
+          "task": {
+            "type": "string",
+            "description": "The just command."
+          },
+          "args": {
+            "type": "array",
+            "description": "Arguments to pass to the task"
+          }
+        }
+      }
     ]
   },
   "devDependencies": {
