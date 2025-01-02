@@ -3,20 +3,20 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'monthly'
+      interval: 'yearly'
     labels:
       - 'dependencies'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
-      interval: 'monthly'
+      interval: 'yearly'
     labels:
       - 'dependencies'
 
   - package-ecosystem: 'docker'
     directory: '/'
     schedule:
-      interval: 'monthly'
+      interval: 'yearly'
     labels:
       - 'dependencies'
