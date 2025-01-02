@@ -13,4 +13,4 @@ for (const match of scopeMatches) {
 }
 
 const scopesOutput = Array.from(scopes).sort();
-writeFileSync(OUTPUT_FILE, JSON.stringify(scopesOutput));
+writeFileSync(OUTPUT_FILE, JSON.stringify(scopesOutput, null, 2));
