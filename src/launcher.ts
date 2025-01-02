@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 
+import { EXTENSION_NAME, SETTINGS } from './const';
 import { workspaceRoot } from './utils';
 
 let LAUNCHER: Launcher;
@@ -30,8 +31,17 @@ class Launcher implements vscode.Disposable {
       terminalOptions.shellPath = 'C:\\Windows\\System32\\cmd.exe';
     }
 
-    const terminal = vscode.window.createTerminal(terminalOptions);
-    this.terminals.add(terminal);
+    const reuseTerminal = vscode.workspace
+      .getConfiguration(EXTENSION_NAME)
+      .get(SETTINGS.useSingleTerminal);
+
+    let terminal: vscode.Terminal;
+    if (reuseTerminal && this.terminals.size > 0) {
+      terminal = this.terminals.values().next().value!;
+    } else {
+      terminal = vscode.window.createTerminal(terminalOptions);
+      this.terminals.add(terminal);
+    }
 
     terminal.sendText(`${command} ${args.join(' ')}`);
     terminal.show();
