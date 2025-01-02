@@ -11,7 +11,7 @@
   "version": "0.7.0",
   "engines": {
     "node": ">=22 || ^20.9.0",
-    "vscode": ">=1.91.0"
+    "vscode": ">=1.94.0"
   },
   "scripts": {
     "compile-extension": "webpack",
