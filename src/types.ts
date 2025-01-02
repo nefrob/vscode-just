@@ -1,3 +1,5 @@
+import * as vscode from 'vscode';
+
 export enum RecipeParameterKind {
   SINGULAR = 'singular',
   PLUS = 'plus',
@@ -24,4 +26,9 @@ export interface RecipeParsed {
   doc: string;
   parameters: Pick<RecipeParameter, 'default' | 'kind' | 'name'>[];
   groups: string[];
+}
+
+export interface TaskDefinition extends vscode.TaskDefinition {
+  file?: string;
+  recipe?: string;
 }
