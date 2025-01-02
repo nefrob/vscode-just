@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Task runner support
+
 ## [0.7.0] - 2025-01-02
 
 ### Added

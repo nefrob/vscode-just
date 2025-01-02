@@ -10,6 +10,3 @@ export const SETTINGS = {
   useSingleTerminal: 'useSingleTerminal',
   logLevel: 'logLevel',
 };
-export const TASKS = {
-  runRecipe: `${EXTENSION_NAME}.runRecipe`,
-};
