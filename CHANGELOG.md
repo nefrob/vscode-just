@@ -13,6 +13,10 @@
 - Upgrade node from 21 to 22, along with other dependencies
 - Improve scope list formatting
 
+### Fixed
+
+- Embedded recipes with empty lines now highlight correctly
+
 ## [0.6.0] - 2024-10-06
 
 ### Added
