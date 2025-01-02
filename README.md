@@ -32,7 +32,30 @@ Commands:
 - Format on save
 - Run recipe
 
-<img src="./assets/example.png" style="max-width: 75%;" alt="syntax highlight example" />
+
+Demo:
+
+-  VSCode with `just` syntax highlighting
+   <img src="./assets/example.png" style="max-width: 75%;" alt="syntax highlight example" />
+
+- GitHub syntax highlighting
+    
+    ```just
+    # Demo
+
+    set tempdir := "/tmp"
+
+    export MY_VAR := `./my_script.sh`
+
+    [confirm("Continue?")]
+    @foo PARAM_1="hello" PARAM_2="world" +ARGS="":
+        echo {{ PARAM_1 }} {{ PARAM_2 }} {{ ARGS }}
+
+    python:
+        #!/usr/bin/env python3
+        print('Hello from python!')
+
+    ```
 
 ## Known Issues
 
@@ -46,7 +69,7 @@ Since expressions can have deep nesting and we cannot tell the scope based on in
 
 - Some nested expressions will break due to lack of awareness of depth and preemptively match a closing character. Ex.
 
-    ```
+    ```just
     echo {{ '{{ string }}' }}
     ```
 
@@ -54,7 +77,7 @@ Since expressions can have deep nesting and we cannot tell the scope based on in
 
 - Line breaking and expressions that span multiple lines may not highlight correctly. As a simple example
 
-    ```
+    ```just
     foo param1 \
         param2='foo':
     echo {{param1}} {{param2}}
