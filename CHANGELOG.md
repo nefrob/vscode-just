@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Added
+
+- Builtins, color constants and recipe attributes from `just` release 1.38.0 through 1.40.0
+-  Or operator `||` from `just` release 1.37.0
+
 ## [0.8.0] - 2025-01-02
 
 ### Added
