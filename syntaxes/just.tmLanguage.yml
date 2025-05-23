@@ -26,7 +26,7 @@ repository:
   comments:
     patterns:
       - name: comment.line.number-sign.just
-        match: '#([^!].*)$'
+        match: '#(?!\!).*$'
 
   import:
     begin: |
@@ -109,6 +109,7 @@ repository:
             name: keyword.operator.assignment.just
         patterns:
           - include: '#expression'
+          - include: '#comments'
 
   setting-assignment:
     patterns:
@@ -129,6 +130,7 @@ repository:
         patterns:
           # Allow any expression here for simplicity right now
           - include: '#expression'
+          - include: '#comments'
 
   expression:
     patterns:
@@ -232,8 +234,8 @@ repository:
         match: "\\+"
       - name: keyword.operator.and.just
         match: '&&'
-      # - name: keyword.operator.or.just
-      #   match: '\\|\\|'
+      - name: keyword.operator.or.just
+        match: "\\|\\|"
       - name: keyword.operator.equality.just
         match: "(\\=\\=|\\=\\~|\\!\\=)"
 

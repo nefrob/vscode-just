@@ -16,6 +16,7 @@
   "keyword.operator.default.just",
   "keyword.operator.equality.just",
   "keyword.operator.error-suppression.just",
+  "keyword.operator.or.just",
   "keyword.operator.path-join.just",
   "keyword.operator.quiet.just",
   "keyword.operator.recipe.end.just",
