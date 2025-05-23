@@ -57,7 +57,7 @@
       "patterns": [
         {
           "name": "comment.line.number-sign.just",
-          "match": "#([^!].*)$"
+          "match": "#(?!\\!).*$"
         }
       ]
     },
@@ -155,6 +155,9 @@
           "patterns": [
             {
               "include": "#expression"
+            },
+            {
+              "include": "#comments"
             }
           ]
         }
@@ -179,6 +182,9 @@
           "patterns": [
             {
               "include": "#expression"
+            },
+            {
+              "include": "#comments"
             }
           ]
         }
@@ -209,8 +215,8 @@
     "builtins": {
       "patterns": [
         {
-          "name": "constant.language.hex.just",
-          "match": "\\b(HEX|HEXLOWER|HEXUPPER)\\b"
+          "name": "constant.language.const.just",
+          "match": "(?x) \\b(\n  HEX|HEXLOWER|HEXUPPER|CLEAR|NORMAL|BOLD|ITALIC|UNDERLINE|INVERT|HIDE|\n  STRIKETHROUGH|BLACK|RED|GREEN|YELLOW|BLUE|MAGENTA|CYAN|WHITE|BG_BLACK|\n  BG_RED|BG_GREEN|BG_YELLOW|BG_BLUE|BG_MAGENTA|BG_CYAN|BG_WHITE\n)\\b\n"
         },
         {
           "include": "#builtin-functions"
@@ -224,7 +230,7 @@
       "patterns": [
         {
           "name": "support.function.builtin.just",
-          "match": "(?x) \\b(\n  arch|num_cpus|os|os_family|shell|env_var|env_var_or_default|env|\n  is_dependency|invocation_directory|invocation_dir|invocation_directory_native|\n  invocation_dir_native|justfile|justfile_directory|justfile_dir|just_executable|\n  just_pid|source_file|source_directory|source_dir|module_file|module_directory|\n  module_dir|append|prepend|encode_uri_component|quote|replace|replace_regex|\n  trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|\n  trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|\n  shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|\n  uppercase|absolute_path|blake3|blake3_file|canonicalize|extension|\n  file_name|file_stem|parent_directory|parent_dir|without_extension|clean|join|\n  path_exists|error|assert|sha256|sha256_file|uuid|choose|datetime|\n  datetime_utc|semver_matches|cache_directory|cache_dir|config_directory|config_dir|\n  config_local_directory|config_local_dir|data_directory|data_dir|data_local_directory|\n  data_local_dir|executable_directory|executable_dir|home_directory|home_dir\n)\\b\n"
+          "match": "(?x) \\b(\n  arch|num_cpus|os|os_family|shell|env_var|env_var_or_default|env|\n  is_dependency|invocation_directory|invocation_dir|invocation_directory_native|\n  invocation_dir_native|justfile|justfile_directory|justfile_dir|just_executable|\n  just_pid|source_file|source_directory|source_dir|module_file|module_directory|\n  module_dir|append|prepend|encode_uri_component|quote|replace|replace_regex|\n  trim|trim_end|trim_end_match|trim_end_matches|trim_start|trim_start_match|\n  trim_start_matches|capitalize|kebabcase|lowercamelcase|lowercase|\n  shoutykebabcase|shoutysnakecase|snakecase|titlecase|uppercamelcase|\n  uppercase|absolute_path|blake3|blake3_file|canonicalize|extension|\n  file_name|file_stem|parent_directory|parent_dir|without_extension|clean|join|\n  path_exists|error|assert|sha256|sha256_file|uuid|choose|datetime|\n  datetime_utc|semver_matches|style|cache_directory|cache_dir|config_directory|config_dir|\n  config_local_directory|config_local_dir|data_directory|data_dir|data_local_directory|\n  data_local_dir|executable_directory|executable_dir|home_directory|home_dir|which|require|read\n)\\b\n"
         }
       ]
     },
@@ -313,6 +319,10 @@
         {
           "name": "keyword.operator.and.just",
           "match": "&&"
+        },
+        {
+          "name": "keyword.operator.or.just",
+          "match": "\\|\\|"
         },
         {
           "name": "keyword.operator.equality.just",

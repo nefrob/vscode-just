@@ -123,6 +123,8 @@ datetime_utc(format)
 
 semver_matches(version, requirement)
 
+style(name)
+
 cache_directory()
 cache_dir()
 config_directory()
@@ -137,3 +139,7 @@ executable_directory()
 executable_dir()
 home_directory()
 home_dir()
+
+which()
+require()
+read(path)

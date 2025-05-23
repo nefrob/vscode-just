@@ -14,6 +14,14 @@ tarball := tardir + ".tar.gz"
 foo := "a/"
 bar := foo / "b"
 
+# Logical operators
+
+foo := '' && 'goodbye'      # ''
+bar := 'hello' && 'goodbye' # 'goodbye'
+
+foo := '' || 'goodbye'      # 'goodbye'
+bar := 'hello' || 'goodbye' # 'hello'
+
 # Exports
 
 export RUST_BACKTRACE := "1"

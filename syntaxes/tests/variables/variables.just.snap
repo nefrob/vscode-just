@@ -81,6 +81,73 @@
 #              ^ source.just string.quoted.double.just
 #               ^ source.just string.quoted.double.just
 >
+># Logical operators
+#^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>foo := '' && 'goodbye'      # ''
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^ source.just string.quoted.single.just
+#         ^ source.just
+#          ^^ source.just keyword.operator.and.just
+#            ^ source.just
+#             ^ source.just string.quoted.single.just string.quoted.single.just
+#              ^^^^^^^ source.just string.quoted.single.just
+#                     ^ source.just string.quoted.single.just
+#                      ^^^^^^ source.just
+#                            ^^^^ source.just comment.line.number-sign.just
+>bar := 'hello' && 'goodbye' # 'goodbye'
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^^^^ source.just string.quoted.single.just
+#             ^ source.just string.quoted.single.just
+#              ^ source.just
+#               ^^ source.just keyword.operator.and.just
+#                 ^ source.just
+#                  ^ source.just string.quoted.single.just string.quoted.single.just
+#                   ^^^^^^^ source.just string.quoted.single.just
+#                          ^ source.just string.quoted.single.just
+#                           ^ source.just
+#                            ^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>foo := '' || 'goodbye'      # 'goodbye'
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^ source.just string.quoted.single.just
+#         ^ source.just
+#          ^^ source.just keyword.operator.or.just
+#            ^ source.just
+#             ^ source.just string.quoted.single.just string.quoted.single.just
+#              ^^^^^^^ source.just string.quoted.single.just
+#                     ^ source.just string.quoted.single.just
+#                      ^^^^^^ source.just
+#                            ^^^^^^^^^^^ source.just comment.line.number-sign.just
+>bar := 'hello' || 'goodbye' # 'hello'
+#^^^ source.just variable.other.just
+#   ^ source.just
+#    ^^ source.just keyword.operator.assignment.just
+#      ^ source.just
+#       ^ source.just string.quoted.single.just string.quoted.single.just
+#        ^^^^^ source.just string.quoted.single.just
+#             ^ source.just string.quoted.single.just
+#              ^ source.just
+#               ^^ source.just keyword.operator.or.just
+#                 ^ source.just
+#                  ^ source.just string.quoted.single.just string.quoted.single.just
+#                   ^^^^^^^ source.just string.quoted.single.just
+#                          ^ source.just string.quoted.single.just
+#                           ^ source.just
+#                            ^^^^^^^^^ source.just comment.line.number-sign.just
+>
 ># Exports
 #^^^^^^^^^ source.just comment.line.number-sign.just
 >
