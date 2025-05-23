@@ -1,17 +1,20 @@
 # Recipe attributes
 
-[doc]
-[extension]
 [confirm]
+[doc]
+[exit-message]
+[extension]
 [linux]
 [macos]
 [no-cd]
 [no-exit-message]
-[private]
 [no-quiet]
+[openbsd]
+[private]
 [script]
 [unix]
 [windows]
+[working-directory]
 foo:
     echo "foo"
 

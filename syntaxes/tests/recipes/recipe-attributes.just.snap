@@ -1,18 +1,22 @@
 ># Recipe attributes
 #^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
->[doc]
-#^ source.just
-# ^^^ source.just support.function.system.just
-#    ^^ source.just
->[extension]
-#^ source.just
-# ^^^^^^^^^ source.just support.function.system.just
-#          ^^ source.just
 >[confirm]
 #^ source.just
 # ^^^^^^^ source.just support.function.system.just
 #        ^^ source.just
+>[doc]
+#^ source.just
+# ^^^ source.just support.function.system.just
+#    ^^ source.just
+>[exit-message]
+#^ source.just
+# ^^^^^^^^^^^^ source.just support.function.system.just
+#             ^^ source.just
+>[extension]
+#^ source.just
+# ^^^^^^^^^ source.just support.function.system.just
+#          ^^ source.just
 >[linux]
 #^ source.just
 # ^^^^^ source.just support.function.system.just
@@ -29,14 +33,18 @@
 #^ source.just
 # ^^^^^^^^^^^^^^^ source.just support.function.system.just
 #                ^^ source.just
->[private]
-#^ source.just
-# ^^^^^^^ source.just support.function.system.just
-#        ^^ source.just
 >[no-quiet]
 #^ source.just
 # ^^^^^^^^ source.just support.function.system.just
 #         ^^ source.just
+>[openbsd]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^^ source.just
+>[private]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^^ source.just
 >[script]
 #^ source.just
 # ^^^^^^ source.just support.function.system.just
@@ -49,6 +57,10 @@
 #^ source.just
 # ^^^^^^^ source.just support.function.system.just
 #        ^^ source.just
+>[working-directory]
+#^ source.just
+# ^^^^^^^^^^^^^^^^^ source.just support.function.system.just
+#                  ^^ source.just
 >foo:
 #^^^ source.just entity.name.function.just
 #   ^ source.just keyword.operator.recipe.end.just

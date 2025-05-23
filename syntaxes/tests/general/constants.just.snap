@@ -18,9 +18,58 @@
 #^^^^^ source.just constant.numeric.just
 >
 >HEX
-#^^^ source.just constant.language.hex.just
+#^^^ source.just constant.language.const.just
 >HEXLOWER
-#^^^^^^^^ source.just constant.language.hex.just
+#^^^^^^^^ source.just constant.language.const.just
 >HEXUPPER
-#^^^^^^^^ source.just constant.language.hex.just
+#^^^^^^^^ source.just constant.language.const.just
+>CLEAR
+#^^^^^ source.just constant.language.const.just
+>NORMAL
+#^^^^^^ source.just constant.language.const.just
+>BOLD
+#^^^^ source.just constant.language.const.just
+>ITALIC
+#^^^^^^ source.just constant.language.const.just
+>UNDERLINE
+#^^^^^^^^^ source.just constant.language.const.just
+>INVERT
+#^^^^^^ source.just constant.language.const.just
+>HIDE
+#^^^^ source.just constant.language.const.just
+>STRIKETHROUGH
+#^^^^^^^^^^^^^ source.just constant.language.const.just
+>BLACK
+#^^^^^ source.just constant.language.const.just
+>RED
+#^^^ source.just constant.language.const.just
+>GREEN
+#^^^^^ source.just constant.language.const.just
+>YELLOW
+#^^^^^^ source.just constant.language.const.just
+>BLUE
+#^^^^ source.just constant.language.const.just
+>MAGENTA
+#^^^^^^^ source.just constant.language.const.just
+>CYAN
+#^^^^ source.just constant.language.const.just
+>WHITE
+#^^^^^ source.just constant.language.const.just
+>BG_BLACK
+#^^^^^^^^ source.just constant.language.const.just
+>BG_RED
+#^^^^^^ source.just constant.language.const.just
+>BG_GREEN
+#^^^^^^^^ source.just constant.language.const.just
+>BG_YELLOW
+#^^^^^^^^^ source.just constant.language.const.just
+>BG_BLUE
+#^^^^^^^ source.just constant.language.const.just
+>BG_MAGENTA
+#^^^^^^^^^^ source.just constant.language.const.just
+>BG_CYAN
+#^^^^^^^ source.just constant.language.const.just
+>BG_WHITE
+#^^^^^^^^ source.just constant.language.const.just
+>
 >

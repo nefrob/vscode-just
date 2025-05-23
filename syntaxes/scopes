@@ -4,7 +4,7 @@
   "constant.character.escape.just",
   "constant.character.expanded.just",
   "constant.language.boolean.just",
-  "constant.language.hex.just",
+  "constant.language.const.just",
   "constant.numeric.just",
   "entity.name.function.just",
   "invalid.illegal.name.just",

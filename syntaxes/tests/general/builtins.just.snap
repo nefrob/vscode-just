@@ -405,6 +405,12 @@
 #               ^^^^^^^^^^^^^^^^^^^^ source.just
 #                                   ^ source.just
 >
+>style(name)
+#^^^^^ source.just support.function.builtin.just
+#     ^ source.just
+#      ^^^^ source.just
+#          ^ source.just
+>
 >cache_directory()
 #^^^^^^^^^^^^^^^ source.just support.function.builtin.just
 #               ^ source.just
@@ -460,5 +466,19 @@
 >home_dir()
 #^^^^^^^^ source.just support.function.builtin.just
 #        ^ source.just
+#         ^ source.just
+>
+>which()
+#^^^^^ source.just support.function.builtin.just
+#     ^ source.just
+#      ^ source.just
+>require()
+#^^^^^^^ source.just support.function.builtin.just
+#       ^ source.just
+#        ^ source.just
+>read(path)
+#^^^^ source.just support.function.builtin.just
+#    ^ source.just
+#     ^^^^ source.just
 #         ^ source.just
 >
