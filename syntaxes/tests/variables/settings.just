@@ -4,6 +4,7 @@ set allow-duplicate-recipes := true
 set allow-duplicate-variables := true
 set dotenv-filename := ".env"
 set dotenv-load := true
+set dotenv-override := false
 set dotenv-path := "."
 set dotenv-required := false
 set export := true

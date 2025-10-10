@@ -23,6 +23,10 @@
 #^^^^^^^^ source.just constant.language.const.just
 >HEXUPPER
 #^^^^^^^^ source.just constant.language.const.just
+>PATH_SEP
+#^^^^^^^^ source.just constant.language.const.just
+>PATH_VAR_SEP
+#^^^^^^^^^^^^ source.just constant.language.const.just
 >CLEAR
 #^^^^^ source.just constant.language.const.just
 >NORMAL

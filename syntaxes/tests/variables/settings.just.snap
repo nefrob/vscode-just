@@ -35,6 +35,14 @@
 #                ^^ source.just keyword.operator.assignment.just
 #                  ^ source.just
 #                   ^^^^ source.just constant.language.boolean.just
+>set dotenv-override := false
+#^^^ source.just keyword.other.reserved.just
+#   ^ source.just
+#    ^^^^^^^^^^^^^^^ source.just variable.other.just
+#                   ^ source.just
+#                    ^^ source.just keyword.operator.assignment.just
+#                      ^ source.just
+#                       ^^^^^ source.just constant.language.boolean.just
 >set dotenv-path := "."
 #^^^ source.just keyword.other.reserved.just
 #   ^ source.just

@@ -1,15 +1,18 @@
 # Recipe attributes
 
 [confirm]
+[default]
 [doc]
 [exit-message]
 [extension]
 [linux]
 [macos]
+[metadata]
 [no-cd]
 [no-exit-message]
 [no-quiet]
 [openbsd]
+[parallel]
 [private]
 [script]
 [unix]

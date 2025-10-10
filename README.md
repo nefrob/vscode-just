@@ -107,6 +107,10 @@ Outstanding:
 
 - [ ] Update to match [just grammar](https://github.com/casey/just/blob/43d88f50e02057e5d91602ef4ffdd0ddfc094099/GRAMMAR.md) more accurately
 - [ ] Improve escaping within strings
+- [ ] Add support for additional embedded languages
+- [ ] Improve recipe body highlighting
+- [ ] Inline command runner
+- [ ] Default formatter support
 
 Completed:
 

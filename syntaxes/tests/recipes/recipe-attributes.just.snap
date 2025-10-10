@@ -5,6 +5,10 @@
 #^ source.just
 # ^^^^^^^ source.just support.function.system.just
 #        ^^ source.just
+>[default]
+#^ source.just
+# ^^^^^^^ source.just support.function.system.just
+#        ^^ source.just
 >[doc]
 #^ source.just
 # ^^^ source.just support.function.system.just
@@ -25,6 +29,10 @@
 #^ source.just
 # ^^^^^ source.just support.function.system.just
 #      ^^ source.just
+>[metadata]
+#^ source.just
+# ^^^^^^^^ source.just support.function.system.just
+#         ^^ source.just
 >[no-cd]
 #^ source.just
 # ^^^^^ source.just support.function.system.just
@@ -41,6 +49,10 @@
 #^ source.just
 # ^^^^^^^ source.just support.function.system.just
 #        ^^ source.just
+>[parallel]
+#^ source.just
+# ^^^^^^^^ source.just support.function.system.just
+#         ^^ source.just
 >[private]
 #^ source.just
 # ^^^^^^^ source.just support.function.system.just
