@@ -9,6 +9,11 @@
 - F-string specifier from `just` release 1.44.0
 - Leverage VSCode's built-in formatting API for `justfile` formatting
 - Integrate `just-lsp` with extension
+- Deno embedded language highlighting
+
+### Fixed
+
+- Handle `-S` flag in embedded language shebangs 
 
 ## [0.8.0] - 2025-01-02
 
