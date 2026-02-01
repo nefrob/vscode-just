@@ -1,53 +1,38 @@
-import child_process from 'node:child_process';
-import util from 'node:util';
-
-import { spawn } from 'child_process';
-
-const exec = util.promisify(child_process.exec);
-
-async function lsExample() {
-  const { stdout, stderr } = await exec('ls');
-  console.log('stdout:', stdout);
-  console.error('stderr:', stderr);
-}
-lsExample();
+import { exec } from 'node:child_process';
+import { promisify } from 'node:util';
 
 import { getLogger } from './logger';
 import { getJustPath } from './utils';
 
+const execAsync = promisify(exec);
 const LOGGER = getLogger();
 
-export const formatWithExecutable = (fsPath: string) => {
-  const args = ['-f', fsPath, '--fmt', '--unstable'];
-
-  const childProcess = spawn(getJustPath(), args);
-  childProcess.stdout.on('data', (data: string) => {
-    LOGGER.info(data);
-  });
-  childProcess.stderr.on('data', (data: string) => {
-    // TODO: successfully formatted documents also log to stderr
-    // so treat everything as info for now
-    LOGGER.info(data);
-    // showErrorWithLink('Error formatting document.');
-  });
-  childProcess.on('close', (code) => {
-    console.debug(`just --fmt exited with ${code}`);
-  });
-};
-
 /**
- * Uses --dump to format the file and return the formatted content.
+ * Formats justfile content using `just --dump` with a temporary file.
  *
- * @param fsPath - The path to the file to format.
+ * @param content The justfile content to format.
  * @returns A promise that resolves to the formatted content.
  */
-export const dumpWithExecutable = async (fsPath: string): Promise<string> => {
-  const { stdout, stderr } = await exec(`${getJustPath()} -f ${fsPath} --dump`);
+export const formatJustfileTempFile = async (content: string): Promise<string> => {
+  const fs = await import('node:fs/promises');
+  const os = await import('node:os');
+  const path = await import('node:path');
 
-  if (stderr.length > 0) {
-    LOGGER.error(`Error formatting '${fsPath}':\n${stderr}`);
-    throw new Error(`Error formatting '${fsPath}'. See output for more info.`);
+  const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'vscode-just-'));
+  const tmpFile = path.join(tmpDir, 'justfile');
+
+  try {
+    await fs.writeFile(tmpFile, content, 'utf8');
+    const { stdout } = await execAsync(`${getJustPath()} --dump`, {
+      cwd: tmpDir,
+      maxBuffer: 10 * 1024 * 1024,
+    });
+    return stdout;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    LOGGER.error(`Error formatting justfile:\n${message}`);
+    throw new Error('Failed to format justfile');
+  } finally {
+    await fs.rm(tmpDir, { recursive: true, force: true });
   }
-
-  return stdout;
 };
