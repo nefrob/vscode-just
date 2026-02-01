@@ -26,11 +26,3 @@ export const getJustPath = (): string => {
       .get(SETTINGS.justPath) as string) || 'just'
   );
 };
-
-export const getLspPath = (): string => {
-  return (
-    (vscode.workspace
-      .getConfiguration(EXTENSION_NAME)
-      .get(SETTINGS.lspPath) as string) || 'just-lsp'
-  );
-};

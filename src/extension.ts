@@ -4,6 +4,7 @@ import { COMMANDS, EXTENSION_NAME } from './const';
 import { formatJustfileTempFile } from './format';
 import { getLauncher } from './launcher';
 import { getLogger } from './logger';
+import { createLanguageClient, stopLanguageClient } from './lsp';
 import { runRecipeCommand } from './recipe';
 import { TaskProvider } from './tasks';
 
@@ -37,21 +38,22 @@ export const activate = (context: vscode.ExtensionContext) => {
     }),
   );
 
-  const runRecipeDisposable = vscode.commands.registerCommand(
-    COMMANDS.runRecipe,
-    async () => {
+  context.subscriptions.push(
+    vscode.commands.registerCommand(COMMANDS.runRecipe, async () => {
       runRecipeCommand();
-    },
+    }),
   );
-  context.subscriptions.push(runRecipeDisposable);
 
   context.subscriptions.push(
     vscode.tasks.registerTaskProvider(EXTENSION_NAME, new TaskProvider()),
   );
+
+  createLanguageClient();
 };
 
 export const deactivate = () => {
   console.debug(`${EXTENSION_NAME} deactivated`);
   getLogger().dispose();
   getLauncher().dispose();
+  stopLanguageClient();
 };
