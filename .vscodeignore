@@ -18,3 +18,6 @@ eslint.config.mjs
 justfile
 tsconfig.json
 webpack.config.js
+
+# Explicitly include bin directory for bundled just-lsp binaries
+!bin/**

@@ -71,6 +71,11 @@
           "default": "just",
           "description": "Path to just binary."
         },
+        "vscode-just.lspPath": {
+          "type": "string",
+          "default": "just-lsp",
+          "description": "Path to just-lsp binary."
+        },
         "vscode-just.runInTerminal": {
           "type": "boolean",
           "default": false,
@@ -146,6 +151,7 @@
   },
   "dependencies": {
     "@types/yargs-parser": "^21.0.3",
+    "vscode-languageclient": "^9.0.1",
     "yargs-parser": "^21.1.1"
   }
 }

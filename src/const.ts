@@ -5,6 +5,7 @@ export const COMMANDS = {
 };
 export const SETTINGS = {
   justPath: 'justPath',
+  lspPath: 'lspPath',
   runInTerminal: 'runInTerminal',
   useSingleTerminal: 'useSingleTerminal',
   logLevel: 'logLevel',
