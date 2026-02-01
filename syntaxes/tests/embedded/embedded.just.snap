@@ -43,6 +43,33 @@
 #                                           ^ source.just string.quoted.single.just
 #                                            ^ source.just
 >
+>deno:
+#^^^^ source.just entity.name.function.just
+#    ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env deno run
+#^^^^^^ source.just
+#      ^ source.just keyword.operator.path-join.just
+#       ^^^ source.just
+#          ^ source.just keyword.operator.path-join.just
+#           ^^^ source.just
+#              ^ source.just keyword.operator.path-join.just
+#               ^^^ source.just support.function.builtin.just
+#                  ^^^^^^^^^^ source.just
+>    console.log('Hello from Deno!');
+#^^^^^^^^^^^^^^^ source.just
+#               ^ source.just
+#                ^ source.just string.quoted.single.just string.quoted.single.just
+#                 ^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                 ^ source.just string.quoted.single.just
+#                                  ^ source.just
+#                                   ^^ source.just
+>    const name: string = 'Deno';
+#^^^^^^^^^^^^^^^^^^^^^^^^^ source.just
+#                         ^ source.just string.quoted.single.just string.quoted.single.just
+#                          ^^^^ source.just string.quoted.single.just
+#                              ^ source.just string.quoted.single.just
+#                               ^^ source.just
+>
 >perl:
 #^^^^ source.just entity.name.function.just
 #    ^ source.just keyword.operator.recipe.end.just
@@ -131,4 +158,119 @@
 #           ^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
 #                             ^ source.just string.quoted.single.just
 #                              ^ source.just
+>
+>bash-with-env-S:
+#^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#               ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env -S bash -Eeuo pipefail
+#^^^^^^ source.just
+#      ^ source.just keyword.operator.path-join.just
+#       ^^^ source.just
+#          ^ source.just keyword.operator.path-join.just
+#           ^^^ source.just
+#              ^ source.just keyword.operator.path-join.just
+#               ^^^ source.just support.function.builtin.just
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^ source.just
+>    echo "Highlighting should work with -S flag"
+#^^^^^^^^^ source.just
+#         ^ source.just string.quoted.double.just string.quoted.double.just
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                                               ^ source.just string.quoted.double.just
+>    set +e
+#^^^^^^^^ source.just
+#        ^ source.just keyword.operator.concat.just
+#         ^^ source.just
+>    echo "This is a shell script"
+#^^^^^^^^^ source.just
+#         ^ source.just string.quoted.double.just string.quoted.double.just
+#          ^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                                ^ source.just string.quoted.double.just
+>
+>python-with-env-S:
+#^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                 ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env -S python3 -u
+#^^^^^^ source.just
+#      ^ source.just keyword.operator.path-join.just
+#       ^^^ source.just
+#          ^ source.just keyword.operator.path-join.just
+#           ^^^ source.just
+#              ^ source.just keyword.operator.path-join.just
+#               ^^^ source.just support.function.builtin.just
+#                  ^^^^^^^^^^^^^^^ source.just
+>    print('Python with -S flag')
+#^^^^^^^^^ source.just
+#         ^ source.just
+#          ^ source.just string.quoted.single.just string.quoted.single.just
+#           ^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                              ^ source.just string.quoted.single.just
+#                               ^ source.just
+>    print('Should have proper highlighting')
+#^^^^^^^^^ source.just
+#         ^ source.just
+#          ^ source.just string.quoted.single.just string.quoted.single.just
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                          ^ source.just string.quoted.single.just
+#                                           ^ source.just
+>
+>node-with-env-S:
+#^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#               ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env -S node --trace-warnings
+#^^^^^^ source.just
+#      ^ source.just keyword.operator.path-join.just
+#       ^^^ source.just
+#          ^ source.just keyword.operator.path-join.just
+#           ^^^ source.just
+#              ^ source.just keyword.operator.path-join.just
+#               ^^^ source.just support.function.builtin.just
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just
+>    console.log('Node.js with -S flag');
+#^^^^^^^^^^^^^^^ source.just
+#               ^ source.just
+#                ^ source.just string.quoted.single.just string.quoted.single.just
+#                 ^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                     ^ source.just string.quoted.single.just
+#                                      ^ source.just
+#                                       ^^ source.just
+>    console.log('Should have proper highlighting');
+#^^^^^^^^^^^^^^^ source.just
+#               ^ source.just
+#                ^ source.just string.quoted.single.just string.quoted.single.just
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                                ^ source.just string.quoted.single.just
+#                                                 ^ source.just
+#                                                  ^^ source.just
+>
+>deno-with-env-S:
+#^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#               ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env -S deno run --allow-run --allow-read --allow-env --allow-write
+#^^^^^^ source.just
+#      ^ source.just keyword.operator.path-join.just
+#       ^^^ source.just
+#          ^ source.just keyword.operator.path-join.just
+#           ^^^ source.just
+#              ^ source.just keyword.operator.path-join.just
+#               ^^^ source.just support.function.builtin.just
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just
+#                                                   ^^^^ source.just support.function.builtin.just
+#                                                       ^^^^^^^^^ source.just
+#                                                                ^^^ source.just support.function.builtin.just
+#                                                                   ^^^^^^^^^^^^^^^ source.just
+>    console.log('Deno with -S flag and multiple permissions');
+#^^^^^^^^^^^^^^^ source.just
+#               ^ source.just
+#                ^ source.just string.quoted.single.just string.quoted.single.just
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                                           ^ source.just string.quoted.single.just
+#                                                            ^ source.just
+#                                                             ^^ source.just
+>    const data: string = 'TypeScript works!';
+#^^^^^^^^^^^^^^^^^^^^^^^^^ source.just
+#                         ^ source.just string.quoted.single.just string.quoted.single.just
+#                          ^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                           ^ source.just string.quoted.single.just
+#                                            ^^ source.just
+>
 >
