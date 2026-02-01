@@ -105,12 +105,11 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 Outstanding:
 
-- [ ] Update to match [just grammar](https://github.com/casey/just/blob/43d88f50e02057e5d91602ef4ffdd0ddfc094099/GRAMMAR.md) more accurately
-- [ ] Improve escaping within strings
-- [ ] Add support for additional embedded languages
-- [ ] Improve recipe body highlighting
+- [ ] Improve handling of recipe body highlighting
+- [ ] Improve handling of embedded languages
+- [ ] Integrate [just-lsp](https://github.com/terror/just-lsp)
 - [ ] Inline command runner
-- [ ] Default formatter support
+- [ ] Support code outline
 
 Completed:
 
@@ -121,6 +120,7 @@ Completed:
 - [x] Publish to [open source marketplaces](https://open-vsx.org/)
 - [x] Format on save
 - [x] Run recipe
+- [x] Default formatter support
 
 ### Beyond
 
