@@ -175,40 +175,62 @@
 ># TODO: should there be special highlighting for these strings?
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
 >
->foobar := x"~/$FOO/${BAR}"
+>foobar  := x"~/$FOO/${BAR}"
 #^^^^^^ source.just variable.other.just
-#      ^ source.just
-#       ^^ source.just keyword.operator.assignment.just
-#         ^ source.just
-#          ^ source.just string.quoted.double.just constant.character.expanded.just
-#           ^ source.just string.quoted.double.just string.quoted.double.just
-#            ^^^^^^^^^^^^^ source.just string.quoted.double.just
-#                         ^ source.just string.quoted.double.just
->foobar := x"""~/$FOO/${BAR}"""
+#      ^^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.quoted.double.just constant.character.expanded.just
+#            ^ source.just string.quoted.double.just string.quoted.double.just
+#             ^^^^^^^^^^^^^ source.just string.quoted.double.just
+#                          ^ source.just string.quoted.double.just
+>foobar  := x"""~/$FOO/${BAR}"""
 #^^^^^^ source.just variable.other.just
-#      ^ source.just
-#       ^^ source.just keyword.operator.assignment.just
-#         ^ source.just
-#          ^ source.just string.quoted.double.indented.just constant.character.expanded.just
-#           ^^^ source.just string.quoted.double.indented.just string.quoted.double.indented.just
-#              ^^^^^^^^^^^^^ source.just string.quoted.double.indented.just
-#                           ^^^ source.just string.quoted.double.indented.just
->foobar := x'~/$FOO/${BAR}'
+#      ^^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.quoted.double.indented.just constant.character.expanded.just
+#            ^^^ source.just string.quoted.double.indented.just string.quoted.double.indented.just
+#               ^^^^^^^^^^^^^ source.just string.quoted.double.indented.just
+#                            ^^^ source.just string.quoted.double.indented.just
+>foobar  := x'~/$FOO/${BAR}'
 #^^^^^^ source.just variable.other.just
-#      ^ source.just
-#       ^^ source.just keyword.operator.assignment.just
-#         ^ source.just
-#          ^ source.just string.quoted.single.just constant.character.expanded.just
-#           ^ source.just string.quoted.single.just string.quoted.single.just
-#            ^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                         ^ source.just string.quoted.single.just
->foobar := x'''~/$FOO/${BAR}'''
+#      ^^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.quoted.single.just constant.character.expanded.just
+#            ^ source.just string.quoted.single.just string.quoted.single.just
+#             ^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                          ^ source.just string.quoted.single.just
+>foobar  := x'''~/$FOO/${BAR}'''
 #^^^^^^ source.just variable.other.just
-#      ^ source.just
-#       ^^ source.just keyword.operator.assignment.just
-#         ^ source.just
-#          ^ source.just string.quoted.single.indented.just constant.character.expanded.just
-#           ^^^ source.just string.quoted.single.indented.just string.quoted.single.indented.just
-#              ^^^^^^^^^^^^^ source.just string.quoted.single.indented.just
-#                           ^^^ source.just string.quoted.single.indented.just
+#      ^^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.quoted.single.indented.just constant.character.expanded.just
+#            ^^^ source.just string.quoted.single.indented.just string.quoted.single.indented.just
+#               ^^^^^^^^^^^^^ source.just string.quoted.single.indented.just
+#                            ^^^ source.just string.quoted.single.indented.just
+>message := f'Hello, {{name}}!'
+#^^^^^^^ source.just variable.other.just
+#       ^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.quoted.single.just constant.character.expanded.just
+#            ^ source.just string.quoted.single.just string.quoted.single.just
+#             ^^^^^^^ source.just string.quoted.single.just
+#                    ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                      ^^^^ source.just string.quoted.single.just string.interpolated.escaping.just
+#                          ^^ source.just string.quoted.single.just string.interpolated.escaping.just string.interpolated.escape.just
+#                            ^ source.just string.quoted.single.just
+#                             ^ source.just string.quoted.single.just
+>foo     := f'I {{{{LOVE} curly braces!'
+#^^^ source.just variable.other.just
+#   ^^^^^ source.just
+#        ^^ source.just keyword.operator.assignment.just
+#          ^ source.just
+#           ^ source.just string.quoted.single.just constant.character.expanded.just
+#            ^ source.just string.quoted.single.just string.quoted.single.just
+#             ^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
+#                                      ^ source.just string.quoted.single.just
 >

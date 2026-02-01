@@ -47,7 +47,9 @@ y := """
 
 # TODO: should there be special highlighting for these strings?
 
-foobar := x"~/$FOO/${BAR}"
-foobar := x"""~/$FOO/${BAR}"""
-foobar := x'~/$FOO/${BAR}'
-foobar := x'''~/$FOO/${BAR}'''
+foobar  := x"~/$FOO/${BAR}"
+foobar  := x"""~/$FOO/${BAR}"""
+foobar  := x'~/$FOO/${BAR}'
+foobar  := x'''~/$FOO/${BAR}'''
+message := f'Hello, {{name}}!'
+foo     := f'I {{{{LOVE} curly braces!'

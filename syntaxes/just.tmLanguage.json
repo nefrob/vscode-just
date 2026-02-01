@@ -385,7 +385,7 @@
         {
           "comment": "Indented string",
           "name": "string.quoted.double.indented.just",
-          "begin": "(x)?(\"\"\")",
+          "begin": "(f|x)?(\"\"\")",
           "end": "\"\"\"",
           "beginCaptures": {
             "1": {
@@ -409,7 +409,7 @@
         {
           "comment": "String",
           "name": "string.quoted.double.just",
-          "begin": "(x)?(\")",
+          "begin": "(f|x)?(\")",
           "end": "\"",
           "beginCaptures": {
             "1": {
@@ -433,7 +433,7 @@
         {
           "comment": "Indented raw string",
           "name": "string.quoted.single.indented.just",
-          "begin": "(x)?(''')",
+          "begin": "(f|x)?(''')",
           "end": "'''",
           "beginCaptures": {
             "1": {
@@ -452,7 +452,7 @@
         {
           "comment": "Raw string",
           "name": "string.quoted.single.just",
-          "begin": "(x)?(')",
+          "begin": "(f|x)?(')",
           "end": "'",
           "beginCaptures": {
             "1": {
