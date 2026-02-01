@@ -7,6 +7,7 @@
 - Builtins, color constants and recipe attributes from `just` release 1.38.0 through 1.46.0
 - Or operator `||` from `just` release 1.37.0
 - F-string specifier from `just` release 1.44.0
+- Leverage VSCode's built-in formatting API for `justfile` formatting
 
 ## [0.8.0] - 2025-01-02
 
