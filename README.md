@@ -26,13 +26,13 @@ Basic syntax highlighting for `just` files:
 - Recipes: recipe attributes, names, params and dependencies
 - Keywords, constants and operators
 - Some embedded languages
+- Integration with [just-lsp](https://github.com/terror/just-lsp)
 
 Commands:
 
 - Format on save
 - Run recipe
 - Task running
-
 
 Demo:
 
@@ -107,7 +107,6 @@ Outstanding:
 
 - [ ] Improve handling of recipe body highlighting
 - [ ] Improve handling of embedded languages
-- [ ] Integrate [just-lsp](https://github.com/terror/just-lsp)
 - [ ] Inline command runner
 - [ ] Support code outline
 
@@ -121,14 +120,7 @@ Completed:
 - [x] Format on save
 - [x] Run recipe
 - [x] Default formatter support
-
-### Beyond
-
-- Semantic highlighting / LSP
-
-    To avoid implementing a parser for files, it would be ideal for `just` to expose the AST or other APIs for editor extensions to leverage. This would allow for more advanced features like semantic highlighting, code folding, and more.
-
-    If VSCode works to support tree-sitter, [that](https://github.com/IndianBoy42/tree-sitter-just) would be a possible alternative.
+- [x] Integrate [just-lsp](https://github.com/terror/just-lsp)
 
 ## Contributing
 

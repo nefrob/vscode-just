@@ -8,6 +8,7 @@
 - Or operator `||` from `just` release 1.37.0
 - F-string specifier from `just` release 1.44.0
 - Leverage VSCode's built-in formatting API for `justfile` formatting
+- Integrate `just-lsp` with extension
 
 ## [0.8.0] - 2025-01-02
 
