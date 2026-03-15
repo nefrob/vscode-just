@@ -19,9 +19,10 @@ export const createLanguageClient = async (): Promise<LanguageClient | null> => 
 
   const isAvailable = await checkLspAvailability(lspPath);
   if (!isAvailable) {
+    LOGGER.warning(`Just LSP binary not found at path: ${lspPath}.`);
     vscode.window
       .showWarningMessage(
-        `Just LSP binary found but not working: ${lspPath}. Please check the installation or configure the path in settings.`,
+        `Just LSP binary not found at path: ${lspPath}. Please check the installation or configure the path in settings.`,
         'Install Instructions',
       )
       .then((selection) => {
