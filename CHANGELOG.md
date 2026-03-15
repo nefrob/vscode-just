@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.9.1] - 2026-03-15
+
+### Fixed
+
+- Use `cwd` when running LSP binary
+
 ## [0.9.0] - 2026-02-01
 
 ### Added
