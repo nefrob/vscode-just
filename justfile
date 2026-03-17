@@ -23,8 +23,7 @@ lint:
         "yarn lint --fix"
 
 translate:
-    docker compose run --rm dev /bin/sh -c \
-        "yarn --silent js-yaml syntaxes/just.tmLanguage.yml > syntaxes/just.tmLanguage.json"
+    docker compose run --rm dev /bin/sh -c "yarn --silent translate"
     docker compose run --rm dev /bin/sh -c "yarn --silent gen-scopes"
 
 package +ARGS="":

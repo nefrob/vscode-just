@@ -19,9 +19,10 @@
     "package": "webpack --mode production --devtool hidden-source-map",
     "compile": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "yarn compile && yarn compile-extension",
+    "pretest": "yarn translate && yarn compile && yarn compile-extension",
     "test-extension": "vscode-test --disable-extensions",
     "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just",
+    "translate": "yarn --silent js-yaml syntaxes/just.tmLanguage.yml > syntaxes/just.tmLanguage.json",
     "format": "prettier  --log-level warn --cache .",
     "lint": "eslint . --cache --cache-location node_modules/.cache/eslint",
     "gen-scopes": "yarn compile && node out/genScopes.js"
