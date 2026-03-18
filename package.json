@@ -62,7 +62,15 @@
       {
         "language": "just",
         "scopeName": "source.just",
-        "path": "./syntaxes/just.tmLanguage.json"
+        "path": "./syntaxes/just.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.js": "javascript",
+          "source.ts": "typescript",
+          "source.perl": "perl",
+          "source.python": "python",
+          "source.ruby": "ruby",
+          "source.shell": "shell"
+        }
       }
     ],
     "configuration": {
