@@ -21,7 +21,7 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "yarn translate && yarn compile && yarn compile-extension",
     "test-extension": "vscode-test --disable-extensions",
-    "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just",
+    "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just -g syntaxes/test-grammars/JavaScript.tmLanguage.json -g syntaxes/test-grammars/MagicPython.tmLanguage.json -g syntaxes/test-grammars/MagicRegExp.tmLanguage.json -g syntaxes/test-grammars/perl.tmLanguage.json -g syntaxes/test-grammars/perl6.tmLanguage.json -g syntaxes/test-grammars/ruby.tmLanguage.json -g syntaxes/test-grammars/shell-unix-bash.tmLanguage.json -g syntaxes/test-grammars/TypeScript.tmLanguage.json",
     "translate": "yarn --silent js-yaml syntaxes/just.tmLanguage.yml > syntaxes/just.tmLanguage.json",
     "format": "prettier  --log-level warn --cache .",
     "lint": "eslint . --cache --cache-location node_modules/.cache/eslint",

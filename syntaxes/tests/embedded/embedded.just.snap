@@ -7,270 +7,257 @@
 #^^^^^^ source.just entity.name.function.just
 #      ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env python3
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^^^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    print('Hello from python!')
-#^^^^^^^^^ source.just
-#         ^ source.just
-#          ^ source.just string.quoted.single.just string.quoted.single.just
-#           ^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                             ^ source.just string.quoted.single.just
-#                              ^ source.just
+#^^^^ source.just source.python
+#    ^^^^^ source.just source.python meta.function-call.python support.function.builtin.python
+#         ^ source.just source.python meta.function-call.python punctuation.definition.arguments.begin.python
+#          ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.begin.python
+#           ^^^^^^^^^^^^^^^^^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python
+#                             ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python
+#                              ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
 >
 >js:
-#^^ source.just entity.name.function.just
-#  ^ source.just keyword.operator.recipe.end.just
+#^^ source.just source.python
+#  ^^ source.just
 >    #!/usr/bin/env node
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    console.log('Greetings from JavaScript!')
-#^^^^^^^^^^^^^^^ source.just
-#               ^ source.just
-#                ^ source.just string.quoted.single.just string.quoted.single.just
-#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                                           ^ source.just string.quoted.single.just
-#                                            ^ source.just
+#^^^^ source.just source.js
+#    ^^^^^^^ source.just source.js meta.function-call.js variable.other.object.js
+#           ^ source.just source.js meta.function-call.js punctuation.accessor.js
+#            ^^^ source.just source.js meta.function-call.js entity.name.function.js
+#               ^ source.just source.js meta.brace.round.js
+#                ^ source.just source.js string.quoted.single.js punctuation.definition.string.begin.js
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just source.js string.quoted.single.js
+#                                           ^ source.just source.js string.quoted.single.js punctuation.definition.string.end.js
+#                                            ^ source.just source.js meta.brace.round.js
 >
 >deno:
-#^^^^ source.just entity.name.function.just
-#    ^ source.just keyword.operator.recipe.end.just
+#^^^^ source.just source.js entity.name.label.js
+#    ^ source.just source.js punctuation.separator.label.js
 >    #!/usr/bin/env deno run
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^^^^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    console.log('Hello from Deno!');
-#^^^^^^^^^^^^^^^ source.just
-#               ^ source.just
-#                ^ source.just string.quoted.single.just string.quoted.single.just
-#                 ^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                                 ^ source.just string.quoted.single.just
-#                                  ^ source.just
-#                                   ^^ source.just
+#^^^^ source.just source.ts
+#    ^^^^^^^ source.just source.ts meta.function-call.ts variable.other.object.ts
+#           ^ source.just source.ts meta.function-call.ts punctuation.accessor.ts
+#            ^^^ source.just source.ts meta.function-call.ts entity.name.function.ts
+#               ^ source.just source.ts meta.brace.round.ts
+#                ^ source.just source.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+#                 ^^^^^^^^^^^^^^^^ source.just source.ts string.quoted.single.ts
+#                                 ^ source.just source.ts string.quoted.single.ts punctuation.definition.string.end.ts
+#                                  ^ source.just source.ts meta.brace.round.ts
+#                                   ^ source.just source.ts punctuation.terminator.statement.ts
 >    const name: string = 'Deno';
-#^^^^^^^^^^^^^^^^^^^^^^^^^ source.just
-#                         ^ source.just string.quoted.single.just string.quoted.single.just
-#                          ^^^^ source.just string.quoted.single.just
-#                              ^ source.just string.quoted.single.just
-#                               ^^ source.just
+#^^^^ source.just source.ts
+#    ^^^^^ source.just source.ts meta.var.expr.ts storage.type.ts
+#         ^ source.just source.ts meta.var.expr.ts
+#          ^^^^ source.just source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.definition.variable.ts variable.other.constant.ts
+#              ^ source.just source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts keyword.operator.type.annotation.ts
+#               ^ source.just source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts
+#                ^^^^^^ source.just source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts support.type.primitive.ts
+#                      ^ source.just source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts
+#                       ^ source.just source.ts meta.var.expr.ts keyword.operator.assignment.ts
+#                        ^ source.just source.ts meta.var.expr.ts
+#                         ^ source.just source.ts meta.var.expr.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+#                          ^^^^ source.just source.ts meta.var.expr.ts string.quoted.single.ts
+#                              ^ source.just source.ts meta.var.expr.ts string.quoted.single.ts punctuation.definition.string.end.ts
+#                               ^ source.just source.ts punctuation.terminator.statement.ts
 >
 >perl:
-#^^^^ source.just entity.name.function.just
-#    ^ source.just keyword.operator.recipe.end.just
+#^^^^ source.just source.ts entity.name.label.ts
+#    ^ source.just source.ts punctuation.separator.label.ts
 >    #!/usr/bin/env perl
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    print "Larry Wall says Hi!\n";
-#^^^^^^^^^^ source.just
-#          ^ source.just string.quoted.double.just string.quoted.double.just
-#           ^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
-#                              ^^ source.just string.quoted.double.just constant.character.escape.just
-#                                ^ source.just string.quoted.double.just
-#                                 ^^ source.just
+#^^^^ source.just source.perl meta.leading-tabs meta.odd-tab
+#    ^^^^^ source.just source.perl support.function.perl
+#         ^ source.just source.perl
+#          ^ source.just source.perl string.quoted.double.perl punctuation.definition.string.begin.perl
+#           ^^^^^^^^^^^^^^^^^^^ source.just source.perl string.quoted.double.perl
+#                              ^^ source.just source.perl string.quoted.double.perl constant.character.escape.perl
+#                                ^ source.just source.perl string.quoted.double.perl punctuation.definition.string.end.perl
+#                                 ^^ source.just source.perl
 >
 >sh:
-#^^ source.just entity.name.function.just
-#  ^ source.just keyword.operator.recipe.end.just
+#^ source.just source.perl
+# ^^^ source.just
 >    #!/usr/bin/env sh
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    hello='Yo'
-#^^^^^^^^^^ source.just
-#          ^ source.just string.quoted.single.just string.quoted.single.just
-#           ^^ source.just string.quoted.single.just
-#             ^ source.just string.quoted.single.just
+#^^^^ source.just source.shell meta.expression.assignment.shell
+#    ^^^^^ source.just source.shell meta.expression.assignment.shell variable.other.assignment.shell
+#         ^ source.just source.shell meta.expression.assignment.shell keyword.operator.assignment.shell
+#          ^ source.just source.shell meta.expression.assignment.shell string.quoted.single.shell punctuation.definition.string.begin.shell
+#           ^^ source.just source.shell meta.expression.assignment.shell string.quoted.single.shell
+#             ^ source.just source.shell meta.expression.assignment.shell string.quoted.single.shell punctuation.definition.string.end.shell
 >    echo "$hello from a shell script!"
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.double.just string.quoted.double.just
-#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
-#                                     ^ source.just string.quoted.double.just
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#        ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#         ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.begin.shell
+#          ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.variable.shell variable.other.normal.shell
+#           ^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell variable.other.normal.shell
+#                ^^^^^^^^^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell
+#                                     ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
 >
 >ruby:
-#^^^^ source.just entity.name.function.just
-#    ^ source.just keyword.operator.recipe.end.just
+#^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell
 >    #!/usr/bin/env ruby
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    puts "Hello from ruby!"
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.double.just string.quoted.double.just
-#          ^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
-#                          ^ source.just string.quoted.double.just
+#^^^^ source.just source.ruby
+#    ^^^^ source.just source.ruby support.function.kernel.ruby
+#        ^ source.just source.ruby
+#         ^ source.just source.ruby string.quoted.double.interpolated.ruby punctuation.definition.string.begin.ruby
+#          ^^^^^^^^^^^^^^^^ source.just source.ruby string.quoted.double.interpolated.ruby
+#                          ^ source.just source.ruby string.quoted.double.interpolated.ruby punctuation.definition.string.end.ruby
 >
 >empty-lines:
-#^^^^^^^^^^^ source.just entity.name.function.just
-#           ^ source.just keyword.operator.recipe.end.just
+#^ source.just source.ruby
+# ^^^^^^^^^^^^ source.just
 >    #!/usr/bin/env python3
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^^^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    print('Hello from python!')
-#^^^^^^^^^ source.just
-#         ^ source.just
-#          ^ source.just string.quoted.single.just string.quoted.single.just
-#           ^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                             ^ source.just string.quoted.single.just
-#                              ^ source.just
+#^^^^ source.just source.python
+#    ^^^^^ source.just source.python meta.function-call.python support.function.builtin.python
+#         ^ source.just source.python meta.function-call.python punctuation.definition.arguments.begin.python
+#          ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.begin.python
+#           ^^^^^^^^^^^^^^^^^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python
+#                             ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python
+#                              ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
 >
 >    print('Hello from python!')
-#^^^^^^^^^ source.just
-#         ^ source.just
-#          ^ source.just string.quoted.single.just string.quoted.single.just
-#           ^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                             ^ source.just string.quoted.single.just
-#                              ^ source.just
+#^^^^ source.just source.python
+#    ^^^^^ source.just source.python meta.function-call.python support.function.builtin.python
+#         ^ source.just source.python meta.function-call.python punctuation.definition.arguments.begin.python
+#          ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.begin.python
+#           ^^^^^^^^^^^^^^^^^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python
+#                             ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python
+#                              ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
 >
 >bash-with-env-S:
-#^^^^^^^^^^^^^^^ source.just entity.name.function.just
-#               ^ source.just keyword.operator.recipe.end.just
+#^^^^ source.just source.python
+#    ^^^^^^ source.just
+#          ^^^ source.just support.function.builtin.just
+#             ^^^^ source.just
 >    #!/usr/bin/env -S bash -Eeuo pipefail
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^^^^^^^^^^^^^^^^^^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    echo "Highlighting should work with -S flag"
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.double.just string.quoted.double.just
-#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
-#                                               ^ source.just string.quoted.double.just
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#        ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#         ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.begin.shell
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell
+#                                               ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
 >    set +e
-#^^^^^^^^ source.just
-#        ^ source.just keyword.operator.concat.just
-#         ^^ source.just
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#       ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#        ^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.unquoted.argument.shell
 >    echo "This is a shell script"
-#^^^^^^^^^ source.just
-#         ^ source.just string.quoted.double.just string.quoted.double.just
-#          ^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.double.just
-#                                ^ source.just string.quoted.double.just
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#        ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#         ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.begin.shell
+#          ^^^^^^^^^^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell
+#                                ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
 >
 >python-with-env-S:
-#^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
-#                 ^ source.just keyword.operator.recipe.end.just
+#^^^^^^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell
 >    #!/usr/bin/env -S python3 -u
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^^^^^^^^^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    print('Python with -S flag')
-#^^^^^^^^^ source.just
-#         ^ source.just
-#          ^ source.just string.quoted.single.just string.quoted.single.just
-#           ^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                              ^ source.just string.quoted.single.just
-#                               ^ source.just
+#^^^^ source.just source.python
+#    ^^^^^ source.just source.python meta.function-call.python support.function.builtin.python
+#         ^ source.just source.python meta.function-call.python punctuation.definition.arguments.begin.python
+#          ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.begin.python
+#           ^^^^^^^^^^^^^^^^^^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python
+#                              ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python
+#                               ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
 >    print('Should have proper highlighting')
-#^^^^^^^^^ source.just
-#         ^ source.just
-#          ^ source.just string.quoted.single.just string.quoted.single.just
-#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                                          ^ source.just string.quoted.single.just
-#                                           ^ source.just
+#^^^^ source.just source.python
+#    ^^^^^ source.just source.python meta.function-call.python support.function.builtin.python
+#         ^ source.just source.python meta.function-call.python punctuation.definition.arguments.begin.python
+#          ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.begin.python
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python
+#                                          ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python
+#                                           ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
 >
 >node-with-env-S:
-#^^^^^^^^^^^^^^^ source.just entity.name.function.just
-#               ^ source.just keyword.operator.recipe.end.just
+#^^^^ source.just source.python
+#    ^^^^^^ source.just
+#          ^^^ source.just support.function.builtin.just
+#             ^^^^ source.just
 >    #!/usr/bin/env -S node --trace-warnings
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    console.log('Node.js with -S flag');
-#^^^^^^^^^^^^^^^ source.just
-#               ^ source.just
-#                ^ source.just string.quoted.single.just string.quoted.single.just
-#                 ^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                                     ^ source.just string.quoted.single.just
-#                                      ^ source.just
-#                                       ^^ source.just
+#^^^^ source.just source.js
+#    ^^^^^^^ source.just source.js meta.function-call.js variable.other.object.js
+#           ^ source.just source.js meta.function-call.js punctuation.accessor.js
+#            ^^^ source.just source.js meta.function-call.js entity.name.function.js
+#               ^ source.just source.js meta.brace.round.js
+#                ^ source.just source.js string.quoted.single.js punctuation.definition.string.begin.js
+#                 ^^^^^^^^^^^^^^^^^^^^ source.just source.js string.quoted.single.js
+#                                     ^ source.just source.js string.quoted.single.js punctuation.definition.string.end.js
+#                                      ^ source.just source.js meta.brace.round.js
+#                                       ^ source.just source.js punctuation.terminator.statement.js
 >    console.log('Should have proper highlighting');
-#^^^^^^^^^^^^^^^ source.just
-#               ^ source.just
-#                ^ source.just string.quoted.single.just string.quoted.single.just
-#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                                                ^ source.just string.quoted.single.just
-#                                                 ^ source.just
-#                                                  ^^ source.just
+#^^^^ source.just source.js
+#    ^^^^^^^ source.just source.js meta.function-call.js variable.other.object.js
+#           ^ source.just source.js meta.function-call.js punctuation.accessor.js
+#            ^^^ source.just source.js meta.function-call.js entity.name.function.js
+#               ^ source.just source.js meta.brace.round.js
+#                ^ source.just source.js string.quoted.single.js punctuation.definition.string.begin.js
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just source.js string.quoted.single.js
+#                                                ^ source.just source.js string.quoted.single.js punctuation.definition.string.end.js
+#                                                 ^ source.just source.js meta.brace.round.js
+#                                                  ^ source.just source.js punctuation.terminator.statement.js
 >
 >deno-with-env-S:
-#^^^^^^^^^^^^^^^ source.just entity.name.function.just
-#               ^ source.just keyword.operator.recipe.end.just
+#^^^^ source.just source.js variable.other.readwrite.js
+#    ^^^^^^ source.just
+#          ^^^ source.just support.function.builtin.just
+#             ^^^^ source.just
 >    #!/usr/bin/env -S deno run --allow-run --allow-read --allow-env --allow-write
-#^^^^^^ source.just
-#      ^ source.just keyword.operator.path-join.just
-#       ^^^ source.just
-#          ^ source.just keyword.operator.path-join.just
-#           ^^^ source.just
-#              ^ source.just keyword.operator.path-join.just
-#               ^^^ source.just support.function.builtin.just
-#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just
-#                                                   ^^^^ source.just support.function.builtin.just
-#                                                       ^^^^^^^^^ source.just
-#                                                                ^^^ source.just support.function.builtin.just
-#                                                                   ^^^^^^^^^^^^^^^ source.just
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
 >    console.log('Deno with -S flag and multiple permissions');
-#^^^^^^^^^^^^^^^ source.just
-#               ^ source.just
-#                ^ source.just string.quoted.single.just string.quoted.single.just
-#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                                                           ^ source.just string.quoted.single.just
-#                                                            ^ source.just
-#                                                             ^^ source.just
+#^^^^ source.just source.ts
+#    ^^^^^^^ source.just source.ts meta.function-call.ts variable.other.object.ts
+#           ^ source.just source.ts meta.function-call.ts punctuation.accessor.ts
+#            ^^^ source.just source.ts meta.function-call.ts entity.name.function.ts
+#               ^ source.just source.ts meta.brace.round.ts
+#                ^ source.just source.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just source.ts string.quoted.single.ts
+#                                                           ^ source.just source.ts string.quoted.single.ts punctuation.definition.string.end.ts
+#                                                            ^ source.just source.ts meta.brace.round.ts
+#                                                             ^ source.just source.ts punctuation.terminator.statement.ts
 >    const data: string = 'TypeScript works!';
-#^^^^^^^^^^^^^^^^^^^^^^^^^ source.just
-#                         ^ source.just string.quoted.single.just string.quoted.single.just
-#                          ^^^^^^^^^^^^^^^^^ source.just string.quoted.single.just
-#                                           ^ source.just string.quoted.single.just
-#                                            ^^ source.just
+#^^^^ source.just source.ts
+#    ^^^^^ source.just source.ts meta.var.expr.ts storage.type.ts
+#         ^ source.just source.ts meta.var.expr.ts
+#          ^^^^ source.just source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.definition.variable.ts variable.other.constant.ts
+#              ^ source.just source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts keyword.operator.type.annotation.ts
+#               ^ source.just source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts
+#                ^^^^^^ source.just source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts support.type.primitive.ts
+#                      ^ source.just source.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts
+#                       ^ source.just source.ts meta.var.expr.ts keyword.operator.assignment.ts
+#                        ^ source.just source.ts meta.var.expr.ts
+#                         ^ source.just source.ts meta.var.expr.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+#                          ^^^^^^^^^^^^^^^^^ source.just source.ts meta.var.expr.ts string.quoted.single.ts
+#                                           ^ source.just source.ts meta.var.expr.ts string.quoted.single.ts punctuation.definition.string.end.ts
+#                                            ^ source.just source.ts punctuation.terminator.statement.ts
 >
 >
