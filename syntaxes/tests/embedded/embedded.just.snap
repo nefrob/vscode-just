@@ -19,8 +19,8 @@
 #                              ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
 >
 >js:
-#^^ source.just source.python
-#  ^^ source.just
+#^^ source.just entity.name.function.just
+#  ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env node
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
@@ -36,8 +36,8 @@
 #                                            ^ source.just source.js meta.brace.round.js
 >
 >deno:
-#^^^^ source.just source.js entity.name.label.js
-#    ^ source.just source.js punctuation.separator.label.js
+#^^^^ source.just entity.name.function.just
+#    ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env deno run
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
@@ -69,8 +69,8 @@
 #                               ^ source.just source.ts punctuation.terminator.statement.ts
 >
 >perl:
-#^^^^ source.just source.ts entity.name.label.ts
-#    ^ source.just source.ts punctuation.separator.label.ts
+#^^^^ source.just entity.name.function.just
+#    ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env perl
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
@@ -85,8 +85,8 @@
 #                                 ^^ source.just source.perl
 >
 >sh:
-#^ source.just source.perl
-# ^^^ source.just
+#^^ source.just entity.name.function.just
+#  ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env sh
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
@@ -108,7 +108,8 @@
 #                                     ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
 >
 >ruby:
-#^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell
+#^^^^ source.just entity.name.function.just
+#    ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env ruby
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
@@ -121,8 +122,8 @@
 #                          ^ source.just source.ruby string.quoted.double.interpolated.ruby punctuation.definition.string.end.ruby
 >
 >empty-lines:
-#^ source.just source.ruby
-# ^^^^^^^^^^^^ source.just
+#^^^^^^^^^^^ source.just entity.name.function.just
+#           ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env python3
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
@@ -145,10 +146,8 @@
 #                              ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
 >
 >bash-with-env-S:
-#^^^^ source.just source.python
-#    ^^^^^^ source.just
-#          ^^^ source.just support.function.builtin.just
-#             ^^^^ source.just
+#^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#               ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env -S bash -Eeuo pipefail
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
@@ -173,7 +172,8 @@
 #                                ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
 >
 >python-with-env-S:
-#^^^^^^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell
+#^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                 ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env -S python3 -u
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
@@ -195,10 +195,8 @@
 #                                           ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
 >
 >node-with-env-S:
-#^^^^ source.just source.python
-#    ^^^^^^ source.just
-#          ^^^ source.just support.function.builtin.just
-#             ^^^^ source.just
+#^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#               ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env -S node --trace-warnings
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
@@ -226,10 +224,8 @@
 #                                                  ^ source.just source.js punctuation.terminator.statement.js
 >
 >deno-with-env-S:
-#^^^^ source.just source.js variable.other.readwrite.js
-#    ^^^^^^ source.just
-#          ^^^ source.just support.function.builtin.just
-#             ^^^^ source.just
+#^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#               ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env -S deno run --allow-run --allow-read --allow-env --allow-write
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
