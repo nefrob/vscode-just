@@ -18,6 +18,8 @@ eslint.config.mjs
 justfile
 tsconfig.json
 webpack.config.js
+syntaxes/tests/**
+syntaxes/test-grammars/**
 
 # Explicitly include bin directory for bundled just-lsp binaries
 !bin/**

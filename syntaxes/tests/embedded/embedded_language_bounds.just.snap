@@ -1,0 +1,224 @@
+># Checking if bounds are properly respected for embedded languages
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.just
+>
+>sh:
+#^^ source.just entity.name.function.just
+#  ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env sh
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
+>    hello='Yo'
+#^^^^ source.just source.shell meta.expression.assignment.shell
+#    ^^^^^ source.just source.shell meta.expression.assignment.shell variable.other.assignment.shell
+#         ^ source.just source.shell meta.expression.assignment.shell keyword.operator.assignment.shell
+#          ^ source.just source.shell meta.expression.assignment.shell string.quoted.single.shell punctuation.definition.string.begin.shell
+#           ^^ source.just source.shell meta.expression.assignment.shell string.quoted.single.shell
+#             ^ source.just source.shell meta.expression.assignment.shell string.quoted.single.shell punctuation.definition.string.end.shell
+>    echo "$hello from a shell script!"
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#        ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#         ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.begin.shell
+#          ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.variable.shell variable.other.normal.shell
+#           ^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell variable.other.normal.shell
+#                ^^^^^^^^^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell
+#                                     ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
+>
+>python:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env python3
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
+>    class Hello:
+#^^^^ source.just source.python meta.class.python
+#    ^^^^^ source.just source.python meta.class.python storage.type.class.python
+#         ^ source.just source.python meta.class.python
+#          ^^^^^ source.just source.python meta.class.python entity.name.type.class.python
+#               ^ source.just source.python meta.class.python punctuation.section.class.begin.python
+>        def __init__(self):
+#^^^^^^^^ source.just source.python meta.function.python
+#        ^^^ source.just source.python meta.function.python storage.type.function.python
+#           ^ source.just source.python meta.function.python
+#            ^^^^^^^^ source.just source.python meta.function.python support.function.magic.python
+#                    ^ source.just source.python meta.function.python meta.function.parameters.python punctuation.definition.parameters.begin.python
+#                     ^^^^ source.just source.python meta.function.python meta.function.parameters.python variable.parameter.function.language.python variable.parameter.function.language.special.self.python
+#                         ^ source.just source.python meta.function.python meta.function.parameters.python punctuation.definition.parameters.end.python
+#                          ^ source.just source.python meta.function.python punctuation.section.function.begin.python
+>            print('Hello from python!')
+#^^^^^^^^^^^^ source.just source.python
+#            ^^^^^ source.just source.python meta.function-call.python support.function.builtin.python
+#                 ^ source.just source.python meta.function-call.python punctuation.definition.arguments.begin.python
+#                  ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.begin.python
+#                   ^^^^^^^^^^^^^^^^^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python
+#                                     ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python
+#                                      ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
+>    print('Hello from python!')
+#^^^^ source.just source.python
+#    ^^^^^ source.just source.python meta.function-call.python support.function.builtin.python
+#         ^ source.just source.python meta.function-call.python punctuation.definition.arguments.begin.python
+#          ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.begin.python
+#           ^^^^^^^^^^^^^^^^^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python
+#                             ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python
+#                              ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
+>another-sh:
+#^^^^^^^^^^ source.just entity.name.function.just
+#          ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env sh
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
+>    hello='Yo'
+#^^^^ source.just source.shell meta.expression.assignment.shell
+#    ^^^^^ source.just source.shell meta.expression.assignment.shell variable.other.assignment.shell
+#         ^ source.just source.shell meta.expression.assignment.shell keyword.operator.assignment.shell
+#          ^ source.just source.shell meta.expression.assignment.shell string.quoted.single.shell punctuation.definition.string.begin.shell
+#           ^^ source.just source.shell meta.expression.assignment.shell string.quoted.single.shell
+#             ^ source.just source.shell meta.expression.assignment.shell string.quoted.single.shell punctuation.definition.string.end.shell
+>    echo "$hello from a shell script!"
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#        ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#         ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.begin.shell
+#          ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.variable.shell variable.other.normal.shell
+#           ^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell variable.other.normal.shell
+#                ^^^^^^^^^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell
+#                                     ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
+>
+>python-with-param hello="Hello":
+#^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                 ^ source.just
+#                  ^^^^^ source.just variable.parameter.recipe.just
+#                       ^ source.just keyword.operator.default.just
+#                        ^ source.just string.quoted.double.just string.quoted.double.just
+#                         ^^^^^ source.just string.quoted.double.just
+#                              ^ source.just string.quoted.double.just
+#                               ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env python3
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
+>    class Hello:
+#^^^^ source.just source.python meta.class.python
+#    ^^^^^ source.just source.python meta.class.python storage.type.class.python
+#         ^ source.just source.python meta.class.python
+#          ^^^^^ source.just source.python meta.class.python entity.name.type.class.python
+#               ^ source.just source.python meta.class.python punctuation.section.class.begin.python
+>        def __init__(self, hello):
+#^^^^^^^^ source.just source.python meta.function.python
+#        ^^^ source.just source.python meta.function.python storage.type.function.python
+#           ^ source.just source.python meta.function.python
+#            ^^^^^^^^ source.just source.python meta.function.python support.function.magic.python
+#                    ^ source.just source.python meta.function.python meta.function.parameters.python punctuation.definition.parameters.begin.python
+#                     ^^^^ source.just source.python meta.function.python meta.function.parameters.python variable.parameter.function.language.python variable.parameter.function.language.special.self.python
+#                         ^ source.just source.python meta.function.python meta.function.parameters.python punctuation.separator.parameters.python
+#                          ^ source.just source.python meta.function.python meta.function.parameters.python
+#                           ^^^^^ source.just source.python meta.function.python meta.function.parameters.python variable.parameter.function.language.python
+#                                ^ source.just source.python meta.function.python meta.function.parameters.python punctuation.definition.parameters.end.python
+#                                 ^ source.just source.python meta.function.python punctuation.section.function.begin.python
+>            self.hello = hello
+#^^^^^^^^^^^^ source.just source.python
+#            ^^^^ source.just source.python variable.language.special.self.python
+#                ^ source.just source.python meta.member.access.python punctuation.separator.period.python
+#                 ^^^^^ source.just source.python meta.member.access.python meta.attribute.python
+#                      ^ source.just source.python
+#                       ^ source.just source.python keyword.operator.assignment.python
+#                        ^ source.just source.python
+#                         ^^^^^ source.just source.python
+>    print('Hello from python: {{hello}}')
+#^^^^ source.just source.python
+#    ^^^^^ source.just source.python meta.function-call.python support.function.builtin.python
+#         ^ source.just source.python meta.function-call.python punctuation.definition.arguments.begin.python
+#          ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.begin.python
+#           ^^^^^^^^^^^^^^^^^^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python
+#                              ^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python meta.format.brace.python constant.character.format.placeholder.other.python
+#                                ^^^^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python
+#                                     ^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python meta.format.brace.python constant.character.format.placeholder.other.python
+#                                       ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python
+#                                        ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
+>
+>sh-with-deps: sh (python-with-param "Hello") (another-sh)
+#^^^^^^^^^^^^ source.just entity.name.function.just
+#            ^ source.just keyword.operator.recipe.end.just
+#             ^ source.just
+#              ^^ source.just entity.name.function.just
+#                ^ source.just
+#                 ^ source.just
+#                  ^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                                   ^ source.just
+#                                    ^ source.just string.quoted.double.just string.quoted.double.just
+#                                     ^^^^^ source.just string.quoted.double.just
+#                                          ^ source.just string.quoted.double.just
+#                                           ^ source.just
+#                                            ^ source.just
+#                                             ^ source.just
+#                                              ^^^^^^^^^^ source.just entity.name.function.just
+#                                                        ^ source.just
+>    #!/usr/bin/env sh
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
+>    echo "Hello from sh!"
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#        ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#         ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.begin.shell
+#          ^^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell
+#                        ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
+>
+>python-with-deps-on-multiple-lines: \
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                                  ^ source.just keyword.operator.recipe.end.just
+#                                   ^^ source.just
+>    sh \
+#^^^^^^^^^ source.just
+>    (python-with-param "Hello") \
+#^^^^ source.just
+#    ^ source.just
+#     ^^^^^^^^^^^^^^^^^^ source.just
+#                       ^ source.just string.quoted.double.just string.quoted.double.just
+#                        ^^^^^ source.just string.quoted.double.just
+#                             ^ source.just string.quoted.double.just
+#                              ^ source.just
+#                               ^^^ source.just
+>    (another-sh)
+#^^^^ source.just
+#    ^ source.just
+#     ^^^^^^^^^^ source.just
+#               ^ source.just
+>    #!/usr/bin/env python3
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
+>    class Hello:
+#^^^^ source.just source.python meta.class.python
+#    ^^^^^ source.just source.python meta.class.python storage.type.class.python
+#         ^ source.just source.python meta.class.python
+#          ^^^^^ source.just source.python meta.class.python entity.name.type.class.python
+#               ^ source.just source.python meta.class.python punctuation.section.class.begin.python
+>        def __init__(self, hello):
+#^^^^^^^^ source.just source.python meta.function.python
+#        ^^^ source.just source.python meta.function.python storage.type.function.python
+#           ^ source.just source.python meta.function.python
+#            ^^^^^^^^ source.just source.python meta.function.python support.function.magic.python
+#                    ^ source.just source.python meta.function.python meta.function.parameters.python punctuation.definition.parameters.begin.python
+#                     ^^^^ source.just source.python meta.function.python meta.function.parameters.python variable.parameter.function.language.python variable.parameter.function.language.special.self.python
+#                         ^ source.just source.python meta.function.python meta.function.parameters.python punctuation.separator.parameters.python
+#                          ^ source.just source.python meta.function.python meta.function.parameters.python
+#                           ^^^^^ source.just source.python meta.function.python meta.function.parameters.python variable.parameter.function.language.python
+#                                ^ source.just source.python meta.function.python meta.function.parameters.python punctuation.definition.parameters.end.python
+#                                 ^ source.just source.python meta.function.python punctuation.section.function.begin.python
+>            self.hello = hello
+#^^^^^^^^^^^^ source.just source.python
+#            ^^^^ source.just source.python variable.language.special.self.python
+#                ^ source.just source.python meta.member.access.python punctuation.separator.period.python
+#                 ^^^^^ source.just source.python meta.member.access.python meta.attribute.python
+#                      ^ source.just source.python
+#                       ^ source.just source.python keyword.operator.assignment.python
+#                        ^ source.just source.python
+#                         ^^^^^ source.just source.python
+>    print('Hello from python!')
+#^^^^ source.just source.python
+#    ^^^^^ source.just source.python meta.function-call.python support.function.builtin.python
+#         ^ source.just source.python meta.function-call.python punctuation.definition.arguments.begin.python
+#          ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.begin.python
+#           ^^^^^^^^^^^^^^^^^^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python
+#                             ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python
+#                              ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
+>

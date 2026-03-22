@@ -15,13 +15,14 @@
   },
   "scripts": {
     "compile-extension": "webpack",
-    "watch": "webpack --watch --verbose",
+    "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
     "compile": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "yarn compile && yarn compile-extension",
+    "pretest": "yarn translate && yarn compile && yarn compile-extension",
     "test-extension": "vscode-test --disable-extensions",
-    "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just",
+    "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just -g syntaxes/test-grammars/JavaScript.tmLanguage.json -g syntaxes/test-grammars/MagicPython.tmLanguage.json -g syntaxes/test-grammars/MagicRegExp.tmLanguage.json -g syntaxes/test-grammars/perl.tmLanguage.json -g syntaxes/test-grammars/perl6.tmLanguage.json -g syntaxes/test-grammars/ruby.tmLanguage.json -g syntaxes/test-grammars/shell-unix-bash.tmLanguage.json -g syntaxes/test-grammars/TypeScript.tmLanguage.json",
+    "translate": "yarn --silent js-yaml syntaxes/just.tmLanguage.yml > syntaxes/just.tmLanguage.json",
     "format": "prettier  --log-level warn --cache .",
     "lint": "eslint . --cache --cache-location node_modules/.cache/eslint",
     "gen-scopes": "yarn compile && node out/genScopes.js"
@@ -61,7 +62,15 @@
       {
         "language": "just",
         "scopeName": "source.just",
-        "path": "./syntaxes/just.tmLanguage.json"
+        "path": "./syntaxes/just.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.js": "javascript",
+          "source.ts": "typescript",
+          "source.perl": "perl",
+          "source.python": "python",
+          "source.ruby": "ruby",
+          "source.shell": "shell"
+        }
       }
     ],
     "configuration": {

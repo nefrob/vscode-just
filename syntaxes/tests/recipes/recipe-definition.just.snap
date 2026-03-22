@@ -158,7 +158,10 @@
 #      ^ source.just variable.parameter.recipe.just
 #       ^ source.just keyword.operator.default.just
 #        ^ source.just string.interpolated.just
-#         ^^^^^^^ source.just source.shell
+#         ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#             ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#              ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell punctuation.definition.variable.shell variable.other.normal.shell
+#               ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell variable.other.normal.shell
 #                ^ source.just string.interpolated.just
 #                 ^ source.just keyword.operator.recipe.end.just
 >  echo $A $B

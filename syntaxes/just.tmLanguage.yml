@@ -494,7 +494,7 @@ repository:
     patterns:
       - comment: JavaScript
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?node.*)$"
-        end: (?<=^[^\s]+)
+        end: (?=^[^\s])
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just
@@ -503,7 +503,7 @@ repository:
           - include: source.js
       - comment: Deno
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?deno.*)$"
-        end: (?<=^[^\s]+)
+        end: (?=^[^\s])
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just
@@ -512,7 +512,7 @@ repository:
           - include: source.ts
       - comment: Perl
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?perl.*)$"
-        end: (?<=^[^\s]+)
+        end: (?=^[^\s])
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just
@@ -521,7 +521,7 @@ repository:
           - include: source.perl
       - comment: Python
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?python.*)$"
-        end: (?<=^[^\s]+)
+        end: (?=^[^\s])
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just
@@ -530,7 +530,7 @@ repository:
           - include: source.python
       - comment: Ruby
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?ruby.*)$"
-        end: (?<=^[^\s]+)
+        end: (?=^[^\s])
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just
@@ -539,7 +539,7 @@ repository:
           - include: source.ruby
       - comment: Shell
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?(?:sh|bash|zsh|fish).*)$"
-        end: (?<=^[^\s]+)
+        end: (?=^[^\s])
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just

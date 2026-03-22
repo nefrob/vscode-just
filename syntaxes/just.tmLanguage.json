@@ -2,7 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "Just",
   "scopeName": "source.just",
-  "fileTypes": ["just", "justfile", "Justfile"],
+  "fileTypes": [
+    "just",
+    "justfile",
+    "Justfile"
+  ],
   "firstLineMatch": "#![\\s\\t]*\\/.*\\just\\b",
   "uuid": "8b0cfae0-229f-4688-a4b7-8b5c3db82855",
   "patterns": [
@@ -669,7 +673,7 @@
         {
           "comment": "JavaScript",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?node.*)$",
-          "end": "(?<=^[^\\s]+)",
+          "end": "(?=^[^\\s])",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
@@ -685,7 +689,7 @@
         {
           "comment": "Deno",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?deno.*)$",
-          "end": "(?<=^[^\\s]+)",
+          "end": "(?=^[^\\s])",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
@@ -701,7 +705,7 @@
         {
           "comment": "Perl",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?perl.*)$",
-          "end": "(?<=^[^\\s]+)",
+          "end": "(?=^[^\\s])",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
@@ -717,7 +721,7 @@
         {
           "comment": "Python",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?python.*)$",
-          "end": "(?<=^[^\\s]+)",
+          "end": "(?=^[^\\s])",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
@@ -733,7 +737,7 @@
         {
           "comment": "Ruby",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?ruby.*)$",
-          "end": "(?<=^[^\\s]+)",
+          "end": "(?=^[^\\s])",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
@@ -749,7 +753,7 @@
         {
           "comment": "Shell",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?(?:sh|bash|zsh|fish).*)$",
-          "end": "(?<=^[^\\s]+)",
+          "end": "(?=^[^\\s])",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
