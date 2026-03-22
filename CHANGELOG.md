@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-03-22
+
+### Fixed
+
+- Add `embeddedLanguages` to `package.json` for proper embedded grammar support
+- Fix end-bound regex for embedded languages to prevent syntax bleed
+- Update tests to include embedded grammar snapshots
+
 ## [0.9.1] - 2026-03-15
 
 ### Fixed
