@@ -222,3 +222,66 @@
 #                             ^ source.just source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python
 #                              ^ source.just source.python meta.function-call.python punctuation.definition.arguments.end.python
 >
+>sh-eof:
+#^^^^^^ source.just entity.name.function.just
+#      ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env bash
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
+>    cat <<'EOF'
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell
+#       ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#        ^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell keyword.operator.heredoc.shell
+#          ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell punctuation.definition.string.heredoc.quote.shell
+#           ^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell punctuation.definition.string.heredoc.delimiter.shell
+#              ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell punctuation.definition.string.heredoc.quote.shell
+>    hello
+#^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.heredoc.no-indent.EOF
+>    EOF
+#^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.heredoc.no-indent.EOF
+>    echo "done"
+#^^^^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.heredoc.no-indent.EOF
+>
+>another-sh-recipe:
+#^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                 ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env bash
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
+>    echo "still works"
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#        ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#         ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.begin.shell
+#          ^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell
+#                     ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
+>
+>sh-varying-indent:
+#^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                 ^ source.just keyword.operator.recipe.end.just
+>    #!/usr/bin/env bash
+#^^^^ source.just
+#    ^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just
+>    echo "base indent"
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#        ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#         ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.begin.shell
+#          ^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell
+#                     ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
+>        echo "more indented"
+#^^^^^^^^ source.just source.shell meta.statement.shell
+#        ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#            ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#             ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.begin.shell
+#              ^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell
+#                           ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
+>    echo "back to base"
+#^^^^ source.just source.shell meta.statement.shell
+#    ^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.statement.command.name.shell entity.name.function.call.shell entity.name.command.shell support.function.builtin.shell
+#        ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell
+#         ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.begin.shell
+#          ^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell
+#                      ^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.double.shell punctuation.definition.string.end.shell
+>

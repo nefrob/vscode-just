@@ -673,7 +673,7 @@
         {
           "comment": "JavaScript",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?node.*)$",
-          "end": "(?=^[^\\s])",
+          "while": "^(?=\\s*$|\\s)",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
@@ -689,7 +689,7 @@
         {
           "comment": "Deno",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?deno.*)$",
-          "end": "(?=^[^\\s])",
+          "while": "^(?=\\s*$|\\s)",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
@@ -705,7 +705,7 @@
         {
           "comment": "Perl",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?perl.*)$",
-          "end": "(?=^[^\\s])",
+          "while": "^(?=\\s*$|\\s)",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
@@ -721,7 +721,7 @@
         {
           "comment": "Python",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?python.*)$",
-          "end": "(?=^[^\\s])",
+          "while": "^(?=\\s*$|\\s)",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
@@ -737,7 +737,7 @@
         {
           "comment": "Ruby",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?ruby.*)$",
-          "end": "(?=^[^\\s])",
+          "while": "^(?=\\s*$|\\s)",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"
@@ -753,7 +753,7 @@
         {
           "comment": "Shell",
           "begin": "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?(?:sh|bash|zsh|fish).*)$",
-          "end": "(?=^[^\\s])",
+          "while": "^(?=\\s*$|\\s)",
           "beginCaptures": {
             "1": {
               "name": "comment.line.number-sign.shebang.just"

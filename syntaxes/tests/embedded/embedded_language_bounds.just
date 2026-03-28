@@ -36,3 +36,20 @@ python-with-deps-on-multiple-lines: \
         def __init__(self, hello):
             self.hello = hello
     print('Hello from python!')
+
+sh-eof:
+    #!/usr/bin/env bash
+    cat <<'EOF'
+    hello
+    EOF
+    echo "done"
+
+another-sh-recipe:
+    #!/usr/bin/env bash
+    echo "still works"
+
+sh-varying-indent:
+    #!/usr/bin/env bash
+    echo "base indent"
+        echo "more indented"
+    echo "back to base"
