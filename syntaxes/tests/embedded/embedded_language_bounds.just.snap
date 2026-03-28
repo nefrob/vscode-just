@@ -243,9 +243,9 @@
 >    echo "done"
 #^^^^^^^^^^^^^^^^ source.just source.shell meta.statement.shell meta.statement.command.shell meta.argument.shell string.quoted.heredoc.no-indent.EOF
 >
->another-sh-eof:
-#^^^^^^^^^^^^^^ source.just entity.name.function.just
-#              ^ source.just keyword.operator.recipe.end.just
+>another-sh-recipe:
+#^^^^^^^^^^^^^^^^^ source.just entity.name.function.just
+#                 ^ source.just keyword.operator.recipe.end.just
 >    #!/usr/bin/env bash
 #^^^^ source.just
 #    ^^^^^^^^^^^^^^^^^^^ source.just comment.line.number-sign.shebang.just

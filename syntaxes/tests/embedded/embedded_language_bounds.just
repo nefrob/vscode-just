@@ -44,7 +44,7 @@ sh-eof:
     EOF
     echo "done"
 
-another-sh-eof:
+another-sh-recipe:
     #!/usr/bin/env bash
     echo "still works"
 
