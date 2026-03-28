@@ -491,10 +491,15 @@ repository:
         name: keyword.operator.and.just
 
   embedded-languages:
+    # Use `while` instead of `end` for indented shebang blocks.
+    # VSCode’s TextMate `while` prevents inner rules from escaping,
+    # avoiding the indented EOT/EOF HereDoc highlighting bug:
+    # https://github.com/jeff-hykin/better-shell-syntax/issues/97
+    # https://github.com/RedCMD/TmLanguage-Syntax-Highlighter/blob/main/documentation/rules.md#while
     patterns:
       - comment: JavaScript
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?node.*)$"
-        end: (?=^[^\s])
+        while: "^(?=\\s*$|\\s)"
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just
@@ -503,7 +508,7 @@ repository:
           - include: source.js
       - comment: Deno
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?deno.*)$"
-        end: (?=^[^\s])
+        while: "^(?=\\s*$|\\s)"
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just
@@ -512,7 +517,7 @@ repository:
           - include: source.ts
       - comment: Perl
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?perl.*)$"
-        end: (?=^[^\s])
+        while: "^(?=\\s*$|\\s)"
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just
@@ -521,7 +526,7 @@ repository:
           - include: source.perl
       - comment: Python
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?python.*)$"
-        end: (?=^[^\s])
+        while: "^(?=\\s*$|\\s)"
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just
@@ -530,7 +535,7 @@ repository:
           - include: source.python
       - comment: Ruby
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?ruby.*)$"
-        end: (?=^[^\s])
+        while: "^(?=\\s*$|\\s)"
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just
@@ -539,7 +544,7 @@ repository:
           - include: source.ruby
       - comment: Shell
         begin: "^\\s+(#!/usr/bin/env\\s+(?:-S\\s+)?(?:sh|bash|zsh|fish).*)$"
-        end: (?=^[^\s])
+        while: "^(?=\\s*$|\\s)"
         beginCaptures:
           '1':
             name: comment.line.number-sign.shebang.just

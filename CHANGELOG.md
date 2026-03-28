@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix shell HereDoc syntax highlighting bleeding into subsequent recipes by replacing `end` with `while` in embedded language rules
+
 ## [0.10.0] - 2026-03-22
 
 ### Fixed

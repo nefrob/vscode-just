@@ -2,3 +2,4 @@
 *.justfile
 *.md
 *.snap
+syntaxes/test-grammars/*
