@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed 
+
+- Update non-breaking development dependencies
+
 ## [0.10.1] - 2026-03-28
 
 ### Fixed
