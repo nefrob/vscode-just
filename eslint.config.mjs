@@ -23,9 +23,7 @@ const config = [
     'plugin:@typescript-eslint/recommended',
     'prettier',
   ),
-  {
-    ignores: ['.vscode-test', '**/build/', '**/dist/', '**/node_modules/', '**/out/'],
-  },
+  { ignores: ['.vscode-test', '**/build/', '**/dist/', '**/node_modules/', '**/out/'] },
   {
     plugins: {
       '@typescript-eslint': typescriptEslint,
@@ -36,9 +34,7 @@ const config = [
       parser: tsParser,
       ecmaVersion: 2022,
       sourceType: 'module',
-      parserOptions: {
-        project: './tsconfig.json',
-      },
+      parserOptions: { project: './tsconfig.json' },
     },
     rules: {
       'simple-import-sort/imports': 'error',
@@ -52,6 +48,6 @@ const config = [
 ];
 
 export default tseslint.config(...config, {
-  files: ['.vscode-test.mjs'],
+  files: ['.vscode-test.mjs', 'eslint.config.mjs', 'webpack.config.mjs'],
   extends: [tseslint.configs.disableTypeChecked],
 });
