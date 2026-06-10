@@ -1,3 +1,4 @@
+import * as os from 'os';
 import * as vscode from 'vscode';
 
 import { EXTENSION_NAME, SETTINGS } from './const';
@@ -16,7 +17,7 @@ export const workspaceRoot = (): string => {
   const workspaceFolders = vscode.workspace.workspaceFolders;
   return workspaceFolders && workspaceFolders.length > 0
     ? workspaceFolders[0].uri.fsPath
-    : '~';
+    : os.homedir();
 };
 
 export const getJustPath = (): string => {
