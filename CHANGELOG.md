@@ -2,9 +2,16 @@
 
 ## [Unreleased]
 
+## [0.10.2] - 2026-06-10
+
 ### Changed 
 
 - Update non-breaking development dependencies
+
+### Fixed
+
+- Fix Just LSP startup when no workspace is open by using the real home directory as cwd
+
 
 ## [0.10.1] - 2026-03-28
 
