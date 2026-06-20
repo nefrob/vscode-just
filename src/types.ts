@@ -24,4 +24,5 @@ export interface RecipeParsed {
   doc: string;
   parameters: Pick<RecipeParameter, 'default' | 'kind' | 'name'>[];
   groups: string[];
+  justfilePath?: string;
 }
