@@ -1,166 +1,234 @@
 {
-  "name": "vscode-just-syntax",
-  "publisher": "nefrob",
-  "repository": "https://github.com/nefrob/vscode-just",
-  "bugs": {
-    "url": "https://github.com/nefrob/vscode-just/issues"
-  },
-  "displayName": "vscode-just",
-  "description": "Justfile syntax support for Visual Studio Code",
-  "license": "MIT",
-  "version": "0.10.2",
-  "engines": {
-    "node": ">=22 || ^20.9.0",
-    "vscode": ">=1.94.0"
-  },
-  "scripts": {
-    "compile-extension": "webpack",
-    "watch": "webpack --watch",
-    "package": "webpack --mode production --devtool hidden-source-map",
-    "compile": "tsc -p . --outDir out",
-    "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "yarn translate && yarn compile && yarn compile-extension",
-    "test-extension": "vscode-test --disable-extensions",
-    "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just -g syntaxes/test-grammars/JavaScript.tmLanguage.json -g syntaxes/test-grammars/MagicPython.tmLanguage.json -g syntaxes/test-grammars/MagicRegExp.tmLanguage.json -g syntaxes/test-grammars/perl.tmLanguage.json -g syntaxes/test-grammars/perl6.tmLanguage.json -g syntaxes/test-grammars/ruby.tmLanguage.json -g syntaxes/test-grammars/shell-unix-bash.tmLanguage.json -g syntaxes/test-grammars/TypeScript.tmLanguage.json",
-    "translate": "yarn --silent js-yaml syntaxes/just.tmLanguage.yml > syntaxes/just.tmLanguage.json",
-    "format": "prettier  --log-level warn --cache .",
-    "lint": "eslint . --cache --cache-location node_modules/.cache/eslint",
-    "gen-scopes": "yarn compile && node out/genScopes.js"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "keywords": [
-    "just",
-    "justfile",
-    "scripts"
-  ],
-  "icon": "icons/robot.png",
-  "main": "./dist/extension.js",
-  "contributes": {
-    "languages": [
-      {
-        "id": "just",
-        "aliases": [
-          "Just",
-          "vscode-just"
-        ],
-        "extensions": [
-          ".just",
-          ".justfile",
-          "justfile",
-          "Justfile"
-        ],
-        "configuration": "./language-configuration.json",
-        "icon": {
-          "light": "./icons/robot.png",
-          "dark": "./icons/robot.png"
-        }
-      }
-    ],
-    "grammars": [
-      {
-        "language": "just",
-        "scopeName": "source.just",
-        "path": "./syntaxes/just.tmLanguage.json",
-        "embeddedLanguages": {
-          "source.js": "javascript",
-          "source.ts": "typescript",
-          "source.perl": "perl",
-          "source.python": "python",
-          "source.ruby": "ruby",
-          "source.shell": "shell"
-        }
-      }
-    ],
-    "configuration": {
-      "properties": {
-        "vscode-just.justPath": {
-          "type": "string",
-          "default": "just",
-          "description": "Path to just binary."
-        },
-        "vscode-just.lspPath": {
-          "type": "string",
-          "default": "just-lsp",
-          "description": "Path to just-lsp binary."
-        },
-        "vscode-just.runInTerminal": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable/disable running recipes in a terminal. If disabled, recipes will be logged to the extension output channel instead."
-        },
-        "vscode-just.useSingleTerminal": {
-          "type": "boolean",
-          "default": false,
-          "description": "If enabled along with runInTerminal, recipes will queued to run in a single terminal instance rather than creating a new terminal each time."
-        },
-        "vscode-just.logLevel": {
-          "type": "string",
-          "enum": [
-            "info",
-            "warning",
-            "error",
-            "none"
-          ],
-          "default": "info",
-          "description": "Set the log level. Recipe output is logged at the info level."
-        }
-      }
+    "name": "vscode-just-syntax",
+    "publisher": "nefrob",
+    "repository": "https://github.com/nefrob/vscode-just",
+    "bugs": {
+        "url": "https://github.com/nefrob/vscode-just/issues"
     },
-    "commands": [
-      {
-        "command": "vscode-just.formatDocument",
-        "title": "Just: Format Document"
-      },
-      {
-        "command": "vscode-just.runRecipe",
-        "title": "Just: Run Recipe"
-      }
+    "displayName": "vscode-just",
+    "description": "Justfile syntax support for Visual Studio Code",
+    "license": "MIT",
+    "version": "0.10.2",
+    "engines": {
+        "node": ">=22 || ^20.9.0",
+        "vscode": ">=1.94.0"
+    },
+    "scripts": {
+        "compile-extension": "webpack",
+        "watch": "webpack --watch",
+        "package": "webpack --mode production --devtool hidden-source-map",
+        "compile": "tsc -p . --outDir out",
+        "watch-tests": "tsc -p . -w --outDir out",
+        "pretest": "yarn translate && yarn compile && yarn compile-extension",
+        "test-extension": "vscode-test --disable-extensions",
+        "test-grammar": "vscode-tmgrammar-snap syntaxes/tests/**/*.just -g syntaxes/test-grammars/JavaScript.tmLanguage.json -g syntaxes/test-grammars/MagicPython.tmLanguage.json -g syntaxes/test-grammars/MagicRegExp.tmLanguage.json -g syntaxes/test-grammars/perl.tmLanguage.json -g syntaxes/test-grammars/perl6.tmLanguage.json -g syntaxes/test-grammars/ruby.tmLanguage.json -g syntaxes/test-grammars/shell-unix-bash.tmLanguage.json -g syntaxes/test-grammars/TypeScript.tmLanguage.json",
+        "translate": "yarn --silent js-yaml syntaxes/just.tmLanguage.yml > syntaxes/just.tmLanguage.json",
+        "format": "prettier  --log-level warn --cache .",
+        "lint": "eslint . --cache --cache-location node_modules/.cache/eslint",
+        "gen-scopes": "yarn compile && node out/genScopes.js"
+    },
+    "categories": [
+        "Programming Languages"
     ],
-    "taskDefinitions": [
-      {
-        "type": "vscode-just",
-        "when": "shellExecutionSupported",
-        "required": [
-          "task"
+    "keywords": [
+        "just",
+        "justfile",
+        "scripts"
+    ],
+    "icon": "icons/robot.png",
+    "main": "./dist/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "just",
+                "aliases": [
+                    "Just",
+                    "vscode-just"
+                ],
+                "extensions": [
+                    ".just",
+                    ".justfile",
+                    "justfile",
+                    "Justfile"
+                ],
+                "configuration": "./language-configuration.json",
+                "icon": {
+                    "light": "./icons/robot.png",
+                    "dark": "./icons/robot.png"
+                }
+            }
         ],
-        "properties": {
-          "task": {
-            "type": "string",
-            "description": "The just command."
-          },
-          "args": {
-            "type": "array",
-            "description": "Arguments to pass to the task"
-          }
+        "grammars": [
+            {
+                "language": "just",
+                "scopeName": "source.just",
+                "path": "./syntaxes/just.tmLanguage.json",
+                "embeddedLanguages": {
+                    "source.js": "javascript",
+                    "source.ts": "typescript",
+                    "source.perl": "perl",
+                    "source.python": "python",
+                    "source.ruby": "ruby",
+                    "source.shell": "shell"
+                }
+            }
+        ],
+        "configuration": {
+            "properties": {
+                "vscode-just.justPath": {
+                    "type": "string",
+                    "default": "just",
+                    "description": "Path to just binary."
+                },
+                "vscode-just.lspPath": {
+                    "type": "string",
+                    "default": "just-lsp",
+                    "description": "Path to just-lsp binary."
+                },
+                "vscode-just.runInTerminal": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enable/disable running recipes in a terminal. If disabled, recipes will be logged to the extension output channel instead."
+                },
+                "vscode-just.useSingleTerminal": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled along with runInTerminal, recipes will queued to run in a single terminal instance rather than creating a new terminal each time."
+                },
+                "vscode-just.logLevel": {
+                    "type": "string",
+                    "enum": [
+                        "info",
+                        "warning",
+                        "error",
+                        "none"
+                    ],
+                    "default": "info",
+                    "description": "Set the log level. Recipe output is logged at the info level."
+                },
+                "vscode-just.contributeTasks": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable/disable contributing just recipes as VS Code tasks."
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "vscode-just.formatDocument",
+                "title": "Just: Format Document"
+            },
+            {
+                "command": "vscode-just.runRecipeFromTree",
+                "title": "Just: Run Recipe",
+                "icon": "$(play)"
+            },
+            {
+                "command": "vscode-just.runRecipeWithArgsFromTree",
+                "title": "Just: Run Recipe with Arguments",
+                "icon": "$(terminal)"
+            },
+            {
+                "command": "vscode-just.refreshRecipes",
+                "title": "Just: Refresh Recipes",
+                "icon": "$(refresh)"
+            },
+            {
+                "command": "vscode-just.openJustfile",
+                "title": "Just: Go to Justfile",
+                "icon": "$(go-to-file)"
+            },
+            {
+                "command": "vscode-just.goToRecipe",
+                "title": "Just: Go to Recipe"
+            }
+        ],
+        "taskDefinitions": [
+            {
+                "type": "vscode-just",
+                "when": "shellExecutionSupported",
+                "required": [
+                    "task"
+                ],
+                "properties": {
+                    "task": {
+                        "type": "string",
+                        "description": "The just command."
+                    },
+                    "args": {
+                        "type": "array",
+                        "description": "Arguments to pass to the task"
+                    }
+                }
+            }
+        ],
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "just-recipes",
+                    "title": "Just Recipes",
+                    "icon": "icons/robot.png"
+                }
+            ]
+        },
+        "views": {
+            "just-recipes": [
+                {
+                    "id": "justRecipes",
+                    "name": "Recipes"
+                }
+            ]
+        },
+        "menus": {
+            "view/title": [
+                {
+                    "command": "vscode-just.refreshRecipes",
+                    "when": "view == justRecipes",
+                    "group": "navigation"
+                }
+            ],
+            "view/item/context": [
+                {
+                    "command": "vscode-just.openJustfile",
+                    "when": "view == justRecipes && viewItem == 'justfile'",
+                    "group": "inline"
+                },
+                {
+                    "command": "vscode-just.runRecipeFromTree",
+                    "when": "view == justRecipes && viewItem =~ /^recipe/",
+                    "group": "inline"
+                },
+                {
+                    "command": "vscode-just.runRecipeWithArgsFromTree",
+                    "when": "view == justRecipes && viewItem == 'recipeWithParams'",
+                    "group": "inline"
+                }
+            ]
         }
-      }
-    ]
-  },
-  "devDependencies": {
-    "@types/mocha": "^10.0.9",
-    "@types/node": "^22.7.5",
-    "@types/vscode": "^1.94.0",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1",
-    "@vscode/vsce": "^3.7.1",
-    "eslint": "^9.12.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint-plugin-unused-imports": "^4.4.1",
-    "js-yaml": "^4.1.0",
-    "prettier": "^3.2.4",
-    "ts-loader": "^9.5.1",
-    "typescript": "~5.5.0",
-    "typescript-eslint": "^8.57.2",
-    "vscode-tmgrammar-test": "^0.1.3",
-    "webpack": "^5.93.0",
-    "webpack-cli": "^5.1.4"
-  },
-  "dependencies": {
-    "@types/yargs-parser": "^21.0.3",
-    "vscode-languageclient": "^9.0.1",
-    "yargs-parser": "^21.1.1"
-  }
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.9",
+        "@types/node": "^22.7.5",
+        "@types/vscode": "^1.94.0",
+        "@vscode/test-cli": "^0.0.10",
+        "@vscode/test-electron": "^2.4.1",
+        "@vscode/vsce": "^3.7.1",
+        "eslint": "^9.12.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-simple-import-sort": "^12.1.1",
+        "eslint-plugin-unused-imports": "^4.4.1",
+        "js-yaml": "^4.1.0",
+        "prettier": "^3.2.4",
+        "ts-loader": "^9.5.1",
+        "typescript": "~5.5.0",
+        "typescript-eslint": "^8.57.2",
+        "vscode-tmgrammar-test": "^0.1.3",
+        "webpack": "^5.93.0",
+        "webpack-cli": "^5.1.4"
+    },
+    "dependencies": {
+        "@types/yargs-parser": "^21.0.3",
+        "vscode-languageclient": "^9.0.1",
+        "yargs-parser": "^21.1.1"
+    }
 }

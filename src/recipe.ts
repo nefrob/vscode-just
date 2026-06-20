@@ -93,7 +93,7 @@ const parseRecipes = (output: string): RecipeParsed[] => {
     }));
 };
 
-const paramsToString = (params: RecipeParsed['parameters']): string => {
+export const paramsToString = (params: RecipeParsed['parameters']): string => {
   return params
     .sort((a, b) =>
       a.kind === RecipeParameterKind.PLUS ? 1 : a.name.localeCompare(b.name),
@@ -110,6 +110,11 @@ const runRecipe = async (recipe: RecipeParsed, optionalArgs: yargsParser.Argumen
   const args = [recipe.name, ...optionalArgs._.map(String)];
 
   LOGGER.info(`Running recipe: ${recipe.name} with args: ${args.join(' ')}`);
+  runRecipeWithArgs(args);
+};
+
+export const runRecipeWithArgs = (args: string[]) => {
+  LOGGER.info(`Running recipe with args: ${args.join(' ')}`);
   if (vscode.workspace.getConfiguration(EXTENSION_NAME).get(SETTINGS.runInTerminal)) {
     getLauncher().launch(getJustPath(), args);
   } else {
