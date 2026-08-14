@@ -5,6 +5,7 @@ import { formatJustfileTempFile } from './format';
 import { getLauncher } from './launcher';
 import { getLogger } from './logger';
 import { createLanguageClient, stopLanguageClient } from './lsp';
+import { JustDocumentSymbolProvider } from './outline';
 import { runRecipeCommand } from './recipe';
 import { TaskProvider } from './tasks';
 
@@ -28,6 +29,13 @@ export const activate = (context: vscode.ExtensionContext) => {
       },
     });
   context.subscriptions.push(documentFormatProviderDisposable);
+
+  context.subscriptions.push(
+    vscode.languages.registerDocumentSymbolProvider(
+      'just',
+      new JustDocumentSymbolProvider(),
+    ),
+  );
 
   context.subscriptions.push(
     vscode.commands.registerCommand(COMMANDS.formatDocument, () => {
