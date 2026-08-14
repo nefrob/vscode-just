@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Show a code outline for justfiles (recipes, aliases, modules, variables, settings and user functions) via a built-in document symbol provider that works with or without `just-lsp`
+
 ## [0.10.2] - 2026-06-10
 
 ### Changed 

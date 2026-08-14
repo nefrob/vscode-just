@@ -51,6 +51,12 @@ export const createLanguageClient = async (): Promise<LanguageClient | null> => 
         '**/{justfile,Justfile,.justfile,*.just}',
       ),
     },
+    middleware: {
+      // The built-in outline provider (see outline.ts) is the single source
+      // of truth for document symbols, so the outline works without
+      // `just-lsp` and no duplicate entries appear when it is running.
+      provideDocumentSymbols: async () => null,
+    },
   };
 
   client = new LanguageClient(
