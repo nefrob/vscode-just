@@ -9,4 +9,5 @@ export const SETTINGS = {
   runInTerminal: 'runInTerminal',
   useSingleTerminal: 'useSingleTerminal',
   logLevel: 'logLevel',
+  enableCodeLens: 'enableCodeLens',
 };

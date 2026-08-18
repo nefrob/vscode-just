@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Add `enableCodeLens` setting to disable the "Run" CodeLens buttons shown above recipes
+
 ## [0.10.2] - 2026-06-10
 
 ### Changed 
