@@ -51,6 +51,12 @@ export const createLanguageClient = async (): Promise<LanguageClient | null> => 
         '**/{justfile,Justfile,.justfile,*.just}',
       ),
     },
+    middleware: {
+      provideCodeLenses: (document, token, next) => {
+        if (!isCodeLensEnabled()) return [];
+        return next(document, token);
+      },
+    },
   };
 
   client = new LanguageClient(
@@ -107,4 +113,10 @@ const getLspPath = (): string => {
       .getConfiguration(EXTENSION_NAME)
       .get(SETTINGS.lspPath) as string) || 'just-lsp'
   );
+};
+
+const isCodeLensEnabled = (): boolean => {
+  return vscode.workspace
+    .getConfiguration(EXTENSION_NAME)
+    .get(SETTINGS.enableCodeLens, true);
 };

@@ -105,6 +105,11 @@
           ],
           "default": "info",
           "description": "Set the log level. Recipe output is logged at the info level."
+        },
+        "vscode-just.enableCodeLens": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable the \"Run\" CodeLens buttons shown above recipes."
         }
       }
     },
